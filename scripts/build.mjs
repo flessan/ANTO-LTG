@@ -59,6 +59,7 @@ for (const name of catalogNames) {
         else httpsUrl(item.evidence_url, where + ' evidence_url');
       }
       if (name === 'apps') {
+        if (item.winget_id !== undefined && (typeof item.winget_id !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._+-]*$/.test(item.winget_id))) fail(`${where}: winget_id must be a plain WinGet package identifier`);
         if (!['not_reviewed', 'supported', 'unsupported', 'partial'].includes(item.windows_compatibility)) fail(`${where}: invalid windows_compatibility`);
         if (!Array.isArray(item.architectures)) fail(`${where}: architectures must be an array`);
         if (typeof item.license !== 'string') fail(`${where}: license is required`);

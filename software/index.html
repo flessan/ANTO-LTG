@@ -1,43 +1,16 @@
 <!doctype html>
-<html lang="id" data-root="../">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Mulai dari utilitas arsip hingga perangkat lunak produktivitas. Tautan mengarah ke halaman penerbit; periksa versi, persyaratan, dan lisensinya sebelum memasang."><meta name="theme-color" content="#edf5ff">
-  <title>Program yang dibutuhkan teknisi. · ANTO-LTG</title><link rel="stylesheet" href="../assets/css/site.css">
-</head>
-<body data-page="software">
-  <a class="skip-link" href="#main">Lewati ke konten</a>
-
-<header class="site-header">
-  <a class="brand" data-root-link="index.html" href="#" aria-label="ANTO-LTG Home">
-    <span class="brand-mark" aria-hidden="true">A</span>
-    <span class="brand-copy"><strong>ANTO-LTG</strong><small>Technician Toolkit</small></span>
-  </a>
-  <nav class="desktop-nav" data-site-nav aria-label="Navigasi utama"></nav>
-  <div class="header-actions"><a class="button button--quiet header-developer" data-root-link="developers/" href="#">API & kontribusi <span aria-hidden="true">↗</span></a><button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Buka navigasi"><span></span><span></span></button></div>
-</header>
+<html lang="id" data-root="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Pilih beberapa aplikasi dan hasilkan PowerShell script untuk memasangnya melalui WinGet di Windows 10/11."><meta name="theme-color" content="#edf5ff">
+<title>Software & WinGet Bundler · ANTO-LTG</title><link rel="stylesheet" href="../assets/css/site.css"><link rel="stylesheet" href="../assets/css/catalog-pages.css"></head>
+<body data-page="software"><a class="skip-link" href="#main">Lewati ke konten</a>
+<header class="site-header"><a class="brand" data-root-link="index.html" href="#" aria-label="ANTO-LTG Home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>ANTO-LTG</strong><small>Technician Toolkit</small></span></a><nav class="desktop-nav" data-site-nav aria-label="Navigasi utama"></nav><div class="header-actions"><a class="button button--quiet header-developer" data-root-link="developers/" href="#">API & kontribusi <span aria-hidden="true">↗</span></a><button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Buka navigasi"><span></span><span></span></button></div></header>
 <nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mobile" hidden data-site-nav></nav>
-
-  <main id="main" class="page-main">
-<section class="page-intro container">
-  <a class="back-link" href="../index.html">← Beranda</a>
-  <div class="eyebrow">SOFTWARE CATALOG</div>
-  <div class="page-intro-row"><div><h1>Program yang dibutuhkan teknisi.</h1><p>Mulai dari utilitas arsip hingga perangkat lunak produktivitas. Tautan mengarah ke halaman penerbit; periksa versi, persyaratan, dan lisensinya sebelum memasang.</p></div><span class="page-stamp">ANTO / CATALOG</span></div>
-</section>
-<section class="container catalog-area">
-  <div class="catalog-toolbar"><label class="catalog-search"><span aria-hidden="true">⌕</span><span class="sr-only">Cari dalam katalog</span><input type="search" data-catalog-search placeholder="Cari nama, kategori, atau produsen…"></label><label class="status-filter"><span>Status</span><select data-status-filter><option value="all">Semua status</option><option value="pending_review">Menunggu tinjauan</option><option value="verified">Tinjau selesai</option><option value="withdrawn">Ditarik</option><option value="draft">Draft</option><option value="published">Dipublikasikan</option></select></label></div>
-  <div class="catalog-topline"><span data-catalog-count>Memuat katalog…</span><span class="small text-muted">Metadata katalog · tautan sumber eksternal</span></div>
-  <p class="notice notice--info" data-catalog-message>Entri berstatus “Menunggu tinjauan” belum disahkan kompatibilitas atau keamanannya oleh ANTO-LTG.</p>
-  <div class="catalog-list" data-catalog-list></div>
-  <div class="empty-state" data-catalog-empty hidden><div class="empty-mark">—</div><h2>Belum ada entri yang cocok</h2><p>Coba kata kunci lain, ubah filter status, atau bantu isi katalog lewat repository.</p><a class="button button--outline" href="../developers/">Panduan kontribusi <span aria-hidden="true">↗</span></a></div>
-</section>
-</main>
-
-<footer class="site-footer">
-  <div class="footer-brand"><span class="brand-mark brand-mark--small" aria-hidden="true">A</span><div><strong>ANTO-LTG</strong><p>Toolkit teknisi yang terbuka, bisa diperiksa, dan dibuat bersama komunitas.</p></div></div>
-  <div class="footer-links"><a data-root-link="developers/" href="#">Developer</a><a data-root-link="developers/#contribute" href="#">Kontribusi</a><a data-root-link="developers/#security" href="#">Keamanan</a><a data-root-link="feed.xml" href="#">RSS</a></div>
-  <p class="copyright">© <span data-year></span> ANTO-LTG. Verifikasi sumber tetap diperlukan sebelum memasang software atau driver.</p>
-</footer>
-
-  <script src="../assets/js/site.js" defer></script><script src="../assets/js/catalog.js" defer></script>
-</body></html>
+<main id="main" class="page-main">
+<section class="page-intro container software-page-intro"><div class="driver-breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Software</span></div><div class="eyebrow">SOFTWARE CATALOG / APP BUNDLER</div><div class="page-intro-row"><div><h1>Pick your apps. Build your setup.</h1><p>Pilih aplikasi yang dibutuhkan, lalu buat satu skrip pemasangan berbasis WinGet. Terinspirasi alur pemilihan aplikasi seperti Ninite dan Winstall, dengan implementasi serta katalog ANTO-LTG sendiri.</p></div><span class="page-stamp">WINGET BUNDLER</span></div></section>
+<section class="container software-builder"><div class="software-os-panel"><div class="software-os-copy"><span class="software-os-kicker">TARGET OPERATING SYSTEM</span><strong>Paket untuk komputer tujuan</strong><small>Target ini ditulis di skrip dan diperiksa sebelum pemasangan dimulai.</small></div><div class="software-os-switch" role="group" aria-label="Target Windows"><button type="button" class="software-os-button" data-target-os="Windows 11" aria-pressed="true"><span class="os-mark">11</span><span>Windows 11</span></button><button type="button" class="software-os-button" data-target-os="Windows 10" aria-pressed="false"><span class="os-mark">10</span><span>Windows 10</span></button></div></div>
+<div class="notice notice--warning software-support-note"><strong>Perlu diperhatikan:</strong> WinGet perlu App Installer yang sesuai dan bundler ini menargetkan Windows 10/11. Windows 7 tidak didukung—gunakan halaman penerbit untuk installer yang kompatibel. Dukungan Windows 10 pada 2026 bergantung pada edisi/program dukungannya. ID paket serta kompatibilitas aplikasi masih perlu ditinjau manusia.</div>
+<div class="software-toolbar"><label class="software-search"><span aria-hidden="true">⌕</span><span class="sr-only">Cari aplikasi</span><input type="search" data-app-search placeholder="Cari aplikasi, penerbit, kategori, atau WinGet ID…" autocomplete="off"></label><label class="software-category-filter"><span class="sr-only">Filter kategori</span><select data-app-category><option value="all">Semua kategori</option></select></label><button class="button button--outline software-select-visible" type="button" data-select-visible>Pilih yang terlihat</button></div>
+<div class="software-content-grid"><section class="software-catalog-panel" aria-label="Katalog aplikasi"><div class="software-catalog-topline"><strong data-app-count>Memuat aplikasi…</strong><span><span data-selected-count>0</span> dipilih</span></div><div class="software-app-groups" data-app-groups aria-live="polite"></div><div class="empty-state software-empty" data-app-empty hidden><div class="empty-mark">—</div><h2>Tidak ada aplikasi yang cocok</h2><p>Ubah kata kunci atau filter kategori.</p></div><p class="software-source-note">Metadata aplikasi tersedia lewat <a class="text-link" href="../api/v1/apps.json">public JSON API ↗</a>. “Menunggu tinjauan” berarti informasi paket belum disahkan oleh ANTO-LTG.</p></section>
+<aside class="software-selection-panel"><div class="selection-panel-heading"><div><div class="eyebrow">YOUR INSTALLER</div><h2>Selected apps</h2></div><span class="selection-number" data-selected-badge>0</span></div><p class="selection-intro">Skrip lokal akan memasang aplikasi satu per satu melalui WinGet. Kamu bisa memeriksa isi skrip sebelum menjalankannya.</p><div class="selected-app-list" data-selected-list><div class="selected-empty">Pilih aplikasi di katalog untuk mulai menyusun paket.</div></div><div class="selection-actions"><button class="button button--primary" type="button" data-download-script disabled>Unduh install.ps1 <span aria-hidden="true">↓</span></button><button class="button button--outline" type="button" data-copy-script disabled>Salin skrip</button><button class="button button--quiet" type="button" data-clear-selection disabled>Kosongkan</button></div><p class="selection-status" data-script-status role="status">Belum ada skrip yang dibuat.</p><details class="script-preview-details"><summary>Lihat skrip PowerShell</summary><textarea data-script-preview aria-label="Pratinjau skrip installer" readonly spellcheck="false" placeholder="Pilih aplikasi untuk menampilkan skrip…"></textarea></details><p class="selection-footnote">ANTO-LTG tidak menjalankan installer dari browser. File <code>.ps1</code> perlu kamu unduh, periksa, lalu jalankan sendiri pada komputer Windows tujuan.</p></aside></div></section></main>
+<footer class="site-footer"><div class="footer-brand"><span class="brand-mark brand-mark--small" aria-hidden="true">A</span><div><strong>ANTO-LTG</strong><p>Toolkit teknisi yang terbuka, bisa diperiksa, dan dibuat bersama komunitas.</p></div></div><div class="footer-links"><a data-root-link="developers/" href="#">Developer</a><a data-root-link="developers/#contribute" href="#">Kontribusi</a><a data-root-link="developers/#security" href="#">Keamanan</a><a data-root-link="feed.xml" href="#">RSS</a></div><p class="copyright">© <span data-year></span> ANTO-LTG. Periksa skrip dan sumber paket sebelum memasang software.</p></footer>
+<script src="../assets/js/site.js" defer></script><script src="../assets/js/software-bundler.js" defer></script></body></html>
