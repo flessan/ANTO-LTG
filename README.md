@@ -61,7 +61,7 @@ Jika nanti custom domain atau strategi build berubah, perbarui variabel `SITE_UR
 | Software catalog | Metadata dan tautan halaman penerbit; perlu review manusia |
 | Driver catalog | Kerangka tersedia; belum ada driver yang terverifikasi |
 | Technician toolbox | Metadata awal; perlu review manusia |
-| App bundler | Halaman katalog saja; belum menghasilkan installer satu-klik |
+| App bundler | Pemilih aplikasi dan generator skrip PowerShell WinGet untuk Windows 10/11; ID paket dan kompatibilitas masih perlu tinjauan manusia |
 | API JSON statis | Implementasi awal |
 | RSS dan sitemap | Dibangkitkan saat build jika `SITE_URL` ditetapkan |
 | Installer pendamping untuk Windows | Belum dibuat |
@@ -74,8 +74,8 @@ ANTO-LTG tidak boleh menyamakan URL HTTPS, checksum, atau label komunitas dengan
 
 1. Tentukan nama domain, repository URL, aturan kontribusi, serta penanggung jawab review.
 2. Isi katalog driver secara bertahap dengan model dan sumber OEM yang tepat.
-3. Rancang manifest bundle yang bisa direproduksi beserta pengecekan kompatibilitas.
-4. Bangun installer/launcher pendamping dengan daftar program dan izin yang transparan.
+3. Tinjau dan perbarui WinGet ID serta kompatibilitas aplikasi; jalankan `npm run validate` sebelum rilis.
+4. Kembangkan launcher pendamping bila diperlukan; bundler MVP menghasilkan skrip PowerShell lokal yang dapat diperiksa terlebih dahulu.
 5. Tambahkan pemeriksaan versi, checksum, tanda tangan digital, dan laporan status sumber.
 
 
