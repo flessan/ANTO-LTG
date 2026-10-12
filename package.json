@@ -1,0 +1,12 @@
+{
+  "name": "anto-ltg",
+  "version": "0.1.0",
+  "private": true,
+  "description": "All-in-one technician toolkit and open software catalog.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/build.mjs --validate",
+    "build": "node scripts/build.mjs --build"
+  },
+  "engines": { "node": ">=20" }
+}

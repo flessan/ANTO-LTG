@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id" data-root="../">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dokumentasi API statis, format data, kontribusi, keamanan, RSS, dan sitemap ANTO-LTG."><meta name="theme-color" content="#edf5ff">
+  <title>Developer Hub · ANTO-LTG</title><link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body data-page="developers">
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+<header class="site-header">
+  <a class="brand" data-root-link="index.html" href="#" aria-label="ANTO-LTG Home">
+    <span class="brand-mark" aria-hidden="true">A</span>
+    <span class="brand-copy"><strong>ANTO-LTG</strong><small>Technician Toolkit</small></span>
+  </a>
+  <nav class="desktop-nav" data-site-nav aria-label="Navigasi utama"></nav>
+  <div class="header-actions"><a class="button button--quiet header-developer" data-root-link="developers/" href="#">API & kontribusi <span aria-hidden="true">↗</span></a><button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Buka navigasi"><span></span><span></span></button></div>
+</header>
+<nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mobile" hidden data-site-nav></nav>
+
+  <main id="main" class="page-main">
+<section class="page-intro container"><a class="back-link" href="../index.html">← Beranda</a><div class="eyebrow">DEVELOPER HUB</div><div class="page-intro-row"><div><h1>Katalog terbuka. Proses yang bisa diaudit.</h1><p>ANTO-LTG dirancang agar data mudah dipakai ulang, kontribusi bisa ditinjau, dan sumber unduhan tidak tersembunyi di balik sistem tertutup.</p></div><span class="page-stamp">API / DOCS / CI</span></div></section>
+<section class="container developer-layout">
+  <aside class="developer-aside"><div class="aside-heading">Di halaman ini</div><a href="#api">Public API</a><a href="#data">Format data</a><a href="#contribute">Kontribusi</a><a href="#security">Keamanan katalog</a><a href="#feeds">Feeds & SEO</a></aside>
+  <div class="developer-content">
+    <section id="api" class="doc-section"><div class="eyebrow">01 / API</div><h2>API statis, tanpa autentikasi.</h2><p>Endpoint awal menyajikan JSON publik. Versi API ditulis di URL agar perubahan berikutnya bisa dikelola dengan jelas.</p><div class="endpoint-list"><code>GET /api/v1/apps.json</code><code>GET /api/v1/drivers.json</code><code>GET /api/v1/bundles.json</code><code>GET /api/v1/tools.json</code></div><p>Belum ada jaminan uptime atau rate limit formal pada tahap MVP. Jangan gunakan katalog ini sebagai satu-satunya sumber untuk tindakan kritis.</p><a class="text-link" href="../api/v1/apps.json">Lihat contoh respons JSON ↗</a> <span class="text-muted small">·</span> <a class="text-link" href="../openapi.json">Unduh OpenAPI spec ↗</a></section>
+    <section id="data" class="doc-section"><div class="eyebrow">02 / SCHEMA</div><h2>Data kecil, konsisten, bisa divalidasi.</h2><p>Setiap item memiliki ID stabil, nama, deskripsi, sumber HTTPS, dan status tinjauan. Metadata kompatibilitas harus didukung bukti; kolom kosong atau “not_reviewed” berarti belum dipastikan.</p><pre class="code-sample"><code>{
+  "schema_version": "1.0.0",
+  "updated_at": null,
+  "items": [
+    {
+      "id": "contoh-aplikasi",
+      "name": "Nama aplikasi",
+      "category": "utility",
+      "description": "Deskripsi faktual aplikasi.",
+      "publisher": "Penerbit",
+      "source_url": "https://publisher.example/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Periksa ketentuan penerbit",
+      "notes": "Kompatibilitas belum ditinjau."
+    }
+  ]
+}</code></pre><p><strong>Catatan:</strong> contoh tersebut hanya ilustrasi struktur. Item katalog yang dipublikasikan harus mengikuti field wajib di folder <code>catalogs/</code>.</p></section>
+    <section id="contribute" class="doc-section"><div class="eyebrow">03 / CONTRIBUTE</div><h2>Kontribusi melalui pull request.</h2><p>Tambahkan item di file JSON yang sesuai, jangan kirim installer atau firmware secara langsung, lalu jalankan validasi sebelum membuka pull request.</p><div class="step-list"><div><span>1</span><p><strong>Fork repository</strong><br>Gunakan ID lowercase-kebab-case yang stabil.</p></div><div><span>2</span><p><strong>Tambahkan metadata</strong><br>Sertakan sumber HTTPS dan catatan kompatibilitas yang dapat dirujuk.</p></div><div><span>3</span><p><strong>Jalankan validator</strong><br><code>npm run validate</code></p></div><div><span>4</span><p><strong>Ajukan pull request</strong><br>Jelaskan sumber dan bukti yang mendukung perubahan.</p></div></div><a class="button button--primary" href="https://github.com/" target="_blank" rel="noopener noreferrer">Buka GitHub <span aria-hidden="true">↗</span></a><p class="small text-muted">Tautan repository akan diperbarui setelah repo resmi dibuat.</p></section>
+    <section id="security" class="doc-section"><div class="eyebrow">04 / TRUST & SAFETY</div><h2>“Resmi” dan “aman” bukan label otomatis.</h2><p>Validator memeriksa struktur data dan URL HTTPS, bukan malware atau kebenaran klaim. Status <code>verified</code> hanya boleh diberikan setelah peninjauan manusia dengan catatan tanggal dan bukti yang jelas.</p><ul class="doc-list"><li>Utamakan halaman vendor atau penerbit asli.</li><li>Hindari direct-link mirror yang tidak dapat dipertanggungjawabkan.</li><li>Jangan menyimpan kredensial, token, atau informasi pribadi di katalog.</li><li>Laporkan URL mencurigakan dan entri yang sudah ditarik oleh penerbit.</li></ul><a class="text-link" href="../SECURITY.md">Baca kebijakan keamanan ↗</a></section>
+    <section id="feeds" class="doc-section"><div class="eyebrow">05 / WEB DISCOVERY</div><h2>Integrasi terbuka untuk layanan lain.</h2><div class="feed-links"><div><strong>RSS</strong><code>/feed.xml</code><p class="small">Feed pembaruan proyek, dihasilkan saat build memakai SITE_URL.</p></div><div><strong>Sitemap</strong><code>/sitemap.xml</code><p class="small">Daftar halaman publik untuk crawler mesin pencari.</p></div><div><strong>Robots</strong><code>/robots.txt</code><p class="small">Aturan crawling dan referensi sitemap.</p></div></div><p>Isi RSS dapat kosong sampai ada item pembaruan di <code>catalogs/updates.json</code>. Tidak ada data pembaruan yang direkayasa untuk mengisi feed.</p></section>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand"><span class="brand-mark brand-mark--small" aria-hidden="true">A</span><div><strong>ANTO-LTG</strong><p>Toolkit teknisi yang terbuka, bisa diperiksa, dan dibuat bersama komunitas.</p></div></div>
+  <div class="footer-links"><a data-root-link="developers/" href="#">Developer</a><a data-root-link="developers/#contribute" href="#">Kontribusi</a><a data-root-link="developers/#security" href="#">Keamanan</a><a data-root-link="feed.xml" href="#">RSS</a></div>
+  <p class="copyright">© <span data-year></span> ANTO-LTG. Verifikasi sumber tetap diperlukan sebelum memasang software atau driver.</p>
+</footer>
+
+  <script src="../assets/js/site.js" defer></script>
+</body></html>

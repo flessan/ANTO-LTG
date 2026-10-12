@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": null,
+  "items": [
+    {
+      "id": "mozilla-firefox",
+      "name": "Mozilla Firefox",
+      "category": "browser",
+      "description": "Peramban web dari Mozilla. Periksa persyaratan sistem pada halaman penerbit sebelum instalasi.",
+      "publisher": "Mozilla",
+      "source_url": "https://www.mozilla.org/firefox/new/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Tautan menuju halaman penerbit; kompatibilitas versi Windows belum ditinjau oleh ANTO-LTG."
+    },
+    {
+      "id": "7zip",
+      "name": "7-Zip",
+      "category": "file-utility",
+      "description": "Utilitas arsip untuk membuka dan membuat arsip file.",
+      "publisher": "Igor Pavlov / 7-Zip",
+      "source_url": "https://www.7-zip.org/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Periksa detail versi dan dukungan OS pada halaman penerbit."
+    },
+    {
+      "id": "videolan-vlc",
+      "name": "VLC media player",
+      "category": "media",
+      "description": "Pemutar media lintas format dari VideoLAN.",
+      "publisher": "VideoLAN",
+      "source_url": "https://www.videolan.org/vlc/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Tautan menuju halaman proyek resmi; kompatibilitas belum disahkan oleh katalog ini."
+    },
+    {
+      "id": "libreoffice",
+      "name": "LibreOffice",
+      "category": "productivity",
+      "description": "Paket produktivitas perkantoran dengan dukungan format dokumen umum.",
+      "publisher": "The Document Foundation",
+      "source_url": "https://www.libreoffice.org/download/download-libreoffice/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Periksa versi yang masih didukung dan persyaratan OS di situs penerbit."
+    },
+    {
+      "id": "notepad-plus-plus",
+      "name": "Notepad++",
+      "category": "developer",
+      "description": "Editor teks untuk pengembangan dan pekerjaan teknis.",
+      "publisher": "Notepad++ team",
+      "source_url": "https://notepad-plus-plus.org/downloads/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Gunakan halaman download resmi untuk memilih paket yang sesuai."
+    },
+    {
+      "id": "rufus",
+      "name": "Rufus",
+      "category": "boot-media",
+      "description": "Utilitas untuk membuat media USB bootable.",
+      "publisher": "Pete Batard / Rufus",
+      "source_url": "https://rufus.ie/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "windows_compatibility": "not_reviewed",
+      "architectures": [],
+      "license": "Open source",
+      "notes": "Pastikan ISO yang digunakan berasal dari sumber yang tepercaya."
+    }
+  ]
+}

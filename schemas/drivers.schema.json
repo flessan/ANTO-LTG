@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anto-ltg:schema:drivers",
+  "title": "ANTO-LTG Drivers Catalog",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "updated_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "publisher",
+          "source_url",
+          "source_kind",
+          "verification_status",
+          "manufacturer",
+          "model",
+          "component",
+          "windows_versions",
+          "architectures",
+          "notes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "source_kind": {
+            "enum": [
+              "publisher_page",
+              "manufacturer_support_page",
+              "official_project_site"
+            ]
+          },
+          "verification_status": {
+            "enum": [
+              "pending_review",
+              "verified",
+              "withdrawn"
+            ]
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "component": {
+            "type": "string"
+          },
+          "windows_versions": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "Windows 7",
+                "Windows 10",
+                "Windows 11",
+                "other"
+              ]
+            }
+          },
+          "architectures": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "x64",
+                "x86",
+                "arm64",
+                "other"
+              ]
+            }
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "release_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

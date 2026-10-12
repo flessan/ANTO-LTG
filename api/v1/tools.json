@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": null,
+  "items": [
+    {
+      "id": "crystaldiskinfo",
+      "name": "CrystalDiskInfo",
+      "category": "storage-health",
+      "description": "Menampilkan informasi kesehatan dan status perangkat penyimpanan yang didukung.",
+      "publisher": "Crystal Dew World",
+      "source_url": "https://crystalmark.info/en/software/crystaldiskinfo/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "requires_admin": "not_reviewed",
+      "notes": "Periksa paket, iklan bundel, dan kompatibilitas sebelum mendistribusikan."
+    },
+    {
+      "id": "memtest86",
+      "name": "MemTest86",
+      "category": "memory-test",
+      "description": "Alat pengujian RAM yang dijalankan melalui media bootable.",
+      "publisher": "PassMark Software",
+      "source_url": "https://www.memtest86.com/",
+      "source_kind": "publisher_page",
+      "verification_status": "pending_review",
+      "requires_admin": "not_reviewed",
+      "notes": "Periksa edisi gratis/berbayar dan petunjuk resmi sebelum penggunaan."
+    }
+  ]
+}

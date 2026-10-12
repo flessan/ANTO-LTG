@@ -1,0 +1,385 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ANTO-LTG Catalog API",
+    "version": "1.0.0",
+    "description": "Public read-only JSON catalogs. Catalog statuses and publisher metadata must be checked before using an item in a critical workflow."
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Current site origin"
+    }
+  ],
+  "paths": {
+    "/api/v1/apps.json": {
+      "get": {
+        "summary": "Get apps catalog",
+        "operationId": "getAppsCatalog",
+        "responses": {
+          "200": {
+            "description": "Catalog JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppsCatalog"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected static host error"
+          }
+        }
+      }
+    },
+    "/api/v1/drivers.json": {
+      "get": {
+        "summary": "Get drivers catalog",
+        "operationId": "getDriversCatalog",
+        "responses": {
+          "200": {
+            "description": "Catalog JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DriversCatalog"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected static host error"
+          }
+        }
+      }
+    },
+    "/api/v1/bundles.json": {
+      "get": {
+        "summary": "Get bundles catalog",
+        "operationId": "getBundlesCatalog",
+        "responses": {
+          "200": {
+            "description": "Catalog JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundlesCatalog"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected static host error"
+          }
+        }
+      }
+    },
+    "/api/v1/tools.json": {
+      "get": {
+        "summary": "Get tools catalog",
+        "operationId": "getToolsCatalog",
+        "responses": {
+          "200": {
+            "description": "Catalog JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolsCatalog"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected static host error"
+          }
+        }
+      }
+    },
+    "/api/v1/updates.json": {
+      "get": {
+        "summary": "Get updates catalog",
+        "operationId": "getUpdatesCatalog",
+        "responses": {
+          "200": {
+            "description": "Catalog JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdatesCatalog"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected static host error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppsCatalog": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "verification_status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DriversCatalog": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "verification_status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "BundlesCatalog": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "verification_status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ToolsCatalog": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "verification_status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "UpdatesCatalog": {
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0.0"
+          },
+          "updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name",
+                "description"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "verification_status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
