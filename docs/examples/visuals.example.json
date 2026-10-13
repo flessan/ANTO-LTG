@@ -1,0 +1,180 @@
+{
+  "schema": "anto-ltg.visuals/1",
+  "bundled": {
+    "software": "assets/icons/navigation/software.svg",
+    "tool": "assets/icons/navigation/wrench.svg",
+    "driver": "assets/icons/hardware/card.svg",
+    "vendor": "assets/icons/navigation/chip.svg",
+    "category": "assets/icons/navigation/folder.svg",
+    "bundle": "assets/icons/navigation/bundle.svg"
+  },
+  "items": {
+    "apps": {
+      "7zip": {
+        "level": "brand",
+        "src": "assets/icons/software/7zip.svg",
+        "alt": "7Zip logo",
+        "asset": "brand-7zip"
+      }
+    },
+    "tools": {
+      "anydesk": {
+        "level": "brand",
+        "src": "assets/icons/software/anydesk.svg",
+        "alt": "AnyDesk logo",
+        "asset": "brand-anydesk"
+      }
+    },
+    "drivers": {
+      "acer-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/acer.svg",
+        "alt": "Acer logo",
+        "asset": "brand-acer"
+      }
+    },
+    "vendors": {
+      "acer": {
+        "level": "brand",
+        "src": "assets/icons/vendors/acer.svg",
+        "alt": "Acer logo",
+        "asset": "brand-acer"
+      }
+    },
+    "bundles": {
+      "boot-and-install-media": {
+        "level": "glyph",
+        "src": "assets/icons/categories/boot-and-install-media.svg",
+        "alt": "Boot And Install Media icon",
+        "asset": "bundle-boot-and-install-media",
+        "photo": "forest-canopy"
+      }
+    },
+    "categories": {
+      "utilities": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      }
+    }
+  },
+  "photos": {
+    "sky-meadow": {
+      "asset": "sky-meadow",
+      "alt": "A bright green grassy hill under a deep blue sky with a few white clouds",
+      "variants": [
+        {
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.avif"
+        },
+        {
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.jpg"
+        },
+        {
+          "format": "avif",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.avif"
+        },
+        {
+          "format": "webp",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.jpg"
+        },
+        {
+          "format": "avif",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.avif"
+        },
+        {
+          "format": "webp",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/sky-meadow-horizon-640.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/sky-meadow-horizon-640.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/sky-meadow-horizon-1280.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/sky-meadow-horizon-1280.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/sky-meadow-horizon-1920.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/sky-meadow-horizon-1920.jpg"
+        },
+        {
+          "format": "jpg",
+          "width": 1200,
+          "height": 630,
+          "src": "assets/img/sky-meadow-og-1200.jpg"
+        }
+      ],
+      "widths": [
+        640,
+        960,
+        1200,
+        1280,
+        1600,
+        1920,
+        2560
+      ]
+    }
+  },
+  "pages": {
+    "site": {
+      "background": "sky-meadow"
+    }
+  }
+}

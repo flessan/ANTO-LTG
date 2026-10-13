@@ -51,6 +51,13 @@
       "count": 501,
       "updated_at": null,
       "sha256": "05106fbd572948f66c0df4fa5e927367df45826076c3514468f10ba7a7104b35"
+    },
+    {
+      "name": "visuals",
+      "path": "/api/v1/visuals.json",
+      "count": 509,
+      "updated_at": null,
+      "sha256": "4e40a40f3427ea4b3954c7c6feb1aae1691fafd9d16aa61bf3d64a27caadc44b"
     }
   ],
   "stats": {

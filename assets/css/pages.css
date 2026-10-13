@@ -57,8 +57,18 @@
 .qp-item .method { flex: none; }
 .info-btn { all: unset; box-sizing: border-box; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; color: var(--sky-700); flex: none; }
 .info-btn:hover { background: var(--sky-100); }
-.app-icon { --h: 200; flex: none; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.02em; color: #fff; border: 1px solid hsl(var(--h) 60% 26%); text-shadow: 0 1px 1px rgba(0, 25, 50, 0.65); background: linear-gradient(hsl(var(--h) 70% 66%), hsl(var(--h) 66% 40%) 50%, hsl(var(--h) 70% 32%) 52%, hsl(var(--h) 68% 46%)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 2px rgba(0, 30, 60, 0.35); user-select: none; }
-.app-icon.lg { width: 52px; height: 52px; font-size: 1.15rem; border-radius: 13px; }
+/* App and tool tiles: a glass tile that holds the app's own logo (see assets/js/lib/visuals.js). */
+.app-icon { flex: none; display: inline-grid; place-items: center; box-sizing: border-box; width: 40px; height: 40px; padding: 6px; border-radius: 10px; border: 1px solid #9bb7d1; background: linear-gradient(#ffffff, #e6eef7 60%, #d6e3f1); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 30, 60, 0.22); user-select: none; }
+.app-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.app-icon.lg { width: 60px; height: 60px; padding: 9px; border-radius: 13px; }
+.vis { display: block; object-fit: contain; }
+/* Driver and vendor tiles share the glass tile of .app-icon. */
+.app-icon.sm { width: 26px; height: 26px; padding: 3px; border-radius: 6px; }
+.bundle-card .bundle-cover { overflow: hidden; border-radius: 8px; aspect-ratio: 16 / 6; margin: 0 0 0.2rem; border: 1px solid var(--line); }
+.bundle-card .bundle-cover picture, .bundle-card .bundle-cover img { display: block; width: 100%; height: 100%; }
+.bundle-card .bundle-cover img { object-fit: cover; }
+.driver-visual, .vendor-logo { flex: none; display: inline-grid; place-items: center; box-sizing: border-box; width: 48px; height: 48px; padding: 7px; border-radius: 10px; border: 1px solid #9bb7d1; background: linear-gradient(#ffffff, #e6eef7 60%, #d6e3f1); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0, 30, 60, 0.22); }
+.driver-visual img, .vendor-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .app-list { display: grid; gap: 0.7rem; }
 .app-card { display: grid; gap: 0.5rem; padding: 0.8rem 0.9rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
 .app-card.selected { border-color: var(--sky-500); box-shadow: 0 0 0 2px rgba(47, 135, 207, 0.35); }

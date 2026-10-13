@@ -137,8 +137,9 @@ describe('asset provenance checks', () => {
 
   it('every photo credits its author, source and license with real alt text', async () => {
     const manifest = await readJson('assets', 'manifest.json');
-    assert.ok(manifest.assets.length >= 5);
-    for (const a of manifest.assets) {
+    const photos = manifest.assets.filter((a) => a.kind === 'photo');
+    assert.ok(photos.length >= 5);
+    for (const a of photos) {
       assert.match(a.source_url, /^https:\/\/(unsplash|www\.pexels|images\.pexels)\.com\//, a.id);
       assert.match(a.license_url, /^https:\/\//);
       assert.ok(a.author.length > 2 && a.alt.length >= 30, a.id);
@@ -148,7 +149,7 @@ describe('asset provenance checks', () => {
     }
     const credits = await readFile(path.join(root, 'assets', 'CREDITS.md'), 'utf8');
     assert.equal(credits, renderCredits(manifest));
-    for (const a of manifest.assets) assert.ok(credits.includes(a.author), a.id);
+    for (const a of manifest.assets) assert.ok(credits.includes(a.kind === 'photo' ? a.author : a.title), a.id);
   });
 });
 

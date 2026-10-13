@@ -69,6 +69,10 @@ describe('browser smoke tests', { skip }, () => {
       assert.equal(await p.$$eval('h1', (e) => e.filter((x) => x.offsetParent !== null).length), 1, `${url}: exactly one visible h1`);
       assert.ok(await p.$('main#main'), `${url}: main landmark`);
       assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${url}: horizontal overflow`);
+      // Lazy-loaded images below the fold only load near the viewport. Ask the browser to load them all now, then
+      // apply the strict check below (every image must be complete and decoded).
+      await p.evaluate(() => { for (const i of document.images) i.loading = 'eager'; });
+      await sleep(1200);
       const broken = await p.$$eval('img', (imgs) => imgs.filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.src));
       assert.deepEqual(broken, [], `${url}: images failed to decode`);
       await p.screenshot({ path: path.join(shots, `${url.replace(/\W+/g, '_') || 'home'}.png`) });

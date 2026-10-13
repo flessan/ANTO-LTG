@@ -2,24 +2,25 @@ import { t, tn, getLang, loadCatalog, toast, downloadText, copyText, icon, h, cl
 import { installMethods, localized } from './lib/model.js';
 import { planInstall, buildWingetScript } from './lib/psgen.js';
 import { encodeShare } from './lib/bundle.js';
-import { iconHue, iconLetters } from './lib/apps-filter.js';
+import { loadVisuals, visualImg, photoPicture, visualEntry } from './lib/visuals.js';
 import { safeHttpUrl } from './lib/html.js';
 
 const list = document.getElementById('b-list');
 let apps = new Map(); let bundles = []; let meta = {};
 
+// The app's own logo in a small tile (decorative: the app name sits next to it).
 function tile(app) {
-  const el = h('span', { class: 'app-icon', 'aria-hidden': 'true' }, iconLetters(app.name));
-  el.style.setProperty('--h', String(iconHue(app.id)));
-  return el;
+  return h('span', { class: 'app-icon sm' }, visualImg('apps', app.id, { size: 24 }));
 }
 function bundleCard(b) {
   const members = b.app_ids.map((id) => apps.get(id)).filter(Boolean);
   const plan = planInstall({ apps: members, os: 'windows11', method: 'winget' });
   const openUrl = `${sitePath('software/')}#${encodeShare({ ids: b.app_ids, os: 'windows11', method: 'winget', name: b.name })}`;
   const lang = getLang();
-  return h('article', { class: 'card', id: b.id },
-    h('header', {}, h('span', { class: 'orb green' }, icon('bundle')), h('div', {}, h('h2', {}, lang === 'id' && b.name_id ? b.name_id : b.name), h('div', { class: 'small muted' }, tn('bundles.count', members.length, { wg: plan.included.length, manual: plan.manual.length })))),
+  const cover = visualEntry('bundles', b.id).photo;
+  return h('article', { class: 'card bundle-card', id: b.id },
+    cover ? h('div', { class: 'bundle-cover' }, photoPicture(cover, { sizes: '(min-width: 900px) 46vw, 92vw', alt: '', fallbackGroup: 'bundles', fallbackId: b.id })) : null,
+    h('header', {}, h('span', { class: 'driver-visual' }, visualImg('bundles', b.id, { size: 40 })), h('div', {}, h('h2', {}, lang === 'id' && b.name_id ? b.name_id : b.name), h('div', { class: 'small muted' }, tn('bundles.count', members.length, { wg: plan.included.length, manual: plan.manual.length })))),
     h('p', {}, localized(b, 'description', lang)),
     h('div', { class: 'chip-list' }, members.map((a) => h('span', { class: 'chip', title: a.name }, tile(a), a.name))),
     plan.manual.length ? h('div', { class: 'notice warn' }, icon('info'), h('div', {}, h('strong', {}, tn('bundles.manual', plan.manual.length)), h('ul', {}, plan.manual.map((m) => h('li', {}, m.app.name, ' ', safeHttpUrl(m.link) ? h('a', { href: safeHttpUrl(m.link), target: '_blank' }, t('sw.publisher_page'), ' ', icon('external')) : null))))) : null,
@@ -37,7 +38,7 @@ function render() {
 }
 (async () => {
   try {
-    const [a, b] = await Promise.all([loadCatalog('apps'), loadCatalog('bundles')]);
+    const [a, b] = await Promise.all([loadCatalog('apps'), loadCatalog('bundles'), loadVisuals()]);
     apps = new Map(a.items.map((x) => [x.id, x])); bundles = b.items; meta = { schema_version: a.schema_version, updated_at: a.updated_at };
     render(); document.addEventListener('anto:lang', render);
     if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();

@@ -84,15 +84,36 @@ and, in readable form, in [`assets/CREDITS.md`](assets/CREDITS.md) (generated; d
 | Aircraft wing under a blue sky | Trippy Clicker | [Pexels License](https://www.pexels.com/license/) |
 
 These licenses are not open-source licenses and the images are **not** relicensed under MIT. They are used here as page
-decoration. If you fork the project, keep the credits, and read those licenses before reusing the images on their own.
+banners, the desktop wallpaper, the home hero and bundle covers. If you fork the project, keep the credits, and read those licenses before reusing the images on their own.
 The photographs were resized, cropped and re-encoded (and for some, lightly brightened); the originals are not stored in
 the repository.
+
+### Icons and brand marks
+
+Icons and logos are stored in `assets/icons/` and are served from this site (no CDN). Each file's source package,
+version, license and owner are recorded in [`assets/manifest.json`](assets/manifest.json) and listed in
+[`assets/CREDITS.md`](assets/CREDITS.md). The source sets are copied in at build time by
+`scripts/assets/collect-icons.mjs`:
+
+| Set | Used for | License |
+| --- | --- | --- |
+| `simple-icons` (npm, version pinned in `package.json`) | Monochrome brand marks for software and vendors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) for the icon files; the marks themselves remain their owners' trademarks |
+| `@iconify-json/logos` (npm, version pinned) | Full-colour brand logos where the simple set has none (for example Slack, Visual Studio Code) | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) for the icon files; trademarks remain their owners' |
+| `@iconify-json/devicon` (npm, version pinned) | Logos of developer tools with exact product matches (for example PowerShell, PuTTY, TortoiseGit) | [MIT](https://opensource.org/license/mit) for the icon files; trademarks remain their owners' |
+| `@iconify-json/cib` (npm, version pinned) | Brand logos with exact product matches (for example AdGuard) | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) for the icon files; trademarks remain their owners' |
+| `@iconify-json/lucide` (npm, version pinned) | Category, bundle, component and interface glyphs | [ISC](https://opensource.org/license/isc-license-txt) |
+| ANTO-LTG glyphs and favicon (`assets/icons/navigation`, `actions`, `status`, `hardware`, `favicon.svg`) | Original hand-drawn interface glyphs and the favicon | MIT, as part of this project |
+
+A brand mark is used only for the exact product or company it depicts, to identify it. It is not an endorsement, and
+records without an exact mark show a category, component or bundled glyph instead. No driver product photographs are
+included; driver cards show the manufacturer mark or a component glyph.
 
 ### Development dependencies
 
 `ajv` and `ajv-formats` (JSON Schema validation, MIT) and `puppeteer-core` (browser tests, Apache-2.0) are used only by
-the build, tests and developer tools. They are installed with `npm ci` from `package-lock.json` and are **not shipped**
-to browsers. The site has no runtime dependencies.
+the build, tests and developer tools. The icon sets `simple-icons`, `@iconify-json/logos`, `@iconify-json/devicon`, `@iconify-json/cib` and `@iconify-json/lucide` are
+dev-only too: their files are copied into the repository, and the packages are not shipped to browsers. They are installed
+with `npm ci` from `package-lock.json`. The site has no runtime dependencies.
 
 ### Software and drivers described by the catalog
 
@@ -109,7 +130,8 @@ Product, vendor and operating-system names (Windows, WinGet, Intel, NVIDIA, AMD,
 Acer, GIGABYTE, Samsung and others) are trademarks of their owners. They are used only to identify the products and
 sources that records point to. **ANTO-LTG is not affiliated with, endorsed by or sponsored by any of them.**
 "Frutiger Aero" and the Windows Vista/7 "Aero" look are used as a visual style reference. The look is produced by 7.css
-and ANTO-LTG's own CSS; the project has not added any Microsoft fonts, icons, wallpapers or artwork of its own.
+and ANTO-LTG's own CSS. The project does not include any Microsoft fonts, Windows wallpapers or Windows artwork. The
+brand marks above are included only to identify products.
 
 ## Where the project license is referenced
 

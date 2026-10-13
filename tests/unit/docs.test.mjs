@@ -198,7 +198,7 @@ describe('licensing files are consistent', () => {
   });
   it('LICENSING.md covers every photograph licence in the manifest and every dev dependency', async () => {
     const manifest = await readJson('assets', 'manifest.json');
-    for (const a of manifest.assets) {
+    for (const a of manifest.assets.filter((x) => x.kind === 'photo')) {
       assert.ok(docs['LICENSING.md'].includes(a.license), `licence ${a.license}`);
       assert.ok(docs['LICENSING.md'].includes(a.author), `author ${a.author}`);
       assert.ok(docs['LICENSING.md'].includes(a.license_url), `licence url ${a.license_url}`);

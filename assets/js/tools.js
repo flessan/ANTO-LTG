@@ -2,6 +2,7 @@ import { t, tn, getLang, loadCatalog, fetchJson, icon, h, clear, sitePath } from
 import { CATEGORIES, displayRank, categoryLabel, localized, installMethods } from './lib/model.js';
 import { createSearcher } from './lib/search.js';
 import { safeHttpUrl } from './lib/html.js';
+import { loadVisuals, visualImg } from './lib/visuals.js';
 
 const $ = (id) => document.getElementById(id);
 let tools = []; let apps = new Map(); let searcher = null;
@@ -13,7 +14,7 @@ function card(tool) {
   const lang = getLang(); const app = tool.app_id ? apps.get(tool.app_id) : null; const m = app ? installMethods(app) : null;
   const pick = (f) => (lang === 'id' && tool[`${f}_id`]?.length ? tool[`${f}_id`] : tool[f] ?? []);
   return h('article', { class: 'card', id: tool.id },
-    h('header', {}, h('span', { class: 'orb aqua' }, icon(tool.bootable_media ? 'disc' : 'wrench')), h('div', {}, h('h2', {}, tool.name), h('div', { class: 'small muted' }, `${tool.publisher} - ${categoryLabel(tool.category, lang)}`))),
+    h('header', {}, h('span', { class: 'app-icon lg' }, visualImg('tools', tool.id, { size: 36 })), h('div', {}, h('h2', {}, tool.name), h('div', { class: 'small muted' }, `${tool.publisher} - ${categoryLabel(tool.category, lang)}`))),
     h('p', {}, localized(tool, 'description', lang)),
     h('div', { class: 'chip-list' }, tool.bootable_media ? chip('info', 'disc', t('tools.chip.boot')) : null, tool.portable ? chip('info', 'folder', t('sw.portable')) : null, tool.requires_admin === 'yes' ? chip('pending', 'lock', t('tools.chip.admin')) : null,
       tool.verification_status === 'verified' ? chip('verified', 'shield', t('review.verified')) : chip('unknown', 'clock', t('review.not_reviewed')), m ? chip(m.primary === 'unavailable' ? 'unavailable' : m.primary === 'winget' ? 'winget' : m.primary === 'direct' ? 'direct' : 'page', m.primary === 'winget' ? 'box' : m.primary === 'direct' ? 'download' : 'globe', t(`chip.${m.primary}`)) : null),
@@ -45,7 +46,7 @@ function fillCats() {
 
 (async () => {
   try {
-    const [tl, ap, idx] = await Promise.all([loadCatalog('tools'), loadCatalog('apps'), fetchJson('api/v1/search-index.json')]);
+    const [tl, ap, idx] = await Promise.all([loadCatalog('tools'), loadCatalog('apps'), fetchJson('api/v1/search-index.json'), loadVisuals()]);
     tools = tl.items.sort((a, b) => a.name.localeCompare(b.name)); apps = new Map(ap.items.map((a) => [a.id, a])); searcher = createSearcher(idx);
     fillCats(); render();
     const f = $('t-filters'); let timer = 0;

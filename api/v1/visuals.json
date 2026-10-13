@@ -1,0 +1,3389 @@
+{
+  "schema": "anto-ltg.visuals/1",
+  "bundled": {
+    "software": "assets/icons/navigation/software.svg",
+    "tool": "assets/icons/navigation/wrench.svg",
+    "driver": "assets/icons/hardware/card.svg",
+    "vendor": "assets/icons/navigation/chip.svg",
+    "category": "assets/icons/navigation/folder.svg",
+    "bundle": "assets/icons/navigation/bundle.svg"
+  },
+  "items": {
+    "apps": {
+      "7zip": {
+        "level": "brand",
+        "src": "assets/icons/software/7zip.svg",
+        "alt": "7Zip logo",
+        "asset": "brand-7zip"
+      },
+      "7zr": {
+        "level": "brand",
+        "src": "assets/icons/software/7zip.svg",
+        "alt": "7Zip logo",
+        "asset": "brand-7zip"
+      },
+      "ablaze-floorp": {
+        "level": "brand",
+        "src": "assets/icons/software/floorp.svg",
+        "alt": "Floorp logo",
+        "asset": "brand-floorp"
+      },
+      "adguard": {
+        "level": "brand",
+        "src": "assets/icons/software/adguard.svg",
+        "alt": "Adguard logo",
+        "asset": "brand-adguard"
+      },
+      "adobe-acrobat-reader-32-bit": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "adobe-acrobat-reader-64-bit": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "adobe-flash-player": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "advanced-ip-scanner": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "adwcleaner": {
+        "level": "brand",
+        "src": "assets/icons/software/malwarebytes.svg",
+        "alt": "Malwarebytes logo",
+        "asset": "brand-malwarebytes"
+      },
+      "aida64-extreme": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "amd-encoder-for-obs-studio": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "anaconda3": {
+        "level": "brand",
+        "src": "assets/icons/software/anaconda.svg",
+        "alt": "Anaconda logo",
+        "asset": "brand-anaconda"
+      },
+      "android-studio": {
+        "level": "brand",
+        "src": "assets/icons/software/androidstudio.svg",
+        "alt": "Android Studio logo",
+        "asset": "brand-androidstudio"
+      },
+      "angry-ip-scanner": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "anyburn": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "anydesk": {
+        "level": "brand",
+        "src": "assets/icons/software/anydesk.svg",
+        "alt": "AnyDesk logo",
+        "asset": "brand-anydesk"
+      },
+      "aomei-backupper": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "aomei-partition-assistant": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "app-installer": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "atom": {
+        "level": "brand",
+        "src": "assets/icons/software/atom.svg",
+        "alt": "Atom logo",
+        "asset": "brand-atom"
+      },
+      "audacity": {
+        "level": "brand",
+        "src": "assets/icons/software/audacity.svg",
+        "alt": "Audacity logo",
+        "asset": "brand-audacity"
+      },
+      "autohotkey": {
+        "level": "brand",
+        "src": "assets/icons/software/autohotkey.svg",
+        "alt": "AutoHotkey logo",
+        "asset": "brand-autohotkey"
+      },
+      "autoruns": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "aws-command-line-interface": {
+        "level": "brand",
+        "src": "assets/icons/software/aws.svg",
+        "alt": "Aws logo",
+        "asset": "brand-aws"
+      },
+      "azure-developer-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/azure.svg",
+        "alt": "Azure logo",
+        "asset": "brand-azure"
+      },
+      "balenaetcher": {
+        "level": "brand",
+        "src": "assets/icons/software/balena.svg",
+        "alt": "Balena logo",
+        "asset": "brand-balena"
+      },
+      "bandizip": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "bcuninstaller": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "beijing-yinxiang-biji-technologies-co-ltd": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "bginfo": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "bicep-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/azure.svg",
+        "alt": "Azure logo",
+        "asset": "brand-azure"
+      },
+      "bitvise-ssh-client": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "bitwarden": {
+        "level": "brand",
+        "src": "assets/icons/software/bitwarden.svg",
+        "alt": "Bitwarden logo",
+        "asset": "brand-bitwarden"
+      },
+      "bitwarden-directory-connector": {
+        "level": "brand",
+        "src": "assets/icons/software/bitwarden.svg",
+        "alt": "Bitwarden logo",
+        "asset": "brand-bitwarden"
+      },
+      "bitwarden-secrets-manager-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/bitwarden.svg",
+        "alt": "Bitwarden logo",
+        "asset": "brand-bitwarden"
+      },
+      "bleachbit": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "blender": {
+        "level": "brand",
+        "src": "assets/icons/software/blender.svg",
+        "alt": "Blender logo",
+        "asset": "brand-blender"
+      },
+      "bram-moolenaar-et-al-vim": {
+        "level": "brand",
+        "src": "assets/icons/software/vim.svg",
+        "alt": "Vim logo",
+        "asset": "brand-vim"
+      },
+      "brave-browser": {
+        "level": "brand",
+        "src": "assets/icons/software/brave.svg",
+        "alt": "Brave logo",
+        "asset": "brand-brave"
+      },
+      "calibre": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "calibre-portable": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "ccleaner-7": {
+        "level": "brand",
+        "src": "assets/icons/software/ccleaner.svg",
+        "alt": "CCleaner logo",
+        "asset": "brand-ccleaner"
+      },
+      "chocolatey": {
+        "level": "brand",
+        "src": "assets/icons/software/chocolatey.svg",
+        "alt": "Chocolatey logo",
+        "asset": "brand-chocolatey"
+      },
+      "chocolatey-gui": {
+        "level": "brand",
+        "src": "assets/icons/software/chocolatey.svg",
+        "alt": "Chocolatey logo",
+        "asset": "brand-chocolatey"
+      },
+      "chrome-remote-desktop-host": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "chromedriver": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "chromium": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "cinebench-r23": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "citrix-workspace": {
+        "level": "brand",
+        "src": "assets/icons/software/citrix.svg",
+        "alt": "Citrix logo",
+        "asset": "brand-citrix"
+      },
+      "clamwin-free-antivirus": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "clangd": {
+        "level": "brand",
+        "src": "assets/icons/software/llvm.svg",
+        "alt": "LLVM logo",
+        "asset": "brand-llvm"
+      },
+      "classroom-assistant": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "cloudflare-one-client": {
+        "level": "brand",
+        "src": "assets/icons/software/cloudflare.svg",
+        "alt": "Cloudflare logo",
+        "asset": "brand-cloudflare"
+      },
+      "cloudflared": {
+        "level": "brand",
+        "src": "assets/icons/software/cloudflare.svg",
+        "alt": "Cloudflare logo",
+        "asset": "brand-cloudflare"
+      },
+      "cmake": {
+        "level": "brand",
+        "src": "assets/icons/software/cmake.svg",
+        "alt": "CMake logo",
+        "asset": "brand-cmake"
+      },
+      "copilot-cli": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "copilot-cli-preview": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "copilot-modernization-agent": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "core-temp": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "corsair-icue5-software": {
+        "level": "brand",
+        "src": "assets/icons/software/corsair.svg",
+        "alt": "Corsair logo",
+        "asset": "brand-corsair"
+      },
+      "cpuid-cpu-z": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "cpuid-hwmonitor": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "cryptomator": {
+        "level": "brand",
+        "src": "assets/icons/software/cryptomator.svg",
+        "alt": "Cryptomator logo",
+        "asset": "brand-cryptomator"
+      },
+      "crystaldiskinfo": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "crystaldiskmark": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "crystalmark-3d25": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "cygwin": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "cygwin-setup": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "darktable": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "dbeaver": {
+        "level": "brand",
+        "src": "assets/icons/software/dbeaver.svg",
+        "alt": "DBeaver logo",
+        "asset": "brand-dbeaver"
+      },
+      "defraggler": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "dell-command-update": {
+        "level": "brand",
+        "src": "assets/icons/software/dell.svg",
+        "alt": "Dell logo",
+        "asset": "brand-dell"
+      },
+      "dell-command-update-for-windows-universal": {
+        "level": "brand",
+        "src": "assets/icons/software/dell.svg",
+        "alt": "Dell logo",
+        "asset": "brand-dell"
+      },
+      "direct-folders": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "directx-end-user-runtime-installer": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "discord": {
+        "level": "brand",
+        "src": "assets/icons/software/discord.svg",
+        "alt": "Discord logo",
+        "asset": "brand-discord"
+      },
+      "display-driver-uninstaller": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "ditto": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "docker-desktop": {
+        "level": "brand",
+        "src": "assets/icons/software/docker.svg",
+        "alt": "Docker logo",
+        "asset": "brand-docker"
+      },
+      "draw-io": {
+        "level": "brand",
+        "src": "assets/icons/software/diagramsdotnet.svg",
+        "alt": "diagrams.net logo",
+        "asset": "brand-diagramsdotnet"
+      },
+      "dropbox": {
+        "level": "brand",
+        "src": "assets/icons/software/dropbox.svg",
+        "alt": "Dropbox logo",
+        "asset": "brand-dropbox"
+      },
+      "duplicati": {
+        "level": "brand",
+        "src": "assets/icons/software/duplicati.svg",
+        "alt": "Duplicati logo",
+        "asset": "brand-duplicati"
+      },
+      "ea-app": {
+        "level": "brand",
+        "src": "assets/icons/software/ea.svg",
+        "alt": "EA logo",
+        "asset": "brand-ea"
+      },
+      "easeus-todo-backup": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "eclipse-temurin-jdk-with-hotspot-17": {
+        "level": "brand",
+        "src": "assets/icons/software/eclipseadoptium.svg",
+        "alt": "Eclipse Adoptium logo",
+        "asset": "brand-eclipseadoptium"
+      },
+      "eclipse-temurin-jdk-with-hotspot-21": {
+        "level": "brand",
+        "src": "assets/icons/software/eclipseadoptium.svg",
+        "alt": "Eclipse Adoptium logo",
+        "asset": "brand-eclipseadoptium"
+      },
+      "element": {
+        "level": "brand",
+        "src": "assets/icons/software/element.svg",
+        "alt": "Element logo",
+        "asset": "brand-element"
+      },
+      "em-client": {
+        "level": "category",
+        "src": "assets/icons/categories/communication.svg",
+        "alt": "Communication icon",
+        "asset": "category-communication"
+      },
+      "epic-games-launcher": {
+        "level": "brand",
+        "src": "assets/icons/software/epicgames.svg",
+        "alt": "Epic Games logo",
+        "asset": "brand-epicgames"
+      },
+      "es-everything-cli": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "evernote": {
+        "level": "brand",
+        "src": "assets/icons/software/evernote.svg",
+        "alt": "Evernote logo",
+        "asset": "brand-evernote"
+      },
+      "everything-search": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "explorerpatcher": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "fancontrol": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "fd": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "fedora-media-writer": {
+        "level": "brand",
+        "src": "assets/icons/software/fedora.svg",
+        "alt": "Fedora logo",
+        "asset": "brand-fedora"
+      },
+      "ffmpeg": {
+        "level": "brand",
+        "src": "assets/icons/software/ffmpeg.svg",
+        "alt": "FFmpeg logo",
+        "asset": "brand-ffmpeg"
+      },
+      "fiddler-everywhere": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "fiddler-pdfview-inspector": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "file-converter": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "firefox-developer-edition-en-us": {
+        "level": "brand",
+        "src": "assets/icons/software/firefox.svg",
+        "alt": "Firefox logo",
+        "asset": "brand-firefox"
+      },
+      "flameshot": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "flow-launcher": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "foobar2000": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "fork-a-fast-and-friendly-git-client": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "foxit-pdf-editor": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "foxit-pdf-reader": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "fzf": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "geekbench-6": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "geeks3d-furmark-2": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "gimp": {
+        "level": "brand",
+        "src": "assets/icons/software/gimp.svg",
+        "alt": "GIMP logo",
+        "asset": "brand-gimp"
+      },
+      "git": {
+        "level": "brand",
+        "src": "assets/icons/software/git.svg",
+        "alt": "Git logo",
+        "asset": "brand-git"
+      },
+      "git-lfs": {
+        "level": "brand",
+        "src": "assets/icons/software/git.svg",
+        "alt": "Git logo",
+        "asset": "brand-git"
+      },
+      "github-cli": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "github-copilot": {
+        "level": "brand",
+        "src": "assets/icons/software/githubcopilot.svg",
+        "alt": "GitHub Copilot logo",
+        "asset": "brand-githubcopilot"
+      },
+      "github-desktop": {
+        "level": "brand",
+        "src": "assets/icons/software/github.svg",
+        "alt": "GitHub logo",
+        "asset": "brand-github"
+      },
+      "gnu-privacy-guard": {
+        "level": "brand",
+        "src": "assets/icons/software/gnuprivacyguard.svg",
+        "alt": "GNU Privacy Guard logo",
+        "asset": "brand-gnuprivacyguard"
+      },
+      "go-programming-language": {
+        "level": "brand",
+        "src": "assets/icons/software/go.svg",
+        "alt": "Go logo",
+        "asset": "brand-go"
+      },
+      "gog-galaxy": {
+        "level": "brand",
+        "src": "assets/icons/software/gogdotcom.svg",
+        "alt": "GOG.com logo",
+        "asset": "brand-gogdotcom"
+      },
+      "gogdl": {
+        "level": "category",
+        "src": "assets/icons/categories/gaming.svg",
+        "alt": "Gaming icon",
+        "asset": "category-gaming"
+      },
+      "google-chrome": {
+        "level": "brand",
+        "src": "assets/icons/software/googlechrome.svg",
+        "alt": "Google Chrome logo",
+        "asset": "brand-googlechrome"
+      },
+      "google-cloud-sdk": {
+        "level": "brand",
+        "src": "assets/icons/software/googlecloud.svg",
+        "alt": "Google Cloud logo",
+        "asset": "brand-googlecloud"
+      },
+      "google-drive": {
+        "level": "brand",
+        "src": "assets/icons/software/googledrive.svg",
+        "alt": "Google Drive logo",
+        "asset": "brand-googledrive"
+      },
+      "gpg4win": {
+        "level": "brand",
+        "src": "assets/icons/software/gnuprivacyguard.svg",
+        "alt": "GNU Privacy Guard logo",
+        "asset": "brand-gnuprivacyguard"
+      },
+      "greenshot": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "grepwin": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "handbrake": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "handle": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "hashicorp-terraform": {
+        "level": "brand",
+        "src": "assets/icons/software/terraform.svg",
+        "alt": "Terraform logo",
+        "asset": "brand-terraform"
+      },
+      "helm": {
+        "level": "brand",
+        "src": "assets/icons/software/helm.svg",
+        "alt": "Helm logo",
+        "asset": "brand-helm"
+      },
+      "heroic": {
+        "level": "brand",
+        "src": "assets/icons/software/heroicgameslauncher.svg",
+        "alt": "Heroic Games Launcher logo",
+        "asset": "brand-heroicgameslauncher"
+      },
+      "hirens-bootcd-pe": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "hp-image-assistant": {
+        "level": "brand",
+        "src": "assets/icons/software/hp.svg",
+        "alt": "HP logo",
+        "asset": "brand-hp"
+      },
+      "hwinfo": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "hxd-hex-editor": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "imageglass": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "imagemagick-q16-hdri": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "imgburn": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "inkscape": {
+        "level": "brand",
+        "src": "assets/icons/software/inkscape.svg",
+        "alt": "Inkscape logo",
+        "asset": "brand-inkscape"
+      },
+      "inso-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/insomnia.svg",
+        "alt": "Insomnia logo",
+        "asset": "brand-insomnia"
+      },
+      "insomnia": {
+        "level": "brand",
+        "src": "assets/icons/software/insomnia.svg",
+        "alt": "Insomnia logo",
+        "asset": "brand-insomnia"
+      },
+      "intel-driver-and-support-assistant": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intellij-idea-community-edition": {
+        "level": "brand",
+        "src": "assets/icons/software/intellijidea.svg",
+        "alt": "IntelliJ IDEA logo",
+        "asset": "brand-intellijidea"
+      },
+      "irfanview": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "java-8": {
+        "level": "brand",
+        "src": "assets/icons/software/java.svg",
+        "alt": "Java logo",
+        "asset": "brand-java"
+      },
+      "jetbrains-toolbox": {
+        "level": "brand",
+        "src": "assets/icons/software/jetbrains.svg",
+        "alt": "JetBrains logo",
+        "asset": "brand-jetbrains"
+      },
+      "joplin": {
+        "level": "brand",
+        "src": "assets/icons/software/joplin.svg",
+        "alt": "Joplin logo",
+        "asset": "brand-joplin"
+      },
+      "jq": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "kdenlive": {
+        "level": "brand",
+        "src": "assets/icons/software/kdenlive.svg",
+        "alt": "Kdenlive logo",
+        "asset": "brand-kdenlive"
+      },
+      "keepass": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "keepassxc": {
+        "level": "brand",
+        "src": "assets/icons/software/keepassxc.svg",
+        "alt": "KeePassXC logo",
+        "asset": "brand-keepassxc"
+      },
+      "kingston-ssd-manager-x64": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "kitware-inc-paraview": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "kodi": {
+        "level": "brand",
+        "src": "assets/icons/software/kodi.svg",
+        "alt": "Kodi logo",
+        "asset": "brand-kodi"
+      },
+      "krita": {
+        "level": "brand",
+        "src": "assets/icons/software/krita.svg",
+        "alt": "Krita logo",
+        "asset": "brand-krita"
+      },
+      "kritashellextension": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "kubernetes-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/kubernetes.svg",
+        "alt": "Kubernetes logo",
+        "asset": "brand-kubernetes"
+      },
+      "lenovo-system-update": {
+        "level": "brand",
+        "src": "assets/icons/software/lenovo.svg",
+        "alt": "Lenovo logo",
+        "asset": "brand-lenovo"
+      },
+      "librehardwaremonitor": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "libreoffice": {
+        "level": "brand",
+        "src": "assets/icons/software/libreoffice.svg",
+        "alt": "LibreOffice logo",
+        "asset": "brand-libreoffice"
+      },
+      "librewolf": {
+        "level": "brand",
+        "src": "assets/icons/software/librewolf.svg",
+        "alt": "LibreWolf logo",
+        "asset": "brand-librewolf"
+      },
+      "lightshot": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "listary": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "lively-wallpaper": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "llvm": {
+        "level": "brand",
+        "src": "assets/icons/software/llvm.svg",
+        "alt": "LLVM logo",
+        "asset": "brand-llvm"
+      },
+      "logi-options-plus": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "logitech-g-hub": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "logseq": {
+        "level": "brand",
+        "src": "assets/icons/software/logseq.svg",
+        "alt": "Logseq logo",
+        "asset": "brand-logseq"
+      },
+      "malwarebytes": {
+        "level": "brand",
+        "src": "assets/icons/software/malwarebytes.svg",
+        "alt": "Malwarebytes logo",
+        "asset": "brand-malwarebytes"
+      },
+      "malwarebytes-privacy": {
+        "level": "brand",
+        "src": "assets/icons/software/malwarebytes.svg",
+        "alt": "Malwarebytes logo",
+        "asset": "brand-malwarebytes"
+      },
+      "mdbook": {
+        "level": "brand",
+        "src": "assets/icons/software/mdbook.svg",
+        "alt": "mdBook logo",
+        "asset": "brand-mdbook"
+      },
+      "megasync": {
+        "level": "brand",
+        "src": "assets/icons/software/mega.svg",
+        "alt": "MEGA logo",
+        "asset": "brand-mega"
+      },
+      "meld": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "memtest86": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "memtest86-plus": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "microsoft-365-apps-for-enterprise": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "microsoft-asp-net-core-runtime-8-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-azure-cli": {
+        "level": "brand",
+        "src": "assets/icons/software/azure.svg",
+        "alt": "Azure logo",
+        "asset": "brand-azure"
+      },
+      "microsoft-build-of-openjdk-with-hotspot-17": {
+        "level": "brand",
+        "src": "assets/icons/software/openjdk.svg",
+        "alt": "OpenJDK logo",
+        "asset": "brand-openjdk"
+      },
+      "microsoft-build-of-openjdk-with-hotspot-21": {
+        "level": "brand",
+        "src": "assets/icons/software/openjdk.svg",
+        "alt": "OpenJDK logo",
+        "asset": "brand-openjdk"
+      },
+      "microsoft-edge": {
+        "level": "brand",
+        "src": "assets/icons/software/microsoft-edge.svg",
+        "alt": "Microsoft Edge logo",
+        "asset": "brand-microsoft-edge"
+      },
+      "microsoft-edge-webview2-runtime": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-net-runtime-8-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-sdk-8-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-sdk-9-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-windows-desktop-runtime-10-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-windows-desktop-runtime-6-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-windows-desktop-runtime-8-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-net-windows-desktop-runtime-9-0": {
+        "level": "brand",
+        "src": "assets/icons/software/dotnet.svg",
+        "alt": ".NET logo",
+        "asset": "brand-dotnet"
+      },
+      "microsoft-powertoys": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "microsoft-security-essentials": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "microsoft-sql-server-management-studio": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "microsoft-teams": {
+        "level": "brand",
+        "src": "assets/icons/software/microsoft-teams.svg",
+        "alt": "Microsoft Teams logo",
+        "asset": "brand-microsoft-teams"
+      },
+      "microsoft-visual-c-plus-plus-2008-redistributable-x64": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2008-redistributable-x86": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2010-x64-redistributable": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2010-x86-redistributable": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2012-redistributable-x64": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2012-redistributable-x86": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2013-redistributable-x64": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2013-redistributable-x86": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-2022-redistributable-arm64": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-v14-redistributable-x64": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-visual-c-plus-plus-v14-redistributable-x86": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "microsoft-xna-framework-redistributable-refresh": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "minitool-partition-wizard-free": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "mkvtoolnix": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "mobaxterm": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "mongodb-compass": {
+        "level": "brand",
+        "src": "assets/icons/software/mongodb.svg",
+        "alt": "MongoDB logo",
+        "asset": "brand-mongodb"
+      },
+      "monitortest": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "moonlight-game-streaming-client": {
+        "level": "category",
+        "src": "assets/icons/categories/gaming.svg",
+        "alt": "Gaming icon",
+        "asset": "category-gaming"
+      },
+      "mozilla-firefox": {
+        "level": "brand",
+        "src": "assets/icons/software/firefox.svg",
+        "alt": "Firefox logo",
+        "asset": "brand-firefox"
+      },
+      "mozilla-firefox-esr-en-us": {
+        "level": "brand",
+        "src": "assets/icons/software/firefox.svg",
+        "alt": "Firefox logo",
+        "asset": "brand-firefox"
+      },
+      "mozilla-thunderbird": {
+        "level": "brand",
+        "src": "assets/icons/software/thunderbird.svg",
+        "alt": "Thunderbird logo",
+        "asset": "brand-thunderbird"
+      },
+      "mp3tag": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "mpc-be": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "mpc-hc": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "mremoteng": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "msi-afterburner": {
+        "level": "brand",
+        "src": "assets/icons/software/msi.svg",
+        "alt": "MSI logo",
+        "asset": "brand-msi"
+      },
+      "msys2-installer": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "mysql-workbench-8-0-ce": {
+        "level": "brand",
+        "src": "assets/icons/software/mysql.svg",
+        "alt": "MySQL logo",
+        "asset": "brand-mysql"
+      },
+      "nanazip": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "neovim": {
+        "level": "brand",
+        "src": "assets/icons/software/neovim.svg",
+        "alt": "Neovim logo",
+        "asset": "brand-neovim"
+      },
+      "nextcloud": {
+        "level": "brand",
+        "src": "assets/icons/software/nextcloud.svg",
+        "alt": "Nextcloud logo",
+        "asset": "brand-nextcloud"
+      },
+      "nmap": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "node-js": {
+        "level": "brand",
+        "src": "assets/icons/software/nodedotjs.svg",
+        "alt": "Node.js logo",
+        "asset": "brand-nodedotjs"
+      },
+      "node-js-lts": {
+        "level": "brand",
+        "src": "assets/icons/software/nodedotjs.svg",
+        "alt": "Node.js logo",
+        "asset": "brand-nodedotjs"
+      },
+      "notepad-plus-plus": {
+        "level": "brand",
+        "src": "assets/icons/software/notepadplusplus.svg",
+        "alt": "Notepad++ logo",
+        "asset": "brand-notepadplusplus"
+      },
+      "notion": {
+        "level": "brand",
+        "src": "assets/icons/software/notion.svg",
+        "alt": "Notion logo",
+        "asset": "brand-notion"
+      },
+      "notion-calendar": {
+        "level": "brand",
+        "src": "assets/icons/software/notion.svg",
+        "alt": "Notion logo",
+        "asset": "brand-notion"
+      },
+      "nvcleanstall": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "obs-studio": {
+        "level": "brand",
+        "src": "assets/icons/software/obsstudio.svg",
+        "alt": "OBS Studio logo",
+        "asset": "brand-obsstudio"
+      },
+      "obsidian": {
+        "level": "brand",
+        "src": "assets/icons/software/obsidian.svg",
+        "alt": "Obsidian logo",
+        "asset": "brand-obsidian"
+      },
+      "occt": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "onlyoffice-desktop-editors": {
+        "level": "brand",
+        "src": "assets/icons/software/onlyoffice.svg",
+        "alt": "ONLYOFFICE logo",
+        "asset": "brand-onlyoffice"
+      },
+      "open-shell": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "openoffice": {
+        "level": "brand",
+        "src": "assets/icons/software/apacheopenoffice.svg",
+        "alt": "Apache OpenOffice logo",
+        "asset": "brand-apacheopenoffice"
+      },
+      "openshot-video-editor": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "openvpn": {
+        "level": "brand",
+        "src": "assets/icons/software/openvpn.svg",
+        "alt": "OpenVPN logo",
+        "asset": "brand-openvpn"
+      },
+      "opera-air": {
+        "level": "brand",
+        "src": "assets/icons/software/opera.svg",
+        "alt": "Opera logo",
+        "asset": "brand-opera"
+      },
+      "opera-gx-stable": {
+        "level": "brand",
+        "src": "assets/icons/software/operagx.svg",
+        "alt": "Opera GX logo",
+        "asset": "brand-operagx"
+      },
+      "opera-stable": {
+        "level": "brand",
+        "src": "assets/icons/software/opera.svg",
+        "alt": "Opera logo",
+        "asset": "brand-opera"
+      },
+      "oracle-virtualbox": {
+        "level": "brand",
+        "src": "assets/icons/software/virtualbox.svg",
+        "alt": "VirtualBox logo",
+        "asset": "brand-virtualbox"
+      },
+      "osfmount": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "paint-net": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "paraview": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "parsec": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "parsec-virtual-display-driver": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "parsec-virtual-usb-adapter-driver": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "pdf24-creator": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "pdfsam-basic": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "peazip": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "performancetest-11": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "picpick": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "playnite": {
+        "level": "category",
+        "src": "assets/icons/categories/gaming.svg",
+        "alt": "Gaming icon",
+        "asset": "category-gaming"
+      },
+      "plex": {
+        "level": "brand",
+        "src": "assets/icons/software/plex.svg",
+        "alt": "Plex logo",
+        "asset": "brand-plex"
+      },
+      "pnpm": {
+        "level": "brand",
+        "src": "assets/icons/software/pnpm.svg",
+        "alt": "pnpm logo",
+        "asset": "brand-pnpm"
+      },
+      "pnpm-pnpm": {
+        "level": "brand",
+        "src": "assets/icons/software/pnpm.svg",
+        "alt": "pnpm logo",
+        "asset": "brand-pnpm"
+      },
+      "postman": {
+        "level": "brand",
+        "src": "assets/icons/software/postman.svg",
+        "alt": "Postman logo",
+        "asset": "brand-postman"
+      },
+      "postman-agent": {
+        "level": "brand",
+        "src": "assets/icons/software/postman.svg",
+        "alt": "Postman logo",
+        "asset": "brand-postman"
+      },
+      "powershell": {
+        "level": "brand",
+        "src": "assets/icons/software/powershell.svg",
+        "alt": "Powershell logo",
+        "asset": "brand-powershell"
+      },
+      "process-explorer": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "process-monitor": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "progress-telerik-fiddler-classic": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "proton-drive": {
+        "level": "brand",
+        "src": "assets/icons/software/protondrive.svg",
+        "alt": "Proton Drive logo",
+        "asset": "brand-protondrive"
+      },
+      "proton-pass": {
+        "level": "brand",
+        "src": "assets/icons/software/proton.svg",
+        "alt": "Proton logo",
+        "asset": "brand-proton"
+      },
+      "proton-vpn": {
+        "level": "brand",
+        "src": "assets/icons/software/protonvpn.svg",
+        "alt": "Proton VPN logo",
+        "asset": "brand-protonvpn"
+      },
+      "pstools-suite": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "putty": {
+        "level": "brand",
+        "src": "assets/icons/software/putty.svg",
+        "alt": "Putty logo",
+        "asset": "brand-putty"
+      },
+      "pycharm-community-edition": {
+        "level": "brand",
+        "src": "assets/icons/software/pycharm.svg",
+        "alt": "PyCharm logo",
+        "asset": "brand-pycharm"
+      },
+      "python-3-12": {
+        "level": "brand",
+        "src": "assets/icons/software/python.svg",
+        "alt": "Python logo",
+        "asset": "brand-python"
+      },
+      "python-3-13": {
+        "level": "brand",
+        "src": "assets/icons/software/python.svg",
+        "alt": "Python logo",
+        "asset": "brand-python"
+      },
+      "qbittorrent": {
+        "level": "brand",
+        "src": "assets/icons/software/qbittorrent.svg",
+        "alt": "qbittorrent logo",
+        "asset": "brand-qbittorrent"
+      },
+      "qbittorrent-libtorrent-2": {
+        "level": "brand",
+        "src": "assets/icons/software/qbittorrent.svg",
+        "alt": "qbittorrent logo",
+        "asset": "brand-qbittorrent"
+      },
+      "qq": {
+        "level": "category",
+        "src": "assets/icons/categories/communication.svg",
+        "alt": "Communication icon",
+        "asset": "category-communication"
+      },
+      "rainmeter": {
+        "level": "brand",
+        "src": "assets/icons/software/rainmeter.svg",
+        "alt": "Rainmeter logo",
+        "asset": "brand-rainmeter"
+      },
+      "rammap": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "rclone": {
+        "level": "brand",
+        "src": "assets/icons/software/rclone.svg",
+        "alt": "Rclone logo",
+        "asset": "brand-rclone"
+      },
+      "realvnc-connect": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "realvnc-connect-viewer": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "realvnc-server": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "realvnc-viewer": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "recuva": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "remote-desktop": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "remote-desktop-manager": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "remote-help": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "restic": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "restic-rest-server": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "revo-uninstaller": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "ripgrep-msvc": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "rivatuner-statistics-server": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "rufus": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "rust-analyzer": {
+        "level": "brand",
+        "src": "assets/icons/software/rust.svg",
+        "alt": "Rust logo",
+        "asset": "brand-rust"
+      },
+      "rust-gnu": {
+        "level": "brand",
+        "src": "assets/icons/software/rust.svg",
+        "alt": "Rust logo",
+        "asset": "brand-rust"
+      },
+      "rust-gnu-llvm": {
+        "level": "brand",
+        "src": "assets/icons/software/rust.svg",
+        "alt": "Rust logo",
+        "asset": "brand-rust"
+      },
+      "rust-msvc": {
+        "level": "brand",
+        "src": "assets/icons/software/rust.svg",
+        "alt": "Rust logo",
+        "asset": "brand-rust"
+      },
+      "rustup-the-rust-toolchain-installer": {
+        "level": "brand",
+        "src": "assets/icons/software/rust.svg",
+        "alt": "Rust logo",
+        "asset": "brand-rust"
+      },
+      "sccache": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "screentogif": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "sharex": {
+        "level": "brand",
+        "src": "assets/icons/software/sharex.svg",
+        "alt": "ShareX logo",
+        "asset": "brand-sharex"
+      },
+      "shotcut": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "sigcheck": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "signal": {
+        "level": "brand",
+        "src": "assets/icons/software/signal.svg",
+        "alt": "Signal logo",
+        "asset": "brand-signal"
+      },
+      "sigview": {
+        "level": "category",
+        "src": "assets/icons/categories/communication.svg",
+        "alt": "Communication icon",
+        "asset": "category-communication"
+      },
+      "simplewall": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "slack": {
+        "level": "brand",
+        "src": "assets/icons/software/slack.svg",
+        "alt": "Slack logo",
+        "asset": "brand-slack"
+      },
+      "slicer": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "smartmontools": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "smimesign": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "sourcetree": {
+        "level": "brand",
+        "src": "assets/icons/software/sourcetree.svg",
+        "alt": "Sourcetree logo",
+        "asset": "brand-sourcetree"
+      },
+      "speccy": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "splashtop-business": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "spotify": {
+        "level": "brand",
+        "src": "assets/icons/software/spotify.svg",
+        "alt": "Spotify logo",
+        "asset": "brand-spotify"
+      },
+      "spring-tools-for-eclipse": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "starship": {
+        "level": "brand",
+        "src": "assets/icons/software/starship.svg",
+        "alt": "Starship logo",
+        "asset": "brand-starship"
+      },
+      "steam": {
+        "level": "brand",
+        "src": "assets/icons/software/steam.svg",
+        "alt": "Steam logo",
+        "asset": "brand-steam"
+      },
+      "steelseries-gg": {
+        "level": "brand",
+        "src": "assets/icons/software/steelseries.svg",
+        "alt": "Steelseries logo",
+        "asset": "brand-steelseries"
+      },
+      "sublime-text-4": {
+        "level": "brand",
+        "src": "assets/icons/software/sublimetext.svg",
+        "alt": "Sublime Text logo",
+        "asset": "brand-sublimetext"
+      },
+      "sumatrapdf": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "sunshine": {
+        "level": "category",
+        "src": "assets/icons/categories/gaming.svg",
+        "alt": "Gaming icon",
+        "asset": "category-gaming"
+      },
+      "syncthing": {
+        "level": "brand",
+        "src": "assets/icons/software/syncthing.svg",
+        "alt": "Syncthing logo",
+        "asset": "brand-syncthing"
+      },
+      "sysinternals-suite": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "sysmon": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "tailcat": {
+        "level": "brand",
+        "src": "assets/icons/software/tailscale.svg",
+        "alt": "Tailscale logo",
+        "asset": "brand-tailscale"
+      },
+      "tailscale": {
+        "level": "brand",
+        "src": "assets/icons/software/tailscale.svg",
+        "alt": "Tailscale logo",
+        "asset": "brand-tailscale"
+      },
+      "tcpview": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "teamviewer": {
+        "level": "brand",
+        "src": "assets/icons/software/teamviewer.svg",
+        "alt": "TeamViewer logo",
+        "asset": "brand-teamviewer"
+      },
+      "teamviewer-host": {
+        "level": "brand",
+        "src": "assets/icons/software/teamviewer.svg",
+        "alt": "TeamViewer logo",
+        "asset": "brand-teamviewer"
+      },
+      "teamviewer-quicksupport": {
+        "level": "brand",
+        "src": "assets/icons/software/teamviewer.svg",
+        "alt": "TeamViewer logo",
+        "asset": "brand-teamviewer"
+      },
+      "techpowerup-gpu-z": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "telegram-desktop": {
+        "level": "brand",
+        "src": "assets/icons/software/telegram.svg",
+        "alt": "Telegram logo",
+        "asset": "brand-telegram"
+      },
+      "tera-term": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "teracopy": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "termius": {
+        "level": "brand",
+        "src": "assets/icons/software/termius.svg",
+        "alt": "Termius logo",
+        "asset": "brand-termius"
+      },
+      "testdisk": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "the-gimp-team-gimp": {
+        "level": "brand",
+        "src": "assets/icons/software/gimp.svg",
+        "alt": "GIMP logo",
+        "asset": "brand-gimp"
+      },
+      "throttlestop": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "tightvnc": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "timoni": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "tor-browser": {
+        "level": "brand",
+        "src": "assets/icons/software/torbrowser.svg",
+        "alt": "Tor Browser logo",
+        "asset": "brand-torbrowser"
+      },
+      "tortoisegit": {
+        "level": "brand",
+        "src": "assets/icons/software/tortoisegit.svg",
+        "alt": "Tortoisegit logo",
+        "asset": "brand-tortoisegit"
+      },
+      "transmission": {
+        "level": "brand",
+        "src": "assets/icons/software/transmission.svg",
+        "alt": "Transmission logo",
+        "asset": "brand-transmission"
+      },
+      "treesize-free": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "ubisoft-connect": {
+        "level": "brand",
+        "src": "assets/icons/software/ubisoft.svg",
+        "alt": "Ubisoft logo",
+        "asset": "brand-ubisoft"
+      },
+      "ubuntu-24-04-lts": {
+        "level": "brand",
+        "src": "assets/icons/software/ubuntu.svg",
+        "alt": "Ubuntu logo",
+        "asset": "brand-ubuntu"
+      },
+      "usbdeview": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "ventoy": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "veracrypt": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "videolan-vlc": {
+        "level": "brand",
+        "src": "assets/icons/software/vlcmediaplayer.svg",
+        "alt": "VLC media player logo",
+        "asset": "brand-vlcmediaplayer"
+      },
+      "vim": {
+        "level": "brand",
+        "src": "assets/icons/software/vim.svg",
+        "alt": "Vim logo",
+        "asset": "brand-vim"
+      },
+      "visual-studio-buildtools-2022": {
+        "level": "brand",
+        "src": "assets/icons/software/visual-studio.svg",
+        "alt": "Visual Studio logo",
+        "asset": "brand-visual-studio"
+      },
+      "visual-studio-code": {
+        "level": "brand",
+        "src": "assets/icons/software/visual-studio-code.svg",
+        "alt": "Visual Studio Code logo",
+        "asset": "brand-visual-studio-code"
+      },
+      "visual-studio-community-2022": {
+        "level": "brand",
+        "src": "assets/icons/software/visual-studio.svg",
+        "alt": "Visual Studio logo",
+        "asset": "brand-visual-studio"
+      },
+      "visual-studio-professional-2022": {
+        "level": "brand",
+        "src": "assets/icons/software/visual-studio.svg",
+        "alt": "Visual Studio logo",
+        "asset": "brand-visual-studio"
+      },
+      "vivaldi": {
+        "level": "brand",
+        "src": "assets/icons/software/vivaldi.svg",
+        "alt": "Vivaldi logo",
+        "asset": "brand-vivaldi"
+      },
+      "wacom-tablet": {
+        "level": "brand",
+        "src": "assets/icons/software/wacom.svg",
+        "alt": "Wacom logo",
+        "asset": "brand-wacom"
+      },
+      "waterfox": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "waterfox-classic": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "webex": {
+        "level": "brand",
+        "src": "assets/icons/software/webex.svg",
+        "alt": "Webex logo",
+        "asset": "brand-webex"
+      },
+      "webstorm": {
+        "level": "brand",
+        "src": "assets/icons/software/webstorm.svg",
+        "alt": "WebStorm logo",
+        "asset": "brand-webstorm"
+      },
+      "wechat": {
+        "level": "brand",
+        "src": "assets/icons/software/wechat.svg",
+        "alt": "WeChat logo",
+        "asset": "brand-wechat"
+      },
+      "windirstat": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "windows-11-installation-assistant": {
+        "level": "brand",
+        "src": "assets/icons/software/microsoft-windows-icon.svg",
+        "alt": "Microsoft Windows Icon logo",
+        "asset": "brand-microsoft-windows-icon"
+      },
+      "windows-11-media-creation-tool": {
+        "level": "brand",
+        "src": "assets/icons/software/microsoft-windows-icon.svg",
+        "alt": "Microsoft Windows Icon logo",
+        "asset": "brand-microsoft-windows-icon"
+      },
+      "windows-app-runtime-1-6": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "windows-app-runtime-1-7": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "windows-app-runtime-1-8": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "windows-app-runtime-2-0": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "windows-assessment-and-deployment-kit": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "windows-subsystem-for-linux": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "windows-terminal": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "winfsp-2025": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "winmerge": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "winrar": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "winscp": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "wireguard": {
+        "level": "brand",
+        "src": "assets/icons/software/wireguard.svg",
+        "alt": "WireGuard logo",
+        "asset": "brand-wireguard"
+      },
+      "wireshark": {
+        "level": "brand",
+        "src": "assets/icons/software/wireshark.svg",
+        "alt": "Wireshark logo",
+        "asset": "brand-wireshark"
+      },
+      "wiztree": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "x264": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "xerahs": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "xnview-mp": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "yarn": {
+        "level": "brand",
+        "src": "assets/icons/software/yarn.svg",
+        "alt": "Yarn logo",
+        "asset": "brand-yarn"
+      },
+      "yt-dlp": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "yubico-authenticator": {
+        "level": "brand",
+        "src": "assets/icons/software/yubico.svg",
+        "alt": "Yubico logo",
+        "asset": "brand-yubico"
+      },
+      "zen-browser": {
+        "level": "brand",
+        "src": "assets/icons/software/zenbrowser.svg",
+        "alt": "Zen Browser logo",
+        "asset": "brand-zenbrowser"
+      },
+      "zoom-outlook-plugin": {
+        "level": "brand",
+        "src": "assets/icons/software/zoom.svg",
+        "alt": "Zoom logo",
+        "asset": "brand-zoom"
+      },
+      "zoom-rooms": {
+        "level": "brand",
+        "src": "assets/icons/software/zoom.svg",
+        "alt": "Zoom logo",
+        "asset": "brand-zoom"
+      },
+      "zoom-skype-for-business-plugin": {
+        "level": "brand",
+        "src": "assets/icons/software/zoom.svg",
+        "alt": "Zoom logo",
+        "asset": "brand-zoom"
+      },
+      "zoom-vdi-universal-plugin": {
+        "level": "brand",
+        "src": "assets/icons/software/zoom.svg",
+        "alt": "Zoom logo",
+        "asset": "brand-zoom"
+      },
+      "zoom-workplace": {
+        "level": "brand",
+        "src": "assets/icons/software/zoom.svg",
+        "alt": "Zoom logo",
+        "asset": "brand-zoom"
+      },
+      "zoomit": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "zoomremotecontrol": {
+        "level": "category",
+        "src": "assets/icons/categories/communication.svg",
+        "alt": "Communication icon",
+        "asset": "category-communication"
+      },
+      "zotero": {
+        "level": "brand",
+        "src": "assets/icons/software/zotero.svg",
+        "alt": "Zotero logo",
+        "asset": "brand-zotero"
+      },
+      "zoxide": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      }
+    },
+    "tools": {
+      "anydesk": {
+        "level": "brand",
+        "src": "assets/icons/software/anydesk.svg",
+        "alt": "AnyDesk logo",
+        "asset": "brand-anydesk"
+      },
+      "autoruns": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "balenaetcher": {
+        "level": "brand",
+        "src": "assets/icons/software/balena.svg",
+        "alt": "Balena logo",
+        "asset": "brand-balena"
+      },
+      "cpuid-cpu-z": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "crystaldiskinfo": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "crystaldiskmark": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "display-driver-uninstaller": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "hirens-bootcd-pe": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "hwinfo": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "intel-driver-and-support-assistant": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "librehardwaremonitor": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "memtest86": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "memtest86-plus": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "nmap": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "occt": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "process-explorer": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "process-monitor": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "rufus": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "smartmontools": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "sysinternals-suite": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "teamviewer": {
+        "level": "brand",
+        "src": "assets/icons/software/teamviewer.svg",
+        "alt": "TeamViewer logo",
+        "asset": "brand-teamviewer"
+      },
+      "techpowerup-gpu-z": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "testdisk": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "ventoy": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "wireshark": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "wiztree": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      }
+    },
+    "drivers": {
+      "acer-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/acer.svg",
+        "alt": "Acer logo",
+        "asset": "brand-acer"
+      },
+      "amd-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/amd.svg",
+        "alt": "AMD logo",
+        "asset": "brand-amd"
+      },
+      "amd-software-adrenalin-26-8-1-web-installer": {
+        "level": "brand",
+        "src": "assets/icons/vendors/amd.svg",
+        "alt": "AMD logo",
+        "asset": "brand-amd"
+      },
+      "asrock-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      },
+      "asus-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/asus.svg",
+        "alt": "ASUS logo",
+        "asset": "brand-asus"
+      },
+      "dell-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/software/dell.svg",
+        "alt": "Dell logo",
+        "asset": "brand-dell"
+      },
+      "ftdi-cdm-2-08-24-winxp-vista": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "ftdi-cdm-2-12-36-20-whql": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "ftdi-cdm-2-12-36-20a-arm64": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "ftdi-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      },
+      "gigabyte-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      },
+      "hp-image-assistant-5-3-7": {
+        "level": "brand",
+        "src": "assets/icons/software/hp.svg",
+        "alt": "HP logo",
+        "asset": "brand-hp"
+      },
+      "hp-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/software/hp.svg",
+        "alt": "HP logo",
+        "asset": "brand-hp"
+      },
+      "intel-arc-graphics-32-0-101-9034": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-bluetooth-24-70-0": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-chipset-inf-10-1-20658-8883": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-driver-support-assistant": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-ethernet-complete-driver-pack-31-2-2": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "intel-wifi-24-70-0": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "lenovo-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/software/lenovo.svg",
+        "alt": "Lenovo logo",
+        "asset": "brand-lenovo"
+      },
+      "microsoft-surface-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/microsoft.svg",
+        "alt": "Microsoft logo",
+        "asset": "brand-microsoft"
+      },
+      "microsoft-update-catalog-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/microsoft.svg",
+        "alt": "Microsoft logo",
+        "asset": "brand-microsoft"
+      },
+      "msi-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/software/msi.svg",
+        "alt": "MSI logo",
+        "asset": "brand-msi"
+      },
+      "nvidia-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/nvidia.svg",
+        "alt": "NVIDIA logo",
+        "asset": "brand-nvidia"
+      },
+      "realtek-hd-audio-r2-74-winxp": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-audio.svg",
+        "alt": "Component Audio icon",
+        "asset": "component-audio"
+      },
+      "realtek-hd-audio-r2-83-32bit": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-audio.svg",
+        "alt": "Component Audio icon",
+        "asset": "component-audio"
+      },
+      "realtek-hd-audio-r2-83-64bit": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-audio.svg",
+        "alt": "Component Audio icon",
+        "asset": "component-audio"
+      },
+      "realtek-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      },
+      "realtek-pcie-ethernet-vista-106-35": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-pcie-ethernet-win10-win11-10-80-50": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-pcie-ethernet-win11-netadaptercx-11-031-50": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-pcie-ethernet-win7-7-154": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-pcie-ethernet-win8-8-100": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-pcie-ethernet-winxp-5-836": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-usb-ethernet-win10-10-68-20": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "realtek-usb-ethernet-win11-115x-23-20": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-network-ethernet.svg",
+        "alt": "Component Network Ethernet icon",
+        "asset": "component-network-ethernet"
+      },
+      "samsung-magician-9-0-1": {
+        "level": "brand",
+        "src": "assets/icons/vendors/samsung.svg",
+        "alt": "Samsung logo",
+        "asset": "brand-samsung"
+      },
+      "samsung-storage-official-driver-portal": {
+        "level": "brand",
+        "src": "assets/icons/vendors/samsung.svg",
+        "alt": "Samsung logo",
+        "asset": "brand-samsung"
+      },
+      "silabs-cp210x-universal-windows-11-6-0": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "silabs-cp210x-vcp-windows-6-7": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "silicon-labs-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      },
+      "wch-ch341ser-4-0": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-serial-adapter.svg",
+        "alt": "Component Serial Adapter icon",
+        "asset": "component-serial-adapter"
+      },
+      "wch-official-driver-portal": {
+        "level": "component",
+        "src": "assets/icons/hardware/component-other.svg",
+        "alt": "Component Other icon",
+        "asset": "component-other"
+      }
+    },
+    "vendors": {
+      "acer": {
+        "level": "brand",
+        "src": "assets/icons/vendors/acer.svg",
+        "alt": "Acer logo",
+        "asset": "brand-acer"
+      },
+      "amd": {
+        "level": "brand",
+        "src": "assets/icons/vendors/amd.svg",
+        "alt": "AMD logo",
+        "asset": "brand-amd"
+      },
+      "asrock": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      },
+      "asus": {
+        "level": "brand",
+        "src": "assets/icons/vendors/asus.svg",
+        "alt": "ASUS logo",
+        "asset": "brand-asus"
+      },
+      "broadcom": {
+        "level": "brand",
+        "src": "assets/icons/vendors/broadcom.svg",
+        "alt": "Broadcom logo",
+        "asset": "brand-broadcom"
+      },
+      "dell": {
+        "level": "brand",
+        "src": "assets/icons/software/dell.svg",
+        "alt": "Dell logo",
+        "asset": "brand-dell"
+      },
+      "ftdi": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      },
+      "gigabyte": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      },
+      "hp": {
+        "level": "brand",
+        "src": "assets/icons/software/hp.svg",
+        "alt": "HP logo",
+        "asset": "brand-hp"
+      },
+      "intel": {
+        "level": "brand",
+        "src": "assets/icons/software/intel.svg",
+        "alt": "Intel logo",
+        "asset": "brand-intel"
+      },
+      "lenovo": {
+        "level": "brand",
+        "src": "assets/icons/software/lenovo.svg",
+        "alt": "Lenovo logo",
+        "asset": "brand-lenovo"
+      },
+      "mediatek": {
+        "level": "brand",
+        "src": "assets/icons/vendors/mediatek.svg",
+        "alt": "MediaTek logo",
+        "asset": "brand-mediatek"
+      },
+      "microsoft-surface": {
+        "level": "brand",
+        "src": "assets/icons/vendors/microsoft.svg",
+        "alt": "Microsoft logo",
+        "asset": "brand-microsoft"
+      },
+      "microsoft-update-catalog": {
+        "level": "brand",
+        "src": "assets/icons/vendors/microsoft.svg",
+        "alt": "Microsoft logo",
+        "asset": "brand-microsoft"
+      },
+      "msi": {
+        "level": "brand",
+        "src": "assets/icons/software/msi.svg",
+        "alt": "MSI logo",
+        "asset": "brand-msi"
+      },
+      "nvidia": {
+        "level": "brand",
+        "src": "assets/icons/vendors/nvidia.svg",
+        "alt": "NVIDIA logo",
+        "asset": "brand-nvidia"
+      },
+      "qualcomm": {
+        "level": "brand",
+        "src": "assets/icons/vendors/qualcomm.svg",
+        "alt": "Qualcomm logo",
+        "asset": "brand-qualcomm"
+      },
+      "realtek": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      },
+      "samsung-storage": {
+        "level": "brand",
+        "src": "assets/icons/vendors/samsung.svg",
+        "alt": "Samsung logo",
+        "asset": "brand-samsung"
+      },
+      "silicon-labs": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      },
+      "wch": {
+        "level": "bundled",
+        "src": "assets/icons/navigation/chip.svg",
+        "alt": "",
+        "asset": null
+      }
+    },
+    "bundles": {
+      "boot-and-install-media": {
+        "level": "glyph",
+        "src": "assets/icons/categories/boot-and-install-media.svg",
+        "alt": "Boot And Install Media icon",
+        "asset": "bundle-boot-and-install-media",
+        "photo": "forest-canopy"
+      },
+      "creative-and-media": {
+        "level": "glyph",
+        "src": "assets/icons/categories/creative-and-media.svg",
+        "alt": "Creative And Media icon",
+        "asset": "bundle-creative-and-media",
+        "photo": "leaf-droplets"
+      },
+      "developer-workstation": {
+        "level": "glyph",
+        "src": "assets/icons/categories/developer-workstation.svg",
+        "alt": "Developer Workstation icon",
+        "asset": "bundle-developer-workstation",
+        "photo": "ocean-aerial"
+      },
+      "hardware-diagnostics": {
+        "level": "glyph",
+        "src": "assets/icons/categories/hardware-diagnostics.svg",
+        "alt": "Hardware Diagnostics icon",
+        "asset": "bundle-hardware-diagnostics",
+        "photo": "wing-sky"
+      },
+      "new-pc-basics": {
+        "level": "glyph",
+        "src": "assets/icons/categories/new-pc-basics.svg",
+        "alt": "New PC Basics icon",
+        "asset": "bundle-new-pc-basics",
+        "photo": "sky-meadow"
+      },
+      "remote-support-kit": {
+        "level": "glyph",
+        "src": "assets/icons/categories/remote-support-kit.svg",
+        "alt": "Remote Support Kit icon",
+        "asset": "bundle-remote-support-kit",
+        "photo": "wing-sky"
+      },
+      "runtimes-pack": {
+        "level": "glyph",
+        "src": "assets/icons/categories/runtimes-pack.svg",
+        "alt": "Runtimes Pack icon",
+        "asset": "bundle-runtimes-pack",
+        "photo": "forest-canopy"
+      },
+      "storage-and-recovery": {
+        "level": "glyph",
+        "src": "assets/icons/categories/storage-and-recovery.svg",
+        "alt": "Storage And Recovery icon",
+        "asset": "bundle-storage-and-recovery",
+        "photo": "ocean-aerial"
+      },
+      "technician-essentials": {
+        "level": "glyph",
+        "src": "assets/icons/categories/technician-essentials.svg",
+        "alt": "Technician Essentials icon",
+        "asset": "bundle-technician-essentials",
+        "photo": "sky-meadow"
+      }
+    },
+    "categories": {
+      "utilities": {
+        "level": "category",
+        "src": "assets/icons/categories/utilities.svg",
+        "alt": "Utilities icon",
+        "asset": "category-utilities"
+      },
+      "browsers": {
+        "level": "category",
+        "src": "assets/icons/categories/browsers.svg",
+        "alt": "Browsers icon",
+        "asset": "category-browsers"
+      },
+      "security": {
+        "level": "category",
+        "src": "assets/icons/categories/security.svg",
+        "alt": "Security icon",
+        "asset": "category-security"
+      },
+      "office": {
+        "level": "category",
+        "src": "assets/icons/categories/office.svg",
+        "alt": "Office icon",
+        "asset": "category-office"
+      },
+      "network-remote": {
+        "level": "category",
+        "src": "assets/icons/categories/network-remote.svg",
+        "alt": "Network Remote icon",
+        "asset": "category-network-remote"
+      },
+      "diagnostics": {
+        "level": "category",
+        "src": "assets/icons/categories/diagnostics.svg",
+        "alt": "Diagnostics icon",
+        "asset": "category-diagnostics"
+      },
+      "media": {
+        "level": "category",
+        "src": "assets/icons/categories/media.svg",
+        "alt": "Media icon",
+        "asset": "category-media"
+      },
+      "developer-tools": {
+        "level": "category",
+        "src": "assets/icons/categories/developer-tools.svg",
+        "alt": "Developer Tools icon",
+        "asset": "category-developer-tools"
+      },
+      "boot-media": {
+        "level": "category",
+        "src": "assets/icons/categories/boot-media.svg",
+        "alt": "Boot Media icon",
+        "asset": "category-boot-media"
+      },
+      "storage": {
+        "level": "category",
+        "src": "assets/icons/categories/storage.svg",
+        "alt": "Storage icon",
+        "asset": "category-storage"
+      },
+      "runtimes": {
+        "level": "category",
+        "src": "assets/icons/categories/runtimes.svg",
+        "alt": "Runtimes icon",
+        "asset": "category-runtimes"
+      },
+      "system-tools": {
+        "level": "category",
+        "src": "assets/icons/categories/system-tools.svg",
+        "alt": "System Tools icon",
+        "asset": "category-system-tools"
+      },
+      "vendor-tools": {
+        "level": "category",
+        "src": "assets/icons/categories/vendor-tools.svg",
+        "alt": "Vendor Tools icon",
+        "asset": "category-vendor-tools"
+      },
+      "communication": {
+        "level": "category",
+        "src": "assets/icons/categories/communication.svg",
+        "alt": "Communication icon",
+        "asset": "category-communication"
+      },
+      "gaming": {
+        "level": "category",
+        "src": "assets/icons/categories/gaming.svg",
+        "alt": "Gaming icon",
+        "asset": "category-gaming"
+      }
+    }
+  },
+  "photos": {
+    "sky-meadow": {
+      "asset": "sky-meadow",
+      "alt": "A bright green grassy hill under a deep blue sky with a few white clouds",
+      "variants": [
+        {
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.avif"
+        },
+        {
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 960,
+          "height": 640,
+          "src": "assets/img/sky-meadow-wallpaper-960.jpg"
+        },
+        {
+          "format": "avif",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.avif"
+        },
+        {
+          "format": "webp",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1600,
+          "height": 1067,
+          "src": "assets/img/sky-meadow-wallpaper-1600.jpg"
+        },
+        {
+          "format": "avif",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.avif"
+        },
+        {
+          "format": "webp",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 2560,
+          "height": 1707,
+          "src": "assets/img/sky-meadow-wallpaper-2560.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/sky-meadow-horizon-640.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/sky-meadow-horizon-640.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/sky-meadow-horizon-1280.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/sky-meadow-horizon-1280.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/sky-meadow-horizon-1920.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/sky-meadow-horizon-1920.jpg"
+        },
+        {
+          "format": "jpg",
+          "width": 1200,
+          "height": 630,
+          "src": "assets/img/sky-meadow-og-1200.jpg"
+        }
+      ],
+      "widths": [
+        640,
+        960,
+        1200,
+        1280,
+        1600,
+        1920,
+        2560
+      ]
+    },
+    "leaf-droplets": {
+      "asset": "leaf-droplets",
+      "alt": "Close-up of a dark green leaf covered in glistening water droplets",
+      "variants": [
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/leaf-droplets-banner-640.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/leaf-droplets-banner-640.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/leaf-droplets-banner-1280.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/leaf-droplets-banner-1280.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/leaf-droplets-banner-1920.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/leaf-droplets-banner-1920.jpg"
+        }
+      ],
+      "widths": [
+        640,
+        1280,
+        1920
+      ]
+    },
+    "forest-canopy": {
+      "asset": "forest-canopy",
+      "alt": "Sunlight breaking through bright green leaves high in a forest canopy",
+      "variants": [
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/forest-canopy-banner-640.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/forest-canopy-banner-640.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/forest-canopy-banner-1280.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/forest-canopy-banner-1280.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/forest-canopy-banner-1920.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/forest-canopy-banner-1920.jpg"
+        }
+      ],
+      "widths": [
+        640,
+        1280,
+        1920
+      ]
+    },
+    "ocean-aerial": {
+      "asset": "ocean-aerial",
+      "alt": "Aerial view of clear turquoise sea water with sunlight patterns over the seabed",
+      "variants": [
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/ocean-aerial-banner-640.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "src": "assets/img/ocean-aerial-banner-640.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/ocean-aerial-banner-1280.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "src": "assets/img/ocean-aerial-banner-1280.jpg"
+        },
+        {
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/ocean-aerial-banner-1920.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "src": "assets/img/ocean-aerial-banner-1920.jpg"
+        }
+      ],
+      "widths": [
+        640,
+        1280,
+        1920
+      ]
+    },
+    "wing-sky": {
+      "asset": "wing-sky",
+      "alt": "The white wing and blue winglet of an airliner seen from a window, over a cyan sky and farmland far below",
+      "variants": [
+        {
+          "format": "webp",
+          "width": 500,
+          "height": 667,
+          "src": "assets/img/wing-sky-accent-500.webp"
+        },
+        {
+          "format": "jpg",
+          "width": 500,
+          "height": 667,
+          "src": "assets/img/wing-sky-accent-500.jpg"
+        }
+      ],
+      "widths": [
+        500
+      ]
+    }
+  },
+  "pages": {
+    "site": {
+      "background": "sky-meadow"
+    },
+    "home": {
+      "hero": "sky-meadow"
+    },
+    "software": {
+      "banner": "leaf-droplets"
+    },
+    "tools": {
+      "banner": "forest-canopy"
+    },
+    "guides": {
+      "banner": "forest-canopy"
+    },
+    "bundles": {
+      "banner": "ocean-aerial"
+    },
+    "developers": {
+      "banner": "ocean-aerial"
+    },
+    "drivers": {
+      "accent": "wing-sky"
+    }
+  }
+}

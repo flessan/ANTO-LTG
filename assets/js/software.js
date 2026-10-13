@@ -2,7 +2,8 @@
 // The browser NEVER installs or runs anything: it only builds text that the person reviews and runs.
 import { t, tn, getLang, loadCatalog, fetchJson, toast, confirmDialog, openDialog, downloadText, copyText, icon, h, clear, applyI18n } from './site.js';
 import { createSearcher } from './lib/search.js';
-import { filterApps, groupByCategory, DEFAULT_FILTERS, iconHue, iconLetters } from './lib/apps-filter.js';
+import { filterApps, groupByCategory, DEFAULT_FILTERS } from './lib/apps-filter.js';
+import { loadVisuals, visualImg, photoPicture, pagePhotoId } from './lib/visuals.js';
 import { CATEGORIES, displayRank, categoryLabel, installMethods, compatFor, versionInfo, daysSince, localized, OS_TARGETS } from './lib/model.js';
 import { planInstall, buildWingetScript, buildDownloadKitScript, buildWingetImport, commandLine } from './lib/psgen.js';
 import { createManifest, manifestToJson, parseManifest, encodeShare, decodeShare, cleanName, MAX_MANIFEST_BYTES } from './lib/bundle.js';
@@ -40,17 +41,16 @@ function compatChip(app, os) {
 // Publication (the automated rules) and human review are two different facts, so they get two chips.
 function statusChips(item) {
   const pub = publicationState(item) === 'unavailable'
-    ? chip('unavailable', 'warn', t('pub.unavailable'), t('pub.unavailable.hint'))
-    : chip('published', 'check', t('pub.published'), t('pub.published.hint'));
+    ? chip('unavailable', 'circle-x', t('pub.unavailable'), t('pub.unavailable.hint'))
+    : chip('published', 'circle-check', t('pub.published'), t('pub.published.hint'));
   const review = isVerified(item)
     ? chip('verified', 'shield', t('review.verified'), t('review.verified.hint'))
     : chip('unknown', 'clock', t('review.not_reviewed'), t('review.not_reviewed.hint'));
   return [pub, review];
 }
+// Every software card shows the app's own logo (or, where no exact mark exists, its category glyph). See lib/visuals.js.
 function iconTile(app, large = false) {
-  const el = h('span', { class: `app-icon${large ? ' lg' : ''}`, 'aria-hidden': 'true' }, iconLetters(app.name));
-  el.style.setProperty('--h', String(iconHue(app.id)));
-  return el;
+  return h('span', { class: `app-icon${large ? ' lg' : ''}` }, visualImg('apps', app.id, { size: large ? 48 : 28 }));
 }
 const extLink = (href, text) => { const safe = safeHttpUrl(href); return safe ? h('a', { href: safe, target: '_blank' }, text, ' ', icon('external')) : h('span', { class: 'unknown-text' }, text); };
 
@@ -206,8 +206,8 @@ function buildInstallerShell() {
   refs.scriptBox.append(h('pre', { tabindex: '0', 'aria-label': t('sw.in.script_label') }, refs.script));
   const btn = (id, ic, labelKey, cls = 'ghost') => h('button', { type: 'button', class: `btn-aero ${cls} sm`, id }, icon(ic), h('span', {}, t(labelKey)));
   refs.btn = {
-    download: btn('in-download', 'download', 'sw.in.download', 'green'), copy: btn('in-copy', 'copy', 'sw.in.copy'), manifest: btn('in-manifest', 'save', 'sw.in.manifest'),
-    importJson: btn('in-wingetjson', 'download', 'sw.in.wingetjson'), share: btn('in-share', 'share', 'sw.in.share'), save: btn('in-save', 'save', 'sw.in.save'),
+    download: btn('in-download', 'download', 'sw.in.download', 'green'), copy: btn('in-copy', 'copy', 'sw.in.copy'), manifest: btn('in-manifest', 'file-down', 'sw.in.manifest'),
+    importJson: btn('in-wingetjson', 'file-up', 'sw.in.wingetjson'), share: btn('in-share', 'link', 'sw.in.share'), save: btn('in-save', 'save', 'sw.in.save'),
     expand: btn('in-expand', 'maximize', 'sw.in.expand'), clear: btn('in-clear', 'trash', 'sw.in.clear', 'danger'),
     open: btn('in-open', 'folder', 'sw.in.open'), del: btn('in-del', 'trash', 'sw.in.delete'),
   };
@@ -394,7 +394,7 @@ function render() { renderResults(); updateInstaller(); }
 async function init() {
   const results = $('sw-results');
   try {
-    const [doc, index] = await Promise.all([loadCatalog('apps'), fetchJson('api/v1/search-index.json')]);
+    const [doc, index] = await Promise.all([loadCatalog('apps'), fetchJson('api/v1/search-index.json'), loadVisuals()]);
     state.apps = doc.items; state.byId = new Map(doc.items.map((a) => [a.id, a])); state.meta = { schema_version: doc.schema_version, updated_at: doc.updated_at };
     state.searcher = createSearcher(index);
   } catch (err) {

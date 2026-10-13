@@ -10,6 +10,7 @@
 // up to date, the shared page chrome, HTML structure/CSP/link integrity, the image provenance
 // manifest and the vendored 7.css integrity.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
@@ -22,6 +23,7 @@ import { buildSearchDocs } from './lib/search-docs.mjs';
 import { buildOpenApi } from './lib/openapi.mjs';
 import { syncPages } from './lib/chrome.mjs';
 import { checkAssets } from './lib/assets-check.mjs';
+import { buildVisuals, resolveBrandCoverage } from './lib/visuals.mjs';
 import { lintPages } from './lib/html-lint.mjs';
 import { writeSeo } from './lib/seo.mjs';
 import { buildIndex } from '../assets/js/lib/search.js';
@@ -85,8 +87,12 @@ function artifacts() {
   for (const name of CATALOGS) files.set(`api/v1/${name}.json`, serialize(catalogs[name]));
   const index = buildIndex(buildSearchDocs(catalogs));
   files.set('api/v1/search-index.json', `${JSON.stringify(index)}\n`);
+  const manifestSync = JSON.parse(readFileSync(path.join(root, 'assets', 'manifest.json'), 'utf8'));
+  const visuals = buildVisuals({ catalogs, manifest: manifestSync });
+  files.set('api/v1/visuals.json', `${JSON.stringify(visuals, null, 2)}\n`);
   const endpoints = CATALOGS.map((name) => ({ name, path: `/api/v1/${name}.json`, count: catalogs[name].items.length, updated_at: catalogs[name].updated_at ?? null, sha256: sha(files.get(`api/v1/${name}.json`)) }));
   endpoints.push({ name: 'search-index', path: '/api/v1/search-index.json', count: index.docs.length, updated_at: null, sha256: sha(files.get('api/v1/search-index.json')) });
+  endpoints.push({ name: 'visuals', path: '/api/v1/visuals.json', count: Object.values(visuals.items).reduce((n, g) => n + Object.keys(g).length, 0), updated_at: null, sha256: sha(files.get('api/v1/visuals.json')) });
   files.set('api/v1/index.json', `${JSON.stringify({ api_version: 'v1', schema_version: SCHEMA_VERSION, note: 'Static files generated from catalogs/ by `npm run build`. A research index, not a live driver database and not a real-time API.', endpoints, stats: stats() }, null, 2)}\n`);
   const counts = Object.fromEntries(CATALOGS.map((n) => [n, catalogs[n].items.length]));
   files.set('openapi.json', `${JSON.stringify(buildOpenApi({ schemas, version: SCHEMA_VERSION, counts }), null, 2)}\n`);
@@ -137,7 +143,18 @@ if (mode === 'build') {
   await step('Generated files are up to date (api/v1, search index, openapi.json)', drift);
   await step('Shared page chrome is up to date', async () => { const r = await syncPages(root, { write: false }); return [...r.problems, ...r.stale.map((f) => `${f}: chrome blocks are stale (run npm run build)`)]; });
 }
-await step('Image provenance manifest, credits and vendored 7.css', () => checkAssets(root));
+await step('Image provenance manifest, credits and vendored 7.css', () => checkAssets(root, catalogs));
+await step('Visual map covers every catalog record and matches its schema', async () => {
+  const problems = [];
+  const visuals = JSON.parse(files.get('api/v1/visuals.json'));
+  const r = validators.validate('visuals', visuals);
+  if (!r.ok) problems.push(...r.errors.slice(0, 10).map((e) => `api/v1/visuals.json ${e}`));
+  for (const [group, catalog] of [['apps', 'apps'], ['tools', 'tools'], ['drivers', 'drivers'], ['vendors', 'vendors'], ['bundles', 'bundles']]) {
+    for (const item of catalogs[catalog].items) if (!visuals.items[group][item.id]) problems.push(`visual missing for ${group} ${item.id}`);
+  }
+  for (const [group, n] of Object.entries(resolveBrandCoverage(visuals))) if (n.total === 0) problems.push(`no visuals for ${group}`);
+  return problems;
+});
 await step('HTML structure, accessibility basics, CSP compatibility and links', () => lintPages(root));
 
 if (mode === 'build') {

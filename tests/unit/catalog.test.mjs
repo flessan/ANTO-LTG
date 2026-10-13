@@ -317,9 +317,10 @@ describe('generated API files and OpenAPI are in sync with the catalogs', () => 
       const file = await readText(...e.path.replace(/^\//, '').split('/'));
       assert.equal(sha(file), e.sha256, e.path);
       const doc = JSON.parse(file);
-      assert.equal(e.count, doc.items ? doc.items.length : doc.docs.length, e.path);
+      const expected = Array.isArray(doc.items) ? doc.items.length : doc.docs ? doc.docs.length : Object.values(doc.items).reduce((n, g) => n + Object.keys(g).length, 0);
+      assert.equal(e.count, expected, e.path);
     }
-    assert.deepEqual(index.endpoints.map((e) => e.name), [...CATALOGS, 'search-index']);
+    assert.deepEqual(index.endpoints.map((e) => e.name), [...CATALOGS, 'search-index', 'visuals']);
   });
   it('the search index file is the one the build would write', async () => {
     assert.equal(await readText('api', 'v1', 'search-index.json'), `${JSON.stringify(buildIndex(buildSearchDocs(base)))}\n`);
@@ -336,7 +337,7 @@ describe('generated API files and OpenAPI are in sync with the catalogs', () => 
     for (const r of refs) assert.ok(components.has(r.split('/').pop()), `dangling ${r}`);
     assert.equal(doc.openapi, '3.1.0');
     assert.equal(doc.info.version, SCHEMA_VERSION);
-    assert.deepEqual(Object.keys(doc.paths).sort(), [...CATALOGS.map((n) => `/api/v1/${n}.json`), '/api/v1/index.json', '/api/v1/search-index.json'].sort());
+    assert.deepEqual(Object.keys(doc.paths).sort(), [...CATALOGS.map((n) => `/api/v1/${n}.json`), '/api/v1/index.json', '/api/v1/search-index.json', '/api/v1/visuals.json'].sort());
     for (const key of ['Apps_app', 'Drivers_driver', 'Vendors_vendor', 'Tools_tool', 'Bundles_bundle', 'Updates_update', 'BundleManifest', 'Proposals']) assert.ok(components.has(key), key);
   });
   it('the OpenAPI text does not oversell the project', async () => {

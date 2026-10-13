@@ -6,6 +6,7 @@ import { filterDrivers, DEFAULT_DRIVER_FILTERS, describeTrust } from './lib/driv
 import { COMPONENTS, componentLabel, localized } from './lib/model.js';
 import { parseHardwareIds, lookupVendor, matchDriversByHardwareId, parseHardwareReport, osKeyFromBuild, archFromReport } from './lib/hwid.js';
 import { safeHttpUrl } from './lib/html.js';
+import { loadVisuals, visualImg } from './lib/visuals.js';
 import { publicationState, provenanceOf, isVerified } from './lib/status.js';
 
 const $ = (id) => document.getElementById(id);
@@ -51,7 +52,7 @@ function card(d) {
   if (hash) actions.append(h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: async () => toast(t((await copyText(hash)) ? 'drv.hash_copied' : 'common.copy_failed')) }, icon('copy'), d.download.sha256 ? 'SHA-256' : 'SHA-512'));
   actions.append(h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { detail: d.id } }, icon('info'), t('sw.details')));
   return h('article', { class: `driver-card${lead ? ' lead' : ''}`, id: `d-${d.id}` },
-    h('header', {}, h('span', { class: `orb${lead ? '' : ' aqua'}` }, icon(COMPONENT_ICON[d.component] ?? 'globe')), h('div', { class: 'grow' }, h('h3', {}, d.name), h('div', { class: 'chips' }, ...typeChips(d)))),
+    h('header', {}, h('span', { class: 'driver-visual' }, visualImg('drivers', d.id, { size: 40 })), h('div', { class: 'grow' }, h('h3', {}, d.name), h('div', { class: 'chips' }, ...typeChips(d)))),
     lead ? h('div', { class: 'notice warn' }, icon('warn'), h('div', {}, t('drv.lead.notice'))) : null,
     h('p', { class: 'small' }, localized(d, 'description', getLang())),
     meta, actions);
@@ -122,7 +123,7 @@ function renderVendors() {
     const count = state.drivers.filter((d) => d.vendor_id === v.id).length;
     const steps = lang === 'id' && v.instructions_id?.length ? v.instructions_id : v.instructions ?? [];
     grid.append(h('article', { class: 'vendor-card', id: `vendor-${v.id}` },
-      h('header', {}, h('span', { class: `orb sm${v.kind === 'oem' ? '' : ' aqua'}` }, icon(v.kind === 'catalog' ? 'folder' : 'globe')), h('div', {}, h('h3', {}, v.name), h('span', { class: 'chip info' }, t(`vkind.${v.kind}`)))),
+      h('header', {}, h('span', { class: 'vendor-logo' }, visualImg('vendors', v.id, { size: 44 })), h('div', {}, h('h3', {}, v.name), h('span', { class: 'chip info' }, t(`vkind.${v.kind}`)))),
       steps.length ? h('ul', { class: 'small' }, steps.map((s) => h('li', {}, s))) : null,
       (v.requires ?? []).length ? h('div', { class: 'chips row' }, h('span', { class: 'small muted' }, `${t('drv.d.requires')}:`), ...v.requires.map((r) => chip('unknown', 'lock', t(`req.${r}`)))) : null,
       h('p', { class: 'small muted' }, `${t('drv.official_domains')}: ${v.domains.join(', ')}`),
@@ -173,7 +174,7 @@ function analyze() {
 // ---- boot -----------------------------------------------------------------------------------------------------------------------
 async function init() {
   try {
-    const [drivers, vendors, index] = await Promise.all([loadCatalog('drivers'), loadCatalog('vendors'), fetchJson('api/v1/search-index.json')]);
+    const [drivers, vendors, index] = await Promise.all([loadCatalog('drivers'), loadCatalog('vendors'), fetchJson('api/v1/search-index.json'), loadVisuals()]);
     state.drivers = drivers.items; state.vendors = vendors.items; state.byId = new Map(drivers.items.map((d) => [d.id, d])); state.vendorsById = new Map(vendors.items.map((v) => [v.id, v]));
     state.meta = { schema_version: drivers.schema_version, updated_at: drivers.updated_at }; state.searcher = createSearcher(index);
   } catch (err) {
