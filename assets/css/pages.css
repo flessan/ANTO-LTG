@@ -177,3 +177,15 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 .accent-photo { width: 120px; height: auto; border-radius: 10px; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(8, 45, 85, 0.4); flex: none; }
 @media (max-width: 560px) { .intro-split { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: start; }
 .accent-photo { display: none; } }
+
+/* ---- installer: download first, lighter plan table, collapsed script preview ------------------- */
+.installer-top { display: grid; }
+.installer-top .btn-aero { min-height: 46px; font-size: 1rem; justify-content: center; }
+.plan-app { display: inline-flex; align-items: center; gap: 0.45rem; min-width: 0; flex-wrap: wrap; }
+.plan-app .app-icon { flex: none; }
+.plan-app .plan-name { min-width: 0; font-weight: 600; }
+.plan-table td { padding: 0.45rem 0.55rem; }
+.plan-table code { font-size: 0.78rem; white-space: nowrap; }
+.plan-table th { font-size: 0.78rem; }
+.mobile-installer-bar .row { gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+.mobile-installer-bar .btn-aero:disabled { opacity: 0.55; }

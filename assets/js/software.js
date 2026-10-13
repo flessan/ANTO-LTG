@@ -206,20 +206,21 @@ function buildInstallerShell() {
   refs.scriptBox.append(h('pre', { tabindex: '0', 'aria-label': t('sw.in.script_label') }, refs.script));
   const btn = (id, ic, labelKey, cls = 'ghost') => h('button', { type: 'button', class: `btn-aero ${cls} sm`, id }, icon(ic), h('span', {}, t(labelKey)));
   refs.btn = {
-    download: btn('in-download', 'download', 'sw.in.download', 'green'), copy: btn('in-copy', 'copy', 'sw.in.copy'), manifest: btn('in-manifest', 'file-down', 'sw.in.manifest'),
+    download: btn('in-download', 'cloud-download', 'sw.in.download', 'green'), copy: btn('in-copy', 'copy', 'sw.in.copy'), manifest: btn('in-manifest', 'file-down', 'sw.in.manifest'),
     importJson: btn('in-wingetjson', 'file-up', 'sw.in.wingetjson'), share: btn('in-share', 'link', 'sw.in.share'), save: btn('in-save', 'save', 'sw.in.save'),
     expand: btn('in-expand', 'maximize', 'sw.in.expand'), clear: btn('in-clear', 'trash', 'sw.in.clear', 'danger'),
     open: btn('in-open', 'folder', 'sw.in.open'), del: btn('in-del', 'trash', 'sw.in.delete'),
   };
   content.append(
+    h('div', { class: 'installer-top' }, refs.btn.download),
     h('div', { class: 'field' }, h('label', { for: 'in-name' }, t('sw.in.name')), name),
     h('div', { class: 'opt-grid' }, h('div', { class: 'field' }, h('label', { for: 'in-os' }, t('sw.in.target')), os), h('div', { class: 'field' }, h('label', { for: 'in-method' }, t('sw.in.method')), method)),
     h('fieldset', { class: 'opt-list' }, h('legend', { class: 'small muted' }, t('sw.in.options')), refs.silent, refs.agree, refs.unknown),
     h('div', {}, h('h3', {}, t('sw.in.selected')), refs.selected),
     refs.notices,
-    h('details', { class: 'fold', open: true }, h('summary', {}, t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', { class: 'plan-table' }, h('thead', {}, h('tr', {}, ['#', t('sw.in.col_app'), t('sw.in.col_command'), t('sw.in.col_notes')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
-    h('details', { class: 'fold', open: true }, h('summary', {}, t('sw.in.preview')), h('div', {}, refs.warnBox, refs.scriptBox, h('div', { class: 'row' }, refs.btn.expand))),
-    h('div', { class: 'btn-grid' }, refs.btn.download, refs.btn.copy, refs.btn.manifest, refs.btn.importJson, refs.btn.share, refs.btn.save),
+    h('details', { class: 'fold', open: true }, h('summary', {}, icon('list-checks'), t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', { class: 'plan-table' }, h('thead', {}, h('tr', {}, [t('sw.in.col_app'), t('sw.in.col_command')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
+    h('details', { class: 'fold' }, h('summary', {}, icon('terminal'), t('sw.in.preview')), h('div', {}, refs.warnBox, refs.scriptBox, h('div', { class: 'row' }, refs.btn.expand))),
+    h('div', { class: 'btn-grid' }, refs.btn.copy, refs.btn.manifest, refs.btn.importJson, refs.btn.share, refs.btn.save),
     h('div', { class: 'field' }, h('label', { for: 'in-saved' }, t('sw.in.saved')), h('div', { class: 'row' }, refs.saved, refs.btn.open, refs.btn.del)),
     h('details', { class: 'fold' }, h('summary', {}, t('sw.in.howto')), h('div', { class: 'stack' }, h('ol', {}, ['sw.in.how1', 'sw.in.how2', 'sw.in.how3', 'sw.in.how4'].map((k) => h('li', {}, t(k)))), h('p', { class: 'small muted' }, t('sw.in.how_note')))),
     h('div', { class: 'row' }, refs.btn.clear),
@@ -230,6 +231,7 @@ function buildInstallerShell() {
   method.addEventListener('change', () => { state.method = method.value; persist(); updateInstaller(); });
   for (const [key, el] of [['silent', refs.silent], ['acceptAgreements', refs.agree], ['includeUnknown', refs.unknown]]) el.querySelector('input').addEventListener('change', (e) => { state.options[key] = e.target.checked; updateInstaller(); });
   refs.btn.download.addEventListener('click', onDownload);
+  $('mb-download')?.addEventListener('click', () => refs.btn.download.click());
   refs.btn.copy.addEventListener('click', onCopy);
   refs.btn.manifest.addEventListener('click', () => { downloadText('anto-ltg-bundle.json', manifestToJson(currentManifest()), 'application/json'); toast(t('sw.toast.manifest')); });
   refs.btn.importJson.addEventListener('click', () => { const plan = currentPlan(); try { downloadText('anto-ltg-winget-import.json', `${JSON.stringify(buildWingetImport(plan, { now: new Date().toISOString() }), null, 2)}\n`, 'application/json'); toast(t('sw.toast.wingetjson')); } catch { toast(t('sw.toast.nothing'), { type: 'error' }); } });
@@ -274,14 +276,14 @@ function updateInstaller() {
   if (unknown.length) addNotice('', 'info', tn('sw.in.unknown_compat', unknown.length, { os: OS_TARGETS[state.os] }), [t('sw.in.unknown_compat_note')]);
 
   clear(ui.planBody);
-  plan.included.forEach(({ app, flags }, i) => ui.planBody.append(h('tr', {},
-    h('td', {}, String(i + 1)), h('td', {}, app.name),
-    h('td', {}, state.method === 'winget' ? h('code', {}, commandLine(app.winget_id, state.options)) : h('span', { class: 'small' }, t('sw.in.kit_row'))),
-    h('td', {}, flags.length ? chip('unknown', 'info', t('compat.unknown')) : chip('declared', 'check', t('compat.declared'))))));
+  plan.included.forEach(({ app, flags }) => ui.planBody.append(h('tr', {},
+    h('td', {}, h('span', { class: 'plan-app' }, iconTile(app), h('span', { class: 'plan-name' }, app.name), flags.length ? chip('unknown', 'info', t('compat.unknown')) : '')),
+    h('td', {}, state.method === 'winget' ? h('code', {}, commandLine(app.winget_id, state.options)) : h('span', { class: 'small' }, t('sw.in.kit_row'))))));
   ui.planNote.textContent = plan.included.length ? tn('sw.in.plan_note', plan.included.length) : t('sw.in.plan_empty');
 
   const enabled = plan.included.length > 0;
   for (const k of ['download', 'copy', 'importJson']) { ui.btn[k].disabled = !enabled; ui.btn[k].setAttribute('aria-disabled', String(!enabled)); }
+  const mobileDownload = $('mb-download'); if (mobileDownload) mobileDownload.disabled = !enabled;
   ui.btn.importJson.hidden = state.method !== 'winget';
   clear(ui.warnBox);
   ui.warnBox.hidden = false;

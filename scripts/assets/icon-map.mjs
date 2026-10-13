@@ -215,6 +215,6 @@ export const GLYPHS = {
 export const UI_ICONS = {
   // Only glyphs that the site code uses. Add a name here only together with the code that calls icon('name').
   navigation: [],
-  actions: ['file-down', 'file-up', 'link'],
+  actions: ['file-down', 'file-up', 'link', 'cloud-download', 'list-checks', 'terminal'],
   status: ['circle-check', 'circle-x'],
 };

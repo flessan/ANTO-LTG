@@ -2,6 +2,7 @@
 // dialogs and toasts. Page scripts import helpers from here.
 import { initLang, setLang, t, tn, getLang, applyI18n } from './i18n.js';
 import { h, clear } from './lib/html.js';
+import { initBackdrop } from './lib/backdrop.js';
 
 export { t, tn, getLang, applyI18n, h, clear };
 export const rootUrl = new URL('../../', import.meta.url);
@@ -133,6 +134,7 @@ function wireTaskbar() {
 
 function boot() {
   initLang();
+  initBackdrop();
   wireTaskbar();
   wireWindows();
   document.documentElement.dataset.ready = 'true';

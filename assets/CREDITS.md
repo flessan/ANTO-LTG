@@ -8,7 +8,7 @@ This file is generated from [`manifest.json`](manifest.json); do not edit it by 
   endorsements. Only the exact product or company is shown. See [LICENSING.md](../LICENSING.md).
 - **Interface glyphs and project glyphs** are open-licensed icon sets (Lucide, ISC) or original glyphs of this project (MIT).
 
-Totals: 5 photographs, 192 icon and logo assets.
+Totals: 5 photographs, 195 icon and logo assets.
 
 ## Photographs
 
@@ -269,6 +269,9 @@ Totals: 5 photographs, 192 icon and logo assets.
 | File Down interface icon | `icons/actions/file-down.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/file-down> | 2026-10-13 |
 | File UP interface icon | `icons/actions/file-up.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/file-up> | 2026-10-13 |
 | Link interface icon | `icons/actions/link.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/link> | 2026-10-13 |
+| Cloud Download interface icon | `icons/actions/cloud-download.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/cloud-download> | 2026-10-13 |
+| List Checks interface icon | `icons/actions/list-checks.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/list-checks> | 2026-10-13 |
+| Terminal interface icon | `icons/actions/terminal.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/terminal> | 2026-10-13 |
 | Circle Check interface icon | `icons/status/circle-check.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/circle-check> | 2026-10-13 |
 | Circle X interface icon | `icons/status/circle-x.svg` | Lucide contributors (ISC) | [ISC](https://opensource.org/license/isc-license-txt) | <https://lucide.dev/icons/circle-x> | 2026-10-13 |
 

@@ -8066,6 +8066,108 @@
       ]
     },
     {
+      "id": "lucide-cloud-download",
+      "kind": "ui-glyph",
+      "title": "Cloud Download interface icon",
+      "alt": "",
+      "owner": "Lucide contributors (ISC)",
+      "owner_note": "Interface glyph. Drawn with currentColor and inlined through the sprite (assets/icons/sprite.svg).",
+      "source_url": "https://lucide.dev/icons/cloud-download",
+      "source_path": "icons.json#cloud-download",
+      "source_package": "@iconify-json/lucide@1.2.143",
+      "license": "ISC",
+      "license_url": "https://opensource.org/license/isc-license-txt",
+      "retrieved_at": "2026-10-13",
+      "modifications": "Re-encoded as a standalone SVG with currentColor strokes for the sprite.",
+      "used_in": [
+        "ui:cloud-download"
+      ],
+      "targets": [
+        {
+          "type": "ui",
+          "id": "cloud-download"
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/icons/actions/cloud-download.svg",
+          "format": "svg",
+          "width": 24,
+          "height": 24,
+          "bytes": 416,
+          "sha256": "75ee30919325d8ad4ccda6f32fd8beb8516487236d64ac97ee6170e3f3eba49b"
+        }
+      ]
+    },
+    {
+      "id": "lucide-list-checks",
+      "kind": "ui-glyph",
+      "title": "List Checks interface icon",
+      "alt": "",
+      "owner": "Lucide contributors (ISC)",
+      "owner_note": "Interface glyph. Drawn with currentColor and inlined through the sprite (assets/icons/sprite.svg).",
+      "source_url": "https://lucide.dev/icons/list-checks",
+      "source_path": "icons.json#list-checks",
+      "source_package": "@iconify-json/lucide@1.2.143",
+      "license": "ISC",
+      "license_url": "https://opensource.org/license/isc-license-txt",
+      "retrieved_at": "2026-10-13",
+      "modifications": "Re-encoded as a standalone SVG with currentColor strokes for the sprite.",
+      "used_in": [
+        "ui:list-checks"
+      ],
+      "targets": [
+        {
+          "type": "ui",
+          "id": "list-checks"
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/icons/actions/list-checks.svg",
+          "format": "svg",
+          "width": 24,
+          "height": 24,
+          "bytes": 360,
+          "sha256": "789ac309c89f6258d9d7cd5d627ac4d3851fa1df5a340557bd203feb9fded87e"
+        }
+      ]
+    },
+    {
+      "id": "lucide-terminal",
+      "kind": "ui-glyph",
+      "title": "Terminal interface icon",
+      "alt": "",
+      "owner": "Lucide contributors (ISC)",
+      "owner_note": "Interface glyph. Drawn with currentColor and inlined through the sprite (assets/icons/sprite.svg).",
+      "source_url": "https://lucide.dev/icons/terminal",
+      "source_path": "icons.json#terminal",
+      "source_package": "@iconify-json/lucide@1.2.143",
+      "license": "ISC",
+      "license_url": "https://opensource.org/license/isc-license-txt",
+      "retrieved_at": "2026-10-13",
+      "modifications": "Re-encoded as a standalone SVG with currentColor strokes for the sprite.",
+      "used_in": [
+        "ui:terminal"
+      ],
+      "targets": [
+        {
+          "type": "ui",
+          "id": "terminal"
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/icons/actions/terminal.svg",
+          "format": "svg",
+          "width": 24,
+          "height": 24,
+          "bytes": 336,
+          "sha256": "8082c5673274dbd1533a365aeb7de90380658e35b38bbd216fd427defc59f627"
+        }
+      ]
+    },
+    {
       "id": "lucide-circle-check",
       "kind": "ui-glyph",
       "title": "Circle Check interface icon",
