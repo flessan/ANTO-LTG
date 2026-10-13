@@ -148,12 +148,12 @@ describe('the real search index', () => {
     assert.equal(counts.vendor, catalogs.vendors.items.length);
     assert.equal(counts.tool, catalogs.tools.items.length);
     assert.equal(counts.bundle, catalogs.bundles.items.filter((b) => b.status === 'published').length);
-    assert.equal(counts.page, 7);
+    assert.equal(counts.page, 8);
   });
 
   it('every result links to a page that exists in the site', async () => {
     const index = await readJson('api', 'v1', 'search-index.json');
-    const valid = /^(software|drivers|bundles|tools|guides|developers)?\/?(#[A-Za-z0-9=._-]+)?$/;
+    const valid = /^(software|drivers|bundles|tools|guides|developers|support)?\/?(#[A-Za-z0-9=._-]+)?$/;
     for (const d of index.docs) assert.match(d.url, valid, `${d.type}:${d.id} -> ${d.url}`);
   });
 });

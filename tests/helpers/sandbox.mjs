@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { root } from './repo.mjs';
 
-const COPY = ['package.json', 'index.html', 'software', 'drivers', 'bundles', 'tools', 'guides', 'developers', 'assets', 'scripts', 'schemas', 'catalogs', 'api', 'openapi.json'];
+const COPY = ['package.json', 'index.html', 'software', 'drivers', 'bundles', 'tools', 'guides', 'developers', 'support', 'assets', 'scripts', 'schemas', 'catalogs', 'api', 'openapi.json'];
 
 export async function makeSandbox() {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'anto-ltg-test-'));

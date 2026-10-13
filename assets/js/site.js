@@ -22,13 +22,41 @@ export async function fetchJson(path) {
 export const loadCatalog = (name) => fetchJson(`api/v1/${name}.json`);
 export const sitePath = (p) => new URL(p, rootUrl).pathname;
 
-// ---- toasts -------------------------------------------------------------------------------------------
-let region = null;
+// ---- notice board ---------------------------------------------------------------------------------------
+// One sticky strip under the taskbar (7.css status-bar). Short messages sit still; a message that is wider
+// than the strip scrolls once like a notice-board ticker, and reduced motion keeps it still and wrapped.
+// toast() keeps its old signature, so every caller still works.
+let board = null; let boardText = null; let boardTimer = 0;
+function ensureBoard() {
+  if (board) return board;
+  boardText = h('span', { class: 'notice-text' });
+  const close = h('button', { type: 'button', class: 'notice-close', 'aria-label': t('notice.close'), title: t('notice.close'), onclick: () => hideBoard() }, icon('close'));
+  board = h('section', { class: 'notice-board status-bar', 'aria-label': t('notice.label') },
+    h('p', { class: 'status-bar-field notice-field', role: 'status', 'aria-live': 'polite' }, boardText), close);
+  board.hidden = true;
+  const taskbar = document.querySelector('.taskbar');
+  if (taskbar) taskbar.after(board); else document.body.prepend(board);
+  return board;
+}
+function hideBoard() { clearTimeout(boardTimer); if (board) { board.hidden = true; board.classList.remove('error', 'ok'); boardText.textContent = ''; } }
 export function toast(message, { type = 'info', ms = 4500 } = {}) {
-  if (!region) { region = h('div', { class: 'toast-region', role: 'status', 'aria-live': 'polite' }); document.body.append(region); }
-  const el = h('div', { class: `toast ${type}` }, message);
-  region.append(el);
-  setTimeout(() => el.remove(), ms);
+  ensureBoard();
+  clearTimeout(boardTimer);
+  const bar = document.querySelector('.taskbar');
+  if (bar) board.style.setProperty('--board-top', `${Math.ceil(bar.getBoundingClientRect().height)}px`);
+  board.className = `notice-board status-bar ${type}`;
+  boardText.textContent = message;
+  board.hidden = false;
+  // Scroll only when the text does not fit; the animation is removed again by the reduced-motion CSS rule.
+  boardText.classList.remove('is-scrolling');
+  const overflow = boardText.scrollWidth - boardText.parentElement.clientWidth;
+  if (overflow > 0) {
+    boardText.style.setProperty('--ticker-distance', `${overflow + 24}px`);
+    boardText.style.setProperty('--ticker-time', `${Math.max(6, Math.round((overflow + 24) / 60))}s`);
+    void boardText.offsetWidth;
+    boardText.classList.add('is-scrolling');
+  }
+  boardTimer = setTimeout(hideBoard, ms);
 }
 
 // ---- dialogs (native <dialog>, styled as a 7.css window) -----------------------------------------------------

@@ -12,8 +12,9 @@ export const PAGES = [
   { key: 'tools', file: 'tools/index.html', route: '/tools/', icon: 'wrench', nav: true },
   { key: 'guides', file: 'guides/index.html', route: '/guides/', icon: 'book', nav: true },
   { key: 'developers', file: 'developers/index.html', route: '/developers/', icon: 'code', nav: true },
+  { key: 'support', file: 'support/index.html', route: '/support/', icon: 'help', nav: true },
 ];
-const LABELS = { home: 'Home', software: 'Software', drivers: 'Drivers', bundles: 'Bundles', tools: 'Tools', guides: 'Guides', developers: 'Developers' };
+const LABELS = { home: 'Home', software: 'Software', drivers: 'Drivers', bundles: 'Bundles', tools: 'Tools', guides: 'Guides', developers: 'Developers', support: 'Support' };
 
 const rootFor = (file) => (file.includes('/') ? '../'.repeat(file.split('/').length - 1) : '');
 const BLOCKS = ['head', 'header', 'footer'];

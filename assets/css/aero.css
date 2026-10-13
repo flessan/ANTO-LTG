@@ -201,10 +201,19 @@ dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-fil
 @keyframes dialog-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
 .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
 
-/* ---- toasts (polite live region) --------------------------------------------------------------- */
-.toast-region { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 3000; display: grid; gap: 0.5rem; width: min(380px, calc(100vw - 1.6rem)); pointer-events: none; }
-.toast { pointer-events: auto; background: var(--paper); border: 1px solid var(--sky-700); border-left-width: 6px; border-radius: var(--radius); padding: 0.6rem 0.8rem; box-shadow: 0 8px 22px rgba(8, 45, 85, 0.4); animation: dialog-in 0.18s ease-out; }
-.toast.error { border-color: var(--danger); } .toast.ok { border-color: var(--leaf-600); }
+/* ---- notice board: one sticky 7.css status-bar under the taskbar (see site.js toast) ----------- */
+.notice-board { position: sticky; top: var(--board-top, 54px); z-index: 850; display: flex; align-items: stretch; gap: 0.3rem; margin: 0; border-radius: 0; border-left: 0; border-right: 0; background: #fffbe6; min-height: 0; padding: 0.15rem 0.3rem; }
+.notice-board[hidden] { display: none; }
+.notice-board.ok { background: #f1faea; }
+.notice-board.error { background: #fdeeee; }
+.notice-field { flex: 1 1 auto; min-width: 0; overflow: hidden; margin: 0; padding: 0.3rem 0.5rem; border: 0; box-shadow: none; display: flex; align-items: center; }
+.notice-text { display: inline-block; white-space: nowrap; font-weight: 600; color: var(--ink); }
+.notice-text.is-scrolling { animation: notice-ticker var(--ticker-time, 10s) linear 1 both; }
+@keyframes notice-ticker { from { transform: translateX(0); } to { transform: translateX(calc(-1 * var(--ticker-distance, 0px))); } }
+.notice-board.error .notice-text { color: #6a1212; }
+.notice-close { flex: none; align-self: center; min-width: 0; min-height: 0; width: 26px; height: 26px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.notice-close .ic { width: 12px; height: 12px; }
+@media (prefers-reduced-motion: reduce) { .notice-text { white-space: normal; } }
 
 /* ---- responsive ------------------------------------------------------------------------------- */
 @media (max-width: 1000px) {
@@ -240,4 +249,4 @@ dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-fil
 @media (forced-colors: active) {
   .desktop-wallpaper { display: none; }
 }
-@media print { .taskbar, .desktop-wallpaper, .site-footer, .toast-region { display: none !important; } body { color: #000; background: #fff; } }
+@media print { .taskbar, .desktop-wallpaper, .site-footer,  body { color: #000; background: #fff; } }

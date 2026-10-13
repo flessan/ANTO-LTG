@@ -161,6 +161,10 @@ Be aware of what the tests cannot prove:
 * The DriverScape-based driver leads were produced from a reconstructed fixture, not a live crawl
   ([docs/crawler.md](docs/crawler.md)).
 
+## Support
+
+The [Support page](support/) lists the optional donation link, the Discord community and the feedback channels. Donations never change a catalog record, a review state or a ranking. While a donation or Discord destination has not been published, its button stays disabled and the page says so; the destinations are set in `assets/js/support.js`. Bugs and wrong records go to [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+
 ## Contributing, security, license
 
 * [CONTRIBUTING.md](CONTRIBUTING.md): how to add or correct data, the evidence rules, and how to run the checks.

@@ -48,9 +48,9 @@
     {
       "name": "search-index",
       "path": "/api/v1/search-index.json",
-      "count": 501,
+      "count": 502,
       "updated_at": null,
-      "sha256": "05106fbd572948f66c0df4fa5e927367df45826076c3514468f10ba7a7104b35"
+      "sha256": "cbfeeff8b847de983a70585c297888e0bfa153a7163786144dad040848169533"
     },
     {
       "name": "visuals",

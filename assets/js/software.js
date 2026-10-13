@@ -106,7 +106,8 @@ function quickItem(app) {
   const m = installMethods(app); const sel = state.selection.has(app.id);
   const input = h('input', { type: 'checkbox', id: `qp-${app.id}`, dataset: { id: app.id }, checked: sel, disabled: m.unavailable });
   return h('li', { class: `qp-item${sel ? ' selected' : ''}${m.unavailable ? ' disabled' : ''}` },
-    h('label', { for: `qp-${app.id}`, title: m.unavailable ? t('sw.unavailable_cannot_select') : undefined }, input, iconTile(app), h('span', { class: 'qp-name', title: app.name }, app.name)),
+    input,
+    h('label', { for: `qp-${app.id}`, title: m.unavailable ? t('sw.unavailable_cannot_select') : undefined }, iconTile(app), h('span', { class: 'qp-name', title: app.name }, app.name)),
     h('span', { class: 'method' }, methodChips(app, true)),
     h('button', { type: 'button', class: 'info-btn', dataset: { info: app.id }, 'aria-label': t('sw.details_for', { name: app.name }), title: t('sw.details') }, icon('info')));
 }
@@ -195,7 +196,7 @@ function buildInstallerShell() {
   const name = h('input', { type: 'text', id: 'in-name', maxlength: '80', autocomplete: 'off' });
   const os = h('select', { id: 'in-os' }, ...Object.entries(OS_TARGETS).map(([v, l]) => h('option', { value: v }, l)));
   const method = h('select', { id: 'in-method' }, h('option', { value: 'winget' }, t('sw.in.m_winget')), h('option', { value: 'download-kit' }, t('sw.in.m_kit')));
-  const opt = (id, labelKey, checked) => h('span', { class: 'check-row' }, h('input', { type: 'checkbox', id, checked, class: 'has-box-indicator' }), h('label', { for: id }, t(labelKey)));
+  const opt = (id, labelKey, checked) => h('span', { class: 'check-row' }, h('input', { type: 'checkbox', id, checked }), h('label', { for: id }, t(labelKey)));
   const refs = {
     name, os, method,
     silent: opt('in-silent', 'sw.in.o_silent', state.options.silent), agree: opt('in-agree', 'sw.in.o_agree', state.options.acceptAgreements), unknown: opt('in-unknown', 'sw.in.o_unknown', state.options.includeUnknown),
@@ -218,7 +219,7 @@ function buildInstallerShell() {
     h('fieldset', { class: 'opt-list' }, h('legend', { class: 'small muted' }, t('sw.in.options')), refs.silent, refs.agree, refs.unknown),
     h('div', {}, h('h3', {}, t('sw.in.selected')), refs.selected),
     refs.notices,
-    h('details', { class: 'fold', open: true }, h('summary', {}, icon('list-checks'), t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', {}, h('thead', {}, h('tr', {}, [t('sw.in.col_app'), t('sw.in.col_command')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
+    h('details', { class: 'fold', open: true }, h('summary', {}, icon('list-checks'), t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', {}, h('thead', {}, h('tr', {}, [t('sw.in.col_app'), t('sw.in.col_how')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
     h('details', { class: 'fold' }, h('summary', {}, icon('terminal'), t('sw.in.preview')), h('div', {}, refs.warnBox, refs.scriptBox, h('div', { class: 'row' }, refs.btn.expand))),
     h('div', { class: 'btn-grid' }, refs.btn.copy, refs.btn.manifest, refs.btn.importJson, refs.btn.share, refs.btn.save),
     h('div', { class: 'field' }, h('label', { for: 'in-saved' }, t('sw.in.saved')), h('div', { class: 'row' }, refs.saved, refs.btn.open, refs.btn.del)),
@@ -282,7 +283,7 @@ function updateInstaller() {
   clear(ui.planBody);
   plan.included.forEach(({ app, flags }) => ui.planBody.append(h('tr', {},
     h('td', {}, h('span', { class: 'plan-app' }, iconTile(app), h('span', { class: 'plan-name' }, app.name), flags.length ? chip('unknown', 'info', t('compat.unknown')) : '')),
-    h('td', {}, state.method === 'winget' ? h('code', {}, commandLine(app.winget_id, state.options)) : h('span', { class: 'small' }, t('sw.in.kit_row'))))));
+    h('td', {}, h('span', { class: 'small' }, state.method === 'winget' ? t('sw.in.row_winget') : t('sw.in.kit_row'))))));
   ui.planNote.textContent = plan.included.length ? tn('sw.in.plan_note', plan.included.length) : t('sw.in.plan_empty');
 
   const enabled = plan.included.length > 0;

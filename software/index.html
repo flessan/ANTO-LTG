@@ -32,6 +32,7 @@
     <a href="../tools/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#wrench"></use></svg><span data-i18n="nav.tools">Tools</span></a>
     <a href="../guides/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#book"></use></svg><span data-i18n="nav.guides">Guides</span></a>
     <a href="../developers/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#code"></use></svg><span data-i18n="nav.developers">Developers</span></a>
+    <a href="../support/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#help"></use></svg><span data-i18n="nav.support">Support</span></a>
   </nav>
   <div class="tray">
     <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="nav.language">
@@ -86,7 +87,7 @@
             <select id="sw-publication" name="publication"><option value="" data-i18n="common.any">Any</option><option value="published" data-i18n="status.published">Published automatically</option><option value="unavailable" data-i18n="status.unavailable">Unavailable (needs attention)</option><option value="verified" data-i18n="status.verified">Human-verified</option></select></div>
           <div class="field"><label for="sw-sort" data-i18n="sw.f.sort">Sort by</label>
             <select id="sw-sort" name="sort"><option value="name" data-i18n="sw.sort.name">Name</option><option value="category" data-i18n="sw.sort.category">Category</option><option value="relevance" data-i18n="sw.sort.relevance">Best match</option></select></div>
-          <input type="checkbox" class="has-box-indicator" id="sw-declared" name="declaredOnly"><label for="sw-declared" data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</label>
+          <input type="checkbox" id="sw-declared" name="declaredOnly"><label for="sw-declared" data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</label>
           <div><button type="reset" id="sw-reset" data-i18n="common.reset">Reset filters</button></div>
         </form>
 

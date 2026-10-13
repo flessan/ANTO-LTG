@@ -46,6 +46,10 @@
 .qp-item:hover { background: var(--sky-50); border-color: var(--line-soft); }
 .qp-item.selected { background: #e5f4ff; border-color: var(--sky-400); }
 .qp-item.disabled { opacity: 0.65; }
+/* 7.css draws buttons with absolutely positioned ::before/::after overlays; these
+   controls reset position, so the overlays must be removed to keep clicks local. */
+.seg button::before, .seg button::after, .info-btn::before, .info-btn::after { content: none; }
+.seg button, .info-btn { position: relative; }
 .qp-item label { display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 0; cursor: pointer; }
 .qp-item.disabled label { cursor: not-allowed; }
 .qp-name { flex: 1 1 auto; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
@@ -168,3 +172,19 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 .plan-app .app-icon { flex: none; }
 .plan-app .plan-name { min-width: 0; font-weight: 600; }
 .mobile-installer-bar .row { gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
+
+/* ---- support page: 7.css fieldsets and buttons; the grid drops to one column on narrow screens ------ */
+.support-intro h1 { margin: 0 0 0.4rem; font-size: 1.5rem; color: var(--sky-900); }
+.support-intro p { margin: 0; max-width: 62ch; }
+.support-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.support-card { margin: 0; min-width: 0; padding: 0.9rem 1rem 1rem; }
+.support-card legend { font-weight: 700; font-size: 1.05rem; color: var(--sky-900); padding: 0 0.3rem; }
+.support-card p { margin: 0 0 0.7rem; }
+.support-pending { color: var(--ink-soft); font-style: italic; }
+.support-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.support-actions button:disabled { color: var(--ink-muted); cursor: not-allowed; }
+.support-donate { border-color: var(--sky-400); background: #f7fbff; }
+.support-links { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.45rem; }
+.support-note { margin: 0; }
+.support-note .status-bar-field { margin: 0; padding: 0.5rem 0.7rem; }
+@media (max-width: 720px) { .support-grid { grid-template-columns: minmax(0, 1fr); } }

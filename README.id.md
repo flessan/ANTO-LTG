@@ -87,6 +87,10 @@ CSP yang ketat, DOM dibangun tanpa `innerHTML`, ID paket divalidasi, skrip Power
 - Belum ada entri yang diverifikasi oleh pengelola. Publikasi bersifat otomatis; tinjauan tidak.
 - Data driver masih terbatas. Daftar driver pihak ketiga hanya petunjuk dan tidak pernah dipublikasikan.
 
+## Dukungan
+
+[Halaman Dukungan](support/) memuat tautan donasi opsional, komunitas Discord, dan kanal masukan. Donasi tidak pernah mengubah data katalog, status tinjauan, atau peringkat. Selama tujuan donasi atau Discord belum dipublikasikan, tombolnya tetap nonaktif dan halaman menjelaskannya; tujuan diatur di `assets/js/support.js`. Laporan bug dan data yang keliru dikirim ke [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+
 ## Berkontribusi dan lisensi
 
 Lihat [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), [LICENSE](LICENSE) (MIT untuk kode, dokumentasi,
