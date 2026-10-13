@@ -1,0 +1,587 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Provenance manifest for every third-party image shipped in assets/img. Each entry records where the photo came from, who made it, under which license it may be used, when it was retrieved and exactly how it was modified. assets/img is generated from the recipes below by scripts/assets/build-images.mjs.",
+  "assets": [
+    {
+      "id": "sky-meadow",
+      "type": "photo",
+      "title": "Green grass hill under a blue sky with white clouds",
+      "alt": "A bright green grassy hill under a deep blue sky with a few white clouds",
+      "source_url": "https://unsplash.com/photos/green-grass-field-under-blue-sky-and-white-clouds-during-daytime-SVVKbAy5CDc",
+      "original_image_url": "https://images.unsplash.com/photo-1628953535333-a64a918181c0",
+      "retrieved_size": "3000x2000",
+      "author": "Se. Tsuchiya",
+      "author_url": "https://unsplash.com/@s_tsuchiya",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "license_summary": "Free to use, copy, modify and distribute, including commercially, without permission or attribution. Photos may not be compiled into a competing photo service. The license applies to the photo only and is not relicensed by this project.",
+      "published_at": "2021-08-14",
+      "retrieved_at": "2026-10-13",
+      "retrieval_note": "Downloaded from the Unsplash CDN rendition (3000 px wide, JPEG quality 60) that the photo page links to. The page and the CDN URL were checked against each other; the license line was read on the photo page.",
+      "used_in": [
+        "desktop wallpaper on every page",
+        "social preview image"
+      ],
+      "recipe": {
+        "variants": [
+          {
+            "name": "wallpaper",
+            "widths": [
+              960,
+              1600,
+              2560
+            ],
+            "formats": [
+              "avif",
+              "webp",
+              "jpg"
+            ]
+          },
+          {
+            "name": "horizon",
+            "crop": {
+              "left": 0,
+              "top": 560,
+              "width": 3000,
+              "height": 937
+            },
+            "widths": [
+              640,
+              1280,
+              1920
+            ],
+            "formats": [
+              "webp",
+              "jpg"
+            ]
+          },
+          {
+            "name": "og",
+            "crop": {
+              "left": 0,
+              "top": 250,
+              "width": 3000,
+              "height": 1575
+            },
+            "widths": [
+              1200
+            ],
+            "formats": [
+              "jpg"
+            ]
+          }
+        ]
+      },
+      "modifications": "Resized and re-encoded (AVIF, WebP, JPEG). 'horizon' and 'og' are crops. No color grading.",
+      "files": [
+        {
+          "path": "assets/img/sky-meadow-wallpaper-960.avif",
+          "variant": "wallpaper",
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "bytes": 50372,
+          "sha256": "75c25bbe07a17fa903153256152c41f2914f556dccc5d9bbcf849af7c2d0b6b2"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-960.webp",
+          "variant": "wallpaper",
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 83446,
+          "sha256": "ea9fe8fb024f7c0bd7a1474d04fa025a112fe0aa112e9bfe25c53adf3e73b508"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-960.jpg",
+          "variant": "wallpaper",
+          "format": "jpg",
+          "width": 960,
+          "height": 640,
+          "bytes": 98369,
+          "sha256": "8efddb3b7ba9468f17c80721bc309d64daf7dca0274f15e9b40dabcf5a2257c2"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-1600.avif",
+          "variant": "wallpaper",
+          "format": "avif",
+          "width": 1600,
+          "height": 1067,
+          "bytes": 119881,
+          "sha256": "1befd7c41e45f7d0b9a4962e80bb4f84f145d40d91d6e4b7f90724cf23317b00"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-1600.webp",
+          "variant": "wallpaper",
+          "format": "webp",
+          "width": 1600,
+          "height": 1067,
+          "bytes": 196850,
+          "sha256": "88bcb4f190d2b74468a0dd00ca28916502932bc196a8113f2933fa3feb235918"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-1600.jpg",
+          "variant": "wallpaper",
+          "format": "jpg",
+          "width": 1600,
+          "height": 1067,
+          "bytes": 246461,
+          "sha256": "ec3ecb8aa33da69e5b62f5cb5af60ecb741a86279a4d806e4ae4fc3e2a8fbd0d"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-2560.avif",
+          "variant": "wallpaper",
+          "format": "avif",
+          "width": 2560,
+          "height": 1707,
+          "bytes": 247469,
+          "sha256": "c51a0ce8e05202f56c30364b775183361b667b070972ada6cb1d556849c973ae"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-2560.webp",
+          "variant": "wallpaper",
+          "format": "webp",
+          "width": 2560,
+          "height": 1707,
+          "bytes": 383396,
+          "sha256": "c09ab05e11cc5086d83fde15ebfc321511230c5e9640315eeda514e4a84dec15"
+        },
+        {
+          "path": "assets/img/sky-meadow-wallpaper-2560.jpg",
+          "variant": "wallpaper",
+          "format": "jpg",
+          "width": 2560,
+          "height": 1707,
+          "bytes": 534657,
+          "sha256": "32ae93d957d0acad48527ac4201874e7b7698085fa9b68080cb7f8fd2e38dbcb"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-640.webp",
+          "variant": "horizon",
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "bytes": 20060,
+          "sha256": "fa7e3c1c9c2907e828ed08e2dd80a26d3c072411c09927d3e4a5dbb0ef10568d"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-640.jpg",
+          "variant": "horizon",
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "bytes": 22256,
+          "sha256": "52b33a209078521c1042e465e71f3091ab66f6499aef712c5715c46d47d3bba3"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-1280.webp",
+          "variant": "horizon",
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "bytes": 69180,
+          "sha256": "80192743d4142ce5f28564047d7ff0f15ed61311b8aae299e31ec3e0cc4c8b5e"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-1280.jpg",
+          "variant": "horizon",
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "bytes": 80622,
+          "sha256": "09144d3fb15569acd73b40ca69859e49cd250cb2c7f1bcd2395904ea229087a8"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-1920.webp",
+          "variant": "horizon",
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "bytes": 136016,
+          "sha256": "5abba674184449cf98c47fa1f25eb45012b98c97c119637ad5a615ce3b84bfe6"
+        },
+        {
+          "path": "assets/img/sky-meadow-horizon-1920.jpg",
+          "variant": "horizon",
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "bytes": 167413,
+          "sha256": "b816df87dec626df7a9a39fd617dcbdeb06a1507c2e8c55dc0a3fe6200d911c8"
+        },
+        {
+          "path": "assets/img/sky-meadow-og-1200.jpg",
+          "variant": "og",
+          "format": "jpg",
+          "width": 1200,
+          "height": 630,
+          "bytes": 124816,
+          "sha256": "289f62183dc5e466318fa94384bb1b5f362a93a44a3b907288ca484cfa27a75a"
+        }
+      ]
+    },
+    {
+      "id": "leaf-droplets",
+      "type": "photo",
+      "title": "Water droplets on a green leaf",
+      "alt": "Close-up of a dark green leaf covered in glistening water droplets",
+      "source_url": "https://unsplash.com/photos/water-droplets-on-green-leaf-m2cNS2FXuOk",
+      "original_image_url": "https://images.unsplash.com/photo-1597759011181-65dac56d7a53",
+      "retrieved_size": "3000x4000",
+      "author": "Mark Olsen",
+      "author_url": "https://unsplash.com/@markolsen",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "license_summary": "Free to use, copy, modify and distribute, including commercially, without permission or attribution. Photos may not be compiled into a competing photo service. The license applies to the photo only and is not relicensed by this project.",
+      "published_at": "2020-08-18",
+      "retrieved_at": "2026-10-13",
+      "retrieval_note": "Downloaded from the Unsplash CDN rendition (3000 px wide, JPEG quality 60). Photo page and CDN URL were checked against each other; the license line was read on the photo page.",
+      "used_in": [
+        "Software page banner"
+      ],
+      "recipe": {
+        "variants": [
+          {
+            "name": "banner",
+            "crop": {
+              "left": 0,
+              "top": 1000,
+              "width": 3000,
+              "height": 937
+            },
+            "adjust": {
+              "brightness": 1.12,
+              "saturation": 1.15
+            },
+            "widths": [
+              640,
+              1280,
+              1920
+            ],
+            "formats": [
+              "webp",
+              "jpg"
+            ]
+          }
+        ]
+      },
+      "modifications": "Cropped to a 16:5 band, brightness +12% and saturation +15%, resized and re-encoded (WebP, JPEG).",
+      "files": [
+        {
+          "path": "assets/img/leaf-droplets-banner-640.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "bytes": 15728,
+          "sha256": "cddee5b28345d27977d2ef073caa30d817df7dbc5bb44446894c80be298e7b38"
+        },
+        {
+          "path": "assets/img/leaf-droplets-banner-640.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "bytes": 20126,
+          "sha256": "bc7262c8da7aa6fd1cf389e439cfc977218e5e0c3fd28cbc9c14dfb6cf419812"
+        },
+        {
+          "path": "assets/img/leaf-droplets-banner-1280.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "bytes": 41348,
+          "sha256": "66fab8f827ebee2dc6200ab4c07bb4bde715bd2a4d25f70b6a82e95145676165"
+        },
+        {
+          "path": "assets/img/leaf-droplets-banner-1280.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "bytes": 59275,
+          "sha256": "2ea406c07c5c1c7127293508652a88b20ae7c1d64f88d72d0c078588fbfb85e2"
+        },
+        {
+          "path": "assets/img/leaf-droplets-banner-1920.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "bytes": 78658,
+          "sha256": "0f59ec57b1c8f37189178f4ace2f6086cb0278c978b36a6b379ce88775ec95ac"
+        },
+        {
+          "path": "assets/img/leaf-droplets-banner-1920.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "bytes": 114781,
+          "sha256": "868716dba75abe99af345514b32e3cd5dd7c5afb5517921e13c92227345b0688"
+        }
+      ]
+    },
+    {
+      "id": "forest-canopy",
+      "type": "photo",
+      "title": "Sunlight shining through a green forest canopy",
+      "alt": "Sunlight breaking through bright green leaves high in a forest canopy",
+      "source_url": "https://unsplash.com/photos/sunlight-shines-through-the-green-forest-canopy-IlaY6fovzwM",
+      "original_image_url": "https://images.unsplash.com/photo-1746565212969-2e1c7fbe9a82",
+      "retrieved_size": "3000x4000",
+      "author": "Haberdoedas",
+      "author_url": "https://unsplash.com/@haberdoedas",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "license_summary": "Free to use, copy, modify and distribute, including commercially, without permission or attribution. Photos may not be compiled into a competing photo service. The license applies to the photo only and is not relicensed by this project.",
+      "published_at": "2025-05-06",
+      "retrieved_at": "2026-10-13",
+      "retrieval_note": "Downloaded from the Unsplash CDN rendition (3000 px wide, JPEG quality 60). Photo page and CDN URL were checked against each other; the license line was read on the photo page.",
+      "used_in": [
+        "Tools page banner",
+        "Guides page banner"
+      ],
+      "recipe": {
+        "variants": [
+          {
+            "name": "banner",
+            "crop": {
+              "left": 0,
+              "top": 150,
+              "width": 3000,
+              "height": 937
+            },
+            "widths": [
+              640,
+              1280,
+              1920
+            ],
+            "formats": [
+              "webp",
+              "jpg"
+            ]
+          }
+        ]
+      },
+      "modifications": "Cropped to a 16:5 band, resized and re-encoded (WebP, JPEG). No color grading.",
+      "files": [
+        {
+          "path": "assets/img/forest-canopy-banner-640.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "bytes": 31498,
+          "sha256": "5e8804d7cf492744f4f7c8e8aa32f27890442fcd09783632fbab2d11ce93b2e0"
+        },
+        {
+          "path": "assets/img/forest-canopy-banner-640.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "bytes": 33072,
+          "sha256": "ead26574458b419d8746fd361848d43b95ea318554210d2d6d5a4c045f4ea45c"
+        },
+        {
+          "path": "assets/img/forest-canopy-banner-1280.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "bytes": 79494,
+          "sha256": "c33659dd8e713f0b768a89b52eb6f2cb058e5e4802e56cf16bc26d2ff81f9169"
+        },
+        {
+          "path": "assets/img/forest-canopy-banner-1280.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "bytes": 96265,
+          "sha256": "33abd7f168f2d94a62969eba778d3971a48d5e9954e0e2e4a710cb8009f8e2aa"
+        },
+        {
+          "path": "assets/img/forest-canopy-banner-1920.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "bytes": 133316,
+          "sha256": "39c5b8d1ef15abe6a6cff431f5d84dc5abf4cc4ff4f63495511d6b497df50f03"
+        },
+        {
+          "path": "assets/img/forest-canopy-banner-1920.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "bytes": 176662,
+          "sha256": "389559c434430d76a254f6f46a9f136d0727b379942f3cc9f4f516ffb59c1bb6"
+        }
+      ]
+    },
+    {
+      "id": "ocean-aerial",
+      "type": "photo",
+      "title": "Aerial view of turquoise ocean water",
+      "alt": "Aerial view of clear turquoise sea water with sunlight patterns over the seabed",
+      "source_url": "https://unsplash.com/photos/turquoise-ocean-water-from-above-j3ScfSO5_QQ",
+      "original_image_url": "https://images.unsplash.com/photo-1788253892549-7f549fdceaf2",
+      "retrieved_size": "3000x2250",
+      "author": "Iain",
+      "author_url": "https://unsplash.com/@photoken123",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "license_summary": "Free to use, copy, modify and distribute, including commercially, without permission or attribution. Photos may not be compiled into a competing photo service. The license applies to the photo only and is not relicensed by this project.",
+      "published_at": "2026-09-01",
+      "retrieved_at": "2026-10-13",
+      "retrieval_note": "Downloaded from the Unsplash CDN rendition (3000 px wide, JPEG quality 60). Photo page and CDN URL were checked against each other; the license line was read on the photo page.",
+      "used_in": [
+        "Bundles page banner",
+        "Developers page banner"
+      ],
+      "recipe": {
+        "variants": [
+          {
+            "name": "banner",
+            "crop": {
+              "left": 0,
+              "top": 650,
+              "width": 3000,
+              "height": 937
+            },
+            "adjust": {
+              "brightness": 1.2,
+              "saturation": 1.3
+            },
+            "widths": [
+              640,
+              1280,
+              1920
+            ],
+            "formats": [
+              "webp",
+              "jpg"
+            ]
+          }
+        ]
+      },
+      "modifications": "Cropped to a 16:5 band, brightness +20% and saturation +30%, resized and re-encoded (WebP, JPEG).",
+      "files": [
+        {
+          "path": "assets/img/ocean-aerial-banner-640.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 640,
+          "height": 200,
+          "bytes": 3624,
+          "sha256": "896b0d12800ecc977be80a9862fdea3e18e04ac90a6989f5e50096b931183c98"
+        },
+        {
+          "path": "assets/img/ocean-aerial-banner-640.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 640,
+          "height": 200,
+          "bytes": 6924,
+          "sha256": "7d3b4569930de5ccdf992fab3c19ab267ea20b098e648653b50988e04b6513d1"
+        },
+        {
+          "path": "assets/img/ocean-aerial-banner-1280.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1280,
+          "height": 400,
+          "bytes": 10058,
+          "sha256": "0305a2bd686e2f4213e2cdfc2e244226cc536db28df55631306fbb6b72a8dccb"
+        },
+        {
+          "path": "assets/img/ocean-aerial-banner-1280.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1280,
+          "height": 400,
+          "bytes": 20609,
+          "sha256": "e079906093fe974c063c35c7821173b5607ef79d64c7393e16ecb01dec5535d9"
+        },
+        {
+          "path": "assets/img/ocean-aerial-banner-1920.webp",
+          "variant": "banner",
+          "format": "webp",
+          "width": 1920,
+          "height": 600,
+          "bytes": 18638,
+          "sha256": "5fbbd973397d652d206acbb81da3797dba9365a6e9964e73982736b8b0c5bb40"
+        },
+        {
+          "path": "assets/img/ocean-aerial-banner-1920.jpg",
+          "variant": "banner",
+          "format": "jpg",
+          "width": 1920,
+          "height": 600,
+          "bytes": 39984,
+          "sha256": "becd1263e5e8d9c5ac142fd21c8f158405627866ae30c270b0ac929aabea850a"
+        }
+      ]
+    },
+    {
+      "id": "wing-sky",
+      "type": "photo",
+      "title": "An aircraft wing under the blue sky",
+      "alt": "The white wing and blue winglet of an airliner seen from a window, over a cyan sky and farmland far below",
+      "source_url": "https://www.pexels.com/photo/an-aircraft-wing-under-the-blue-sky-8147302/",
+      "original_image_url": "https://images.pexels.com/photos/8147302/pexels-photo-8147302.jpeg",
+      "retrieved_size": "500x667",
+      "source_dimensions": "2583x3444",
+      "author": "Trippy Clicker",
+      "author_url": "https://www.pexels.com/@wanderlustimages/",
+      "license": "Pexels License",
+      "license_url": "https://www.pexels.com/license/",
+      "license_summary": "Free to use and modify for commercial and non-commercial purposes, attribution not required. Not allowed: selling or redistributing unaltered copies, or presenting the photo on a competing stock or wallpaper service. The license applies to the photo only and is not relicensed by this project.",
+      "published_at": "2021-05-31",
+      "retrieved_at": "2026-10-13",
+      "retrieval_note": "Only the 500 px wide preview rendition (500x667) was available to the retrieval tool, so the photo is used as a small accent image and is never upscaled. The photo page and author were read on pexels.com.",
+      "used_in": [
+        "Drivers page accent (small aviation detail)"
+      ],
+      "recipe": {
+        "variants": [
+          {
+            "name": "accent",
+            "widths": [
+              500
+            ],
+            "formats": [
+              "webp",
+              "jpg"
+            ]
+          }
+        ]
+      },
+      "modifications": "Re-encoded (WebP, JPEG) at the original 500x667 size. No crop, no color grading.",
+      "files": [
+        {
+          "path": "assets/img/wing-sky-accent-500.webp",
+          "variant": "accent",
+          "format": "webp",
+          "width": 500,
+          "height": 667,
+          "bytes": 21188,
+          "sha256": "c11a8a396bce8c3318785a2fb1f17bc50ae3d0dd678d7565a2c137a57d97bc3a"
+        },
+        {
+          "path": "assets/img/wing-sky-accent-500.jpg",
+          "variant": "accent",
+          "format": "jpg",
+          "width": 500,
+          "height": 667,
+          "bytes": 35750,
+          "sha256": "4735c41ef91dc2f61bc103c3eaf8820edab4454f99a49bcdd6ef965594143a1d"
+        }
+      ]
+    }
+  ]
+}

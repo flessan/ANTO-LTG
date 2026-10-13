@@ -1,37 +1,45 @@
-(() => {
-  const root = document.documentElement.dataset.root || './';
-  const form = document.querySelector('[data-global-search-form]');
-  const input = document.querySelector('[data-global-search]');
-  const results = document.querySelector('[data-global-results]');
-  const summary = document.querySelector('[data-global-summary]');
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  let entries = [];
-  Promise.all(['apps', 'drivers', 'tools', 'bundles'].map(async type => {
-    const response = await fetch(`${root}api/v1/${type}.json`);
-    if (!response.ok) throw new Error('catalog unavailable');
-    const data = await response.json();
-    return (data.items || []).map(item => ({...item, _type: type}));
-  })).then(groups => { entries = groups.flat(); if (input?.value.trim()) runSearch(input.value); }).catch(() => {
-    if (summary) summary.textContent = 'Pencarian katalog sementara tidak tersedia.';
-  });
+import { t, tn, fetchJson, h, clear, icon, sitePath } from './site.js';
+import { createSearcher } from './lib/search.js';
 
-  function runSearch(query) {
-    const q = query.trim().toLowerCase();
-    results.hidden = !q;
-    if (!q) { results.innerHTML = ''; summary.textContent = 'Cari berdasarkan nama, produsen, kategori, atau model perangkat.'; return; }
-    const matches = entries.filter(item => [item.name, item.description, item.publisher, item.category, item.id].join(' ').toLowerCase().includes(q)).slice(0, 8);
-    summary.textContent = matches.length ? `${matches.length} hasil teratas` : 'Belum ada hasil yang cocok.';
-    results.innerHTML = matches.map(item => {
-      const page = {apps:'software/', drivers:'drivers/', tools:'tools/', bundles:'bundles/'}[item._type];
-      const status = item.verification_status === 'verified' ? 'Tinjau selesai' : item.status === 'published' ? 'Dipublikasikan' : 'Menunggu tinjauan';
-      return `<a class="search-result" href="${root + page}"><span class="search-result__mark">${item._type === 'apps' ? 'S' : item._type === 'drivers' ? 'D' : item._type === 'tools' ? 'T' : 'B'}</span><span class="search-result__copy"><strong>${esc(item.name)}</strong><small>${esc(item.publisher || item.description)} · ${esc(status)}</small></span><span aria-hidden="true">↗</span></a>`;
-    }).join('');
-  }
-  form?.addEventListener('submit', event => { event.preventDefault(); runSearch(input.value); });
-  input?.addEventListener('input', () => runSearch(input.value));
-  document.querySelectorAll('[data-search-shortcut]').forEach(button => button.addEventListener('click', () => {
-    input.value = button.dataset.searchShortcut;
-    runSearch(input.value);
-    input.focus();
-  }));
-})();
+const form = document.getElementById('home-form'); const input = document.getElementById('home-q'); const list = document.getElementById('home-results'); const stats = document.getElementById('home-stats');
+let searcher = null; let loading = null;
+
+const ICON = { app: 'software', driver: 'chip', vendor: 'globe', tool: 'wrench', bundle: 'bundle', page: 'home' };
+const TYPE_KEY = { app: 'type.app', driver: 'type.driver', vendor: 'type.vendor', tool: 'type.tool', bundle: 'type.bundle', page: 'type.page' };
+
+async function ensureSearcher() {
+  loading ??= fetchJson('api/v1/search-index.json').then((idx) => { searcher = createSearcher(idx); return searcher; });
+  return loading;
+}
+
+async function run() {
+  const q = input.value.trim();
+  clear(list);
+  if (!q) return;
+  try {
+    const s = await ensureSearcher();
+    const hits = s.search(q, { limit: 8 });
+    if (!hits.length) { list.append(h('li', { class: 'notice' }, icon('info'), h('div', {}, t('home.no_results', { q })))); return; }
+    for (const { doc } of hits) {
+      const url = new URL(doc.url, new URL(sitePath(''), location.origin));
+      list.append(h('li', {}, h('a', { href: `${url.pathname}${url.hash}` }, h('span', { class: 'orb sm' }, icon(ICON[doc.type] ?? 'info')), h('span', {}, h('span', { class: 'sr-title' }, doc.title), h('br'), h('span', { class: 'sr-sub' }, doc.subtitle)), h('span', { class: 'chip info' }, t(TYPE_KEY[doc.type] ?? 'type.page')))));
+    }
+  } catch { list.append(h('li', { class: 'notice error', role: 'alert' }, icon('warn'), h('div', {}, t('common.load_error')))); }
+}
+
+let timer = 0;
+input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 160); });
+form.addEventListener('submit', (e) => { e.preventDefault(); run(); });
+document.addEventListener('anto:lang', run);
+
+async function loadStats() {
+  try {
+    const idx = await fetchJson('api/v1/index.json');
+    const s = idx.stats;
+    clear(stats);
+    const item = (n, key) => h('span', {}, h('strong', {}, String(n)), ' ', tn(key, n));
+    stats.append(item(s.apps.total, 'home.stat.apps'), item(s.drivers.total, 'home.stat.drivers'), item(s.vendors.total, 'home.stat.vendors'), h('span', {}, h('strong', {}, String(s.review.verified)), ' ', t('home.stat.verified')), h('span', {}, h('strong', {}, String(s.review.pending_review)), ' ', t('home.stat.pending')));
+  } catch { /* the stats strip is optional */ }
+}
+loadStats();
+document.addEventListener('anto:lang', loadStats);

@@ -1,0 +1,314 @@
+/* ANTO-LTG Aero layer.
+ *
+ * Sits on top of the vendored 7.css (assets/vendor/7.css, MIT) and only overrides it through the
+ * cascade; 7.css itself is never edited. Design rules:
+ *   - glass is for chrome (taskbar, window frames, footer); body text sits on solid light surfaces;
+ *   - palette: sky blue, white, cyan/turquoise and natural green (no purple, no neon);
+ *   - every glossy effect has a plain fallback (prefers-reduced-transparency, prefers-contrast, forced-colors).
+ */
+
+:root {
+  color-scheme: light;
+  --sky-50: #f2f9ff; --sky-100: #dff0fc; --sky-200: #bfe0f7; --sky-300: #8cc8ef; --sky-400: #54a9e3;
+  --sky-500: #2f87cf; --sky-600: #1d6cb3; --sky-700: #14528f; --sky-800: #0e3d6c; --sky-900: #0a2a4a;
+  --aqua-300: #7fe0e6; --aqua-400: #3fd0d8; --aqua-500: #16b5bf; --teal-600: #0b7f88; --teal-700: #08666e;
+  --leaf-300: #a5e07a; --leaf-400: #79c94a; --leaf-500: #4aa82e; --leaf-600: #2f8a22; --leaf-700: #226b1a;
+  --ink: #0f2a43; --ink-soft: #2f4a64; --ink-muted: #4d6780;
+  --paper: #f7fbff; --paper-2: #edf5fc; --paper-3: #e1edf8; --line: #a9c3d9; --line-soft: #c9dbea;
+  --warn-bg: #fff4d6; --warn-ink: #5c3f00; --warn-line: #d8b24a; --danger: #a21f14; --danger-bg: #fdecea; --ok-bg: #e6f6dc; --ok-ink: #1c5a14;
+  --glass: rgba(255, 255, 255, 0.55); --glass-strong: rgba(255, 255, 255, 0.86); --glass-edge: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 12px 32px rgba(8, 45, 85, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --radius: 8px; --radius-lg: 12px;
+  --font: "Segoe UI", "Noto Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+  --focus-ring: #0a2a4a;
+  /* re-skin the 7.css tokens */
+  --w7-font: 0.95rem "Segoe UI", "Noto Sans", system-ui, sans-serif;
+  --w7-surface: var(--paper);
+  --w7-w-bg: #8cc4ee;
+  --w7-link-c: #0b5aa6; --w7-link-c-h: #0a79d6; --w7-title-c: #0e3d6c;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #5fa8e0; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font: 400 15px/1.55 var(--font); color: var(--ink); background: transparent; }
+img, svg { max-width: 100%; }
+img { height: auto; }
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.5em; color: var(--sky-900); }
+h1 { font-size: clamp(1.7rem, 2.6vw + 0.8rem, 2.5rem); font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 650; }
+h3 { font-size: 1.1rem; font-weight: 650; }
+p { margin: 0 0 0.8em; }
+a { color: var(--w7-link-c); }
+code, kbd, samp, pre { font-family: var(--mono); font-size: 0.9em; }
+code { background: var(--paper-3); border: 1px solid var(--line-soft); border-radius: 4px; padding: 0.05em 0.35em; overflow-wrap: anywhere; }
+pre { background: #0f2438; color: #e7f3ff; border-radius: var(--radius); padding: 0.9rem 1rem; overflow: auto; margin: 0; line-height: 1.5; tab-size: 4; }
+pre code { background: none; border: 0; padding: 0; color: inherit; }
+ul, ol { padding-left: 1.3rem; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.ic { width: 1.25em; height: 1.25em; flex: none; vertical-align: -0.22em; }
+[hidden] { display: none !important; }
+
+/* ---- accessibility: focus is always visible, on glass and on paper alike ---------------------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring) !important; outline-offset: 2px !important; box-shadow: 0 0 0 2px #fff !important; border-radius: 4px;
+}
+.skip-link { position: absolute; left: 0.5rem; top: -4rem; z-index: 2000; background: #fff; color: var(--sky-900); padding: 0.6rem 1rem; border-radius: 0 0 var(--radius) var(--radius); font-weight: 700; transition: top 0.15s; }
+.skip-link:focus { top: 0; }
+
+/* ---- the desktop: a real photograph behind everything ---------------------------------------- */
+.desktop-wallpaper {
+  position: fixed; inset: 0; z-index: -1; background-color: #5fa8e0;
+  background-image: linear-gradient(180deg, rgba(10, 60, 120, 0.28) 0%, rgba(255, 255, 255, 0) 38%, rgba(10, 70, 24, 0.28) 100%), url("../img/sky-meadow-wallpaper-960.jpg");
+  background-size: cover; background-position: center 38%;
+}
+@supports (background-image: image-set(url("a.avif") type("image/avif"))) {
+  .desktop-wallpaper {
+    background-image: linear-gradient(180deg, rgba(10, 60, 120, 0.28) 0%, rgba(255, 255, 255, 0) 38%, rgba(10, 70, 24, 0.28) 100%),
+      image-set(url("../img/sky-meadow-wallpaper-960.avif") type("image/avif"), url("../img/sky-meadow-wallpaper-960.webp") type("image/webp"), url("../img/sky-meadow-wallpaper-960.jpg") type("image/jpeg"));
+  }
+  @media (min-width: 1100px) {
+    .desktop-wallpaper { background-image: linear-gradient(180deg, rgba(10, 60, 120, 0.28) 0%, rgba(255, 255, 255, 0) 38%, rgba(10, 70, 24, 0.28) 100%),
+      image-set(url("../img/sky-meadow-wallpaper-1600.avif") type("image/avif"), url("../img/sky-meadow-wallpaper-1600.webp") type("image/webp"), url("../img/sky-meadow-wallpaper-1600.jpg") type("image/jpeg")); }
+  }
+  @media (min-width: 1800px) {
+    .desktop-wallpaper { background-image: linear-gradient(180deg, rgba(10, 60, 120, 0.28) 0%, rgba(255, 255, 255, 0) 38%, rgba(10, 70, 24, 0.28) 100%),
+      image-set(url("../img/sky-meadow-wallpaper-2560.avif") type("image/avif"), url("../img/sky-meadow-wallpaper-2560.webp") type("image/webp"), url("../img/sky-meadow-wallpaper-2560.jpg") type("image/jpeg")); }
+  }
+}
+
+/* ---- taskbar (top) -------------------------------------------------------------------------- */
+.taskbar {
+  position: sticky; top: 0; z-index: 900; display: flex; align-items: center; gap: 0.6rem; min-height: 54px; padding: 0.3rem 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.72), rgba(205, 232, 252, 0.55) 48%, rgba(135, 195, 240, 0.5) 52%, rgba(190, 225, 250, 0.62));
+  -webkit-backdrop-filter: blur(12px) saturate(1.35); backdrop-filter: blur(12px) saturate(1.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85); box-shadow: 0 2px 14px rgba(8, 45, 85, 0.35);
+}
+.start-orb { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--sky-900); font-weight: 800; letter-spacing: 0.04em; border-radius: 999px; padding-right: 0.5rem; }
+.orb-logo, .orb {
+  position: relative; display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; overflow: hidden; flex: none;
+  background: radial-gradient(circle at 50% 120%, #7fe0e6 0%, rgba(127, 224, 230, 0) 55%), radial-gradient(circle at 50% 30%, #4aa5e8 0%, #1d6cb3 55%, #0e3d6c 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9); box-shadow: 0 0 0 1px #0e3d6c, 0 3px 9px rgba(8, 45, 85, 0.55), inset 0 -4px 8px rgba(63, 208, 216, 0.55);
+}
+.orb-logo::before, .orb::before { content: ""; position: absolute; left: 12%; right: 12%; top: 5%; height: 46%; border-radius: 50% 50% 60% 60% / 80% 80% 40% 40%; background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.12)); pointer-events: none; }
+.orb-logo .ic, .orb .ic { position: relative; width: 22px; height: 22px; filter: drop-shadow(0 1px 1px rgba(0, 30, 70, 0.7)); }
+.orb.green { background: radial-gradient(circle at 50% 120%, #c6f2a0 0%, rgba(198, 242, 160, 0) 55%), radial-gradient(circle at 50% 30%, #79c94a 0%, #2f8a22 60%, #1a5314 100%); box-shadow: 0 0 0 1px #1a5314, 0 3px 8px rgba(8, 45, 20, 0.5), inset 0 -4px 8px rgba(165, 224, 122, 0.55); }
+.orb.aqua { background: radial-gradient(circle at 50% 120%, #b8f4f6 0%, rgba(184, 244, 246, 0) 55%), radial-gradient(circle at 50% 30%, #3fd0d8 0%, #0b7f88 60%, #064c52 100%); box-shadow: 0 0 0 1px #064c52, 0 3px 8px rgba(5, 50, 55, 0.5), inset 0 -4px 8px rgba(127, 224, 230, 0.55); }
+.orb.sm { width: 30px; height: 30px; border-width: 1px; } .orb.sm .ic { width: 16px; height: 16px; }
+.orb.lg { width: 56px; height: 56px; } .orb.lg .ic { width: 28px; height: 28px; }
+.taskbar-nav { display: flex; align-items: center; gap: 0.25rem; margin-left: 0.4rem; }
+.taskbar-nav a, .taskbar-toggle {
+  display: inline-flex; align-items: center; gap: 0.45rem; min-height: 40px; padding: 0.3rem 0.8rem; color: #0a2a4a; text-decoration: none; font-weight: 650;
+  border: 1px solid transparent; border-radius: 7px; background: transparent; cursor: pointer; font-size: 0.95rem;
+}
+.taskbar-nav a:hover, .taskbar-toggle:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.28) 50%, rgba(125, 195, 245, 0.35) 52%, rgba(190, 232, 255, 0.6));
+  border-color: rgba(255, 255, 255, 0.9); box-shadow: 0 0 10px rgba(70, 175, 240, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.taskbar-nav a[aria-current="page"] {
+  background: linear-gradient(rgba(150, 205, 245, 0.55), rgba(190, 228, 252, 0.7) 50%, rgba(95, 180, 240, 0.5) 52%, rgba(160, 220, 255, 0.75));
+  border-color: rgba(10, 60, 110, 0.55); box-shadow: inset 0 1px 3px rgba(8, 45, 85, 0.35), 0 0 12px rgba(63, 208, 216, 0.7);
+}
+.taskbar-toggle { display: none; padding: 0.3rem 0.6rem; margin-left: auto; }
+.tray { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; }
+.tray-link { color: var(--sky-900); display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 7px; }
+.tray-link:hover { background: rgba(255, 255, 255, 0.6); }
+.tray-clock { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--sky-900); font-size: 0.85rem; padding: 0 0.3rem; text-align: right; min-width: 4.6em; }
+.lang-switch { display: inline-flex; border: 1px solid rgba(10, 60, 110, 0.5); border-radius: 6px; overflow: hidden; background: rgba(255, 255, 255, 0.55); }
+.lang-switch button { all: unset; box-sizing: border-box; min-width: 2.4rem; text-align: center; padding: 0.3rem 0.5rem; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: var(--sky-900); }
+.lang-switch button[aria-pressed="true"] { background: linear-gradient(#3b8fd9, #1d6cb3); color: #fff; text-shadow: 0 -1px 0 rgba(0, 30, 70, 0.6); }
+.lang-switch button:hover:not([aria-pressed="true"]) { background: rgba(255, 255, 255, 0.85); }
+
+/* ---- page frame ---------------------------------------------------------------------------- */
+main { flex: 1 0 auto; width: min(1280px, 100% - 1.6rem); margin: 1.2rem auto 2rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+/* grid items default to min-width:auto, so one wide child (pre, chip row, form) would stretch the column past the viewport */
+main > *, .stack > *, .page-grid > * { min-width: 0; }
+.page-grid { display: grid; gap: 1.2rem; }
+.layout-split { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); align-items: start; }
+.sticky-col { position: sticky; top: 70px; max-height: calc(100vh - 86px); display: flex; flex-direction: column; min-width: 0; }
+.layout-split > * { min-width: 0; }
+.stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+.row.between { justify-content: space-between; }
+.grow { flex: 1 1 auto; min-width: 0; }
+.muted { color: var(--ink-muted); }
+.small { font-size: 0.85rem; }
+.mono { font-family: var(--mono); }
+.nowrap { white-space: nowrap; }
+
+/* ---- windows: 7.css frames, readable bodies -------------------------------------------------- */
+.window { font: 0.95rem/1.5 var(--font); margin: 0; box-shadow: 0 10px 30px rgba(8, 45, 85, 0.42), 0 1px 0 rgba(255, 255, 255, 0.6) inset; border-color: rgba(8, 40, 75, 0.75); border-radius: var(--radius-lg) var(--radius-lg) 6px 6px; }
+.window::before { border-radius: inherit; }
+/* 7.css makes the frame 60% transparent; that is unreadable over dark parts of the wallpaper, so keep it nearly opaque. */
+.window.glass::before { opacity: 0.95; }
+.window > .title-bar { font: 600 0.95rem var(--font); border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0; min-height: 34px; gap: 0.5rem; }
+.title-bar-text { display: inline-flex; align-items: center; gap: 0.5rem; color: #04182c; font-weight: 700; font-size: 0.95rem; line-height: 1.1; }
+.title-bar-text .ic { width: 1.15em; height: 1.15em; }
+.title-bar-controls button { min-height: 22px; }
+.window-body { font-size: 0.95rem; background: var(--paper); color: var(--ink); }
+.has-space { padding: 1rem; }
+.window-body > :last-child { margin-bottom: 0; }
+.window.is-collapsed > .window-body, .window.is-collapsed > .status-bar { display: none; }
+.window.is-focus { position: fixed; inset: 0.6rem; z-index: 1500; display: flex; flex-direction: column; margin: 0; }
+.window.is-focus > .window-body { flex: 1; overflow: auto; }
+body.has-focus-window { overflow: hidden; }
+.status-bar { font-size: 0.85rem; color: var(--ink-soft); background: var(--paper-2); }
+.status-bar-field { padding: 0.25rem 0.5rem; }
+
+/* glass panels that are not windows (hero, banners, footer) */
+.glass-panel { background: var(--glass-strong); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); border: 1px solid var(--glass-edge); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); }
+.panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; }
+.panel.tight { padding: 0.7rem 0.9rem; }
+
+/* ---- buttons and controls ------------------------------------------------------------------- */
+button, input, select, textarea { font: inherit; }
+/* element-level specificity (0,0,1): later than 7.css so it wins, but any class selector below overrides it */
+button:where(:not(.title-bar-controls button)) { min-height: 34px; padding: 0.25rem 0.9rem; font-size: 0.92rem; }
+input[type="text"], input[type="search"], input[type="url"], input[type="number"], select, textarea { font-size: 0.95rem; min-height: 36px; padding: 0.3rem 0.5rem; max-width: 100%; }
+textarea { width: 100%; min-height: 7rem; font-family: var(--mono); font-size: 0.85rem; }
+select { padding-right: 1.6rem; }
+label { color: var(--ink); }
+
+/* Checkboxes: 7.css hides the native box (opacity 0) and paints one on an adjacent <label>. Our controls
+   nest the input inside the label or stand alone, so draw an Aero-style box on the input itself. */
+input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none; position: relative; flex: none; display: inline-block; opacity: 1; vertical-align: middle; cursor: pointer;
+  width: 19px; height: 19px; margin: 0; border: 1px solid #7d8d9c; border-radius: 4px; background: linear-gradient(#ffffff, #e3ebf2);
+  box-shadow: inset 0 0 0 1px #fff, inset 1px 1px 3px rgba(20, 60, 100, 0.2); transition: background 0.15s, border-color 0.15s;
+}
+input[type="checkbox"]:hover:not(:disabled) { border-color: #1d6cb3; background: linear-gradient(#f4fbff, #cfe9fa); }
+input[type="checkbox"]:checked { border-color: #14528f; background: linear-gradient(#c3e8fc 0%, #86c9ef 48%, #5ab1e6 52%, #8fd3f3 100%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 0 5px rgba(63, 190, 235, 0.6); }
+input[type="checkbox"]:checked::after { content: ""; position: absolute; left: 5.5px; top: 1.5px; width: 5px; height: 10px; border: solid #08243f; border-width: 0 2.6px 2.6px 0; transform: rotate(45deg); }
+input[type="checkbox"]:disabled { opacity: 0.45; cursor: not-allowed; }
+input[type="checkbox"] + label::before, input[type="checkbox"] + label::after { content: none !important; }
+.check { cursor: pointer; }
+.field { display: grid; gap: 0.25rem; min-width: 0; }
+.field > label, .field > .label { font-weight: 650; font-size: 0.85rem; color: var(--ink-soft); }
+.field input, .field select { width: 100%; }
+.field.inline { display: flex; align-items: center; gap: 0.5rem; }
+.check { display: inline-flex; align-items: center; gap: 0.45rem; }
+
+.btn-aero {
+  --btn-bg: linear-gradient(#58a8e8 0%, #2a80c8 48%, #1a5f9e 52%, #2e83c8 100%); --btn-border: #1b4f80; --btn-ink: #fff; --btn-glow: 63, 190, 235;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 34px; padding: 0.4rem 1.05rem; border-radius: 7px; border: 1px solid var(--btn-border); color: var(--btn-ink); text-decoration: none; cursor: pointer; font-weight: 650; font-size: 0.95rem;
+  background-color: #1f6fb5; background-image: var(--btn-bg); text-shadow: 0 -1px 0 rgba(0, 35, 80, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.22), 0 1px 3px rgba(0, 40, 90, 0.45);
+}
+.btn-aero.green { --btn-bg: linear-gradient(#78cb4c 0%, #3a9a28 48%, #2a7d1e 52%, #44a82d 100%); --btn-border: #1f5b16; --btn-glow: 120, 203, 76; background-color: #2f8a22; text-shadow: 0 -1px 0 rgba(10, 50, 10, 0.55); }
+.btn-aero.ghost { --btn-bg: linear-gradient(#ffffff, #eaf4fc 48%, #d3e6f5 52%, #e8f3fb); --btn-border: #7aa3c4; --btn-ink: var(--sky-800); background-color: #e9f3fb; text-shadow: none; }
+.btn-aero.danger { --btn-bg: linear-gradient(#e0786c, #bf3a2c 48%, #9a2217 52%, #b9392b); --btn-border: #7d1810; background-color: #a21f14; }
+.btn-aero:hover { filter: brightness(1.07) saturate(1.1); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 9px rgba(var(--btn-glow), 0.85); }
+.btn-aero:active { filter: brightness(0.95); transform: translateY(1px); }
+/* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements; keep our own look */
+button.btn-aero, button.btn-aero:hover, button.btn-aero:focus, button.btn-aero:active { background-image: var(--btn-bg); border-color: var(--btn-border); color: var(--btn-ink); animation: none; }
+button.btn-aero:not(:disabled):hover, button.btn-aero:not(:disabled):not(:hover) { border-color: var(--btn-border); }
+button.btn-aero::before, button.btn-aero::after { content: none !important; }
+.btn-aero:disabled, .btn-aero[aria-disabled="true"], button.btn-aero:disabled { background-image: none !important; background-color: #e6ecf1; color: #566574; border-color: #a5b3c0; text-shadow: none; filter: none; box-shadow: none; cursor: not-allowed; transform: none; }
+.btn-aero.sm { min-height: 30px; padding: 0.2rem 0.7rem; font-size: 0.85rem; }
+.btn-aero.lg { min-height: 44px; padding: 0.55rem 1.4rem; font-size: 1.05rem; }
+.btn-reset { all: unset; cursor: pointer; }
+/* Buttons that opt out of the 7.css look (all: unset) must also drop its absolutely-positioned overlays,
+   otherwise those pseudo-elements stretch over the whole window and swallow clicks. */
+.seg button::before, .seg button::after, .lang-switch button::before, .lang-switch button::after, .info-btn::before, .info-btn::after,
+.sel-list .rm::before, .sel-list .rm::after, .btn-reset::before, .btn-reset::after, .chip-btn::before, .chip-btn::after,
+.taskbar-toggle::before, .taskbar-toggle::after { content: none !important; }
+.chip-btn { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.15rem 0.55rem; border-radius: 999px; border: 1px solid var(--line); background: var(--paper-2); font-size: 0.8rem; color: var(--ink); }
+.chip-btn:hover { background: #fff; border-color: var(--sky-500); }
+.chip-btn[aria-pressed="true"] { background: var(--sky-700); color: #fff; border-color: var(--sky-800); }
+
+/* ---- chips: color is never the only cue (each carries an icon and a word) --------------------- */
+.chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.12rem 0.55rem; border-radius: 999px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink); font-size: 0.78rem; font-weight: 650; line-height: 1.4; white-space: nowrap; }
+.chip .ic { width: 0.95em; height: 0.95em; }
+.chip.direct { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
+.chip.winget { background: #dff0fc; border-color: #7db8e3; color: #0b3f6e; }
+.chip.page { background: #eef3f8; border-color: #b3c4d4; color: #34506a; }
+.chip.redirect { background: #e3f6f7; border-color: #7fcdd2; color: #07585f; }
+.chip.unavailable { background: #eceff2; border-color: #9aa9b6; color: #3d4b57; text-decoration: line-through; text-decoration-color: rgba(60, 75, 87, 0.6); }
+.chip.pending { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); }
+.chip.verified { background: var(--ok-bg); border-color: #6bb350; color: var(--ok-ink); }
+.chip.lead { background: #fbeedd; border-color: #d9a25c; color: #6a3d06; }
+.chip.declared { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
+.chip.unknown { background: #f1f4f7; border-color: #b6c4d1; color: #3e5366; border-style: dashed; }
+.chip.bad { background: var(--danger-bg); border-color: #e4a39d; color: var(--danger); }
+.chip.info { background: #e3f6f7; border-color: #7fcdd2; color: #07585f; }
+
+/* ---- notices -------------------------------------------------------------------------------- */
+.notice { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.65rem 0.85rem; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper-2); font-size: 0.92rem; }
+.notice .ic { margin-top: 0.15rem; color: var(--sky-700); }
+.notice.warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); } .notice.warn .ic { color: #8a6100; }
+.notice.error { background: var(--danger-bg); border-color: #e4a39d; color: #6d140c; } .notice.error .ic { color: var(--danger); }
+.notice.ok { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); } .notice.ok .ic { color: var(--leaf-600); }
+.notice > div > :last-child { margin-bottom: 0; }
+.empty { text-align: center; padding: 2rem 1rem; color: var(--ink-soft); }
+.empty .orb { margin-bottom: 0.6rem; }
+.spinner { width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 3px solid var(--sky-200); border-top-color: var(--sky-600); animation: spin 0.9s linear infinite; display: inline-block; vertical-align: -0.2em; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading { display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 2rem 1rem; color: var(--ink-soft); }
+
+/* ---- photos: responsive banners reserve their space (no layout shift) ------------------------- */
+.banner { position: relative; display: block; aspect-ratio: 16 / 4; overflow: hidden; border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0; background: var(--sky-300); }
+.banner picture, .banner img { display: block; width: 100%; height: 100%; }
+.banner img { object-fit: cover; }
+.banner-caption { position: absolute; right: 0.6rem; bottom: 0.4rem; font-size: 0.7rem; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); }
+.banner-caption a { color: #fff; }
+.banner.short { aspect-ratio: 16 / 2.6; }
+
+/* ---- footer --------------------------------------------------------------------------------- */
+.site-footer { width: min(1280px, 100% - 1.6rem); margin: 0 auto 1.4rem; }
+.footer-glass { background: var(--glass-strong); border: 1px solid var(--glass-edge); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); padding: 1.1rem 1.3rem; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.footer-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+.footer-grid h2 { font-size: 1rem; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; }
+.footer-note { font-size: 0.8rem; color: var(--ink-soft); margin: 0.9rem 0 0; }
+
+/* ---- dialogs (native <dialog> styled as a 7.css window) --------------------------------------- */
+dialog.window { position: fixed; inset: 0; margin: auto; padding: 0; width: min(900px, 94vw); max-height: 90vh; color: var(--ink); overflow: visible; border: 1px solid rgba(8, 40, 75, 0.8); }
+dialog.window[open] { display: flex; flex-direction: column; animation: dialog-in 0.18s ease-out; }
+dialog.window > .window-body { overflow: auto; flex: 1 1 auto; max-height: calc(90vh - 90px); }
+dialog.window.narrow { width: min(520px, 94vw); }
+dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+.dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
+
+/* ---- toasts (polite live region) --------------------------------------------------------------- */
+.toast-region { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 3000; display: grid; gap: 0.5rem; width: min(380px, calc(100vw - 1.6rem)); pointer-events: none; }
+.toast { pointer-events: auto; background: var(--paper); border: 1px solid var(--sky-700); border-left-width: 6px; border-radius: var(--radius); padding: 0.6rem 0.8rem; box-shadow: 0 8px 22px rgba(8, 45, 85, 0.4); animation: dialog-in 0.18s ease-out; }
+.toast.error { border-color: var(--danger); } .toast.ok { border-color: var(--leaf-600); }
+
+/* ---- responsive ------------------------------------------------------------------------------- */
+@media (max-width: 1000px) {
+  .layout-split { grid-template-columns: minmax(0, 1fr); }
+  /* keep it positioned: 7.css anchors the window frame/glass pseudo-elements to the window itself */
+  .sticky-col { position: relative; top: auto; max-height: none; }
+}
+@media (max-width: 860px) {
+  .taskbar { flex-wrap: wrap; }
+  .taskbar-toggle { display: inline-flex; order: 3; margin-left: 0; }
+  .tray { order: 2; margin-left: auto; }
+  .start-label { display: none; }
+  .taskbar-nav { display: none; order: 4; flex: 1 0 100%; flex-direction: column; align-items: stretch; margin: 0.2rem 0 0.1rem; padding: 0.4rem; background: var(--glass-strong); border: 1px solid var(--glass-edge); border-radius: var(--radius); }
+  .taskbar-toggle[aria-expanded="true"] ~ .taskbar-nav { display: flex; }
+  .tray-clock { display: none; }
+}
+@media (max-width: 560px) {
+  main { width: calc(100% - 0.8rem); margin-top: 0.6rem; }
+  .window-body.has-space { padding: 0.75rem; }
+  .banner, .banner.short { aspect-ratio: 16 / 6; }
+}
+
+/* ---- user preferences ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-transparency: reduce) {
+  .taskbar, .glass-panel, .footer-glass { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .window.glass::after { backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  :root { --line: #2f4a64; --line-soft: #4d6780; }
+  .chip, .panel, .notice { border-width: 2px; }
+  .taskbar, .glass-panel { background: var(--paper); backdrop-filter: none; }
+}
+@media (forced-colors: active) {
+  .btn-aero, .chip, .panel, .notice, .toast { border: 2px solid ButtonText; forced-color-adjust: none; background: ButtonFace; color: ButtonText; }
+  .desktop-wallpaper { display: none; }
+}
+@media print { .taskbar, .desktop-wallpaper, .site-footer, .toast-region { display: none !important; } body { color: #000; background: #fff; } }

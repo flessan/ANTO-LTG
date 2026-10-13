@@ -1,16 +1,168 @@
 <!doctype html>
-<html lang="id" data-root="../"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Pilih beberapa aplikasi dan hasilkan PowerShell script untuk memasangnya melalui WinGet di Windows 10/11."><meta name="theme-color" content="#edf5ff">
-<title>Software & WinGet Bundler · ANTO-LTG</title><link rel="stylesheet" href="../assets/css/site.css"><link rel="stylesheet" href="../assets/css/catalog-pages.css"></head>
-<body data-page="software"><a class="skip-link" href="#main">Lewati ke konten</a>
-<header class="site-header"><a class="brand" data-root-link="index.html" href="#" aria-label="ANTO-LTG Home"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-copy"><strong>ANTO-LTG</strong><small>Technician Toolkit</small></span></a><nav class="desktop-nav" data-site-nav aria-label="Navigasi utama"></nav><div class="header-actions"><a class="button button--quiet header-developer" data-root-link="developers/" href="#">API & kontribusi <span aria-hidden="true">↗</span></a><button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Buka navigasi"><span></span><span></span></button></div></header>
-<nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mobile" hidden data-site-nav></nav>
-<main id="main" class="page-main">
-<section class="page-intro container software-page-intro"><div class="driver-breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Software</span></div><div class="eyebrow">SOFTWARE CATALOG / APP BUNDLER</div><div class="page-intro-row"><div><h1>Pick your apps. Build your setup.</h1><p>Pilih aplikasi yang dibutuhkan, lalu buat satu skrip pemasangan berbasis WinGet. Terinspirasi alur pemilihan aplikasi seperti Ninite dan Winstall, dengan implementasi serta katalog ANTO-LTG sendiri.</p></div><span class="page-stamp">WINGET BUNDLER</span></div></section>
-<section class="container software-builder"><div class="software-os-panel"><div class="software-os-copy"><span class="software-os-kicker">TARGET OPERATING SYSTEM</span><strong>Paket untuk komputer tujuan</strong><small>Target ini ditulis di skrip dan diperiksa sebelum pemasangan dimulai.</small></div><div class="software-os-switch" role="group" aria-label="Target Windows"><button type="button" class="software-os-button" data-target-os="Windows 11" aria-pressed="true"><span class="os-mark">11</span><span>Windows 11</span></button><button type="button" class="software-os-button" data-target-os="Windows 10" aria-pressed="false"><span class="os-mark">10</span><span>Windows 10</span></button></div></div>
-<div class="notice notice--warning software-support-note"><strong>Perlu diperhatikan:</strong> WinGet perlu App Installer yang sesuai dan bundler ini menargetkan Windows 10/11. Windows 7 tidak didukung—gunakan halaman penerbit untuk installer yang kompatibel. Dukungan Windows 10 pada 2026 bergantung pada edisi/program dukungannya. ID paket serta kompatibilitas aplikasi masih perlu ditinjau manusia.</div>
-<div class="software-toolbar"><label class="software-search"><span aria-hidden="true">⌕</span><span class="sr-only">Cari aplikasi</span><input type="search" data-app-search placeholder="Cari aplikasi, penerbit, kategori, atau WinGet ID…" autocomplete="off"></label><label class="software-category-filter"><span class="sr-only">Filter kategori</span><select data-app-category><option value="all">Semua kategori</option></select></label><button class="button button--outline software-select-visible" type="button" data-select-visible>Pilih yang terlihat</button></div>
-<div class="software-content-grid"><section class="software-catalog-panel" aria-label="Katalog aplikasi"><div class="software-catalog-topline"><strong data-app-count>Memuat aplikasi…</strong><span><span data-selected-count>0</span> dipilih</span></div><div class="software-app-groups" data-app-groups aria-live="polite"></div><div class="empty-state software-empty" data-app-empty hidden><div class="empty-mark">—</div><h2>Tidak ada aplikasi yang cocok</h2><p>Ubah kata kunci atau filter kategori.</p></div><p class="software-source-note">Metadata aplikasi tersedia lewat <a class="text-link" href="../api/v1/apps.json">public JSON API ↗</a>. “Menunggu tinjauan” berarti informasi paket belum disahkan oleh ANTO-LTG.</p></section>
-<aside class="software-selection-panel"><div class="selection-panel-heading"><div><div class="eyebrow">YOUR INSTALLER</div><h2>Selected apps</h2></div><span class="selection-number" data-selected-badge>0</span></div><p class="selection-intro">Skrip lokal akan memasang aplikasi satu per satu melalui WinGet. Kamu bisa memeriksa isi skrip sebelum menjalankannya.</p><div class="selected-app-list" data-selected-list><div class="selected-empty">Pilih aplikasi di katalog untuk mulai menyusun paket.</div></div><div class="selection-actions"><button class="button button--primary" type="button" data-download-script disabled>Unduh install.ps1 <span aria-hidden="true">↓</span></button><button class="button button--outline" type="button" data-copy-script disabled>Salin skrip</button><button class="button button--quiet" type="button" data-clear-selection disabled>Kosongkan</button></div><p class="selection-status" data-script-status role="status">Belum ada skrip yang dibuat.</p><details class="script-preview-details"><summary>Lihat skrip PowerShell</summary><textarea data-script-preview aria-label="Pratinjau skrip installer" readonly spellcheck="false" placeholder="Pilih aplikasi untuk menampilkan skrip…"></textarea></details><p class="selection-footnote">ANTO-LTG tidak menjalankan installer dari browser. File <code>.ps1</code> perlu kamu unduh, periksa, lalu jalankan sendiri pada komputer Windows tujuan.</p></aside></div></section></main>
-<footer class="site-footer"><div class="footer-brand"><span class="brand-mark brand-mark--small" aria-hidden="true">A</span><div><strong>ANTO-LTG</strong><p>Toolkit teknisi yang terbuka, bisa diperiksa, dan dibuat bersama komunitas.</p></div></div><div class="footer-links"><a data-root-link="developers/" href="#">Developer</a><a data-root-link="developers/#contribute" href="#">Kontribusi</a><a data-root-link="developers/#security" href="#">Keamanan</a><a data-root-link="feed.xml" href="#">RSS</a></div><p class="copyright">© <span data-year></span> ANTO-LTG. Periksa skrip dan sumber paket sebelum memasang software.</p></footer>
-<script src="../assets/js/site.js" defer></script><script src="../assets/js/software-bundler.js" defer></script></body></html>
+<html lang="en">
+<head>
+<!--chrome:head:start-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#1d6fb8">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/vendor/7.css/7.css">
+<link rel="stylesheet" href="../assets/css/aero.css">
+<link rel="stylesheet" href="../assets/css/pages.css">
+<script type="module" src="../assets/js/site.js"></script>
+<!--chrome:head:end-->
+<title>Software Center - ANTO-LTG</title>
+<meta name="description" content="Search a sourced catalog of Windows software, pick what you need Ninite-style and generate a reviewed WinGet PowerShell script. Nothing is ever installed from the browser.">
+<script type="module" src="../assets/js/software.js"></script>
+</head>
+<body data-page="software">
+<!--chrome:header:start-->
+<a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+<div class="desktop-wallpaper" aria-hidden="true"></div>
+<header class="taskbar">
+  <a class="start-orb" href="../index.html" aria-label="ANTO-LTG" data-i18n-aria-label="nav.home"><span class="orb-logo" aria-hidden="true"><svg class="ic" focusable="false"><use href="../assets/icons/sprite.svg#logo"></use></svg></span><span class="start-label">ANTO-LTG</span></a>
+  <button class="taskbar-toggle" type="button" aria-expanded="false" aria-controls="taskbar-nav" aria-label="Menu" data-i18n-aria-label="nav.menu"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#menu"></use></svg></button>
+  <nav id="taskbar-nav" class="taskbar-nav" aria-label="Main" data-i18n-aria-label="nav.main">
+    <a href="../software/" aria-current="page"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#software"></use></svg><span data-i18n="nav.software">Software</span></a>
+    <a href="../drivers/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#chip"></use></svg><span data-i18n="nav.drivers">Drivers</span></a>
+    <a href="../bundles/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#bundle"></use></svg><span data-i18n="nav.bundles">Bundles</span></a>
+    <a href="../tools/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#wrench"></use></svg><span data-i18n="nav.tools">Tools</span></a>
+    <a href="../guides/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#book"></use></svg><span data-i18n="nav.guides">Guides</span></a>
+    <a href="../developers/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#code"></use></svg><span data-i18n="nav.developers">Developers</span></a>
+  </nav>
+  <div class="tray">
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="nav.language">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+      <button type="button" data-lang="id" aria-pressed="false" lang="id" title="Bahasa Indonesia">ID</button>
+    </div>
+    <a class="tray-link" href="https://github.com/flessan/ANTO-LTG" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository" data-i18n-aria-label="nav.github"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#repo"></use></svg></a>
+    <time class="tray-clock" id="tray-clock" aria-hidden="true"></time>
+  </div>
+</header>
+<!--chrome:header:end-->
+<main id="main" tabindex="-1">
+  <section class="glass-panel intro-strip" aria-labelledby="sw-title">
+    <div class="banner short"><picture>
+      <source type="image/webp" srcset="../assets/img/leaf-droplets-banner-640.webp 640w, ../assets/img/leaf-droplets-banner-1280.webp 1280w, ../assets/img/leaf-droplets-banner-1920.webp 1920w" sizes="(min-width: 1280px) 1240px, 100vw">
+      <img src="../assets/img/leaf-droplets-banner-1280.jpg" srcset="../assets/img/leaf-droplets-banner-640.jpg 640w, ../assets/img/leaf-droplets-banner-1280.jpg 1280w, ../assets/img/leaf-droplets-banner-1920.jpg 1920w" sizes="(min-width: 1280px) 1240px, 100vw" width="1920" height="600" alt="Close-up of a dark green leaf covered in glistening water droplets" data-i18n-alt="sw.photo_alt" decoding="async">
+    </picture><span class="banner-caption"><a href="https://unsplash.com/photos/water-droplets-on-green-leaf-m2cNS2FXuOk" target="_blank" rel="noopener noreferrer">Photo: Mark Olsen / Unsplash</a></span></div>
+    <h1 id="sw-title" data-i18n="sw.title">Software Center</h1>
+    <p data-i18n="sw.intro">Tick the programs you want, review the plan, then download one PowerShell script that installs them with WinGet. Nothing is installed from this page, and every record shows where its facts came from.</p>
+    <ul class="promise-list" aria-label="How this works">
+      <li><span class="chip winget"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#box"></use></svg><span data-i18n="chip.winget">Package manager</span></span><span class="small muted" data-i18n="sw.legend.winget">Installed by WinGet from its community source.</span></li>
+      <li><span class="chip direct"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"></use></svg><span data-i18n="chip.direct">Direct download</span></span><span class="small muted" data-i18n="sw.legend.direct">A file link, with the SHA-256 when the source publishes one.</span></li>
+      <li><span class="chip page"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#globe"></use></svg><span data-i18n="chip.page">Publisher page</span></span><span class="small muted" data-i18n="sw.legend.page">Only the official page is known; install it from there.</span></li>
+      <li><span class="chip unavailable"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#close"></use></svg><span data-i18n="chip.unavailable">Unavailable</span></span><span class="small muted" data-i18n="sw.legend.unavailable">Discontinued; the record cites the evidence.</span></li>
+    </ul>
+  </section>
+
+  <div class="layout-split" id="sw-layout">
+    <section class="window glass active" id="win-catalog" data-window data-help="developers/#software" aria-labelledby="win-catalog-title">
+      <div class="title-bar">
+        <div class="title-bar-text" id="win-catalog-title"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#software"></use></svg><span data-i18n="sw.win.catalog">Software catalog</span></div>
+        <div class="title-bar-controls">
+          <button type="button" class="is-help" data-win="help" aria-label="Help"></button>
+          <button type="button" class="is-minimize" data-win="minimize" aria-label="Minimize"></button>
+          <button type="button" class="is-maximize" data-win="maximize" aria-label="Maximize"></button>
+        </div>
+      </div>
+      <div class="window-body has-space">
+        <form id="sw-filters" class="sw-toolbar" role="search" autocomplete="off">
+          <div class="field search">
+            <label for="sw-q" data-i18n="sw.search.label">Search by name, publisher, category, description or package ID</label>
+            <input id="sw-q" name="q" type="search" placeholder="e.g. firefox, Mozilla, Git.Git, boot USB" data-i18n-placeholder="sw.search.placeholder" spellcheck="false" autocomplete="off">
+          </div>
+          <div class="field"><label for="sw-cat" data-i18n="sw.f.category">Category</label><select id="sw-cat" name="category"></select></div>
+          <div class="field"><label for="sw-os" data-i18n="sw.f.os">Windows version</label>
+            <select id="sw-os" name="os"><option value="" data-i18n="common.any">Any</option><option value="windows11">Windows 11</option><option value="windows10">Windows 10</option></select></div>
+          <div class="field"><label for="sw-arch" data-i18n="sw.f.arch">Architecture</label>
+            <select id="sw-arch" name="arch"><option value="" data-i18n="common.any">Any</option><option value="x64">x64</option><option value="x86">x86 (32-bit)</option><option value="arm64">ARM64</option></select></div>
+          <div class="field"><label for="sw-method" data-i18n="sw.f.method">Install method</label>
+            <select id="sw-method" name="method"><option value="" data-i18n="common.any">Any</option><option value="winget" data-i18n="chip.winget">Package manager</option><option value="direct" data-i18n="chip.direct">Direct download</option><option value="page" data-i18n="sw.f.method.pageonly">Publisher page only</option><option value="unavailable" data-i18n="chip.unavailable">Unavailable</option></select></div>
+          <div class="field"><label for="sw-review" data-i18n="sw.f.review">Review status</label>
+            <select id="sw-review" name="review"><option value="" data-i18n="common.any">Any</option><option value="pending_review" data-i18n="review.pending">Pending review</option><option value="verified" data-i18n="review.verified">Verified</option></select></div>
+          <div class="field"><label for="sw-sort" data-i18n="sw.f.sort">Sort by</label>
+            <select id="sw-sort" name="sort"><option value="name" data-i18n="sw.sort.name">Name</option><option value="category" data-i18n="sw.sort.category">Category</option><option value="relevance" data-i18n="sw.sort.relevance">Best match</option></select></div>
+          <label class="check"><input type="checkbox" id="sw-declared" name="declaredOnly"><span data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</span></label>
+          <div><button type="reset" id="sw-reset" data-i18n="common.reset">Reset filters</button></div>
+        </form>
+
+        <div class="results-bar">
+          <p id="sw-count" class="small" role="status" aria-live="polite"></p>
+          <div class="row">
+            <div class="seg" role="group" aria-label="View" data-i18n-aria-label="sw.view">
+              <button type="button" id="sw-view-quick" aria-pressed="true" data-i18n="sw.view.quick">Quick pick</button>
+              <button type="button" id="sw-view-list" aria-pressed="false" data-i18n="sw.view.list">Details</button>
+            </div>
+            <button type="button" id="sw-select-visible" data-i18n="sw.select_visible">Select all visible</button>
+            <button type="button" id="sw-deselect-visible" data-i18n="sw.deselect_visible">Deselect visible</button>
+          </div>
+        </div>
+
+        <div id="sw-results" class="results" aria-busy="true">
+          <div class="loading"><span class="spinner" aria-hidden="true"></span><span data-i18n="common.loading">Loading the catalog...</span></div>
+        </div>
+      </div>
+      <div class="status-bar"><p class="status-bar-field" id="sw-status" aria-live="off"></p></div>
+    </section>
+
+    <aside class="window glass active sticky-col installer" id="win-installer" data-window data-help="developers/#script" aria-labelledby="win-installer-title">
+      <div class="title-bar">
+        <div class="title-bar-text" id="win-installer-title"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"></use></svg><span data-i18n="sw.win.installer">Your installer</span></div>
+        <div class="title-bar-controls">
+          <button type="button" class="is-help" data-win="help" aria-label="Help"></button>
+          <button type="button" class="is-minimize" data-win="minimize" aria-label="Minimize"></button>
+          <button type="button" class="is-maximize" data-win="maximize" aria-label="Maximize"></button>
+        </div>
+      </div>
+      <div class="window-body has-space" id="installer-body" tabindex="-1">
+        <div class="installer-head">
+          <span class="orb green"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"></use></svg></span>
+          <div><div class="count" id="in-count">0</div><div class="small muted" id="in-count-label" data-i18n="sw.in.none">apps selected</div></div>
+        </div>
+        <div id="in-empty" class="notice"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#info"></use></svg><div data-i18n="sw.in.empty">Nothing selected yet. Tick programs in the catalog; your selection stays when you change filters and is remembered on this device.</div></div>
+        <div id="in-content" class="stack" hidden></div>
+        <div class="row"><label class="btn-aero ghost sm" for="in-import"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#upload"></use></svg><span data-i18n="sw.in.import">Import manifest</span></label><input id="in-import" class="sr-only" type="file" accept="application/json,.json"></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="mobile-installer-bar" id="mobile-bar" hidden>
+    <span><strong id="mb-count">0</strong> <span data-i18n="sw.in.none">apps selected</span></span>
+    <a class="btn-aero green sm" href="#win-installer" data-i18n="sw.in.review">Review installer</a>
+  </div>
+</main>
+<!--chrome:footer:start-->
+<footer class="site-footer">
+  <div class="footer-glass">
+    <div class="footer-grid">
+      <section aria-labelledby="footer-about">
+        <h2 id="footer-about" data-i18n="footer.about">About ANTO-LTG</h2>
+        <p data-i18n="footer.about_text">An open technician platform: a software catalog, a driver source finder and a WinGet script generator. It indexes official sources and never hosts or runs installers.</p>
+      </section>
+      <section aria-labelledby="footer-trust">
+        <h2 id="footer-trust" data-i18n="footer.trust">Trust and data</h2>
+        <ul class="footer-links">
+          <li><a href="../developers/#review-status" data-i18n="footer.review">What "pending review" means</a></li>
+          <li><a href="../developers/#api" data-i18n="footer.api">Open JSON API</a></li>
+          <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.security">Security policy</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="footer-credits">
+        <h2 id="footer-credits" data-i18n="footer.credits">Credits</h2>
+        <ul class="footer-links">
+          <li><a href="https://khang-nd.github.io/7.css" target="_blank" rel="noopener noreferrer">7.css</a> <span data-i18n="footer.mit">(MIT)</span></li>
+          <li><a href="../assets/CREDITS.md" data-i18n="footer.photos">Photo credits</a></li>
+          <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="footer.license">MIT license (code)</a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="footer-note" data-i18n="footer.disclaimer">Windows is a trademark of Microsoft. ANTO-LTG is an independent project and is not affiliated with or endorsed by Microsoft or any vendor listed. Vendor names and logos belong to their owners.</p>
+  </div>
+</footer>
+<!--chrome:footer:end-->
+</body>
+</html>

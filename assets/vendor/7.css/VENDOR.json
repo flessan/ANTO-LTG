@@ -1,0 +1,37 @@
+{
+  "name": "7.css",
+  "version": "0.21.1",
+  "description": "A design system for building faithful recreations of the Windows 7 UI.",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2021 Khang Nguyen Duy",
+  "homepage": "https://khang-nd.github.io/7.css",
+  "repository": "https://github.com/khang-nd/7.css",
+  "source_commit": "76d29abe7e76598fc521e707933f9ffa1b320259",
+  "distribution": {
+    "channel": "npm",
+    "tarball": "https://registry.npmjs.org/7.css/-/7.css-0.21.1.tgz",
+    "integrity": "sha512-Q+/aFUpGemoR/Zltj4a7yvHonyxfb+9cgiwBL+j/Lm+H28EOoLzWoJki7MdGPV+3mLCvKSCVqr3M2x2uNYyeWw==",
+    "integrity_verified": "The sha512 of the downloaded tarball matched the npm registry dist.integrity value."
+  },
+  "retrieved_at": "2026-10-13",
+  "modifications": "None. Files are unmodified copies from package/dist (7.css, 7.css.map) and the package root (LICENSE, README.md). Project-specific styling lives in assets/css/aero.css, which only overrides 7.css through the cascade.",
+  "used_build": "dist/7.css (global build; it only sets :root variables plus rules for a, button, details, fieldset, input, label, menu, select, table, textarea and ul, and the component classes). Icons are embedded as data: URIs, so no runtime request is made to any CDN.",
+  "files": {
+    "7.css": {
+      "bytes": 80848,
+      "sha256": "7449894044051ef07ed0fc2c2d92178f265f76b0ec4e91de4517f0740bea8379"
+    },
+    "7.css.map": {
+      "bytes": 74488,
+      "sha256": "0d2fdafce6cdee41519c65bc436bf97514a6c53422c089cd534e179bfbccff37"
+    },
+    "LICENSE": {
+      "bytes": 1094,
+      "sha256": "8832cc52f788643dd2b45796d8f3fd035f48ac35f3242c90db79c2af0668e70b"
+    },
+    "README.md": {
+      "bytes": 2454,
+      "sha256": "ca2ff568f6f03431a2de954ef20202bff6dea2e7f6d693bc42e0b8221df8774d"
+    }
+  }
+}
