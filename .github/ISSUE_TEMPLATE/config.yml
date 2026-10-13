@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security problem
+    url: https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md
+    about: Do not describe a vulnerability in a public issue. Read the security policy first.

@@ -1,0 +1,44 @@
+name: Data correction or missing record
+description: A catalog record is wrong, out of date, or missing. Evidence from an official page is required.
+title: "[data] "
+labels: ["data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read [CONTRIBUTING.md](https://github.com/flessan/ANTO-LTG/blob/main/CONTRIBUTING.md) first.
+        The catalog only states what an official source states: unknown stays unknown.
+        **Do not attach installers, drivers or firmware, and do not paste tokens or personal data.**
+  - type: dropdown
+    id: catalog
+    attributes:
+      label: Which catalog?
+      options:
+        - Software (apps)
+        - Drivers
+        - Vendors
+        - Tools
+        - Bundles
+    validations:
+      required: true
+  - type: input
+    id: record
+    attributes:
+      label: Record id (or the name, if the record is missing)
+      placeholder: "e.g. git, or intel-wireless-wi-fi-drivers"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing?
+      description: Which field, what it says now, and what it should say.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: The official page URL(s) you opened, the date you read them, and what each one states. Official publisher or vendor pages only, not mirrors or aggregators.
+    validations:
+      required: true

@@ -1,7 +1,7 @@
 // check-links: probes the download links stored in the catalogs and records what the server said.
 //
 //   node scripts/crawler/cli.mjs check-links [--catalog apps|drivers|tools] [--hosts a.com,b.com] [--only id,id]
-//                                            [--limit N] [--apply] [--refresh|--offline]
+//                                            [--limit N] [--concurrency N] [--apply]
 //
 // What it does, and what it deliberately does not do:
 //  * header-only probes: HEAD, then a 1-byte ranged GET whose body is cancelled; a binary is NEVER downloaded;

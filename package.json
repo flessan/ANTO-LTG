@@ -4,6 +4,14 @@
   "private": true,
   "description": "ANTO-LTG: a Frutiger Aero technician platform with an open software catalog, a driver source finder, a WinGet script generator and a polite catalog crawler.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flessan/ANTO-LTG.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flessan/ANTO-LTG/issues"
+  },
+  "homepage": "https://github.com/flessan/ANTO-LTG#readme",
   "type": "module",
   "scripts": {
     "validate": "node scripts/build.mjs --validate",
@@ -19,7 +27,7 @@
     "crawl:links": "node scripts/crawler/cli.mjs check-links"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.12"
   },
   "devDependencies": {
     "ajv": "^8.20.0",

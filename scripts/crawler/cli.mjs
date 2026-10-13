@@ -3,9 +3,11 @@
 //
 //   node scripts/crawler/cli.mjs crawl [adapter...] [--ids a,b] [--retry-failed] [--incremental]
 //                                       [--dry-run] [--plan] [--offline] [--refresh] [--limit N]
-//                                       [--concurrency N] [--allow-aggregators] [--verbose]
+//                                       [--concurrency N] [--allow-aggregators] [--use-fixtures] [--verbose]
 //   node scripts/crawler/cli.mjs merge  [--apply] [--adapter name] [--allow-flagged]
-//   node scripts/crawler/cli.mjs check-links [--catalog apps|drivers] [--hosts a,b] [--limit N] [--apply]
+//   node scripts/crawler/cli.mjs check-links [--catalog apps|drivers|tools] [--hosts a,b] [--only id,id]
+//                                             [--limit N] [--concurrency N] [--apply]
+//   node scripts/crawler/cli.mjs suggest <name-or-id>...
 //   node scripts/crawler/cli.mjs adapters
 //   node scripts/crawler/cli.mjs classify <url>
 import { fileURLToPath } from 'node:url';
