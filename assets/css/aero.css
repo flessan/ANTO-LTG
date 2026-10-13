@@ -217,7 +217,7 @@ button.btn-aero::before, button.btn-aero::after { content: none !important; }
 .chip-btn[aria-pressed="true"] { background: var(--sky-700); color: #fff; border-color: var(--sky-800); }
 
 /* ---- chips: color is never the only cue (each carries an icon and a word) --------------------- */
-.chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.12rem 0.55rem; border-radius: 999px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink); font-size: 0.78rem; font-weight: 650; line-height: 1.4; white-space: nowrap; }
+.chip { display: inline-flex; align-items: center; gap: 0.3rem; max-width: 100%; padding: 0.12rem 0.55rem; border-radius: 12px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink); font-size: 0.78rem; font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; }
 .chip .ic { width: 0.95em; height: 0.95em; }
 .chip.direct { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
 .chip.winget { background: #dff0fc; border-color: #7db8e3; color: #0b3f6e; }

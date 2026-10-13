@@ -108,9 +108,9 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 .drv-toolbar { display: grid; gap: 0.7rem; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); align-items: end; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line-soft); margin-bottom: 0.7rem; }
 .drv-toolbar .field.search { grid-column: 1 / -1; }
 .driver-list { display: grid; gap: 0.8rem; }
-.driver-card { display: grid; gap: 0.6rem; padding: 0.9rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.driver-card { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 0.6rem; padding: 0.9rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
 .driver-card.lead { border-left: 6px solid #d9a25c; }
-.driver-card header { display: flex; gap: 0.75rem; align-items: flex-start; }
+.driver-card header { display: flex; gap: 0.75rem; align-items: flex-start; } .driver-card header > .grow, .card header > .grow { min-width: 0; }
 .driver-card h3 { margin: 0 0 0.2rem; font-size: 1.02rem; }
 .driver-card .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 .dc-meta { display: grid; gap: 0.3rem 1.2rem; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); margin: 0; font-size: 0.9rem; }
@@ -126,7 +126,7 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 
 /* ---- bundles / tools / guides --------------------------------------------------------------------- */
 .card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); }
-.card { display: grid; gap: 0.6rem; align-content: start; padding: 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.card { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 0.6rem; align-content: start; padding: 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
 .card:target { box-shadow: 0 0 0 3px var(--aqua-400); }
 .card header { display: flex; gap: 0.7rem; align-items: center; }
 .card h2, .card h3 { margin: 0; font-size: 1.05rem; }

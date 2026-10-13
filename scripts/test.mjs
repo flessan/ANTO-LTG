@@ -7,8 +7,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const suites = process.argv.slice(2);
-if (!suites.length) { console.error('Usage: node scripts/test.mjs <suite> [suite...]   (suites live in tests/)'); process.exit(2); }
+const argv = process.argv.slice(2);
+const suites = argv.filter((a) => !a.startsWith('--'));
+const passthrough = argv.filter((a) => a.startsWith('--')); // e.g. --test-name-pattern=plan
+if (!suites.length) { console.error('Usage: node scripts/test.mjs <suite> [suite...] [--test-name-pattern=<regex>]   (suites live in tests/)'); process.exit(2); }
 const files = [];
 for (const s of suites) {
   const dir = path.join(root, 'tests', s);
@@ -16,6 +18,6 @@ for (const s of suites) {
   if (!names.length) { console.error(`No tests found in tests/${s}/`); process.exit(2); }
   files.push(...names.map((n) => path.join(dir, n)));
 }
-const args = ['--test', '--test-reporter=spec', '--test-concurrency=1', ...(suites.includes('e2e') ? ['--test-timeout=180000'] : []), ...files];
+const args = ['--test', '--test-reporter=spec', '--test-concurrency=1', ...(suites.includes('e2e') ? ['--test-timeout=180000'] : []), ...passthrough, ...files];
 const child = spawn(process.execPath, args, { stdio: 'inherit', cwd: root, env: process.env });
 child.on('exit', (code) => process.exit(code ?? 1));

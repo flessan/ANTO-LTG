@@ -110,7 +110,7 @@ function header(kind, plan, meta) {
     lines.push(
       '#  * It installs only the packages listed in $Packages, from the WinGet community source,',
       '#    with: winget install --id <ID> --exact --source winget',
-      '#  * It does not use -ExecutionPolicy Bypass and does not elevate itself.',
+      '#  * It does not change PowerShell\'s execution policy and does not elevate itself.',
       '#  * Nothing is installed until you type YES. Use -DryRun to preview without installing.',
     );
   } else {
