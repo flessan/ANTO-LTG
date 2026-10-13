@@ -52,8 +52,8 @@ export function openDialog({ title, icon: iconName = 'info', body, actions = [],
 export function confirmDialog({ title, message, confirmLabel, cancelLabel, danger = false, icon = 'warn' }) {
   return new Promise((resolve) => {
     let answer = false;
-    const ok = h('button', { type: 'button', class: `btn-aero ${danger ? 'danger' : 'green'}`, onclick: () => { answer = true; dlg.close(); } }, confirmLabel ?? t('common.confirm'));
-    const cancel = h('button', { type: 'button', class: 'btn-aero ghost', onclick: () => dlg.close() }, cancelLabel ?? t('common.cancel'));
+    const ok = h('button', { type: 'button', class: `${danger ? '' : 'default'}`, onclick: () => { answer = true; dlg.close(); } }, confirmLabel ?? t('common.confirm'));
+    const cancel = h('button', { type: 'button', class: '', onclick: () => dlg.close() }, cancelLabel ?? t('common.cancel'));
     const dlg = openDialog({ title, icon, narrow: true, body: h('p', {}, message), actions: [cancel, ok], onClose: () => resolve(answer) });
     cancel.focus();
   });

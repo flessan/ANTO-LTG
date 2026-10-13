@@ -107,10 +107,6 @@ ul, ol { padding-left: 1.3rem; }
 .tray-link { color: var(--sky-900); display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 7px; }
 .tray-link:hover { background: rgba(255, 255, 255, 0.6); }
 .tray-clock { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--sky-900); font-size: 0.85rem; padding: 0 0.3rem; text-align: right; min-width: 4.6em; }
-.lang-switch { display: inline-flex; border: 1px solid rgba(10, 60, 110, 0.5); border-radius: 6px; overflow: hidden; background: rgba(255, 255, 255, 0.55); }
-.lang-switch button { all: unset; box-sizing: border-box; min-width: 2.4rem; text-align: center; padding: 0.3rem 0.5rem; font-weight: 700; font-size: 0.8rem; cursor: pointer; color: var(--sky-900); }
-.lang-switch button[aria-pressed="true"] { background: linear-gradient(#3b8fd9, #1d6cb3); color: #fff; text-shadow: 0 -1px 0 rgba(0, 30, 70, 0.6); }
-.lang-switch button:hover:not([aria-pressed="true"]) { background: rgba(255, 255, 255, 0.85); }
 
 /* ---- page frame ---------------------------------------------------------------------------- */
 main { flex: 1 0 auto; width: min(1280px, 100% - 1.6rem); margin: 1.2rem auto 2rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
@@ -161,72 +157,11 @@ input[type="text"], input[type="search"], input[type="url"], input[type="number"
 textarea { width: 100%; min-height: 7rem; font-family: var(--mono); font-size: 0.85rem; }
 select { padding-right: 1.6rem; }
 label { color: var(--ink); }
-
-/* Checkboxes: 7.css hides the native box (opacity 0) and paints one on an adjacent <label>. Our controls
-   nest the input inside the label or stand alone, so draw an Aero-style box on the input itself. */
-input[type="checkbox"] {
-  appearance: none; -webkit-appearance: none; position: relative; flex: none; display: inline-block; opacity: 1; vertical-align: middle; cursor: pointer;
-  width: 19px; height: 19px; margin: 0; border: 1px solid #7d8d9c; border-radius: 4px; background: linear-gradient(#ffffff, #e3ebf2);
-  box-shadow: inset 0 0 0 1px #fff, inset 1px 1px 3px rgba(20, 60, 100, 0.2); transition: background 0.15s, border-color 0.15s;
-}
-input[type="checkbox"]:hover:not(:disabled) { border-color: #1d6cb3; background: linear-gradient(#f4fbff, #cfe9fa); }
-input[type="checkbox"]:checked { border-color: #14528f; background: linear-gradient(#c3e8fc 0%, #86c9ef 48%, #5ab1e6 52%, #8fd3f3 100%); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7), 0 0 5px rgba(63, 190, 235, 0.6); }
-input[type="checkbox"]:checked::after { content: ""; position: absolute; left: 5.5px; top: 1.5px; width: 5px; height: 10px; border: solid #08243f; border-width: 0 2.6px 2.6px 0; transform: rotate(45deg); }
-input[type="checkbox"]:disabled { opacity: 0.45; cursor: not-allowed; }
-input[type="checkbox"] + label::before, input[type="checkbox"] + label::after { content: none !important; }
-.check { cursor: pointer; }
 .field { display: grid; gap: 0.25rem; min-width: 0; }
 .field > label, .field > .label { font-weight: 650; font-size: 0.85rem; color: var(--ink-soft); }
 .field input, .field select { width: 100%; }
 .field.inline { display: flex; align-items: center; gap: 0.5rem; }
-.check { display: inline-flex; align-items: center; gap: 0.45rem; }
-
-/* Button text is white on a glossy gradient. The stops are dark enough that white text keeps >= 4.5:1 over the
-   whole text band (tests/unit/contrast.test.mjs measures it), and hover adds a glow instead of brightening. */
-.btn-aero {
-  --btn-bg: linear-gradient(#3a87cf 0%, #1c69b0 48%, #124a87 52%, #1d6cb3 100%); --btn-border: #1b4f80; --btn-ink: #fff; --btn-glow: 63, 190, 235;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 34px; padding: 0.4rem 1.05rem; border-radius: 7px; border: 1px solid var(--btn-border); color: var(--btn-ink); text-decoration: none; cursor: pointer; font-weight: 650; font-size: 0.95rem;
-  background-color: #1f6fb5; background-image: var(--btn-bg); text-shadow: 0 -1px 0 rgba(0, 35, 80, 0.55);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.22), 0 1px 3px rgba(0, 40, 90, 0.45);
-}
-.btn-aero.green { --btn-bg: linear-gradient(#3a9429 0%, #287a1c 48%, #1c5a14 52%, #297e1d 100%); --btn-border: #1f5b16; --btn-glow: 120, 203, 76; background-color: #287a1c; text-shadow: 0 -1px 0 rgba(10, 50, 10, 0.55); }
-.btn-aero.ghost { --btn-bg: linear-gradient(#ffffff, #eaf4fc 48%, #d3e6f5 52%, #e8f3fb); --btn-border: #7aa3c4; --btn-ink: var(--sky-800); background-color: #e9f3fb; text-shadow: none; }
-.btn-aero.danger { --btn-bg: linear-gradient(#d0584b, #b3382a 48%, #8f2015 52%, #ab3427); --btn-border: #7d1810; background-color: #a21f14; }
-.btn-aero:hover { filter: saturate(1.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 9px rgba(var(--btn-glow), 0.85); }
-.btn-aero:active { filter: brightness(0.95); transform: translateY(1px); }
-/* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements; keep our own look */
-button.btn-aero, button.btn-aero:hover, button.btn-aero:focus, button.btn-aero:active { background-image: var(--btn-bg); border-color: var(--btn-border); color: var(--btn-ink); animation: none; }
-button.btn-aero:not(:disabled):hover, button.btn-aero:not(:disabled):not(:hover) { border-color: var(--btn-border); }
-button.btn-aero::before, button.btn-aero::after { content: none !important; }
-.btn-aero:disabled, .btn-aero[aria-disabled="true"], button.btn-aero:disabled { background-image: none !important; background-color: #e6ecf1; color: #566574; border-color: #a5b3c0; text-shadow: none; filter: none; box-shadow: none; cursor: not-allowed; transform: none; }
-.btn-aero.sm { min-height: 30px; padding: 0.2rem 0.7rem; font-size: 0.85rem; }
-.btn-aero.lg { min-height: 44px; padding: 0.55rem 1.4rem; font-size: 1.05rem; }
-.btn-reset { all: unset; cursor: pointer; }
-/* Buttons that opt out of the 7.css look (all: unset) must also drop its absolutely-positioned overlays,
-   otherwise those pseudo-elements stretch over the whole window and swallow clicks. */
-.seg button::before, .seg button::after, .lang-switch button::before, .lang-switch button::after, .info-btn::before, .info-btn::after,
-.sel-list .rm::before, .sel-list .rm::after, .btn-reset::before, .btn-reset::after, .chip-btn::before, .chip-btn::after,
-.taskbar-toggle::before, .taskbar-toggle::after { content: none !important; }
-.chip-btn { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.15rem 0.55rem; border-radius: 999px; border: 1px solid var(--line); background: var(--paper-2); font-size: 0.8rem; color: var(--ink); }
-.chip-btn:hover { background: #fff; border-color: var(--sky-500); }
-.chip-btn[aria-pressed="true"] { background: var(--sky-700); color: #fff; border-color: var(--sky-800); }
-
-/* ---- chips: color is never the only cue (each carries an icon and a word) --------------------- */
-.chip { display: inline-flex; align-items: center; gap: 0.3rem; max-width: 100%; padding: 0.12rem 0.55rem; border-radius: 12px; border: 1px solid var(--line); background: var(--paper-2); color: var(--ink); font-size: 0.78rem; font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; }
-.chip .ic { width: 0.95em; height: 0.95em; }
-.chip.direct { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
-.chip.winget { background: #dff0fc; border-color: #7db8e3; color: #0b3f6e; }
-.chip.page { background: #eef3f8; border-color: #b3c4d4; color: #34506a; }
-.chip.redirect { background: #e3f6f7; border-color: #7fcdd2; color: #07585f; }
-.chip.unavailable { background: #eceff2; border-color: #9aa9b6; color: #3d4b57; text-decoration: line-through; text-decoration-color: rgba(60, 75, 87, 0.6); }
-.chip.pending { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); }
-.chip.verified { background: var(--ok-bg); border-color: #6bb350; color: var(--ok-ink); }
-.chip.published { background: #eef8e6; border-color: #a6d48a; color: #2c5a18; }
-.chip.lead { background: #fbeedd; border-color: #d9a25c; color: #6a3d06; }
-.chip.declared { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
-.chip.unknown { background: #f1f4f7; border-color: #b6c4d1; color: #3e5366; border-style: dashed; }
-.chip.bad { background: var(--danger-bg); border-color: #e4a39d; color: var(--danger); }
-.chip.info { background: #e3f6f7; border-color: #7fcdd2; color: #07585f; }
+/* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements;
 
 /* ---- notices -------------------------------------------------------------------------------- */
 .notice { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.65rem 0.85rem; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper-2); font-size: 0.92rem; }
@@ -300,11 +235,9 @@ dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-fil
 }
 @media (prefers-contrast: more) {
   :root { --line: #2f4a64; --line-soft: #4d6780; }
-  .chip, .panel, .notice { border-width: 2px; }
   .taskbar, .glass-panel { background: var(--paper); backdrop-filter: none; }
 }
 @media (forced-colors: active) {
-  .btn-aero, .chip, .panel, .notice, .toast { border: 2px solid ButtonText; forced-color-adjust: none; background: ButtonFace; color: ButtonText; }
   .desktop-wallpaper { display: none; }
 }
 @media print { .taskbar, .desktop-wallpaper, .site-footer, .toast-region { display: none !important; } body { color: #000; background: #fff; } }

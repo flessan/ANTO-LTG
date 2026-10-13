@@ -205,7 +205,7 @@ describe('WinGet script', () => {
   });
   it('lists manual steps separately and says they are not part of the script', () => {
     const withManual = script([app(), app({ id: 'sys', name: 'Sysinternals Suite', winget_id: undefined, category: 'system-tools', source_url: 'https://learn.microsoft.com/sysinternals/' })]);
-    assert.match(withManual, /\$ManualSteps = @\(\s+\[pscustomobject\]@\{ Name = 'Sysinternals Suite'/);
+  assert.match(withManual, /\$ManualSteps = @\(\s+\(New-Object PSObject -Property @\{ Name = 'Sysinternals Suite'/);
     assert.match(withManual, /Not part of this script \(install these yourself\)/);
     assert.ok(!/Id = 'Sysinternals/.test(withManual));
   });
@@ -277,7 +277,8 @@ describe('download kit script', () => {
   it('refuses to generate an empty kit', () => assert.throws(() => buildDownloadKitScript({ plan: planInstall({ apps: [app()], method: 'download-kit' }), meta: META }), /Nothing to download/));
   it('downloads over https, verifies SHA-256, and deletes a file that does not match', () => {
     assert.match(k, /\$uri\.Scheme -ne 'https'/);
-    assert.match(k, /Get-FileHash -LiteralPath \$dest -Algorithm SHA256/);
+    assert.match(k, /\$actual = Get-Sha256Hex \$dest/);
+    assert.match(k, /\$client\.DownloadFile\(\$Url, \$Path\)/);
     assert.match(k, /Remove-Item -LiteralPath \$dest -Force/);
     assert.match(k, /SHA-256 does not match the published value; the file was deleted/);
     assert.match(k, new RegExp(`Sha256 = '${sha}'`));
@@ -297,7 +298,7 @@ describe('download kit script', () => {
   });
   it('contains no execution-policy tricks', () => assert.doesNotMatch(k, /-ExecutionPolicy|Bypass|-Verb\s+RunAs|EncodedCommand/i));
   it('uses only an allow-list of PowerShell commands (download, hash, delete the mismatched file, report)', () => {
-    const allowed = ['Exit-Script', 'ForEach-Object', 'Get-Date', 'Get-FileHash', 'Invoke-WebRequest', 'Join-Path', 'New-Item', 'New-Object', 'Out-Null', 'Read-Host', 'Remove-Item', 'Set-StrictMode', 'Test-Path', 'Where-Object', 'Write-Host', 'Write-Step'];
+    const allowed = ['Enable-Tls12', 'Exit-Script', 'ForEach-Object', 'Get-Sha256Hex', 'Join-Path', 'New-Item', 'New-Object', 'New-Row', 'Out-Null', 'Read-Host', 'Remove-Item', 'Save-File', 'Set-StrictMode', 'Test-Path', 'Where-Object', 'Write-Host', 'Write-Step'];
     assert.deepEqual(commandsUsed(k).filter((c) => !allowed.includes(c)), []);
   });
 });
@@ -341,5 +342,49 @@ describe('the real catalog generates a safe script', () => {
     for (const id of ids) assert.ok(isValidWingetId(id), id);
     assert.equal(new Set(ids.map((i) => i.toLowerCase())).size, ids.length, 'no duplicate package ids');
     assert.ok(literals(s).every((l) => !/[\r\n]/.test(l)));
+  });
+});
+
+// ---- older Windows (7, 8, 8.1) -----------------------------------------------------------------
+describe('older Windows: download kit only, PowerShell 2.0 compatible', () => {
+  const sha = 'd'.repeat(64);
+  const olderApp = app({ id: 'putty', name: 'PuTTY', winget_id: 'PuTTY.PuTTY', downloads: [{ kind: 'direct_binary', url: 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe', sha256: sha, architecture: 'x64' }] });
+  const PS3_ONLY = [/Invoke-WebRequest|Invoke-RestMethod/, /Get-FileHash/, /\[pscustomobject\]/i, /ConvertTo-Json|ConvertFrom-Json/, /Get-CimInstance/, /\[ordered\]/, /\?\?|\?\./, /\$PSScriptRoot/, /-UseBasicParsing/, /Set-Clipboard/];
+  const codeLines = (text) => text.split('\n').filter((l) => !/^\s*#/.test(l));
+
+  it('plans WinGet for Windows 10 and 11, and the download kit for Windows 7, 8 and 8.1', () => {
+    assert.equal(planInstall({ apps: [olderApp], os: 'windows10', method: 'winget' }).method, 'winget');
+    for (const os of ['windows81', 'windows8', 'windows7']) {
+      const plan = planInstall({ apps: [olderApp], os, method: 'winget' });
+      assert.equal(plan.method, 'download-kit', os);
+      assert.equal(plan.included.length, 1, `${os} keeps the direct download`);
+      assert.equal(plan.included[0].flags.includes('compatibility_not_declared'), true, 'no older-OS compatibility is invented');
+    }
+  });
+
+  it('the kit declares PowerShell 2.0 and uses no PowerShell 3+ command or syntax', () => {
+    const k = buildDownloadKitScript({ plan: planInstall({ apps: [olderApp], os: 'windows7', method: 'download-kit' }), meta: META });
+    assert.ok(k.startsWith('#Requires -Version 2.0\n'));
+    assert.match(k, /# Target\s+: Windows 7/);
+    for (const re of PS3_ONLY) assert.doesNotMatch(codeLines(k).join('\n'), re, String(re));
+    assert.match(k, /System\.Net\.WebClient/);
+    assert.match(k, /SHA256Managed/);
+    assert.match(k, /Enable-Tls12/);
+  });
+
+  it('the WinGet script still declares PowerShell 5.1 (it only runs on Windows 10 and 11)', () => {
+    const w = buildWingetScript({ plan: planInstall({ apps: [olderApp], os: 'windows10', method: 'winget' }), meta: META });
+    assert.ok(w.startsWith('#Requires -Version 5.1\n'));
+  });
+
+  it('the hardware report is PowerShell 2.0 compatible and writes its own JSON', async () => {
+    const { readFileSync } = await import('node:fs');
+    const text = readFileSync(new URL('../../assets/scripts/Get-AntoHardwareReport.ps1', import.meta.url), 'utf8');
+    assert.ok(text.startsWith('#Requires -Version 2.0\n'));
+    const code = text.replace(/<#[\s\S]*?#>/g, '');
+    for (const re of PS3_ONLY) assert.doesNotMatch(codeLines(code).join('\n'), re, String(re));
+    assert.match(text, /Get-WmiObject/);
+    assert.match(text, /function ConvertTo-AntoJson/);
+    assert.deepEqual(bracketBalance(text), { ok: true });
   });
 });

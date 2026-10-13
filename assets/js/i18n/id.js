@@ -342,6 +342,8 @@ export default {
   "sw.in.howto": "Cara menjalankan skrip",
   "sw.in.import": "Impor manifes",
   "sw.in.kit_row": "Hanya diunduh dan diperiksa",
+  "sw.in.legacy_title": "Windows 7, 8 dan 8.1 memakai paket unduhan",
+  "sw.in.legacy_note": "WinGet hanya tersedia di Windows 10 dan 11, jadi rencana ini hanya mengunduh dan memeriksa berkas. Tidak ada yang dijalankan. Tidak ada sumber yang menyatakan kompatibilitas dengan sistem lama ini, jadi periksa persyaratan setiap penerbit sebelum memasang. Windows 7 memerlukan .NET Framework 4.5 atau lebih baru untuk unduhan yang aman.",
   "sw.in.m_kit": "Kit unduhan (hanya verifikasi)",
   "sw.in.m_winget": "Skrip WinGet (disarankan)",
   "sw.in.manifest": "Unduh manifes",

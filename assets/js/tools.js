@@ -7,7 +7,7 @@ import { loadVisuals, visualImg } from './lib/visuals.js';
 const $ = (id) => document.getElementById(id);
 let tools = []; let apps = new Map(); let searcher = null;
 
-const chip = (kind, ic, label) => h('span', { class: `chip ${kind}` }, icon(ic), h('span', {}, label));
+const chip = (kind, ic, label) => h('span', { class: 'status-bar-field' }, icon(ic), h('span', {}, label));
 const extLink = (href, text) => { const s = safeHttpUrl(href); return s ? h('a', { href: s, target: '_blank' }, text, ' ', icon('external')) : null; };
 
 function card(tool) {
@@ -20,7 +20,7 @@ function card(tool) {
       tool.verification_status === 'verified' ? chip('verified', 'shield', t('review.verified')) : chip('unknown', 'clock', t('review.not_reviewed')), m ? chip(m.primary === 'unavailable' ? 'unavailable' : m.primary === 'winget' ? 'winget' : m.primary === 'direct' ? 'direct' : 'page', m.primary === 'winget' ? 'box' : m.primary === 'direct' ? 'download' : 'globe', t(`chip.${m.primary}`)) : null),
     pick('use_cases').length ? h('div', {}, h('h3', {}, t('tools.use')), h('ul', {}, pick('use_cases').map((x) => h('li', {}, x)))) : null,
     pick('cautions').length ? h('div', { class: 'notice warn' }, icon('warn'), h('div', {}, h('strong', {}, t('tools.caution')), h('ul', {}, pick('cautions').map((x) => h('li', {}, x))))) : null,
-    h('div', { class: 'row' }, app ? h('a', { class: 'btn-aero green sm', href: `${sitePath('software/')}#apps=${encodeURIComponent(app.id)}` }, icon('plus'), t('tools.add')) : null, app ? h('a', { class: 'btn-aero ghost sm', href: `${sitePath('software/')}#app=${encodeURIComponent(app.id)}` }, icon('info'), t('sw.details')) : null, extLink(tool.source_url, t('sw.publisher_page'))));
+    h('div', { class: 'row' }, app ? h('a', { class: 'default', href: `${sitePath('software/')}#apps=${encodeURIComponent(app.id)}` }, icon('plus'), t('tools.add')) : null, app ? h('a', { class: '', href: `${sitePath('software/')}#app=${encodeURIComponent(app.id)}` }, icon('info'), t('sw.details')) : null, extLink(tool.source_url, t('sw.publisher_page'))));
 }
 
 function render() {

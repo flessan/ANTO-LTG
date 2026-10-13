@@ -41,7 +41,7 @@ describe('model helpers', () => {
     assert.equal(compatFor(APPS[0], 'windows11'), 'declared');
     assert.equal(compatFor(APPS[2], 'windows10'), 'unsupported');
     assert.equal(compatFor({}, 'windows11'), 'unknown');
-    assert.deepEqual(OS_TARGETS, { windows10: 'Windows 10', windows11: 'Windows 11' });
+    assert.deepEqual(OS_TARGETS, { windows11: 'Windows 11', windows10: 'Windows 10', windows81: 'Windows 8.1', windows8: 'Windows 8', windows7: 'Windows 7' });
   });
   it('pickDownload prefers the exact architecture, then neutral, then unlabelled', () => {
     const app = { downloads: [{ kind: 'direct_binary', url: 'u1', architecture: 'x86' }, { kind: 'direct_binary', url: 'u2', architecture: 'neutral' }, { kind: 'direct_binary', url: 'u3', architecture: 'x64' }, { kind: 'landing_page', url: 'u4', architecture: 'x64' }] };

@@ -43,7 +43,7 @@ export function setLang(lang, { persist = true } = {}) {
   current = LANGS.includes(lang) ? lang : 'en';
   document.documentElement.lang = current;
   if (persist) { try { localStorage.setItem(KEYS.lang, JSON.stringify(current)); } catch { /* private mode */ } }
-  for (const b of document.querySelectorAll('.lang-switch [data-lang]')) b.setAttribute('aria-pressed', String(b.dataset.lang === current));
+  for (const b of document.querySelectorAll('.lang-switch [data-lang]')) { const on = b.dataset.lang === current; b.setAttribute('aria-pressed', String(on)); b.classList.toggle('default', on); }
   applyI18n(document);
   document.dispatchEvent(new CustomEvent('anto:lang', { detail: { lang: current } }));
   return current;

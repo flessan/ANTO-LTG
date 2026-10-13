@@ -27,6 +27,21 @@ The interface is English by default with an Indonesian switch (EN / ID), a respo
 navigation, visible focus states and empty, loading and error states. It uses [7.css](https://github.com/khang-nd/7.css)
 (vendored, MIT) for window and control components, a custom Aero layer on top, and real licensed photographs.
 
+
+## Older Windows (7, 8 and 8.1)
+
+The software catalog can target Windows 7, Windows 8 and Windows 8.1 as well as Windows 10 and 11.
+WinGet only exists on Windows 10 1809 and later, so for these older systems the Software Center
+produces the **download kit** instead: a PowerShell 2.0 compatible script that downloads each official
+file over HTTPS, checks its published SHA-256 and deletes any file that does not match. It never runs
+or installs what it downloads. Windows 7 needs .NET Framework 4.5 or later for secure (TLS 1.2)
+downloads; the script says so if TLS 1.2 cannot be enabled.
+
+No catalog source declares compatibility with Windows 7, 8 or 8.1, so those systems are shown as
+"not declared" rather than supported. Check each publisher's requirements before you install.
+The hardware report (`assets/scripts/Get-AntoHardwareReport.ps1`) runs on PowerShell 2.0 and later.
+Windows XP and Vista are not supported.
+
 ## What it is not
 
 * **Not a live driver database and not a real-time API.** It is a research index that points to official sources.

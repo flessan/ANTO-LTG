@@ -27,6 +27,19 @@ Tanpa framework, tanpa dependency runtime, tanpa CDN.
 - **Bundel**, **Alat**, **Panduan**, dan **Developers** (API, model data, skema, crawler, model keamanan).
 - Antarmuka berbahasa Inggris secara bawaan dengan tombol **EN / ID**.
 
+## Windows lama (7, 8 dan 8.1)
+
+Katalog perangkat lunak dapat ditargetkan untuk Windows 7, Windows 8 dan Windows 8.1, selain Windows 10 dan 11.
+WinGet hanya ada di Windows 10 1809 ke atas, jadi untuk sistem lama Pusat Perangkat Lunak membuat **paket unduhan**:
+skrip yang kompatibel dengan PowerShell 2.0, mengunduh setiap berkas resmi melalui HTTPS, memeriksa SHA-256 yang
+dipublikasikan, dan menghapus berkas yang tidak cocok. Skrip tidak pernah menjalankan atau memasang apa pun yang diunduh.
+Windows 7 memerlukan .NET Framework 4.5 atau lebih baru untuk unduhan aman (TLS 1.2); skrip akan memberi tahu jika TLS 1.2 tidak bisa diaktifkan.
+
+Tidak ada sumber katalog yang menyatakan kompatibilitas dengan Windows 7, 8 atau 8.1, sehingga sistem tersebut
+ditampilkan sebagai "belum dinyatakan", bukan "didukung". Periksa persyaratan setiap penerbit sebelum memasang.
+Laporan perangkat keras (`assets/scripts/Get-AntoHardwareReport.ps1`) berjalan di PowerShell 2.0 ke atas.
+Windows XP dan Vista tidak didukung.
+
 ## Yang bukan
 
 - Bukan database driver langsung dan bukan API real-time: ini indeks riset yang menunjuk ke sumber resmi. File JSON

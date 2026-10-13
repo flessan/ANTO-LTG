@@ -60,7 +60,11 @@ export function installMethods(app) {
   return m;
 }
 
-export const OS_TARGETS = { windows10: 'Windows 10', windows11: 'Windows 11' };
+// Windows 7, 8 and 8.1 get the download kit only (no WinGet). Compatibility is shown as not declared for them.
+export const OS_TARGETS = { windows11: 'Windows 11', windows10: 'Windows 10', windows81: 'Windows 8.1', windows8: 'Windows 8', windows7: 'Windows 7' };
+export const OS_IDS = Object.keys(OS_TARGETS);
+export const WINGET_OS = new Set(['windows10', 'windows11']);
+export const normalizeOs = (v) => (OS_IDS.includes(v) ? v : 'windows11');
 
 // 'declared' | 'unsupported' | 'unknown' for a target OS, from the source-declared compatibility only.
 export function compatFor(app, os) {

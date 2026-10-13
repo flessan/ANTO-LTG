@@ -17,7 +17,7 @@ const OS_NAME = Object.fromEntries(OS_OPTIONS);
 const COMPONENT_ICON = { graphics: 'monitor', audio: 'speaker', 'network-ethernet': 'network', 'network-wifi': 'wifi', bluetooth: 'bluetooth', chipset: 'chip', storage: 'drive', usb: 'usb', input: 'mouse', camera: 'camera', 'card-reader': 'card', firmware: 'chip', 'serial-adapter': 'plug', 'printer-scanner': 'printer', 'system-management': 'gear', other: 'globe' };
 const KIND_CHIP = { driver_package: ['direct', 'download', 'drv.kind.driver_package'], vendor_tool: ['winget', 'gear', 'drv.kind.vendor_tool'], support_page: ['page', 'globe', 'drv.kind.support_page'], catalog_entry: ['redirect', 'folder', 'drv.kind.catalog_entry'] };
 
-const chip = (kind, ic, label, title) => h('span', { class: `chip ${kind}`, title: title || undefined }, icon(ic), h('span', {}, label));
+const chip = (kind, ic, label, title) => h('span', { class: 'status-bar-field', title: title || undefined }, icon(ic), h('span', {}, label));
 const extLink = (href, text) => { const safe = safeHttpUrl(href); return safe ? h('a', { href: safe, target: '_blank' }, text, ' ', icon('external')) : h('span', { class: 'unknown-text' }, text); };
 const unknown = () => h('span', { class: 'unknown-text' }, t('common.unknown'));
 const val = (v) => (v === null || v === undefined || v === '' || (Array.isArray(v) && !v.length) ? unknown() : v);
@@ -46,11 +46,11 @@ function card(d) {
     ...[[t('drv.d.manufacturer'), d.manufacturer], [t('drv.d.model'), d.model], [t('drv.d.component'), componentLabel(d.component, getLang())], [t('drv.d.os'), osArchSummary(d)], [t('drv.d.version'), d.version], [t('drv.d.date'), d.release_date], [t('drv.d.size'), d.file_size_text ? `${d.file_size_text}${d.file_size_text && !/[A-Za-z]{2}/.test(d.file_size_text) ? '' : ''}` : null]]
       .map(([k, v]) => h('div', {}, h('dt', {}, k), h('dd', {}, val(v)))));
   const actions = h('div', { class: 'dc-actions' });
-  if (d.official_source?.url) actions.append(h('a', { class: 'btn-aero sm', href: safeHttpUrl(d.official_source.url) ?? undefined, target: '_blank' }, icon('external'), t(lead ? 'drv.open_official_instead' : 'drv.open_official')));
-  if (d.download?.kind === 'direct_binary' && d.download.url) actions.append(h('a', { class: 'btn-aero green sm', href: safeHttpUrl(d.download.url) ?? undefined, target: '_blank' }, icon('download'), t('drv.direct_download')));
+  if (d.official_source?.url) actions.append(h('a', { class: '', href: safeHttpUrl(d.official_source.url) ?? undefined, target: '_blank' }, icon('external'), t(lead ? 'drv.open_official_instead' : 'drv.open_official')));
+  if (d.download?.kind === 'direct_binary' && d.download.url) actions.append(h('a', { class: 'default', href: safeHttpUrl(d.download.url) ?? undefined, target: '_blank' }, icon('download'), t('drv.direct_download')));
   const hash = d.download?.sha256 ?? d.download?.sha512;
-  if (hash) actions.append(h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: async () => toast(t((await copyText(hash)) ? 'drv.hash_copied' : 'common.copy_failed')) }, icon('copy'), d.download.sha256 ? 'SHA-256' : 'SHA-512'));
-  actions.append(h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { detail: d.id } }, icon('info'), t('sw.details')));
+  if (hash) actions.append(h('button', { type: 'button', class: '', onclick: async () => toast(t((await copyText(hash)) ? 'drv.hash_copied' : 'common.copy_failed')) }, icon('copy'), d.download.sha256 ? 'SHA-256' : 'SHA-512'));
+  actions.append(h('button', { type: 'button', class: '', dataset: { detail: d.id } }, icon('info'), t('sw.details')));
   return h('article', { class: `driver-card${lead ? ' lead' : ''}`, id: `d-${d.id}` },
     h('header', {}, h('span', { class: 'driver-visual' }, visualImg('drivers', d.id, { size: 40 })), h('div', { class: 'grow' }, h('h3', {}, d.name), h('div', { class: 'chips' }, ...typeChips(d)))),
     lead ? h('div', { class: 'notice warn' }, icon('warn'), h('div', {}, t('drv.lead.notice'))) : null,
@@ -83,7 +83,7 @@ function detail(id) {
   body.append(h('p', { class: 'small muted' }, t(publicationState(d) === 'unavailable' ? 'pub.unavailable.long' : 'pub.published.long')));
   body.append(h('p', { class: 'small muted' }, t(provenanceOf(d) === 'maintainer_curated' ? 'prov.curated.long' : 'prov.automated.long')));
   body.append(h('p', { class: 'small muted' }, t(isVerified(d) ? 'review.verified.long' : 'review.not_reviewed.long')));
-  openDialog({ title: d.name, icon: COMPONENT_ICON[d.component] ?? 'chip', body, actions: [h('button', { type: 'button', class: 'btn-aero ghost', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))] });
+  openDialog({ title: d.name, icon: COMPONENT_ICON[d.component] ?? 'chip', body, actions: [h('button', { type: 'button', class: '', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))] });
 }
 
 function renderResults() {
@@ -96,7 +96,7 @@ function renderResults() {
   $('drv-count').textContent = state.visible.length === state.drivers.length ? tn('drv.count_all', state.drivers.length) : t('drv.count_filtered', { n: state.visible.length, total: state.drivers.length });
   $('drv-status').textContent = t('sw.status', { date: String(state.meta.updated_at ?? '').slice(0, 10) || '-', schema: state.meta.schema_version ?? '-' });
   if (!state.visible.length) {
-    box.append(h('div', { class: 'empty' }, h('span', { class: 'orb aqua' }, icon('search')), h('h2', {}, t('drv.empty.title')), h('p', {}, t('drv.empty.text')), h('div', { class: 'row', style: undefined }, h('button', { type: 'button', class: 'btn-aero ghost', onclick: resetFilters }, t('common.reset')))));
+    box.append(h('div', { class: 'empty' }, h('span', { class: 'orb aqua' }, icon('search')), h('h2', {}, t('drv.empty.title')), h('p', {}, t('drv.empty.text')), h('div', { class: 'row', style: undefined }, h('button', { type: 'button', class: '', onclick: resetFilters }, t('common.reset')))));
     return;
   }
   box.append(h('div', { class: 'driver-list' }, state.visible.map(card)));
@@ -128,8 +128,8 @@ function renderVendors() {
       (v.requires ?? []).length ? h('div', { class: 'chips row' }, h('span', { class: 'small muted' }, `${t('drv.d.requires')}:`), ...v.requires.map((r) => chip('unknown', 'lock', t(`req.${r}`)))) : null,
       h('p', { class: 'small muted' }, `${t('drv.official_domains')}: ${v.domains.join(', ')}`),
       (v.pci_vendor_ids?.length || v.usb_vendor_ids?.length) ? h('p', { class: 'small muted' }, `${t('drv.hw_vendor_ids')}: ${[...(v.pci_vendor_ids ?? []).map((i) => `PCI ${i}`), ...(v.usb_vendor_ids ?? []).map((i) => `USB ${i}`)].join(', ')}`) : null,
-      h('div', { class: 'row' }, v.driver_search_url ? h('a', { class: 'btn-aero sm', href: safeHttpUrl(v.driver_search_url) ?? undefined, target: '_blank' }, icon('external'), t('drv.open_portal')) : extLink(v.homepage_url, t('drv.homepage')),
-        count ? h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { vendor: v.id } }, icon('filter'), tn('drv.show_records', count)) : null)));
+      h('div', { class: 'row' }, v.driver_search_url ? h('a', { class: '', href: safeHttpUrl(v.driver_search_url) ?? undefined, target: '_blank' }, icon('external'), t('drv.open_portal')) : extLink(v.homepage_url, t('drv.homepage')),
+        count ? h('button', { type: 'button', class: '', dataset: { vendor: v.id } }, icon('filter'), tn('drv.show_records', count)) : null)));
   }
 }
 
@@ -164,7 +164,7 @@ function analyze() {
       h('div', { class: 'row' }, h('span', { class: 'orb sm aqua' }, icon('chip')), h('strong', {}, vendor ? vendor.name : t('drv.hw.unknown_vendor', { id: id.vendor })), h('span', { class: 'chip info' }, `${id.bus} ${id.bus === 'USB' ? 'VID' : 'VEN'}_${id.vendor}`), list.some((x) => x.problem) ? chip('bad', 'warn', t('drv.hw.problem')) : null),
       h('ul', { class: 'small' }, list.slice(0, 6).map((x) => h('li', {}, x.name ? `${x.name} ` : '', h('code', {}, x.id.normalized)))),
       exact.length ? h('div', {}, h('strong', { class: 'small' }, t('drv.hw.exact')), h('ul', { class: 'small' }, exact.map((d) => h('li', {}, h('button', { type: 'button', class: 'btn-reset', dataset: { detail: d.id } }, h('a', { href: `#d-${d.id}` }, d.name)))))) : null,
-      vendor ? h('div', { class: 'small' }, t('drv.hw.vendor_hint', { vendor: vendor.name }), ' ', vendor.driver_search_url ? extLink(vendor.driver_search_url, t('drv.open_portal')) : null, vendorRecords.length ? h('ul', {}, vendorRecords.map((d) => h('li', {}, h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { detail: d.id } }, d.name)))) : null)
+      vendor ? h('div', { class: 'small' }, t('drv.hw.vendor_hint', { vendor: vendor.name }), ' ', vendor.driver_search_url ? extLink(vendor.driver_search_url, t('drv.open_portal')) : null, vendorRecords.length ? h('ul', {}, vendorRecords.map((d) => h('li', {}, h('button', { type: 'button', class: '', dataset: { detail: d.id } }, d.name)))) : null)
         : h('p', { class: 'small muted' }, t('drv.hw.no_vendor_entry'))));
   }
   out.append(h('p', { class: 'small muted' }, t('drv.hw.disclaimer')));
@@ -179,7 +179,7 @@ async function init() {
     state.meta = { schema_version: drivers.schema_version, updated_at: drivers.updated_at }; state.searcher = createSearcher(index);
   } catch (err) {
     const box = $('drv-results'); box.setAttribute('aria-busy', 'false'); clear(box);
-    box.append(h('div', { class: 'notice error', role: 'alert' }, icon('warn'), h('div', {}, h('strong', {}, t('common.load_error')), h('p', { class: 'small mono' }, String(err.message)), h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: () => location.reload() }, t('common.retry')))));
+    box.append(h('div', { class: 'notice error', role: 'alert' }, icon('warn'), h('div', {}, h('strong', {}, t('common.load_error')), h('p', { class: 'small mono' }, String(err.message)), h('button', { type: 'button', class: '', onclick: () => location.reload() }, t('common.retry')))));
     return;
   }
   fillSelects(); renderVendors();

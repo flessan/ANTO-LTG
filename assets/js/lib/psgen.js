@@ -8,7 +8,7 @@
 //  * The script never uses -ExecutionPolicy Bypass, never elevates itself, never runs a downloaded
 //    file, and installs nothing until the person types YES (case-sensitive).
 //  * WinGet is invoked with an argument ARRAY (splatting), so the shell does no parsing of IDs.
-import { sortForInstall, compatFor, installMethods, OS_TARGETS } from './model.js';
+import { sortForInstall, compatFor, installMethods, OS_TARGETS, WINGET_OS } from './model.js';
 
 export const WINGET_ID_RE = /^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$/;
 export const isValidWingetId = (id) => typeof id === 'string' && WINGET_ID_RE.test(id);
@@ -61,6 +61,8 @@ const displayName = (app) => {
 // ---- planning ------------------------------------------------------------------------------------
 // Decides, for each selected app, whether it is part of the script, a manual step, or excluded - and why.
 export function planInstall({ apps, os = 'windows11', method = 'winget', includeUnknown = true }) {
+  // WinGet only exists on Windows 10 1809 and later; older systems always get the download kit.
+  if (!WINGET_OS.has(os)) method = 'download-kit';
   const included = []; const manual = []; const excluded = [];
   for (const app of sortForInstall(apps)) {
     const m = installMethods(app);
@@ -96,7 +98,7 @@ const FLAG_TEXT = { compatibility_not_declared: 'Windows compatibility is not de
 function header(kind, plan, meta) {
   const title = kind === 'winget' ? 'WinGet installer script' : 'Download kit (download and verify only)';
   const lines = [
-    '#Requires -Version 5.1',
+    kind === 'winget' ? '#Requires -Version 5.1' : '#Requires -Version 2.0',
     `# ANTO-LTG ${title}`,
     psComment(`Bundle    : ${meta.bundleName || 'Untitled bundle'}`),
     psComment(`Target    : ${OS_TARGETS[plan.os] ?? 'Windows'}`),
@@ -126,7 +128,7 @@ function header(kind, plan, meta) {
 
 function manualBlock(plan) {
   if (!plan.manual.length) return ['$ManualSteps = @()'];
-  const rows = plan.manual.map((m) => `    [pscustomobject]@{ Name = ${psQuote(displayName(m.app))}; Reason = ${psQuote(REASON_TEXT[m.reason] ?? m.reason)}; Link = ${psQuote(/^https:\/\//.test(m.link ?? '') ? m.link : '', { max: 300 })} }`);
+  const rows = plan.manual.map((m) => `    (New-Object PSObject -Property @{ Name = ${psQuote(displayName(m.app))}; Reason = ${psQuote(REASON_TEXT[m.reason] ?? m.reason)}; Link = ${psQuote(/^https:\/\//.test(m.link ?? '') ? m.link : '', { max: 300 })} })`);
   return ['$ManualSteps = @(', ...rows, ')'];
 }
 
@@ -260,11 +262,13 @@ export function buildWingetScript({ plan, options = {}, meta = {} }) {
 
 // ---- download kit (download + verify, never execute) ------------------------------------------------
 export function buildDownloadKitScript({ plan, meta = {} }) {
+  // PowerShell 2.0 compatible (Windows 7 ships with it): no Invoke-WebRequest, Get-FileHash, pscustomobject,
+  // ConvertTo-Json or ?. operators. Each row is built with New-Object PSObject, parenthesised so commas bind correctly.
   const m = { generatedAt: new Date(0).toISOString(), ...meta };
   if (!plan.included.length) throw new Error('Nothing to download: no app has an official direct download with a published hash');
   const items = plan.included.map(({ app, variants }) => {
-    const rows = variants.map((v) => `        [pscustomobject]@{ Arch = ${psQuote(v.architecture ?? 'neutral')}; Url = ${psQuote(v.url, { max: 600 })}; Sha256 = ${psQuote(v.sha256)} }`);
-    return `    [pscustomobject]@{ Name = ${psQuote(displayName(app))}; Variants = @(\n${rows.join(',\n')}\n    ) }`;
+    const rows = variants.map((v) => `        (New-Object PSObject -Property @{ Arch = ${psQuote(v.architecture ?? 'neutral')}; Url = ${psQuote(v.url, { max: 600 })}; Sha256 = ${psQuote(v.sha256)} })`);
+    return `    (New-Object PSObject -Property @{ Name = ${psQuote(displayName(app))}; Variants = @(\n${rows.join(',\n')}\n    ) })`;
   });
   const L = [
     ...header('kit', plan, m),
@@ -273,6 +277,7 @@ export function buildDownloadKitScript({ plan, meta = {} }) {
     '$Items = @(', items.join(',\n'), ')',
     ...manualBlock(plan), '',
     ...STEP_HELPERS, '',
+    ...LEGACY_HELPERS, '',
     'if (-not $Folder) { $Folder = Join-Path -Path ([Environment]::GetFolderPath(\'UserProfile\')) -ChildPath \'Downloads\\ANTO-LTG-kit\' }',
     '$archKey = switch ($env:PROCESSOR_ARCHITECTURE) { \'AMD64\' { \'x64\' } \'ARM64\' { \'arm64\' } \'x86\' { \'x86\' } default { \'x64\' } }',
     '$prefer = switch ($archKey) { \'x64\' { @(\'x64\', \'x86\', \'neutral\') } \'arm64\' { @(\'arm64\', \'x64\', \'x86\', \'neutral\') } default { @(\'x86\', \'neutral\') } }',
@@ -280,34 +285,33 @@ export function buildDownloadKitScript({ plan, meta = {} }) {
     'Write-Host \'Files are only downloaded and verified. Nothing is run or installed.\'',
     'if ($DryRun) { Write-Host \'DRY RUN: nothing will be downloaded.\' -ForegroundColor Green }',
     'elseif (-not (Test-Path -LiteralPath $Folder)) { New-Item -ItemType Directory -Path $Folder | Out-Null }',
-    '[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12',
-    '$ProgressPreference = \'SilentlyContinue\'',
-    '$results = New-Object System.Collections.Generic.List[object]',
+    'Enable-Tls12',
+    '$results = New-Object System.Collections.ArrayList',
     '$n = 0',
     'foreach ($item in $Items) {',
     '    $n++',
     '    $variant = $null',
     '    foreach ($a in $prefer) { $variant = @($item.Variants | Where-Object { $_.Arch -eq $a })[0]; if ($variant) { break } }',
-    '    if (-not $variant) { $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'Failed\'; Reason = \'No download for this processor architecture\'; File = \'\' }); continue }',
+    '    if (-not $variant) { [void]$results.Add((New-Row $item.Name \'Failed\' \'No download for this processor architecture\' \'\')); continue }',
     '    $uri = [Uri]$variant.Url',
-    '    if ($uri.Scheme -ne \'https\') { $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'Failed\'; Reason = \'Not an https URL\'; File = \'\' }); continue }',
+    '    if ($uri.Scheme -ne \'https\') { [void]$results.Add((New-Row $item.Name \'Failed\' \'Not an https URL\' \'\')); continue }',
     '    $fileName = ([Uri]::UnescapeDataString([IO.Path]::GetFileName($uri.AbsolutePath)) -replace \'[^A-Za-z0-9._-]\', \'_\')',
     '    if (-not $fileName) { $fileName = \'download-\' + $n + \'.bin\' }',
     '    $dest = Join-Path -Path $Folder -ChildPath $fileName',
     '    Write-Step (\'[{0}/{1}] {2}\' -f $n, $Items.Count, $item.Name)',
-    '    if ($DryRun) { Write-Host (\'DRY RUN: would download \' + $variant.Url); $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'DryRun\'; Reason = \'Not downloaded\'; File = $fileName }); continue }',
+    '    if ($DryRun) { Write-Host (\'DRY RUN: would download \' + $variant.Url); [void]$results.Add((New-Row $item.Name \'DryRun\' \'Not downloaded\' $fileName)); continue }',
     '    try {',
-    '        Invoke-WebRequest -Uri $variant.Url -OutFile $dest -UseBasicParsing',
-    '        $actual = (Get-FileHash -LiteralPath $dest -Algorithm SHA256).Hash.ToLowerInvariant()',
+    '        Save-File $variant.Url $dest',
+    '        $actual = Get-Sha256Hex $dest',
     '        if ($actual -ne $variant.Sha256.ToLowerInvariant()) {',
     '            Remove-Item -LiteralPath $dest -Force',
-    '            $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'Failed\'; Reason = \'SHA-256 does not match the published value; the file was deleted\'; File = $fileName })',
+    '            [void]$results.Add((New-Row $item.Name \'Failed\' \'SHA-256 does not match the published value; the file was deleted\' $fileName))',
     '        } else {',
     '            Write-Host (\'Verified SHA-256 \' + $actual)',
-    '            $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'Verified\'; Reason = \'\'; File = $fileName })',
+    '            [void]$results.Add((New-Row $item.Name \'Verified\' \'\' $fileName))',
     '        }',
     '    } catch {',
-    '        $results.Add([pscustomobject]@{ Name = $item.Name; Status = \'Failed\'; Reason = $_.Exception.Message; File = $fileName })',
+    '        [void]$results.Add((New-Row $item.Name \'Failed\' $_.Exception.Message $fileName))',
     '    }',
     '}', '',
     'Write-Step \'Summary\'',
@@ -320,6 +324,27 @@ export function buildDownloadKitScript({ plan, meta = {} }) {
   ];
   return `${L.join('\n')}\n`;
 }
+
+// Helpers that keep the kit running on PowerShell 2.0 (Windows 7, 8 and 8.1 ship with it).
+const LEGACY_HELPERS = [
+  'function New-Row([string]$Name, [string]$Status, [string]$Reason, [string]$File) {',
+  '    return (New-Object PSObject -Property @{ Name = $Name; Status = $Status; Reason = $Reason; File = $File })',
+  '}',
+  'function Enable-Tls12 {',
+  '    try { [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]3072 }',
+  '    catch { Write-Host \'TLS 1.2 could not be enabled on this system; some downloads may fail. Install .NET Framework 4.5 or later, then run this again.\' -ForegroundColor Yellow }',
+  '}',
+  'function Save-File([string]$Url, [string]$Path) {',
+  '    $client = New-Object System.Net.WebClient',
+  '    try { $client.DownloadFile($Url, $Path) } finally { $client.Dispose() }',
+  '}',
+  'function Get-Sha256Hex([string]$Path) {',
+  '    $sha = New-Object System.Security.Cryptography.SHA256Managed',
+  '    $stream = [IO.File]::OpenRead($Path)',
+  '    try { $bytes = $sha.ComputeHash($stream) } finally { $stream.Close(); $sha.Clear() }',
+  '    return ([BitConverter]::ToString($bytes) -replace \'-\', \'\').ToLowerInvariant()',
+  '}',
+];
 
 // ---- winget import file -------------------------------------------------------------------------------
 // Format: https://aka.ms/winget-packages.schema.2.0.json (default source values from winget-cli SourceList.cpp).

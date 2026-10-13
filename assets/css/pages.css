@@ -31,8 +31,6 @@
 .intro-strip h1 { margin: 0; }
 .sw-toolbar { display: grid; gap: 0.7rem; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); align-items: end; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line-soft); margin-bottom: 0.7rem; }
 .sw-toolbar .field.search { grid-column: 1 / -1; }
-.sw-toolbar .check, .drv-toolbar .check { grid-column: span 2; align-self: center; }
-.sw-toolbar .check span, .drv-toolbar .check span { font-size: 0.9rem; }
 .sw-toolbar .field.search input { min-height: 40px; }
 .results-bar { display: flex; flex-wrap: wrap; gap: 0.5rem 0.8rem; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; background: #fff; }
@@ -51,9 +49,6 @@
 .qp-item label { display: flex; align-items: center; gap: 0.5rem; flex: 1; min-width: 0; cursor: pointer; }
 .qp-item.disabled label { cursor: not-allowed; }
 .qp-name { flex: 1 1 auto; min-width: 0; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
-/* compact method chip in the dense quick-pick grid: icon + tooltip, the word stays for screen readers */
-.qp-item .method .chip { padding: 0.15rem 0.35rem; }
-.qp-item .method .chip span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .qp-item .method { flex: none; }
 .info-btn { all: unset; box-sizing: border-box; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; color: var(--sky-700); flex: none; }
 .info-btn:hover { background: var(--sky-100); }
@@ -84,8 +79,6 @@
 .installer .window-body { display: flex; flex-direction: column; gap: 0.8rem; min-height: 0; overflow-y: auto; overflow-x: hidden; }
 .installer .window-body > *, .installer .stack > * { min-width: 0; max-width: 100%; }
 .installer .stack { grid-template-columns: minmax(0, 1fr); }
-.installer .check { align-items: flex-start; } .installer .check input { margin-top: 0.15rem; } .installer .check span { min-width: 0; font-size: 0.88rem; }
-.installer .sel-list .name { white-space: normal; }
 .installer .opt-grid { grid-template-columns: 1fr; }
 .installer code { white-space: normal; }
 .installer fieldset { min-width: 0; margin: 0; }
@@ -94,15 +87,6 @@
 .installer-head .count { font-size: 1.6rem; font-weight: 800; color: var(--sky-800); line-height: 1; }
 .opt-grid { display: grid; gap: 0.5rem 0.8rem; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); }
 .opt-list { display: grid; gap: 0.35rem; font-size: 0.9rem; }
-.sel-list { list-style: none; padding: 0; margin: 0; max-height: 240px; overflow: auto; border: 1px solid var(--line-soft); border-radius: var(--radius); background: #fff; }
-.sel-list li { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--paper-3); font-size: 0.9rem; }
-.sel-list li:last-child { border-bottom: 0; }
-.sel-list .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sel-list .rm { all: unset; cursor: pointer; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: var(--danger); }
-.sel-list .rm:hover { background: var(--danger-bg); }
-.plan-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: #fff; }
-.plan-table th, .plan-table td { text-align: left; padding: 0.3rem 0.5rem; border-bottom: 1px solid var(--paper-3); vertical-align: top; }
-.plan-table th { background: var(--paper-2); font-size: 0.8rem; color: var(--ink-soft); position: sticky; top: 0; }
 .plan-scroll { max-height: 260px; overflow: auto; border: 1px solid var(--line-soft); border-radius: var(--radius); }
 .script-box { position: relative; }
 .script-box pre { max-height: 340px; font-size: 0.8rem; }
@@ -180,12 +164,7 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 
 /* ---- installer: download first, lighter plan table, collapsed script preview ------------------- */
 .installer-top { display: grid; }
-.installer-top .btn-aero { min-height: 46px; font-size: 1rem; justify-content: center; }
 .plan-app { display: inline-flex; align-items: center; gap: 0.45rem; min-width: 0; flex-wrap: wrap; }
 .plan-app .app-icon { flex: none; }
 .plan-app .plan-name { min-width: 0; font-weight: 600; }
-.plan-table td { padding: 0.45rem 0.55rem; }
-.plan-table code { font-size: 0.78rem; white-space: nowrap; }
-.plan-table th { font-size: 0.78rem; }
 .mobile-installer-bar .row { gap: 0.4rem; flex-wrap: wrap; justify-content: flex-end; }
-.mobile-installer-bar .btn-aero:disabled { opacity: 0.55; }

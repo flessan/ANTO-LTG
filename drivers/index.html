@@ -84,7 +84,7 @@
           <select id="drv-publication" name="publication"><option value="" data-i18n="common.any">Any</option><option value="published" data-i18n="status.published">Published automatically</option><option value="unavailable" data-i18n="status.unavailable">Unavailable (needs attention)</option><option value="verified" data-i18n="status.verified">Human-verified</option></select></div>
         <div class="field"><label for="drv-sort" data-i18n="sw.f.sort">Sort by</label>
           <select id="drv-sort" name="sort"><option value="relevance" data-i18n="sw.sort.relevance">Best match</option><option value="newest" data-i18n="drv.sort.newest">Newest release date</option><option value="name" data-i18n="sw.sort.name">Name</option><option value="manufacturer" data-i18n="drv.f.vendor">Manufacturer</option></select></div>
-        <label class="check"><input type="checkbox" id="drv-direct" name="directOnly"><span data-i18n="drv.f.direct">Only records with an official direct link</span></label>
+        <input type="checkbox" class="has-box-indicator" id="drv-direct" name="directOnly"><label for="drv-direct" data-i18n="drv.f.direct">Only records with an official direct link</label>
         <div><button type="reset" data-i18n="common.reset">Reset filters</button></div>
       </form>
       <p id="drv-count" class="small" role="status" aria-live="polite"></p>
@@ -102,7 +102,7 @@
       <p data-i18n="drv.hw.intro">Paste hardware IDs from Device Manager (Properties, Details, Hardware Ids) or the JSON report from the read-only script below. The page matches the vendor part of each ID to the vendor directory and to records that state the same ID.</p>
       <div class="notice"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#info"></use></svg><div><span data-i18n="drv.hw.script_note">The report script is read-only: it lists the computer's maker, model, Windows build and each device's name and hardware IDs. It collects no serial numbers, user names or host name, and nothing is uploaded; matching runs in this page.</span> <a href="../assets/scripts/Get-AntoHardwareReport.ps1" download data-i18n="drv.hw.script_link">Download Get-AntoHardwareReport.ps1</a></div></div>
       <div class="field"><label for="hw-input" data-i18n="drv.hw.label">Hardware IDs or report JSON</label><textarea id="hw-input" spellcheck="false" placeholder="PCI\VEN_8086&amp;DEV_1C3A&amp;SUBSYS_...&#10;USB\VID_0403&amp;PID_6001" rows="5"></textarea></div>
-      <div class="row"><button type="button" class="btn-aero" id="hw-run"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#search"></use></svg><span data-i18n="drv.hw.analyze">Analyze</span></button><button type="button" class="btn-aero ghost" id="hw-clear" data-i18n="common.clear">Clear</button></div>
+      <div class="row"><button type="button"  id="hw-run"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#search"></use></svg><span data-i18n="drv.hw.analyze">Analyze</span></button><button type="button"  id="hw-clear" data-i18n="common.clear">Clear</button></div>
       <div id="hw-results" class="hw-result" aria-live="polite"></div>
     </div>
   </section>

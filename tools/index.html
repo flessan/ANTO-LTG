@@ -60,8 +60,8 @@
         <form id="t-filters" class="sw-toolbar" role="search" autocomplete="off">
           <div class="field search"><label for="t-q" data-i18n="tools.search">Search tools, use cases or tags</label><input id="t-q" type="search" spellcheck="false" autocomplete="off"></div>
           <div class="field"><label for="t-cat" data-i18n="sw.f.category">Category</label><select id="t-cat"></select></div>
-          <label class="check"><input type="checkbox" id="t-boot"><span data-i18n="tools.f.boot">Runs from boot media</span></label>
-          <label class="check"><input type="checkbox" id="t-portable"><span data-i18n="tools.f.portable">Portable</span></label>
+          <input type="checkbox" class="has-box-indicator" id="t-boot"><label for="t-boot" data-i18n="tools.f.boot">Runs from boot media</label>
+          <input type="checkbox" class="has-box-indicator" id="t-portable"><label for="t-portable" data-i18n="tools.f.portable">Portable</label>
           <div><button type="reset" data-i18n="common.reset">Reset filters</button></div>
         </form>
         <p id="t-count" class="small" role="status" aria-live="polite"></p>

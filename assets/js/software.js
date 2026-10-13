@@ -4,7 +4,7 @@ import { t, tn, getLang, loadCatalog, fetchJson, toast, confirmDialog, openDialo
 import { createSearcher } from './lib/search.js';
 import { filterApps, groupByCategory, DEFAULT_FILTERS } from './lib/apps-filter.js';
 import { loadVisuals, visualImg, photoPicture, pagePhotoId } from './lib/visuals.js';
-import { CATEGORIES, displayRank, categoryLabel, installMethods, compatFor, versionInfo, daysSince, localized, OS_TARGETS } from './lib/model.js';
+import { CATEGORIES, displayRank, categoryLabel, installMethods, compatFor, versionInfo, daysSince, localized, OS_TARGETS, WINGET_OS } from './lib/model.js';
 import { planInstall, buildWingetScript, buildDownloadKitScript, buildWingetImport, commandLine } from './lib/psgen.js';
 import { createManifest, manifestToJson, parseManifest, encodeShare, decodeShare, cleanName, MAX_MANIFEST_BYTES } from './lib/bundle.js';
 import { createStorage, loadSelection, saveSelection, loadBundles, saveBundle, deleteBundle } from './lib/storage.js';
@@ -27,7 +27,7 @@ const METHOD_CHIP = {
   page: ['page', 'globe', 'chip.page'], unavailable: ['unavailable', 'close', 'chip.unavailable'],
 };
 function chip(kind, iconName, label, title) {
-  return h('span', { class: `chip ${kind}`, title: title || undefined }, icon(iconName), h('span', {}, label));
+  return h('span', { class: 'status-bar-field', title: title || undefined }, icon(iconName), h('span', {}, label));
 }
 function methodChips(app, primaryOnly = false) {
   const m = installMethods(app);
@@ -89,7 +89,7 @@ function renderResults() {
   box.setAttribute('aria-busy', 'false');
   clear(box);
   if (!state.visible.length) {
-    box.append(h('div', { class: 'empty' }, h('span', { class: 'orb aqua' }, icon('search')), h('h2', {}, t('sw.empty.title')), h('p', {}, t('sw.empty.text')), h('button', { type: 'button', class: 'btn-aero ghost', onclick: resetFilters }, t('common.reset'))));
+    box.append(h('div', { class: 'empty' }, h('span', { class: 'orb aqua' }, icon('search')), h('h2', {}, t('sw.empty.title')), h('p', {}, t('sw.empty.text')), h('button', { type: 'button', class: '', onclick: resetFilters }, t('common.reset'))));
     return;
   }
   if (state.view === 'quick') {
@@ -123,7 +123,7 @@ function listCard(app) {
     h('div', { class: 'meta' }, ...methodChips(app), compatChip(app, os), ...statusChips(app),
       v ? chip('info', 'clock', `v${v.value}`, t('sw.version_from', { source: v.source, date: v.retrieved_at })) : null,
       app.portable ? chip('info', 'folder', t('sw.portable')) : null),
-    h('div', { class: 'links' }, extLink(app.source_url, t('sw.publisher_page')), h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { info: app.id } }, icon('info'), t('sw.details'))));
+    h('div', { class: 'links' }, extLink(app.source_url, t('sw.publisher_page')), h('button', { type: 'button', class: '', dataset: { info: app.id } }, icon('info'), t('sw.details'))));
 }
 
 function resetFilters() {
@@ -164,7 +164,7 @@ function showDetails(id) {
 
   if (m.winget) {
     const cmd = commandLine(app.winget_id);
-    body.append(h('section', {}, h('h3', {}, t('sw.d.winget')), h('div', { class: 'row' }, h('code', {}, cmd), h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: async () => toast(t((await copyText(cmd)) ? 'common.copied' : 'common.copy_failed')) }, icon('copy'), t('common.copy')))));
+    body.append(h('section', {}, h('h3', {}, t('sw.d.winget')), h('div', { class: 'row' }, h('code', {}, cmd), h('button', { type: 'button', class: '', onclick: async () => toast(t((await copyText(cmd)) ? 'common.copied' : 'common.copy_failed')) }, icon('copy'), t('common.copy')))));
   }
   const downloads = (app.downloads ?? []);
   if (downloads.length) {
@@ -184,8 +184,8 @@ function showDetails(id) {
   else body.append(h('p', { class: 'small muted' }, t('review.not_reviewed.long')));
 
   const sel = state.selection.has(id);
-  const actions = [h('button', { type: 'button', class: 'btn-aero ghost', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))];
-  if (!m.unavailable) actions.push(h('button', { type: 'button', class: 'btn-aero green', onclick: (e) => { toggle(id, !state.selection.has(id)); e.target.closest('dialog').close(); } }, icon(sel ? 'minus' : 'plus'), t(sel ? 'sw.remove_from_selection' : 'sw.add_to_selection')));
+  const actions = [h('button', { type: 'button', class: '', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))];
+  if (!m.unavailable) actions.push(h('button', { type: 'button', class: 'default', onclick: (e) => { toggle(id, !state.selection.has(id)); e.target.closest('dialog').close(); } }, icon(sel ? 'minus' : 'plus'), t(sel ? 'sw.remove_from_selection' : 'sw.add_to_selection')));
   openDialog({ title: app.name, icon: 'software', body, actions });
 }
 
@@ -193,18 +193,18 @@ function showDetails(id) {
 function buildInstallerShell() {
   const content = $('in-content');
   const name = h('input', { type: 'text', id: 'in-name', maxlength: '80', autocomplete: 'off' });
-  const os = h('select', { id: 'in-os' }, h('option', { value: 'windows11' }, 'Windows 11'), h('option', { value: 'windows10' }, 'Windows 10'));
+  const os = h('select', { id: 'in-os' }, ...Object.entries(OS_TARGETS).map(([v, l]) => h('option', { value: v }, l)));
   const method = h('select', { id: 'in-method' }, h('option', { value: 'winget' }, t('sw.in.m_winget')), h('option', { value: 'download-kit' }, t('sw.in.m_kit')));
-  const opt = (id, labelKey, checked) => h('label', { class: 'check', for: id }, h('input', { type: 'checkbox', id, checked }), h('span', {}, t(labelKey)));
+  const opt = (id, labelKey, checked) => h('span', { class: 'check-row' }, h('input', { type: 'checkbox', id, checked, class: 'has-box-indicator' }), h('label', { for: id }, t(labelKey)));
   const refs = {
     name, os, method,
     silent: opt('in-silent', 'sw.in.o_silent', state.options.silent), agree: opt('in-agree', 'sw.in.o_agree', state.options.acceptAgreements), unknown: opt('in-unknown', 'sw.in.o_unknown', state.options.includeUnknown),
-    selected: h('ul', { class: 'sel-list', id: 'in-selected' }), notices: h('div', { class: 'stack', id: 'in-notices' }), planBody: h('tbody', {}), planNote: h('p', { class: 'small muted' }),
+    selected: h('ul', { class: 'tree-view', id: 'in-selected' }), notices: h('div', { class: 'stack', id: 'in-notices' }), planBody: h('tbody', {}), planNote: h('p', { class: 'small muted' }),
     script: h('code', { id: 'in-script' }), scriptBox: h('div', { class: 'script-box' }), warnBox: h('div', { class: 'notice warn', id: 'in-warn' }),
     saved: h('select', { id: 'in-saved', 'aria-label': t('sw.in.saved') }),
   };
   refs.scriptBox.append(h('pre', { tabindex: '0', 'aria-label': t('sw.in.script_label') }, refs.script));
-  const btn = (id, ic, labelKey, cls = 'ghost') => h('button', { type: 'button', class: `btn-aero ${cls} sm`, id }, icon(ic), h('span', {}, t(labelKey)));
+  const btn = (id, ic, labelKey, cls = 'ghost') => h('button', { type: 'button', class: `${cls === 'green' ? 'default' : ''}`, id }, icon(ic), h('span', {}, t(labelKey)));
   refs.btn = {
     download: btn('in-download', 'cloud-download', 'sw.in.download', 'green'), copy: btn('in-copy', 'copy', 'sw.in.copy'), manifest: btn('in-manifest', 'file-down', 'sw.in.manifest'),
     importJson: btn('in-wingetjson', 'file-up', 'sw.in.wingetjson'), share: btn('in-share', 'link', 'sw.in.share'), save: btn('in-save', 'save', 'sw.in.save'),
@@ -218,7 +218,7 @@ function buildInstallerShell() {
     h('fieldset', { class: 'opt-list' }, h('legend', { class: 'small muted' }, t('sw.in.options')), refs.silent, refs.agree, refs.unknown),
     h('div', {}, h('h3', {}, t('sw.in.selected')), refs.selected),
     refs.notices,
-    h('details', { class: 'fold', open: true }, h('summary', {}, icon('list-checks'), t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', { class: 'plan-table' }, h('thead', {}, h('tr', {}, [t('sw.in.col_app'), t('sw.in.col_command')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
+    h('details', { class: 'fold', open: true }, h('summary', {}, icon('list-checks'), t('sw.in.plan')), h('div', {}, refs.planNote, h('div', { class: 'plan-scroll' }, h('table', {}, h('thead', {}, h('tr', {}, [t('sw.in.col_app'), t('sw.in.col_command')].map((c) => h('th', { scope: 'col' }, c)))), refs.planBody)))),
     h('details', { class: 'fold' }, h('summary', {}, icon('terminal'), t('sw.in.preview')), h('div', {}, refs.warnBox, refs.scriptBox, h('div', { class: 'row' }, refs.btn.expand))),
     h('div', { class: 'btn-grid' }, refs.btn.copy, refs.btn.manifest, refs.btn.importJson, refs.btn.share, refs.btn.save),
     h('div', { class: 'field' }, h('label', { for: 'in-saved' }, t('sw.in.saved')), h('div', { class: 'row' }, refs.saved, refs.btn.open, refs.btn.del)),
@@ -263,6 +263,9 @@ function updateInstaller() {
   if (n === 0) return;
   if (!ui) buildInstallerShell();
   if (ui.name.value !== state.name) ui.name.value = state.name;
+  const legacy = !WINGET_OS.has(state.os);
+  ui.method.querySelector('option[value="winget"]').disabled = legacy;
+  if (legacy && state.method === 'winget') { state.method = 'download-kit'; persist(); }
   ui.os.value = state.os; ui.method.value = state.method;
   clear(ui.selected);
   for (const a of selectedApps()) ui.selected.append(h('li', {}, iconTile(a), h('span', { class: 'name', title: a.name }, a.name), h('span', {}, methodChips(a, true)), h('button', { type: 'button', class: 'rm', dataset: { remove: a.id }, 'aria-label': t('sw.remove_app', { name: a.name }), title: t('sw.remove') }, icon('close'))));
@@ -270,6 +273,7 @@ function updateInstaller() {
   const plan = currentPlan();
   clear(ui.notices);
   const addNotice = (cls, ic, title, items) => ui.notices.append(h('div', { class: `notice ${cls}` }, icon(ic), h('div', {}, h('strong', {}, title), h('ul', { class: 'warn-list' }, items.map((x) => h('li', {}, x))))));
+  if (legacy) addNotice('warn', 'info', t('sw.in.legacy_title'), [t('sw.in.legacy_note')]);
   if (plan.excluded.length) addNotice('error', 'warn', tn('sw.in.excluded', plan.excluded.length), plan.excluded.map((x) => `${x.app.name}: ${t(REASON_KEY[x.reason])}${x.detail ? ` (${x.detail})` : ''}`));
   if (plan.manual.length) addNotice('warn', 'info', tn('sw.in.manual', plan.manual.length), plan.manual.map((x) => h('span', {}, `${x.app.name}: ${t(REASON_KEY[x.reason])} `, extLink(x.link, t('sw.publisher_page')))));
   const unknown = plan.included.filter((x) => x.flags.includes('compatibility_not_declared'));
@@ -353,9 +357,9 @@ function applyImported(manifest, warnings) {
       }
       resolve(mode);
     };
-    const actions = [h('button', { type: 'button', class: 'btn-aero ghost', onclick: finish(null) }, t('common.cancel'))];
-    if (have) actions.push(h('button', { type: 'button', class: 'btn-aero', onclick: finish('merge') }, t('sw.import.merge')));
-    actions.push(h('button', { type: 'button', class: `btn-aero ${have ? 'danger' : 'green'}`, onclick: finish('replace') }, t(have ? 'sw.import.replace' : 'sw.import.load')));
+    const actions = [h('button', { type: 'button', class: '', onclick: finish(null) }, t('common.cancel'))];
+    if (have) actions.push(h('button', { type: 'button', class: '', onclick: finish('merge') }, t('sw.import.merge')));
+    actions.push(h('button', { type: 'button', class: `${have ? '' : 'default'}`, onclick: finish('replace') }, t(have ? 'sw.import.replace' : 'sw.import.load')));
     openDialog({ title: t('sw.import.title'), icon: 'upload', body, actions, narrow: true });
   });
 }
@@ -402,7 +406,7 @@ async function init() {
   } catch (err) {
     results.setAttribute('aria-busy', 'false');
     clear(results);
-    results.append(h('div', { class: 'notice error', role: 'alert' }, icon('warn'), h('div', {}, h('strong', {}, t('common.load_error')), h('p', {}, t('sw.load_error_hint')), h('p', { class: 'small mono' }, String(err.message)), h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: () => location.reload() }, t('common.retry')))));
+    results.append(h('div', { class: 'notice error', role: 'alert' }, icon('warn'), h('div', {}, h('strong', {}, t('common.load_error')), h('p', {}, t('sw.load_error_hint')), h('p', { class: 'small mono' }, String(err.message)), h('button', { type: 'button', class: '', onclick: () => location.reload() }, t('common.retry')))));
     return;
   }
   const saved = loadSelection(storage);

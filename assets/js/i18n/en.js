@@ -342,6 +342,8 @@ export default {
   "sw.in.howto": "How to run the script",
   "sw.in.import": "Import manifest",
   "sw.in.kit_row": "Downloaded and checked only",
+  "sw.in.legacy_title": "Windows 7, 8 and 8.1 get the download kit",
+  "sw.in.legacy_note": "WinGet is only available on Windows 10 and 11, so this plan downloads and checks the files only. Nothing is run. No source declares compatibility with these older systems, so check each publisher's requirements before you install. Windows 7 needs .NET Framework 4.5 or later for secure downloads.",
   "sw.in.m_kit": "Download kit (verify only)",
   "sw.in.m_winget": "WinGet script (recommended)",
   "sw.in.manifest": "Download manifest",

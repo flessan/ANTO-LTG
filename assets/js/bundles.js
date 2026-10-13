@@ -26,9 +26,9 @@ function bundleCard(b) {
     plan.manual.length ? h('div', { class: 'notice warn' }, icon('info'), h('div', {}, h('strong', {}, tn('bundles.manual', plan.manual.length)), h('ul', {}, plan.manual.map((m) => h('li', {}, m.app.name, ' ', safeHttpUrl(m.link) ? h('a', { href: safeHttpUrl(m.link), target: '_blank' }, t('sw.publisher_page'), ' ', icon('external')) : null))))) : null,
     (b.notes || b.notes_id) ? h('p', { class: 'small muted' }, localized(b, 'notes', lang)) : null,
     h('div', { class: 'row' },
-      h('a', { class: 'btn-aero green sm', href: openUrl }, icon('software'), t('bundles.open')),
-      h('button', { type: 'button', class: 'btn-aero ghost sm', disabled: !plan.included.length, onclick: () => { try { downloadText('anto-ltg-install.ps1', buildWingetScript({ plan, meta: { bundleName: b.name, generatedAt: new Date().toISOString(), schemaVersion: meta.schema_version, catalogUpdated: meta.updated_at } }), 'text/plain', { bom: true }); toast(t('sw.toast.downloaded'), { ms: 8000 }); } catch { toast(t('sw.toast.nothing'), { type: 'error' }); } } }, icon('download'), t('bundles.script')),
-      h('button', { type: 'button', class: 'btn-aero ghost sm', onclick: async () => toast(t((await copyText(`${location.origin}${openUrl}`)) ? 'sw.toast.share' : 'common.copy_failed')) }, icon('share'), t('sw.in.share'))));
+      h('a', { class: 'default', href: openUrl }, icon('software'), t('bundles.open')),
+      h('button', { type: 'button', class: '', disabled: !plan.included.length, onclick: () => { try { downloadText('anto-ltg-install.ps1', buildWingetScript({ plan, meta: { bundleName: b.name, generatedAt: new Date().toISOString(), schemaVersion: meta.schema_version, catalogUpdated: meta.updated_at } }), 'text/plain', { bom: true }); toast(t('sw.toast.downloaded'), { ms: 8000 }); } catch { toast(t('sw.toast.nothing'), { type: 'error' }); } } }, icon('download'), t('bundles.script')),
+      h('button', { type: 'button', class: '', onclick: async () => toast(t((await copyText(`${location.origin}${openUrl}`)) ? 'sw.toast.share' : 'common.copy_failed')) }, icon('share'), t('sw.in.share'))));
 }
 function render() {
   list.setAttribute('aria-busy', 'false'); clear(list);

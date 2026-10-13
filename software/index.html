@@ -52,10 +52,10 @@
     <h1 id="sw-title" data-i18n="sw.title">Software Center</h1>
     <p data-i18n="sw.intro">Tick the programs you want, review the plan, then download one PowerShell script that installs them with WinGet. Nothing is installed from this page, and every record shows where its facts came from.</p>
     <ul class="promise-list" aria-label="How this works">
-      <li><span class="chip winget"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#box"></use></svg><span data-i18n="chip.winget">Package manager</span></span><span class="small muted" data-i18n="sw.legend.winget">Installed by WinGet from its community source.</span></li>
-      <li><span class="chip direct"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"></use></svg><span data-i18n="chip.direct">Direct download</span></span><span class="small muted" data-i18n="sw.legend.direct">A file link, with the SHA-256 when the source publishes one.</span></li>
-      <li><span class="chip page"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#globe"></use></svg><span data-i18n="chip.page">Publisher page</span></span><span class="small muted" data-i18n="sw.legend.page">Only the official page is known; install it from there.</span></li>
-      <li><span class="chip unavailable"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#close"></use></svg><span data-i18n="chip.unavailable">Unavailable</span></span><span class="small muted" data-i18n="sw.legend.unavailable">Discontinued; the record cites the evidence.</span></li>
+      <li><span class="status-bar-field"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#box"></use></svg><span data-i18n="chip.winget">Package manager</span></span><span class="small muted" data-i18n="sw.legend.winget">Installed by WinGet from its community source.</span></li>
+      <li><span class="status-bar-field"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#download"></use></svg><span data-i18n="chip.direct">Direct download</span></span><span class="small muted" data-i18n="sw.legend.direct">A file link, with the SHA-256 when the source publishes one.</span></li>
+      <li><span class="status-bar-field"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#globe"></use></svg><span data-i18n="chip.page">Publisher page</span></span><span class="small muted" data-i18n="sw.legend.page">Only the official page is known; install it from there.</span></li>
+      <li><span class="status-bar-field"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#close"></use></svg><span data-i18n="chip.unavailable">Unavailable</span></span><span class="small muted" data-i18n="sw.legend.unavailable">Discontinued; the record cites the evidence.</span></li>
     </ul>
   </section>
 
@@ -77,7 +77,7 @@
           </div>
           <div class="field"><label for="sw-cat" data-i18n="sw.f.category">Category</label><select id="sw-cat" name="category"></select></div>
           <div class="field"><label for="sw-os" data-i18n="sw.f.os">Windows version</label>
-            <select id="sw-os" name="os"><option value="" data-i18n="common.any">Any</option><option value="windows11">Windows 11</option><option value="windows10">Windows 10</option></select></div>
+            <select id="sw-os" name="os"><option value="" data-i18n="common.any">Any</option><option value="windows11">Windows 11</option><option value="windows10">Windows 10</option><option value="windows81">Windows 8.1</option><option value="windows8">Windows 8</option><option value="windows7">Windows 7</option></select></div>
           <div class="field"><label for="sw-arch" data-i18n="sw.f.arch">Architecture</label>
             <select id="sw-arch" name="arch"><option value="" data-i18n="common.any">Any</option><option value="x64">x64</option><option value="x86">x86 (32-bit)</option><option value="arm64">ARM64</option></select></div>
           <div class="field"><label for="sw-method" data-i18n="sw.f.method">Install method</label>
@@ -86,7 +86,7 @@
             <select id="sw-publication" name="publication"><option value="" data-i18n="common.any">Any</option><option value="published" data-i18n="status.published">Published automatically</option><option value="unavailable" data-i18n="status.unavailable">Unavailable (needs attention)</option><option value="verified" data-i18n="status.verified">Human-verified</option></select></div>
           <div class="field"><label for="sw-sort" data-i18n="sw.f.sort">Sort by</label>
             <select id="sw-sort" name="sort"><option value="name" data-i18n="sw.sort.name">Name</option><option value="category" data-i18n="sw.sort.category">Category</option><option value="relevance" data-i18n="sw.sort.relevance">Best match</option></select></div>
-          <label class="check"><input type="checkbox" id="sw-declared" name="declaredOnly"><span data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</span></label>
+          <input type="checkbox" class="has-box-indicator" id="sw-declared" name="declaredOnly"><label for="sw-declared" data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</label>
           <div><button type="reset" id="sw-reset" data-i18n="common.reset">Reset filters</button></div>
         </form>
 
@@ -125,15 +125,15 @@
         </div>
         <div id="in-empty" class="notice"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#info"></use></svg><div data-i18n="sw.in.empty">Nothing selected yet. Tick programs in the catalog; your selection stays when you change filters and is remembered on this device.</div></div>
         <div id="in-content" class="stack" hidden></div>
-        <div class="row"><label class="btn-aero ghost sm" for="in-import"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#upload"></use></svg><span data-i18n="sw.in.import">Import manifest</span></label><input id="in-import" class="sr-only" type="file" accept="application/json,.json"></div>
+        <div class="row"><label  for="in-import"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#upload"></use></svg><span data-i18n="sw.in.import">Import manifest</span></label><input id="in-import" class="sr-only" type="file" accept="application/json,.json"></div>
       </div>
     </aside>
   </div>
 
   <div class="mobile-installer-bar" id="mobile-bar" hidden>
     <span><strong id="mb-count">0</strong> <span data-i18n="sw.in.none">apps selected</span></span>
-    <div class="row"><button type="button" class="btn-aero green sm" id="mb-download" disabled><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#cloud-download"></use></svg><span data-i18n="sw.in.download">Download script</span></button>
-    <a class="btn-aero ghost sm" href="#win-installer" data-i18n="sw.in.review">Review installer</a></div>
+    <div class="row"><button type="button" class="default" id="mb-download" disabled><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#cloud-download"></use></svg><span data-i18n="sw.in.download">Download script</span></button>
+    <a  href="#win-installer" data-i18n="sw.in.review">Review installer</a></div>
   </div>
 </main>
 <!--chrome:footer:start-->

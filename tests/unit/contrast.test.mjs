@@ -59,62 +59,22 @@ describe('body text on the light surfaces', () => {
   });
 });
 
-describe('glossy buttons keep their text legible across the whole text band', () => {
-  const variants = [
-    ['.btn-aero', null], ['.btn-aero.green', null], ['.btn-aero.danger', null], ['.btn-aero.ghost', null],
-  ];
-  const base = ruleFor(css, '.btn-aero')[0].body;
-  for (const [selector] of variants) {
-    it(`${selector}: text is at least ${AA}:1 from 28% to 75% of the button height`, () => {
-      const body = ruleFor(css, selector).find((r) => prop(r.body, '--btn-bg'))?.body ?? base;
-      const stops = gradientStops(prop(body, '--btn-bg'));
-      assert.ok(stops.length >= 3, 'parsed the gradient stops');
-      const inkText = prop(body, '--btn-ink') ?? prop(base, '--btn-ink');
-      const worst = worstOverBand(stops, color(inkText));
-      assert.ok(worst >= AA, `${selector}: worst case ${worst.toFixed(2)}:1`);
-    });
-  }
-  it('hover does not brighten the button (that would erode the contrast); it adds a glow instead', () => {
-    const hover = ruleFor(css, '.btn-aero:hover')[0].body;
-    const filter = prop(hover, 'filter') ?? '';
-    const brightness = Number(filter.match(/brightness\(([\d.]+)\)/)?.[1] ?? 1);
-    assert.ok(brightness <= 1, `hover filter: ${filter}`);
-    assert.match(hover, /box-shadow/);
-  });
-  it('disabled buttons stay readable', () => {
-    const disabled = ruleFor(css, 'button.btn-aero:disabled')[0].body;
-    assert.ok(ratio(color(prop(disabled, 'color')), color(prop(disabled, 'background-color'))) >= AA);
-  });
-  it('the pressed "chip button" and the skip link are readable', () => {
-    const pressed = ruleFor(css, '.chip-btn[aria-pressed="true"]')[0].body;
-    assert.ok(ratio(color(prop(pressed, 'color')), color(prop(pressed, 'background'))) >= AAA);
-    const skip = ruleFor(css, '.skip-link')[0].body;
-    assert.ok(ratio(color(prop(skip, 'color')), color(prop(skip, 'background'))) >= AAA);
-  });
+describe('buttons and chips come from 7.css; no custom glossy or chip colours remain', () => {
+  it('no custom button gradient is left in the site stylesheets', () => assert.doesNotMatch(css, /\\.btn-aero/));
+  it('no custom chip colour rules are left (chips are 7.css status-bar fields)', () => assert.doesNotMatch(css, /\\.chip\\.[a-z]+\\s*\\{/));
 });
 
-describe('status chips and notices', () => {
-  const chipRules = rules(css).filter((r) => r.selectors.some((s) => /^\.chip\.[a-z]+$/.test(s)) && prop(r.body, 'background') && prop(r.body, 'color'));
-  it('finds the chip variants in the stylesheet', () => assert.ok(chipRules.length >= 10, `only ${chipRules.length} chip variants parsed`));
-  for (const r of chipRules) {
-    const name = r.selectors.find((s) => /^\.chip\.[a-z]+$/.test(s));
-    it(`${name} text is at least ${AA}:1 on its background`, () => {
-      const rr = ratio(color(prop(r.body, 'color')), color(prop(r.body, 'background')));
-      assert.ok(rr >= AA, `${name}: ${rr.toFixed(2)}:1`);
-    });
-  }
+describe('notices', () => {
   for (const name of ['.notice.warn', '.notice.error', '.notice.ok']) {
     it(`${name} text is readable on its background`, () => {
       const body = ruleFor(css, name)[0].body;
       assert.ok(ratio(color(prop(body, 'color')), color(prop(body, 'background'))) >= AAA, name);
     });
   }
-  it('the default chip and notice use ink on a pale surface', () => {
-    for (const sel of ['.chip', '.notice']) {
-      const body = ruleFor(css, sel)[0].body;
-      const fg = prop(body, 'color') ?? 'var(--ink)';
-      assert.ok(ratio(color(fg), color(prop(body, 'background'))) >= AAA, sel);
-    }
+  it('the default notice uses ink on a pale surface', () => {
+    const body = ruleFor(css, '.notice')[0].body;
+    const fg = prop(body, 'color') ?? 'var(--ink)';
+    assert.ok(ratio(color(fg), color(prop(body, 'background'))) >= AAA, '.notice');
   });
 });
 

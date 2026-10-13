@@ -10,7 +10,7 @@ export const MANIFEST_VERSION = 1;
 export const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const MAX_APPS = 500;
 export const MAX_MANIFEST_BYTES = 256 * 1024;
-const OS = new Set(['windows10', 'windows11']);
+const OS = new Set(['windows11', 'windows10', 'windows81', 'windows8', 'windows7']);
 const METHODS = new Set(['winget', 'download-kit']);
 
 export function cleanName(value, fallback = 'My bundle') {
