@@ -87,7 +87,9 @@ api/v1/          generated: copies of the catalogs, index.json, search-index.jso
 openapi.json     generated from the schemas
 scripts/         build.mjs, crawler/, assets/, curation/, templates/
 assets/          css, js (lib/ is unit-tested), icons, images + manifest.json, vendored 7.css
-tests/           unit, crawler, e2e (headless browser) and fixtures</code></pre>
+docs/            data model and crawler guides, validated example records
+tests/           unit, crawler, e2e (headless browser) and fixtures
+.github/         CI configuration, issue and pull-request templates, Dependabot</code></pre>
           </section>
 
           <section id="api">
@@ -101,7 +103,7 @@ curl -s https://YOUR-SITE/api/v1/apps.json | jq '.items[] | select(.winget_id=="
 
           <section id="data-model">
             <h2>Data model</h2>
-            <p>Every record has a stable kebab-case <code>id</code>, <code>sources[]</code> (which page supplied which fields, and when) and a <code>verification_status</code>. Schema 1.1.0 is additive over 1.0.0. Pick a catalog to see its fields, generated live from the schema:</p>
+            <p>Every record has a stable kebab-case <code>id</code>, <code>sources[]</code> (which page supplied which fields, and when) and a <code>verification_status</code>. Schema 1.1.0 is additive over 1.0.0. The full field reference, with every enum value and the verification workflow, is in <a href="https://github.com/flessan/ANTO-LTG/blob/main/docs/data-model.md" target="_blank" rel="noopener noreferrer"><code>docs/data-model.md</code></a>. Pick a catalog to see its fields, generated live from the schema:</p>
             <div class="field"><label for="schema-pick">Catalog</label><select id="schema-pick"><option value="apps">apps</option><option value="drivers">drivers</option><option value="vendors">vendors</option><option value="tools">tools</option><option value="bundles">bundles</option><option value="updates">updates</option></select></div>
             <div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Meaning</th></tr></thead><tbody id="schema-rows"></tbody></table></div>
             <h3>Example: a new app record</h3>
@@ -165,7 +167,7 @@ curl -s https://YOUR-SITE/api/v1/apps.json | jq '.items[] | select(.winget_id=="
 
           <section id="crawler">
             <h2>Crawler</h2>
-            <p>The crawler proposes changes; it never publishes them. See <code>docs/crawler.md</code> for the full guide.</p>
+            <p>The crawler proposes changes; it never publishes them. See <a href="https://github.com/flessan/ANTO-LTG/blob/main/docs/crawler.md" target="_blank" rel="noopener noreferrer"><code>docs/crawler.md</code></a> for the full guide.</p>
             <pre><code>npm run crawl -- winget --dry-run          # fetch and report, write nothing
 npm run crawl -- winget                    # write catalogs/proposed/winget.proposals.json
 npm run crawl -- winget --retry-failed     # only targets that failed last time
@@ -185,7 +187,7 @@ npm run crawl:links -- --hosts github.com  # header-only link check</code></pre>
               <li>Fork the repository and edit the right file in <code>catalogs/</code> (or add a seed to <code>scripts/crawler/seeds/</code> and run the crawler).</li>
               <li>Cite the official page and the retrieval date in <code>sources[]</code>. Do not add installers, firmware or driver binaries.</li>
               <li>Run <code>npm ci &amp;&amp; npm run format:catalogs &amp;&amp; npm run build &amp;&amp; npm test</code>.</li>
-              <li>Open a pull request that explains the evidence. CI runs validation, unit tests, the build and a headless-browser smoke test.</li>
+              <li>Open a pull request that explains the evidence. Before you do, run <code>npm run check</code> (validation, unit and crawler tests, build) and, if you changed the interface, <code>npm run test:e2e</code> (headless-browser tests).</li>
             </ol>
             <p>Details and the records checklist are in <code>CONTRIBUTING.md</code>.</p>
           </section>
