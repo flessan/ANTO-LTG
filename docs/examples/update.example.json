@@ -1,0 +1,7 @@
+{
+  "id": "example-update",
+  "title": "An example entry in the updates feed",
+  "description": "Updates describe changes to the data or the site in plain text. They feed the home page and feed.xml.",
+  "path": "/software/",
+  "published_at": "2026-10-13T00:00:00.000Z"
+}

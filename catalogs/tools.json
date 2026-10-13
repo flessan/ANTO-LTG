@@ -210,7 +210,7 @@
         "Status \"Good\" bukan jaminan; tetap cadangkan data penting.",
         "Beberapa casing USB menyembunyikan data SMART dari host."
       ],
-      "notes": "",
+      "notes": "Check the package, bundled offers and compatibility before distributing it.",
       "notes_id": "Periksa paket, iklan bundel, dan kompatibilitas sebelum mendistribusikan.",
       "tags": [
         "disk",
@@ -537,7 +537,7 @@
       "cautions_id": [
         "Edisi Free memiliki fitur terbatas; versi 11.7 hanya boot pada firmware UEFI, menurut halaman vendor."
       ],
-      "notes": "",
+      "notes": "Check the free/paid edition and the official instructions before use.",
       "notes_id": "Periksa edisi gratis/berbayar dan petunjuk resmi sebelum penggunaan.",
       "tags": [
         "bootable",

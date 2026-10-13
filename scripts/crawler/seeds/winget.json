@@ -108,7 +108,7 @@
     ],
     "developer-tools": [
       "Git.Git",
-      "Microsoft.VisualStudioCode",
+      { "winget_id": "Microsoft.VisualStudioCode", "tags": ["vscode"] },
       "GitHub.cli",
       "GitHub.GitHubDesktop",
       "Python.Python.3.13",

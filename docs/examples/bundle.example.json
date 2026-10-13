@@ -1,0 +1,12 @@
+{
+  "id": "example-field-kit",
+  "name": "Example field kit",
+  "name_id": "Contoh paket lapangan",
+  "description": "A starter selection for a repair bench. Bundles only list app ids; scripts are generated from the current catalog.",
+  "description_id": "Pilihan awal untuk meja servis. Bundle hanya mendaftar id aplikasi; skrip dibuat dari katalog terbaru.",
+  "app_ids": ["7zip", "git"],
+  "status": "draft",
+  "target_windows": ["Windows 10", "Windows 11"],
+  "tags": ["example"],
+  "notes": "status draft keeps an example out of the published bundle list and the search index."
+}

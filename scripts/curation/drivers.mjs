@@ -91,7 +91,7 @@ const rt = (o) => rec({
   vendor_id: 'realtek', page: `${RT}${o.cate}`, steps: 'list', sourceId: `realtek-list-${o.cate}`, manufacturer: 'Realtek', publisher: 'Realtek',
   download: { kind: 'landing_page', url: `${RT}${o.cate}`, stability: 'evergreen', requires: o.eula ? ['eula'] : [] },
   evidence: `Row "${o.row}" (version ${o.version}, updated ${o.release_date}, ${o.size}) read from Realtek's official download list. Downloads on the list are script-generated endpoints, so only the list page is linked. No checksum is published.`,
-  fields: ['name', 'version', 'release_date', 'file_size_text', 'windows_versions', 'os_support'], ...o,
+  fields: ['name', 'version', 'release_date', 'file_size_text', 'download', 'windows_versions', 'os_support'], ...o,
 });
 drivers.push(
   rt({ id: 'realtek-pcie-ethernet-win10-win11-10-80-50', cate: 584, row: 'Win10/Win11 Auto Installation Program (NDIS)', name: 'Realtek PCIe Ethernet driver for Windows 10/11 (NDIS) 10.80.50', description: 'Auto-installation program for Realtek PCIe FE/GbE/2.5GbE/5G/10G Ethernet controllers on Windows 10 and Windows 11 (NDIS miniport).', description_id: 'Program instalasi otomatis untuk pengendali Ethernet Realtek PCIe FE/GbE/2.5GbE/5G/10G pada Windows 10 dan Windows 11 (NDIS miniport).', model: 'Realtek PCIe FE / GbE / 2.5GbE / 5G / 10G controllers (RTL8101E to RTL8127)', hardware_family: 'Realtek PCIe Ethernet', component: 'network-ethernet', version: '10.80.50', release_date: '2026-10-05', size: '5 MB', windows_versions: [W[10], W[11]], os_support: osSupport({ [W[10]]: [], [W[11]]: [] }), notes: 'A "Not Support Power Saving" variant (10.80.20, same date) is listed in the next row.', tags: ['ethernet', 'realtek'] }),

@@ -1,0 +1,27 @@
+{
+  "id": "example-portable-tool",
+  "name": "Example Portable Tool",
+  "category": "utilities",
+  "description": "Technician notes for the example app: when to use it and what to be careful about.",
+  "publisher": "Example Publisher",
+  "app_id": "7zip",
+  "source_url": "https://example.com/portable-tool",
+  "source_kind": "publisher_page",
+  "verification_status": "pending_review",
+  "requires_admin": "not_reviewed",
+  "portable": true,
+  "use_cases": ["Check something quickly without installing it."],
+  "cautions": ["Run it only on machines you are allowed to inspect."],
+  "notes": "app_id links the tool to an app record so the Software Center can install it.",
+  "tags": ["example"],
+  "sources": [
+    {
+      "id": "anto-ltg-curation",
+      "kind": "curated",
+      "url": "https://example.com/portable-tool",
+      "retrieved_at": "2026-10-13",
+      "fields": ["description", "use_cases", "cautions"],
+      "note": "Use cases and cautions are the maintainers' general technician practice."
+    }
+  ]
+}

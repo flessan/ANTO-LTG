@@ -35,6 +35,19 @@ export function buildIndex(docs) {
   };
 }
 
+// Title bonus: an exact title wins outright; a title that contains the query as whole words ranks above one
+// that merely contains the letters, and among those the closer (shorter) title wins - so "firefox" lists
+// "Mozilla Firefox" before "Firefox Developer Edition (en-US)".
+export function titleBonus(norm, qNorm) {
+  if (!qNorm) return 0;
+  if (norm === qNorm) return 50;
+  if (` ${norm} `.includes(` ${qNorm} `) || norm.startsWith(qNorm)) {
+    const extraWords = Math.max(0, norm.split(' ').length - qNorm.split(' ').length);
+    return 22 - Math.min(10, extraWords * 1.5);
+  }
+  return norm.includes(qNorm) ? 8 : 0;
+}
+
 function lowerBound(arr, prefix) {
   let lo = 0; let hi = arr.length;
   while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] < prefix) lo = mid + 1; else hi = mid; }
@@ -92,11 +105,7 @@ export function createSearcher(index) {
       const doc = docs[d];
       if (types && !types.includes(doc.type)) continue;
       if (allow && !allow.has(`${doc.type}:${doc.id}`)) continue;
-      let bonus = 0;
-      if (doc.norm === qNorm) bonus += 50;
-      else if (doc.norm.startsWith(qNorm)) bonus += 20;
-      else if (doc.norm.includes(qNorm)) bonus += 8;
-      out.push({ doc, score: score + bonus });
+      out.push({ doc, score: score + titleBonus(doc.norm, qNorm) });
     }
     out.sort((a, b) => b.score - a.score || (a.doc.title < b.doc.title ? -1 : a.doc.title > b.doc.title ? 1 : 0));
     return out.slice(0, limit);

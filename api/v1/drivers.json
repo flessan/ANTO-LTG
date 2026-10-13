@@ -3897,6 +3897,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4011,6 +4012,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4125,6 +4127,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4286,6 +4289,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4370,6 +4374,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4449,6 +4454,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4534,6 +4540,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4624,6 +4631,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4709,6 +4717,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4794,6 +4803,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]
@@ -4879,6 +4889,7 @@
             "version",
             "release_date",
             "file_size_text",
+            "download",
             "windows_versions",
             "os_support"
           ]

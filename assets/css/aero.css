@@ -188,16 +188,18 @@ input[type="checkbox"] + label::before, input[type="checkbox"] + label::after { 
 .field.inline { display: flex; align-items: center; gap: 0.5rem; }
 .check { display: inline-flex; align-items: center; gap: 0.45rem; }
 
+/* Button text is white on a glossy gradient. The stops are dark enough that white text keeps >= 4.5:1 over the
+   whole text band (tests/unit/contrast.test.mjs measures it), and hover adds a glow instead of brightening. */
 .btn-aero {
-  --btn-bg: linear-gradient(#58a8e8 0%, #2a80c8 48%, #1a5f9e 52%, #2e83c8 100%); --btn-border: #1b4f80; --btn-ink: #fff; --btn-glow: 63, 190, 235;
+  --btn-bg: linear-gradient(#3a87cf 0%, #1c69b0 48%, #124a87 52%, #1d6cb3 100%); --btn-border: #1b4f80; --btn-ink: #fff; --btn-glow: 63, 190, 235;
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 34px; padding: 0.4rem 1.05rem; border-radius: 7px; border: 1px solid var(--btn-border); color: var(--btn-ink); text-decoration: none; cursor: pointer; font-weight: 650; font-size: 0.95rem;
   background-color: #1f6fb5; background-image: var(--btn-bg); text-shadow: 0 -1px 0 rgba(0, 35, 80, 0.55);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.22), 0 1px 3px rgba(0, 40, 90, 0.45);
 }
-.btn-aero.green { --btn-bg: linear-gradient(#78cb4c 0%, #3a9a28 48%, #2a7d1e 52%, #44a82d 100%); --btn-border: #1f5b16; --btn-glow: 120, 203, 76; background-color: #2f8a22; text-shadow: 0 -1px 0 rgba(10, 50, 10, 0.55); }
+.btn-aero.green { --btn-bg: linear-gradient(#3a9429 0%, #287a1c 48%, #1c5a14 52%, #297e1d 100%); --btn-border: #1f5b16; --btn-glow: 120, 203, 76; background-color: #287a1c; text-shadow: 0 -1px 0 rgba(10, 50, 10, 0.55); }
 .btn-aero.ghost { --btn-bg: linear-gradient(#ffffff, #eaf4fc 48%, #d3e6f5 52%, #e8f3fb); --btn-border: #7aa3c4; --btn-ink: var(--sky-800); background-color: #e9f3fb; text-shadow: none; }
-.btn-aero.danger { --btn-bg: linear-gradient(#e0786c, #bf3a2c 48%, #9a2217 52%, #b9392b); --btn-border: #7d1810; background-color: #a21f14; }
-.btn-aero:hover { filter: brightness(1.07) saturate(1.1); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 9px rgba(var(--btn-glow), 0.85); }
+.btn-aero.danger { --btn-bg: linear-gradient(#d0584b, #b3382a 48%, #8f2015 52%, #ab3427); --btn-border: #7d1810; background-color: #a21f14; }
+.btn-aero:hover { filter: saturate(1.08); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 9px rgba(var(--btn-glow), 0.85); }
 .btn-aero:active { filter: brightness(0.95); transform: translateY(1px); }
 /* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements; keep our own look */
 button.btn-aero, button.btn-aero:hover, button.btn-aero:focus, button.btn-aero:active { background-image: var(--btn-bg); border-color: var(--btn-border); color: var(--btn-ink); animation: none; }

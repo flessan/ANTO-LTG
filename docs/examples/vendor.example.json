@@ -1,0 +1,26 @@
+{
+  "id": "example-computers",
+  "name": "Example Computers",
+  "kind": "oem",
+  "homepage_url": "https://www.example.com/",
+  "support_url": "https://support.example.com/",
+  "driver_search_url": "https://support.example.com/drivers/",
+  "domains": ["example.com", "*.example.com"],
+  "requires": ["product_selection", "serial_number"],
+  "instructions": [
+    "Open the driver search and enter the model name or serial number printed on the device.",
+    "Pick your Windows version and download from the vendor's own page."
+  ],
+  "source_kind": "manufacturer_support_page",
+  "verification_status": "pending_review",
+  "notes": "The domains list is what the validator uses to decide whether a driver link is really the vendor's own.",
+  "sources": [
+    {
+      "id": "example-support",
+      "kind": "vendor_page",
+      "url": "https://support.example.com/drivers/",
+      "retrieved_at": "2026-10-13",
+      "fields": ["name", "homepage_url", "driver_search_url", "domains", "instructions", "requires"]
+    }
+  ]
+}

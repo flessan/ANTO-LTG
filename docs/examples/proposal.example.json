@@ -1,0 +1,102 @@
+{
+  "schema": "anto-ltg.proposals/1",
+  "adapter": "winget",
+  "generated_at": "2026-10-13T00:00:00.000Z",
+  "source": {
+    "id": "winget-pkgs",
+    "repo": "microsoft/winget-pkgs",
+    "ref": "master",
+    "commit": null
+  },
+  "proposals": [
+    {
+      "target": "Example.Package",
+      "key": "winget:example.package",
+      "catalog": "apps",
+      "record": {
+        "id": "example-package",
+        "name": "Example Package",
+        "publisher": "Example Publisher",
+        "category": "utilities",
+        "description": "An illustrative record that shows the fields a curated app can carry. It is not a real program.",
+        "description_id": "Contoh catatan yang menunjukkan kolom pada aplikasi kurasi. Ini bukan program sungguhan.",
+        "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/e/Example/Package/1.2.3",
+        "source_kind": "package_index",
+        "verification_status": "pending_review",
+        "windows_compatibility": "not_reviewed",
+        "compatibility": {
+          "windows10": "unknown",
+          "windows11": "unknown",
+          "min_os_version": null,
+          "basis": "The publisher page does not state supported Windows versions.",
+          "note": "Unknown stays unknown: do not guess."
+        },
+        "architectures": [
+          "x64"
+        ],
+        "license": "Proprietary",
+        "notes": "Illustrative proposal: the hash and commit are placeholders. Real proposals copy them from the source.",
+        "downloads": [
+          {
+            "kind": "direct_binary",
+            "url": "https://example.com/releases/1.2.3/example-package-1.2.3-x64.exe",
+            "architecture": "x64",
+            "installer_type": "inno",
+            "scope": "machine",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "sha256_source": "winget-pkgs installer manifest",
+            "stability": "versioned",
+            "evidence": "InstallerUrl listed in a winget-pkgs manifest (hash-pinned by the WinGet validation pipeline)",
+            "link_check": {
+              "status": "unchecked"
+            }
+          }
+        ],
+        "tags": [
+          "example"
+        ],
+        "sources": [
+          {
+            "id": "winget-pkgs",
+            "kind": "package_index",
+            "url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/e/Example/Package/1.2.3",
+            "ref": "microsoft/winget-pkgs@0000000000000000000000000000000000000000",
+            "retrieved_at": "2026-10-13T00:00:00.000Z",
+            "fields": [
+              "name",
+              "publisher",
+              "description",
+              "license",
+              "version",
+              "release_date",
+              "architectures",
+              "compatibility",
+              "downloads",
+              "installer_types"
+            ]
+          }
+        ],
+        "added_at": "2026-10-13",
+        "winget_id": "Example.Package",
+        "version": "1.2.3",
+        "release_date": "2026-09-30",
+        "installer_types": [
+          "inno"
+        ]
+      },
+      "meta": {
+        "adapter": "winget",
+        "crawled_at": "2026-10-13T00:00:00.000Z",
+        "quality_flags": []
+      }
+    }
+  ],
+  "errors": [
+    {
+      "target": "Example.Missing",
+      "code": "NOT_FOUND",
+      "message": "No manifest directory for Example.Missing in microsoft/winget-pkgs.",
+      "retryable": false
+    }
+  ]
+}

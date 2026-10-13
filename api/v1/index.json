@@ -8,21 +8,21 @@
       "path": "/api/v1/apps.json",
       "count": 278,
       "updated_at": "2026-10-13T00:00:00.000Z",
-      "sha256": "4497810e2f456658d126a579880592ffe317bccd5eb63e6455c5f64860c803c0"
+      "sha256": "b5f451d35cdd20ef11f6c999dd3acc0e38d906becefd4100c1eb3d5d4735177e"
     },
     {
       "name": "drivers",
       "path": "/api/v1/drivers.json",
       "count": 60,
       "updated_at": "2026-10-13T00:00:00.000Z",
-      "sha256": "c745eb81368105ae54d51958a52b98f8a5646690bf5be3504b34ee5954ac78a4"
+      "sha256": "79e49ff466aa27a9c870e8b929abdb5d49bb79fb6a610db1244639326522316f"
     },
     {
       "name": "tools",
       "path": "/api/v1/tools.json",
       "count": 26,
       "updated_at": "2026-10-13T00:00:00.000Z",
-      "sha256": "f0e423d45bad62cf292177437a49eccac2bc82647282fb7023d3ef8c479dd783"
+      "sha256": "e53f4cc303c0f2b0b6d9ea42305ab918f93efe1ed039edb5c1b1637d43943a85"
     },
     {
       "name": "vendors",
@@ -50,7 +50,7 @@
       "path": "/api/v1/search-index.json",
       "count": 401,
       "updated_at": null,
-      "sha256": "5fa63ed5fe33bf7ac3dd4765d96c23a565d5e62b967555acb5af605fb343e2a4"
+      "sha256": "3ed810ca91f8180fc4e6fadc80c3bdd425523860f2c39f7a1f43ce7728db8636"
     }
   ],
   "stats": {
