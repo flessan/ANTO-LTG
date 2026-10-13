@@ -1,33 +1,32 @@
 // URL and host safety checks shared by the crawler and the build validators.
 import net from 'node:net';
 
-const PRIVATE_V4 = [
-  [0x00000000, 8], [0x0a000000, 8], [0x64400000, 10], [0x7f000000, 8],
-  [0xa9fe0000, 16], [0xac100000, 12], [0xc0000000, 24], [0xc0a80000, 16],
-  [0xc6120000, 15], [0xe0000000, 4], [0xf0000000, 4],
+// Address ranges that must never be contacted or stored as a public link. node:net's BlockList does the
+// matching, which matters for IPv6: it checks an IPv4-mapped address against the IPv4 rules in both spellings
+// ("::ffff:127.0.0.1" and the "::ffff:7f00:1" that the URL parser rewrites it to), so mapped loopback and private
+// addresses are caught by the IPv4 list. DO NOT add ::ffff:0:0/96 below: BlockList maps every IPv4 address into
+// that range when it checks IPv6 rules, so it would block the whole IPv4 internet (tests/crawler/net-safety.test.mjs).
+const BLOCKED_V4 = [
+  ['0.0.0.0', 8], ['10.0.0.0', 8], ['100.64.0.0', 10], ['127.0.0.0', 8], ['169.254.0.0', 16], ['172.16.0.0', 12],
+  ['192.0.0.0', 24], ['192.0.2.0', 24], ['192.88.99.0', 24], ['192.168.0.0', 16], ['198.18.0.0', 15], ['198.51.100.0', 24],
+  ['203.0.113.0', 24], ['224.0.0.0', 4], ['240.0.0.0', 4],
 ];
-
-function v4ToInt(ip) {
-  return ip.split('.').reduce((acc, part) => (acc * 256) + Number(part), 0);
-}
+const BLOCKED_V6 = [
+  ['::', 128], ['::1', 128],
+  ['::', 96], // deprecated IPv4-compatible (not the same range as IPv4-mapped ::ffff:0:0/96)
+  ['64:ff9b::', 96], ['64:ff9b:1::', 48], // NAT64: embeds an IPv4 address that could be internal
+  ['100::', 64], // discard-only
+  ['2001::', 32], ['2002::', 16], // Teredo and 6to4 tunnels embed IPv4 addresses
+  ['2001:db8::', 32], // documentation
+  ['fc00::', 7], ['fe80::', 10], ['fec0::', 10], ['ff00::', 8], // unique-local, link-local, site-local, multicast
+];
+const BLOCKED = new net.BlockList();
+for (const [address, prefix] of BLOCKED_V4) BLOCKED.addSubnet(address, prefix, 'ipv4');
+for (const [address, prefix] of BLOCKED_V6) BLOCKED.addSubnet(address, prefix, 'ipv6');
 
 export function isPrivateAddress(ip) {
-  if (net.isIPv4(ip)) {
-    const n = v4ToInt(ip);
-    return PRIVATE_V4.some(([base, bits]) => {
-      const mask = bits === 0 ? 0 : (0xffffffff << (32 - bits)) >>> 0;
-      return ((n & mask) >>> 0) === ((base & mask) >>> 0);
-    });
-  }
-  if (net.isIPv6(ip)) {
-    const v = ip.toLowerCase();
-    if (v === '::' || v === '::1') return true;
-    if (v.startsWith('fe8') || v.startsWith('fe9') || v.startsWith('fea') || v.startsWith('feb')) return true; // link-local
-    if (v.startsWith('fc') || v.startsWith('fd')) return true; // unique local
-    const mapped = v.match(/^::ffff:(\d+\.\d+\.\d+\.\d+)$/);
-    if (mapped) return isPrivateAddress(mapped[1]);
-    return false;
-  }
+  if (net.isIPv4(ip)) return BLOCKED.check(ip, 'ipv4');
+  if (net.isIPv6(ip)) return BLOCKED.check(ip, 'ipv6');
   return false;
 }
 

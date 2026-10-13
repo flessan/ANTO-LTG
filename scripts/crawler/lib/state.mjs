@@ -21,7 +21,7 @@ export function recordOutcome(state, adapter, { proposals = [], errors = [], unc
     const err = errors.find((e) => e.target === t);
     const prop = proposals.find((p) => p.target === t);
     if (err) a.targets[t] = { ...prev, status: 'failed', attempts: (prev.attempts ?? 0) + 1, last_attempt: now, error: { code: err.code, message: err.message, retryable: err.retryable !== false } };
-    else if (prop) a.targets[t] = { status: 'ok', attempts: 0, last_attempt: now, last_success: now, version: prop.record?.version?.value ?? null, fingerprint: prop.meta?.fingerprint ?? null };
+    else if (prop) a.targets[t] = { status: 'ok', attempts: 0, last_attempt: now, last_success: now, version: typeof prop.record?.version === 'string' ? prop.record.version : prop.record?.version?.value ?? null, fingerprint: prop.meta?.fingerprint ?? null };
     else if (unchanged.includes(t)) a.targets[t] = { ...prev, status: 'ok', last_attempt: now };
   }
   return state;

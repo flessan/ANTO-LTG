@@ -17,6 +17,15 @@ export function flagHistogram(proposals) {
   return Object.fromEntries(Object.entries(hist).sort(([a], [b]) => (a < b ? -1 : 1)));
 }
 
+// Error messages and targets can contain text from a remote server, so they are flattened to one line and
+// stripped of anything that could break a table cell, open a code span or inject markup into the report.
+export function mdCell(value, max = 160) {
+  return String(value ?? '')
+    .replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029\u202a-\u202e\u2066-\u2069]/g, ' ')
+    .replace(/\s+/g, ' ').trim().slice(0, max)
+    .replace(/\\/g, '/').replace(/`/g, "'").replace(/\|/g, '\\|').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\[/g, '(').replace(/\]/g, ')');
+}
+
 export function renderMarkdown(report) {
   const lines = ['# Crawl report', '', `- Started: ${report.started_at}`, `- Finished: ${report.finished_at} (${report.duration_seconds}s)`, `- Arguments: \`${JSON.stringify(report.arguments)}\``, '', `> ${report.note}`, ''];
   for (const a of report.adapters) {
@@ -31,7 +40,7 @@ export function renderMarkdown(report) {
     }
     if (a.errors.length) {
       lines.push('', '### Errors', '', '| Target | Code | Message |', '| --- | --- | --- |');
-      for (const e of a.errors) lines.push(`| \`${e.target}\` | ${e.code} | ${String(e.message).replace(/\|/g, '\\|').slice(0, 160)} |`);
+      for (const e of a.errors) lines.push(`| \`${mdCell(e.target, 100)}\` | ${mdCell(e.code, 40)} | ${mdCell(e.message)} |`);
     }
     lines.push('');
   }

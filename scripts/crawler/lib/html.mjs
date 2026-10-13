@@ -28,22 +28,51 @@ function parseAttrs(src) {
   return attrs;
 }
 
+// Tag scanning is a single bounded pass (no backtracking regex), and a page that keeps producing tags that never
+// close is treated as text from that point on, so a hostile page cannot make parsing quadratic.
+const MAX_TAG = 8192;
+const MAX_FAILED_TAGS = 200;
+const TAG_NAME = /^[a-zA-Z][a-zA-Z0-9:-]*/;
+
+// Returns the index just past the ">" that closes a tag whose attributes start at `from`, or -1.
+function scanTagEnd(src, from) {
+  const limit = Math.min(src.length, from + MAX_TAG);
+  let quote = 0;
+  for (let i = from; i < limit; i++) {
+    const c = src.charCodeAt(i);
+    if (quote) { if (c === quote) quote = 0; continue; }
+    if (c === 34 || c === 39) quote = c; // " or '
+    else if (c === 62) return i + 1; // >
+  }
+  return -1;
+}
+
 export function* tokenize(html) {
   const src = String(html).slice(0, MAX_HTML);
-  let i = 0;
+  let i = 0; let failedTags = 0;
   while (i < src.length) {
     const lt = src.indexOf('<', i);
     if (lt === -1) { yield { type: 'text', text: decodeEntities(src.slice(i)) }; return; }
     if (lt > i) yield { type: 'text', text: decodeEntities(src.slice(i, lt)) };
     if (src.startsWith('<!--', lt)) { const end = src.indexOf('-->', lt + 4); i = end === -1 ? src.length : end + 3; continue; }
     if (src[lt + 1] === '!' || src[lt + 1] === '?') { const end = src.indexOf('>', lt); i = end === -1 ? src.length : end + 1; continue; }
-    const m = /^<(\/?)([a-zA-Z][a-zA-Z0-9:-]*)((?:[^>"']|"[^"]*"|'[^']*')*)>/.exec(src.slice(lt, lt + 8192));
-    if (!m) { yield { type: 'text', text: '<' }; i = lt + 1; continue; }
-    const name = m[2].toLowerCase();
-    i = lt + m[0].length;
-    if (m[1]) { yield { type: 'end', name }; continue; }
-    const selfClosing = /\/\s*$/.test(m[3]) || VOID.has(name);
-    yield { type: 'start', name, attrs: parseAttrs(m[3]), selfClosing };
+    const closing = src[lt + 1] === '/';
+    const nameStart = lt + (closing ? 2 : 1);
+    const nameMatch = TAG_NAME.exec(src.slice(nameStart, nameStart + 64));
+    const attrStart = nameMatch ? nameStart + nameMatch[0].length : -1;
+    const tagEnd = nameMatch ? scanTagEnd(src, attrStart) : -1;
+    if (tagEnd === -1) {
+      yield { type: 'text', text: '<' };
+      i = lt + 1;
+      if (nameMatch && ++failedTags > MAX_FAILED_TAGS) { yield { type: 'text', text: decodeEntities(src.slice(i)) }; return; }
+      continue;
+    }
+    const name = nameMatch[0].toLowerCase();
+    const attrSrc = src.slice(attrStart, tagEnd - 1);
+    i = tagEnd;
+    if (closing) { yield { type: 'end', name }; continue; }
+    const selfClosing = /\/\s*$/.test(attrSrc) || VOID.has(name);
+    yield { type: 'start', name, attrs: parseAttrs(attrSrc), selfClosing };
     if (RAW_TEXT.has(name) && !selfClosing) {
       const close = new RegExp(`</${name}\\s*>`, 'i').exec(src.slice(i));
       const body = close ? src.slice(i, i + close.index) : src.slice(i);

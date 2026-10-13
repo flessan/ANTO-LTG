@@ -15,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { extractTables } from '../lib/html.mjs';
 import { cleanText, parseIsoDate, parseSupportedOs, slugify, OS_LABELS } from '../lib/normalize.mjs';
 import { parseRobots, isAllowed } from '../lib/robots.mjs';
+import { isRetryableError } from '../lib/http.mjs';
 
 const LABELS = { 'device name:': 'device', 'driver date': 'date', 'driver date:': 'date', 'file size:': 'size', 'driver version:': 'version', 'vendor:': 'vendor', 'supported os:': 'os' };
 const VENDOR_TOKENS = { intel: /\bintel\b/i, realtek: /\brealtek\b/i, nvidia: /\bnvidia\b/i, amd: /\b(amd|ati)\b/i, synaptics: /\bsynaptics\b/i, broadcom: /\bbroadcom\b/i, qualcomm: /\b(qualcomm|atheros)\b/i, matrox: /\bmatrox\b/i, via: /\bvia\b/i, elan: /\belan\b/i, alps: /\balps\b/i };
@@ -167,7 +168,7 @@ export default {
         errors.push(...result.errors);
         if (!result.rows) errors.push({ target: t.id, code: 'NO_ROWS', message: 'No driver rows were recognised on the page; the layout may have changed.', retryable: false });
       } catch (err) {
-        errors.push({ target: t.id, code: err.code ?? 'EXCEPTION', message: String(err.message ?? err), retryable: true });
+        errors.push({ target: t.id, code: err.code ?? 'EXCEPTION', message: String(err.message ?? err), retryable: isRetryableError(err.code ?? 'EXCEPTION') });
       }
     }
     return { proposals, errors, attempted, source: { id: 'driver-listings', targets: sources }, stats: { targets: targets.length, proposed: proposals.length, failed: errors.length } };

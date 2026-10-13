@@ -28,6 +28,11 @@ export class CrawlerError extends Error {
   }
 }
 
+// Errors that trying again cannot fix: policy blocks (robots.txt, allow-list, SSRF guard) and deterministic
+// failures. `--retry-failed` skips these; everything else (timeouts, network errors, rate limits) may succeed later.
+export const PERMANENT_ERROR_CODES = new Set(['ROBOTS_DISALLOWED', 'BLOCKED_PROTOCOL', 'BLOCKED_URL', 'BLOCKED_HOST', 'BLOCKED_PRIVATE', 'BAD_URL', 'TLS_ERROR', 'TOO_LARGE', 'TOO_MANY_REDIRECTS']);
+export const isRetryableError = (code) => !PERMANENT_ERROR_CODES.has(code);
+
 export const DEFAULT_USER_AGENT =
   'ANTO-LTG-Crawler/0.2 (+https://github.com/flessan/ANTO-LTG; catalog research bot; honours robots.txt)';
 

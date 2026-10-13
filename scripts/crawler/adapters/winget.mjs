@@ -15,14 +15,18 @@ import {
 } from '../lib/normalize.mjs';
 import { classifyUrl } from '../lib/classify-url.mjs';
 import { runPool } from '../lib/pool.mjs';
+import { isRetryableError } from '../lib/http.mjs';
 
 // Flags worth showing to users are copied into the catalog record; the rest stay in the proposal.
 export const PERSISTED_FLAGS = ['manifest_older_than_2_years', 'no_https_publisher_url', 'installer_without_sha256', 'installer_url_not_https'];
 
 export const WINGET_ID_RE = /^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$/;
 
+// RegExp.test() coerces its argument (null -> "null" would match), so the type is checked first.
+const isValidId = (id) => typeof id === 'string' && WINGET_ID_RE.test(id);
+
 export function manifestDirFor(id) {
-  if (!WINGET_ID_RE.test(id)) throw new Error(`Refusing malformed WinGet package identifier: ${JSON.stringify(id)}`);
+  if (!isValidId(id)) throw new Error(`Refusing malformed WinGet package identifier: ${JSON.stringify(id)}`);
   return `manifests/${id[0].toLowerCase()}/${id.split('.').join('/')}`;
 }
 
@@ -272,7 +276,7 @@ export async function loadSeeds(seedFile) {
   for (const [category, ids] of Object.entries(doc.categories ?? {})) {
     for (const entry of ids) {
       const spec = typeof entry === 'string' ? { winget_id: entry } : entry;
-      if (!WINGET_ID_RE.test(spec.winget_id)) throw new Error(`Seed file contains an invalid WinGet ID: ${JSON.stringify(spec.winget_id)}`);
+      if (!isValidId(spec.winget_id)) throw new Error(`Seed file contains an invalid WinGet ID: ${JSON.stringify(spec.winget_id)}`);
       if (out.has(spec.winget_id)) throw new Error(`Seed file lists ${spec.winget_id} twice`);
       out.set(spec.winget_id, { category, id: spec.id, tags: spec.tags ?? [] });
     }
@@ -299,7 +303,7 @@ export default {
     });
     results.forEach((r, i) => {
       const id = targets[i];
-      if (r.error) errors.push({ target: id, code: r.error.code ?? 'EXCEPTION', message: String(r.error.message ?? r.error), retryable: !['BLOCKED_HOST', 'TLS_ERROR'].includes(r.error.code) });
+      if (r.error) errors.push({ target: id, code: r.error.code ?? 'EXCEPTION', message: String(r.error.message ?? r.error), retryable: isRetryableError(r.error.code ?? 'EXCEPTION') });
       else if (r.value.error) errors.push(r.value.error);
       else if (r.value.unchanged) unchanged.push(id);
       else proposals.push(r.value.proposal);

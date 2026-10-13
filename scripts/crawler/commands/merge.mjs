@@ -6,7 +6,7 @@ import { readCatalog, writeCatalog, CATALOGS, canonicalizeDoc } from '../../lib/
 import { loadSchemas, createValidators } from '../../lib/schema.mjs';
 import { checkSemantics } from '../../lib/semantic.mjs';
 
-const CATALOG_FOR_ADAPTER = { winget: 'apps', 'driver-listings': 'drivers', 'vendor-pages': 'drivers' };
+const CATALOG_FOR_ADAPTER = { winget: 'apps', 'driver-listings': 'drivers' };
 
 export async function merge({ flags, log = console.log }) {
   const cfg = await loadConfig();

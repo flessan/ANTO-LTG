@@ -80,8 +80,7 @@ function scalarFromText(text, lineNo) {
   rejectUnsupportedScalar(text, lineNo);
   if (text.startsWith('"') && text.endsWith('"') && text.length >= 2) return unescapeDouble(text.slice(1, -1), lineNo);
   if (text.startsWith("'") && text.endsWith("'") && text.length >= 2) return text.slice(1, -1).replace(/''/g, "'");
-  if (text === '~' || text === 'null') return null;
-  return text;
+  return text; // plain scalars stay strings ("null" and "~" included); only an empty value becomes null
 }
 
 export function parseYaml(source) {
