@@ -1,9 +1,14 @@
 {
   "openapi": "3.1.0",
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "ANTO-LTG Catalog API",
-    "version": "1.0.0",
-    "description": "Public read-only JSON catalogs. Catalog statuses and publisher metadata must be checked before using an item in a critical workflow."
+    "version": "1.1.0",
+    "description": "Static, read-only JSON files generated from catalogs/ by `npm run build`. This is a research index: statuses, sources and retrieval dates must be read before a record is used in a critical workflow. It is not a live driver database and not a real-time API.",
+    "license": {
+      "name": "MIT (code); see LICENSING.md for data and third-party notices",
+      "url": "https://github.com/flessan/ANTO-LTG/blob/main/LICENSE"
+    }
   },
   "servers": [
     {
@@ -11,14 +16,24 @@
       "description": "Current site origin"
     }
   ],
+  "tags": [
+    {
+      "name": "catalogs",
+      "description": "Catalog files"
+    },
+    {
+      "name": "meta",
+      "description": "Index and search files"
+    }
+  ],
   "paths": {
     "/api/v1/apps.json": {
       "get": {
-        "summary": "Get apps catalog",
         "operationId": "getAppsCatalog",
+        "summary": "Apps catalog",
         "responses": {
           "200": {
-            "description": "Catalog JSON",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -26,20 +41,21 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unexpected static host error"
           }
-        }
+        },
+        "description": "Software that technicians commonly install, with sourced versions, hash-pinned installer URLs and declared compatibility. The file currently holds 278 items.",
+        "tags": [
+          "catalogs"
+        ]
       }
     },
     "/api/v1/drivers.json": {
       "get": {
-        "summary": "Get drivers catalog",
         "operationId": "getDriversCatalog",
+        "summary": "Drivers catalog",
         "responses": {
           "200": {
-            "description": "Catalog JSON",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -47,41 +63,43 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unexpected static host error"
           }
-        }
+        },
+        "description": "Driver source records: official packages, vendor tools, support portals and clearly labelled third-party leads. The file currently holds 60 items.",
+        "tags": [
+          "catalogs"
+        ]
       }
     },
-    "/api/v1/bundles.json": {
+    "/api/v1/vendors.json": {
       "get": {
-        "summary": "Get bundles catalog",
-        "operationId": "getBundlesCatalog",
+        "operationId": "getVendorsCatalog",
+        "summary": "Vendors catalog",
         "responses": {
           "200": {
-            "description": "Catalog JSON",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BundlesCatalog"
+                  "$ref": "#/components/schemas/VendorsCatalog"
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unexpected static host error"
           }
-        }
+        },
+        "description": "Official driver and support entry points per manufacturer, plus the domains that count as official for each. The file currently holds 21 items.",
+        "tags": [
+          "catalogs"
+        ]
       }
     },
     "/api/v1/tools.json": {
       "get": {
-        "summary": "Get tools catalog",
         "operationId": "getToolsCatalog",
+        "summary": "Tools catalog",
         "responses": {
           "200": {
-            "description": "Catalog JSON",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -89,20 +107,43 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unexpected static host error"
           }
-        }
+        },
+        "description": "Scenario notes for technician tools. The file currently holds 26 items.",
+        "tags": [
+          "catalogs"
+        ]
+      }
+    },
+    "/api/v1/bundles.json": {
+      "get": {
+        "operationId": "getBundlesCatalog",
+        "summary": "Bundles catalog",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BundlesCatalog"
+                }
+              }
+            }
+          }
+        },
+        "description": "Curated starting selections of apps. The file currently holds 9 items.",
+        "tags": [
+          "catalogs"
+        ]
       }
     },
     "/api/v1/updates.json": {
       "get": {
-        "summary": "Get updates catalog",
         "operationId": "getUpdatesCatalog",
+        "summary": "Updates catalog",
         "responses": {
           "200": {
-            "description": "Catalog JSON",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -110,9 +151,53 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "Unexpected static host error"
+          }
+        },
+        "description": "Project and catalog update notes (also published as an RSS feed when SITE_URL is set). The file currently holds 4 items.",
+        "tags": [
+          "catalogs"
+        ]
+      }
+    },
+    "/api/v1/index.json": {
+      "get": {
+        "operationId": "getApiIndex",
+        "tags": [
+          "meta"
+        ],
+        "summary": "Endpoint index with counts and SHA-256 of every file",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndex"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/search-index.json": {
+      "get": {
+        "operationId": "getSearchIndex",
+        "tags": [
+          "meta"
+        ],
+        "summary": "Inverted search index built at build time",
+        "description": "Format anto-ltg.search-index/1. `docs` lists the searchable items, `tokens` is a sorted token list and `postings[i]` is a flat [docIndex, weight, ...] list for tokens[i].",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchIndex"
+                }
+              }
+            }
           }
         }
       }
@@ -120,270 +205,2112 @@
   },
   "components": {
     "schemas": {
+      "ApiIndex": {
+        "type": "object",
+        "required": [
+          "api_version",
+          "schema_version",
+          "endpoints"
+        ],
+        "properties": {
+          "api_version": {
+            "const": "v1"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "path",
+                "count",
+                "sha256"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "updated_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sha256": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "stats": {
+            "type": "object"
+          }
+        }
+      },
       "AppsCatalog": {
+        "title": "ANTO-LTG Apps Catalog",
         "type": "object",
         "required": [
           "schema_version",
           "items"
         ],
+        "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "type": "string",
-            "const": "1.0.0"
+            "const": "1.1.0"
           },
           "updated_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "items": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "name",
-                "description"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "publisher": {
-                  "type": "string"
-                },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "verification_status": {
-                  "type": "string"
-                },
-                "winget_id": {
-                  "type": "string",
-                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]*$",
-                  "description": "Optional WinGet package ID. Review status does not automatically assert package safety or OS compatibility."
-                }
-              }
+              "$ref": "#/components/schemas/Apps_app"
             }
           }
         }
       },
-      "DriversCatalog": {
+      "Apps_app": {
+        "title": "App",
+        "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources; nothing here is verified unless verification_status says so.",
         "type": "object",
         "required": [
-          "schema_version",
-          "items"
+          "id",
+          "name",
+          "publisher",
+          "category",
+          "description",
+          "source_url",
+          "source_kind",
+          "verification_status",
+          "windows_compatibility",
+          "architectures",
+          "license",
+          "notes",
+          "sources"
         ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {}
+        },
         "properties": {
-          "schema_version": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "name": {
             "type": "string",
-            "const": "1.0.0"
+            "minLength": 1,
+            "maxLength": 120
           },
-          "updated_at": {
-            "type": [
-              "string",
-              "null"
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "category": {
+            "$ref": "#/components/schemas/Common_appCategory"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400,
+            "description": "Short description in the source language (English for crawled records)."
+          },
+          "description_id": {
+            "type": "string",
+            "maxLength": 400,
+            "description": "Optional Indonesian description written by a maintainer."
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "notes_id": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "source_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl",
+            "description": "Official page for the product."
+          },
+          "source_kind": {
+            "$ref": "#/components/schemas/Common_sourceKind"
+          },
+          "verification_status": {
+            "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "reviewed_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "evidence_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "windows_compatibility": {
+            "enum": [
+              "not_reviewed",
+              "supported",
+              "unsupported",
+              "partial"
             ],
-            "format": "date-time"
+            "description": "Outcome of a HUMAN compatibility review. 'not_reviewed' until someone has actually tested or researched it."
           },
-          "items": {
+          "compatibility": {
+            "type": "object",
+            "required": [
+              "windows10",
+              "windows11"
+            ],
+            "additionalProperties": false,
+            "description": "What the SOURCE declares about Windows 10/11. Evidence-based; 'declared' is not a test result.",
+            "properties": {
+              "windows10": {
+                "$ref": "#/components/schemas/Common_compatState"
+              },
+              "windows11": {
+                "$ref": "#/components/schemas/Common_compatState"
+              },
+              "min_os_version": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^\\d+(\\.\\d+){1,3}$"
+              },
+              "basis": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "note": {
+                "type": "string",
+                "maxLength": 300
+              }
+            }
+          },
+          "architectures": {
             "type": "array",
+            "uniqueItems": true,
             "items": {
-              "type": "object",
+              "$ref": "#/components/schemas/Common_architecture"
+            },
+            "description": "Architectures for which the source lists an installer. Empty means unknown."
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "license_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "winget_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$",
+            "description": "WinGet package identifier. Present only when the package exists in the winget source (proven by the crawler)."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Common_version"
+          },
+          "release_date": {
+            "$ref": "#/components/schemas/Common_nullableDate"
+          },
+          "installer_types": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9._-]+$",
+              "maxLength": 32
+            }
+          },
+          "installer_scopes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "user",
+                "machine"
+              ]
+            }
+          },
+          "elevation": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "elevationRequired",
+                "elevationProhibited",
+                "elevatesSelf"
+              ]
+            }
+          },
+          "portable": {
+            "type": "boolean"
+          },
+          "downloads": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "$ref": "#/components/schemas/Common_download"
+            }
+          },
+          "availability": {
+            "type": "object",
+            "required": [
+              "status",
+              "reason",
+              "evidence_url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "enum": [
+                  "unavailable"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 400
+              },
+              "since": {
+                "$ref": "#/components/schemas/Common_date"
+              },
+              "evidence_url": {
+                "$ref": "#/components/schemas/Common_httpsUrl"
+              }
+            }
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Common_tags"
+          },
+          "quality_flags": {
+            "$ref": "#/components/schemas/Common_qualityFlags"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Common_source"
+            }
+          },
+          "added_at": {
+            "$ref": "#/components/schemas/Common_date"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "verification_status": {
+                  "const": "verified"
+                }
+              },
               "required": [
-                "id",
-                "name",
-                "description"
+                "verification_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "reviewed_at",
+                "review_notes",
+                "evidence_url"
               ],
               "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "publisher": {
-                  "type": "string"
-                },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "verification_status": {
+                "reviewed_at": {
                   "type": "string"
                 }
               }
             }
+          }
+        ]
+      },
+      "BundleManifest": {
+        "title": "ANTO-LTG portable bundle manifest",
+        "description": "The JSON a user exports from the Software Center. Importing it only restores a SELECTION of catalog ids: install commands are always regenerated from the current catalog, so a manifest can never inject a package identifier or a command.",
+        "type": "object",
+        "required": [
+          "format",
+          "format_version",
+          "name",
+          "apps"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "format": {
+            "const": "anto-ltg.bundle"
+          },
+          "format_version": {
+            "const": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/Common_dateTime"
+          },
+          "target": {
+            "type": "object",
+            "required": [
+              "os"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "os": {
+                "enum": [
+                  "windows10",
+                  "windows11"
+                ]
+              }
+            }
+          },
+          "method": {
+            "enum": [
+              "winget",
+              "download-kit"
+            ]
+          },
+          "options": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "accept_agreements": {
+                "type": "boolean"
+              },
+              "silent": {
+                "type": "boolean"
+              },
+              "include_unknown_compatibility": {
+                "type": "boolean"
+              }
+            }
+          },
+          "apps": {
+            "type": "array",
+            "maxItems": 500,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "$ref": "#/components/schemas/Common_id"
+                },
+                "name": {
+                  "type": "string",
+                  "maxLength": 120,
+                  "description": "Informational only; ignored on import."
+                },
+                "winget_id": {
+                  "type": "string",
+                  "maxLength": 128,
+                  "description": "Informational only; ignored on import."
+                }
+              }
+            }
+          },
+          "catalog": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schema_version": {
+                "type": "string"
+              },
+              "app_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
           }
         }
       },
       "BundlesCatalog": {
+        "title": "ANTO-LTG Bundles Catalog",
+        "description": "Curated starting selections of apps. A bundle only references app ids; it never carries package identifiers of its own.",
         "type": "object",
         "required": [
           "schema_version",
           "items"
         ],
+        "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "type": "string",
-            "const": "1.0.0"
+            "const": "1.1.0"
           },
           "updated_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "items": {
             "type": "array",
             "items": {
+              "$ref": "#/components/schemas/Bundles_bundle"
+            }
+          }
+        }
+      },
+      "Bundles_bundle": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "app_ids",
+          "status"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {}
+        },
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "name_id": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400
+          },
+          "description_id": {
+            "type": "string",
+            "maxLength": 400
+          },
+          "app_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "maxItems": 80,
+            "items": {
+              "$ref": "#/components/schemas/Common_id"
+            }
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "published",
+              "withdrawn"
+            ]
+          },
+          "target_windows": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "Windows 10",
+                "Windows 11"
+              ]
+            }
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Common_tags"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "notes_id": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      },
+      "Common_appCategory": {
+        "enum": [
+          "browsers",
+          "communication",
+          "office",
+          "media",
+          "utilities",
+          "developer-tools",
+          "runtimes",
+          "security",
+          "diagnostics",
+          "storage",
+          "network-remote",
+          "boot-media",
+          "system-tools",
+          "vendor-tools",
+          "gaming"
+        ]
+      },
+      "Common_architecture": {
+        "enum": [
+          "x86",
+          "x64",
+          "arm",
+          "arm64",
+          "neutral"
+        ]
+      },
+      "Common_compatState": {
+        "enum": [
+          "declared",
+          "unsupported",
+          "unknown"
+        ],
+        "description": "declared = the source states a minimum OS that the target meets (not a test result); unsupported = the source requires a newer OS; unknown = the source says nothing."
+      },
+      "Common_date": {
+        "type": "string",
+        "format": "date"
+      },
+      "Common_dateTime": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "Common_download": {
+        "type": "object",
+        "required": [
+          "kind",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/Common_downloadKind"
+          },
+          "url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "architecture": {
+            "$ref": "#/components/schemas/Common_architecture"
+          },
+          "installer_type": {
+            "type": "string",
+            "pattern": "^[a-z0-9._-]+$",
+            "maxLength": 32
+          },
+          "scope": {
+            "enum": [
+              "user",
+              "machine"
+            ]
+          },
+          "sha256": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 120
+          },
+          "stability": {
+            "$ref": "#/components/schemas/Common_stability"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "link_check": {
+            "$ref": "#/components/schemas/Common_linkCheck"
+          },
+          "size_bytes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "description": "Size in bytes when the publisher states it exactly."
+          },
+          "sha512": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_sha512"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha512_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 120
+          }
+        }
+      },
+      "Common_downloadKind": {
+        "enum": [
+          "direct_binary",
+          "redirect",
+          "landing_page",
+          "download_form",
+          "signed_temporary",
+          "unknown",
+          "none"
+        ]
+      },
+      "Common_evidence": {
+        "type": "object",
+        "required": [
+          "type",
+          "url",
+          "retrieved_at"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "vendor_page",
+              "release_notes",
+              "catalog_listing",
+              "aggregator_listing",
+              "support_article",
+              "package_manifest"
+            ]
+          },
+          "url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "retrieved_at": {
+            "$ref": "#/components/schemas/Common_date"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      },
+      "Common_httpsUrl": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://[^\\s\\\\]+$",
+        "maxLength": 2048
+      },
+      "Common_id": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+        "maxLength": 80,
+        "description": "Stable lowercase kebab-case identifier. Never reused for a different thing."
+      },
+      "Common_linkCheck": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "unchecked",
+              "ok",
+              "redirect",
+              "broken",
+              "blocked",
+              "error"
+            ]
+          },
+          "checked_at": {
+            "$ref": "#/components/schemas/Common_dateTime"
+          },
+          "http_status": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "final_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "content_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "size_bytes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300
+          }
+        }
+      },
+      "Common_nullableDate": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "date"
+      },
+      "Common_qualityFlags": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "description": "Machine-readable data-quality warnings produced by the crawler (for example vendor_device_mismatch)."
+      },
+      "Common_requirement": {
+        "enum": [
+          "serial_number",
+          "login",
+          "captcha",
+          "eula",
+          "auto_detect_tool",
+          "product_selection",
+          "email"
+        ]
+      },
+      "Common_review": {
+        "description": "Properties shared by every reviewable record.",
+        "type": "object",
+        "properties": {
+          "verification_status": {
+            "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "reviewed_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "evidence_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          }
+        }
+      },
+      "Common_sha256": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$",
+        "description": "Lowercase hex SHA-256 as published by the source. Never computed or guessed by this project."
+      },
+      "Common_sha512": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{128}$",
+        "description": "Lowercase hex SHA-512 as published by the source."
+      },
+      "Common_source": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "url",
+          "retrieved_at"
+        ],
+        "additionalProperties": false,
+        "description": "Where some of a record's fields came from. 'fields' lists which top-level fields this source supplied, which is the per-field provenance.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$",
+            "maxLength": 60
+          },
+          "kind": {
+            "enum": [
+              "package_index",
+              "vendor_page",
+              "vendor_catalog",
+              "release_api",
+              "aggregator_listing",
+              "curated",
+              "documentation"
+            ]
+          },
+          "url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "ref": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "retrieved_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "$ref": "#/components/schemas/Common_date"
+              }
+            ]
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z_]+$"
+            },
+            "uniqueItems": true
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 400
+          }
+        }
+      },
+      "Common_sourceKind": {
+        "enum": [
+          "publisher_page",
+          "manufacturer_support_page",
+          "official_project_site",
+          "package_index",
+          "vendor_catalog",
+          "third_party_aggregator"
+        ]
+      },
+      "Common_stability": {
+        "enum": [
+          "versioned",
+          "evergreen",
+          "ephemeral",
+          "unknown"
+        ]
+      },
+      "Common_tags": {
+        "type": "array",
+        "maxItems": 12,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        }
+      },
+      "Common_verificationStatus": {
+        "enum": [
+          "pending_review",
+          "verified",
+          "withdrawn"
+        ],
+        "description": "'verified' requires reviewed_at, review_notes and an evidence_url. Crawlers can only ever produce 'pending_review'."
+      },
+      "Common_version": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "maxLength": 64,
+        "description": "Version exactly as published by the source, or null when no source states it reliably."
+      },
+      "DriversCatalog": {
+        "title": "ANTO-LTG Drivers Catalog",
+        "description": "Driver SOURCE records: pointers to official vendor pages and packages with whatever the source publishes. This is a research index, not a live driver database; the project never hosts or mirrors driver binaries.",
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          },
+          "updated_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Drivers_driver"
+            }
+          }
+        }
+      },
+      "Drivers_component": {
+        "enum": [
+          "graphics",
+          "audio",
+          "network-ethernet",
+          "network-wifi",
+          "bluetooth",
+          "chipset",
+          "storage",
+          "usb",
+          "input",
+          "camera",
+          "card-reader",
+          "firmware",
+          "serial-adapter",
+          "printer-scanner",
+          "system-management",
+          "other"
+        ]
+      },
+      "Drivers_driver": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "publisher",
+          "source_url",
+          "source_kind",
+          "verification_status",
+          "manufacturer",
+          "model",
+          "component",
+          "kind",
+          "windows_versions",
+          "architectures",
+          "notes",
+          "download",
+          "sources"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {}
+        },
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "description_id": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Who publishes the driver or the page that lists it."
+          },
+          "manufacturer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Maker of the hardware this applies to (for example Intel, Realtek, Dell)."
+          },
+          "vendor_id": {
+            "$ref": "#/components/schemas/Common_id",
+            "description": "Reference to an entry in vendors.json."
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160,
+            "description": "System model or hardware family; 'Unspecified' when the source does not say."
+          },
+          "hardware_family": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "component": {
+            "$ref": "#/components/schemas/Drivers_component"
+          },
+          "kind": {
+            "enum": [
+              "driver_package",
+              "support_page",
+              "vendor_tool",
+              "catalog_entry"
+            ]
+          },
+          "source_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl",
+            "description": "The page that describes this record (official support/download page, or the aggregator listing for third_party_aggregator records)."
+          },
+          "source_kind": {
+            "$ref": "#/components/schemas/Common_sourceKind"
+          },
+          "official_source": {
+            "type": "object",
+            "required": [
+              "url",
+              "type",
+              "stable"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "$ref": "#/components/schemas/Common_httpsUrl"
+              },
+              "vendor_id": {
+                "$ref": "#/components/schemas/Common_id"
+              },
+              "type": {
+                "enum": [
+                  "download_page",
+                  "support_portal",
+                  "catalog",
+                  "release_notes"
+                ]
+              },
+              "stable": {
+                "type": "boolean",
+                "description": "true when the URL is expected to stay valid across releases."
+              }
+            }
+          },
+          "verification_status": {
+            "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "reviewed_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "evidence_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "windows_versions": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "Windows XP",
+                "Windows Vista",
+                "Windows 7",
+                "Windows 8",
+                "Windows 8.1",
+                "Windows 10",
+                "Windows 11",
+                "Windows Server",
+                "other"
+              ]
+            }
+          },
+          "os_support": {
+            "type": "array",
+            "items": {
               "type": "object",
               "required": [
-                "id",
-                "name",
-                "description"
+                "os",
+                "architectures"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "os": {
+                  "$ref": "#/components/schemas/Drivers_osKey"
+                },
+                "architectures": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/components/schemas/Common_architecture"
+                  },
+                  "description": "Empty = the source does not say which architectures; it never means 'all'."
+                }
+              }
+            }
+          },
+          "architectures": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/Common_architecture"
+            }
+          },
+          "version": {
+            "$ref": "#/components/schemas/Common_version"
+          },
+          "release_date": {
+            "$ref": "#/components/schemas/Common_nullableDate"
+          },
+          "file_size_text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32,
+            "description": "Size exactly as the source displays it (for example 23.09M). Not converted, because units are often ambiguous."
+          },
+          "file_size_bytes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "hardware_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "maxItems": 64,
+            "items": {
+              "type": "string",
+              "pattern": "^(PCI|USB|ACPI|HDAUDIO|HID|SCSI|BTH|BTHENUM)\\\\[A-Za-z0-9_&.\\\\-]+$",
+              "maxLength": 120
+            }
+          },
+          "download": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "$ref": "#/components/schemas/Common_downloadKind"
+              },
+              "url": {
+                "$ref": "#/components/schemas/Common_httpsUrl"
+              },
+              "requires": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "#/components/schemas/Common_requirement"
+                }
+              },
+              "sha256": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Common_sha256"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sha256_source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 120
+              },
+              "stability": {
+                "$ref": "#/components/schemas/Common_stability"
+              },
+              "link_check": {
+                "$ref": "#/components/schemas/Common_linkCheck"
+              },
+              "sha512": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Common_sha512"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sha512_source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 120
+              },
+              "size_bytes": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              }
+            }
+          },
+          "install_instructions": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "install_instructions_id": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Common_evidence"
+            }
+          },
+          "quality_flags": {
+            "$ref": "#/components/schemas/Common_qualityFlags"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "notes_id": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Common_tags"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Common_source"
+            }
+          },
+          "added_at": {
+            "$ref": "#/components/schemas/Common_date"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "verification_status": {
+                  "const": "verified"
+                }
+              },
+              "required": [
+                "verification_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "reviewed_at",
+                "review_notes",
+                "evidence_url",
+                "evidence"
               ],
               "properties": {
+                "reviewed_at": {
+                  "type": "string"
+                },
+                "evidence": {
+                  "type": "array",
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "download": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "direct_binary"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ]
+                }
+              },
+              "required": [
+                "download"
+              ]
+            },
+            "then": {
+              "properties": {
+                "download": {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "url"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "source_kind": {
+                  "const": "third_party_aggregator"
+                }
+              },
+              "required": [
+                "source_kind"
+              ]
+            },
+            "then": {
+              "required": [
+                "official_source"
+              ],
+              "properties": {
+                "download": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "const": "none"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Drivers_osKey": {
+        "enum": [
+          "windows-xp",
+          "windows-vista",
+          "windows-7",
+          "windows-8",
+          "windows-8-1",
+          "windows-10",
+          "windows-11",
+          "windows-server"
+        ]
+      },
+      "Proposals": {
+        "title": "ANTO-LTG crawler proposals",
+        "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be pending_review.",
+        "type": "object",
+        "required": [
+          "schema",
+          "adapter",
+          "generated_at",
+          "proposals",
+          "errors"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "schema": {
+            "const": "anto-ltg.proposals/1"
+          },
+          "adapter": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "generated_at": {
+            "$ref": "#/components/schemas/Common_dateTime"
+          },
+          "source": {
+            "type": "object"
+          },
+          "proposals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "target",
+                "key",
+                "record",
+                "meta"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "target": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300,
+                  "description": "Stable de-duplication key, for example winget:git.git."
+                },
+                "catalog": {
+                  "enum": [
+                    "apps",
+                    "drivers"
+                  ]
+                },
+                "record": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/Apps_app"
+                    },
+                    {
+                      "$ref": "#/components/schemas/Drivers_driver"
+                    }
+                  ]
+                },
+                "meta": {
+                  "type": "object",
+                  "required": [
+                    "adapter",
+                    "crawled_at",
+                    "quality_flags"
+                  ],
+                  "properties": {
+                    "adapter": {
+                      "type": "string"
+                    },
+                    "crawled_at": {
+                      "$ref": "#/components/schemas/Common_dateTime"
+                    },
+                    "quality_flags": {
+                      "$ref": "#/components/schemas/Common_qualityFlags"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "target",
+                "code",
+                "message"
+              ],
+              "properties": {
+                "target": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "retryable": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "SearchIndex": {
+        "type": "object",
+        "required": [
+          "format",
+          "docs",
+          "tokens",
+          "postings"
+        ],
+        "properties": {
+          "format": {
+            "const": "anto-ltg.search-index/1"
+          },
+          "docs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "type",
+                "id",
+                "title",
+                "url"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "app",
+                    "driver",
+                    "vendor",
+                    "tool",
+                    "bundle",
+                    "page"
+                  ]
+                },
                 "id": {
                   "type": "string"
                 },
-                "name": {
+                "title": {
                   "type": "string"
                 },
-                "description": {
+                "subtitle": {
                   "type": "string"
                 },
-                "publisher": {
+                "url": {
                   "type": "string"
                 },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "verification_status": {
+                "norm": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "tokens": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "postings": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number"
               }
             }
           }
         }
       },
       "ToolsCatalog": {
+        "title": "ANTO-LTG Technician Tools Catalog",
+        "description": "Scenario-oriented notes for tools that technicians reach for (diagnostics, recovery, boot media). A tool may point at an app record through app_id so that install options are not duplicated.",
         "type": "object",
         "required": [
           "schema_version",
           "items"
         ],
+        "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "type": "string",
-            "const": "1.0.0"
+            "const": "1.1.0"
           },
           "updated_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "items": {
             "type": "array",
             "items": {
-              "type": "object",
-              "required": [
-                "id",
-                "name",
-                "description"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "publisher": {
-                  "type": "string"
-                },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "verification_status": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/components/schemas/Tools_tool"
             }
           }
         }
       },
-      "UpdatesCatalog": {
+      "Tools_tool": {
         "type": "object",
         "required": [
-          "schema_version",
-          "items"
+          "id",
+          "name",
+          "category",
+          "description",
+          "publisher",
+          "source_url",
+          "source_kind",
+          "verification_status",
+          "requires_admin",
+          "notes",
+          "sources"
         ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {}
+        },
         "properties": {
-          "schema_version": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "name": {
             "type": "string",
-            "const": "1.0.0"
+            "minLength": 1,
+            "maxLength": 120
           },
-          "updated_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
+          "category": {
+            "$ref": "#/components/schemas/Common_appCategory"
           },
-          "items": {
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "description_id": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "publisher": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "app_id": {
+            "$ref": "#/components/schemas/Common_id",
+            "description": "The apps.json record that carries the install options for this tool."
+          },
+          "source_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "source_kind": {
+            "$ref": "#/components/schemas/Common_sourceKind"
+          },
+          "verification_status": {
+            "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "reviewed_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "evidence_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "requires_admin": {
+            "enum": [
+              "yes",
+              "no",
+              "not_reviewed"
+            ]
+          },
+          "portable": {
+            "type": "boolean"
+          },
+          "bootable_media": {
+            "type": "boolean",
+            "description": "true when the tool runs from boot media rather than inside Windows."
+          },
+          "use_cases": {
             "type": "array",
+            "maxItems": 8,
             "items": {
-              "type": "object",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          },
+          "use_cases_id": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          },
+          "cautions": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "cautions_id": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "downloads": {
+            "type": "array",
+            "maxItems": 6,
+            "items": {
+              "$ref": "#/components/schemas/Common_download"
+            }
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "notes_id": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "tags": {
+            "$ref": "#/components/schemas/Common_tags"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Common_source"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "verification_status": {
+                  "const": "verified"
+                }
+              },
               "required": [
-                "id",
-                "name",
-                "description"
+                "verification_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "reviewed_at",
+                "review_notes",
+                "evidence_url"
               ],
               "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "publisher": {
-                  "type": "string"
-                },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "verification_status": {
+                "reviewed_at": {
                   "type": "string"
                 }
               }
             }
           }
+        ]
+      },
+      "UpdatesCatalog": {
+        "title": "ANTO-LTG Updates Feed",
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          },
+          "updated_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Updates_update"
+            }
+          }
         }
+      },
+      "Updates_update": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "description",
+          "path",
+          "published_at"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 140
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^/(?!/)[A-Za-z0-9._~/#?=&%-]*$",
+            "description": "Site-relative path beginning with exactly one slash."
+          },
+          "published_at": {
+            "$ref": "#/components/schemas/Common_dateTime"
+          }
+        }
+      },
+      "VendorsCatalog": {
+        "title": "ANTO-LTG Vendor Directory",
+        "description": "Official driver and support entry points per manufacturer, with the domains that count as official for that vendor. Drivers whose official_source points outside the vendor's domains fail validation.",
+        "type": "object",
+        "required": [
+          "schema_version",
+          "items"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "1.1.0"
+          },
+          "updated_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Vendors_vendor"
+            }
+          }
+        }
+      },
+      "Vendors_vendor": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "homepage_url",
+          "domains",
+          "source_kind",
+          "verification_status",
+          "sources"
+        ],
+        "additionalProperties": false,
+        "patternProperties": {
+          "^x-": {}
+        },
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Common_id"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "kind": {
+            "enum": [
+              "oem",
+              "component_vendor",
+              "os_vendor",
+              "catalog",
+              "peripheral_vendor"
+            ]
+          },
+          "homepage_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "support_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "driver_search_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "detection_tool": {
+            "type": "object",
+            "required": [
+              "name",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "url": {
+                "$ref": "#/components/schemas/Common_httpsUrl"
+              },
+              "winget_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$"
+              }
+            }
+          },
+          "domains": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(\\*\\.)?[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+            },
+            "description": "Hostnames (or *.suffix) that belong to this vendor and are acceptable for official_source URLs."
+          },
+          "pci_vendor_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{4}$"
+            }
+          },
+          "usb_vendor_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[0-9A-F]{4}$"
+            }
+          },
+          "requires": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/components/schemas/Common_requirement"
+            },
+            "description": "What the vendor's official portal typically asks for before it offers a download."
+          },
+          "instructions": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "instructions_id": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "source_kind": {
+            "$ref": "#/components/schemas/Common_sourceKind"
+          },
+          "verification_status": {
+            "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "reviewed_at": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Common_dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "evidence_url": {
+            "$ref": "#/components/schemas/Common_httpsUrl"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "notes_id": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Common_source"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "verification_status": {
+                  "const": "verified"
+                }
+              },
+              "required": [
+                "verification_status"
+              ]
+            },
+            "then": {
+              "required": [
+                "reviewed_at",
+                "review_notes",
+                "evidence_url"
+              ],
+              "properties": {
+                "reviewed_at": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
       }
     }
   }

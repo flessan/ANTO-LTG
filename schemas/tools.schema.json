@@ -1,92 +1,55 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:anto-ltg:schema:tools",
-  "title": "ANTO-LTG Tools Catalog",
+  "title": "ANTO-LTG Technician Tools Catalog",
+  "description": "Scenario-oriented notes for tools that technicians reach for (diagnostics, recovery, boot media). A tool may point at an app record through app_id so that install options are not duplicated.",
   "type": "object",
-  "required": [
-    "schema_version",
-    "items"
-  ],
+  "required": ["schema_version", "items"],
+  "additionalProperties": false,
   "properties": {
-    "schema_version": {
-      "const": "1.0.0"
-    },
-    "updated_at": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "date-time"
-    },
-    "items": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "category",
-          "description",
-          "publisher",
-          "source_url",
-          "source_kind",
-          "verification_status",
-          "requires_admin",
-          "notes"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "category": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 1
-          },
-          "publisher": {
-            "type": "string",
-            "minLength": 1
-          },
-          "source_url": {
-            "type": "string",
-            "format": "uri",
-            "pattern": "^https://"
-          },
-          "source_kind": {
-            "enum": [
-              "publisher_page",
-              "manufacturer_support_page",
-              "official_project_site"
-            ]
-          },
-          "verification_status": {
-            "enum": [
-              "pending_review",
-              "verified",
-              "withdrawn"
-            ]
-          },
-          "requires_admin": {
-            "enum": [
-              "yes",
-              "no",
-              "not_reviewed"
-            ]
-          },
-          "notes": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": true
-      }
-    }
+    "schema_version": { "const": "1.1.0" },
+    "updated_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/tool" } }
   },
-  "additionalProperties": true
+  "$defs": {
+    "tool": {
+      "type": "object",
+      "required": ["id", "name", "category", "description", "publisher", "source_url", "source_kind", "verification_status", "requires_admin", "notes", "sources"],
+      "additionalProperties": false,
+      "patternProperties": { "^x-": {} },
+      "properties": {
+        "id": { "$ref": "urn:anto-ltg:schema:common#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "category": { "$ref": "urn:anto-ltg:schema:common#/$defs/appCategory" },
+        "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "description_id": { "type": "string", "maxLength": 500 },
+        "publisher": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "app_id": { "$ref": "urn:anto-ltg:schema:common#/$defs/id", "description": "The apps.json record that carries the install options for this tool." },
+        "source_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" },
+        "source_kind": { "$ref": "urn:anto-ltg:schema:common#/$defs/sourceKind" },
+        "verification_status": { "$ref": "urn:anto-ltg:schema:common#/$defs/verificationStatus" },
+        "reviewed_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
+        "review_notes": { "type": "string", "maxLength": 2000 },
+        "evidence_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" },
+        "requires_admin": { "enum": ["yes", "no", "not_reviewed"] },
+        "portable": { "type": "boolean" },
+        "bootable_media": { "type": "boolean", "description": "true when the tool runs from boot media rather than inside Windows." },
+        "use_cases": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+        "use_cases_id": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+        "cautions": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 1, "maxLength": 300 } },
+        "cautions_id": { "type": "array", "maxItems": 8, "items": { "type": "string", "minLength": 1, "maxLength": 300 } },
+        "downloads": { "type": "array", "maxItems": 6, "items": { "$ref": "urn:anto-ltg:schema:common#/$defs/download" } },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "notes_id": { "type": "string", "maxLength": 1000 },
+        "tags": { "$ref": "urn:anto-ltg:schema:common#/$defs/tags" },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "urn:anto-ltg:schema:common#/$defs/source" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "verification_status": { "const": "verified" } }, "required": ["verification_status"] },
+          "then": { "required": ["reviewed_at", "review_notes", "evidence_url"], "properties": { "reviewed_at": { "type": "string" } } }
+        }
+      ]
+    }
+  }
 }

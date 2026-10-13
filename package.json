@@ -1,12 +1,29 @@
 {
   "name": "anto-ltg",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "All-in-one technician toolkit and open software catalog.",
+  "description": "ANTO-LTG: a Frutiger Aero technician platform with an open software catalog, a driver source finder, a WinGet script generator and a polite catalog crawler.",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "validate": "node scripts/build.mjs --validate",
-    "build": "node scripts/build.mjs --build"
+    "build": "node scripts/build.mjs --build",
+    "format:catalogs": "node scripts/build.mjs --format",
+    "test": "node scripts/test.mjs unit crawler",
+    "test:e2e": "node scripts/test.mjs e2e",
+    "check": "npm run validate && npm test && npm run build && git diff --exit-code -- api openapi.json assets/CREDITS.md",
+    "serve": "node scripts/serve.mjs",
+    "crawl": "node scripts/crawler/cli.mjs crawl",
+    "crawl:dry": "node scripts/crawler/cli.mjs crawl --dry-run",
+    "crawl:merge": "node scripts/crawler/cli.mjs merge",
+    "crawl:links": "node scripts/crawler/cli.mjs check-links"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "puppeteer-core": "^24.43.1"
+  }
 }

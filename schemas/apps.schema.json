@@ -3,112 +3,83 @@
   "$id": "urn:anto-ltg:schema:apps",
   "title": "ANTO-LTG Apps Catalog",
   "type": "object",
-  "required": [
-    "schema_version",
-    "items"
-  ],
+  "required": ["schema_version", "items"],
+  "additionalProperties": false,
   "properties": {
-    "schema_version": {
-      "const": "1.0.0"
-    },
-    "updated_at": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "date-time"
-    },
-    "items": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "category",
-          "description",
-          "publisher",
-          "source_url",
-          "source_kind",
-          "verification_status",
-          "windows_compatibility",
-          "architectures",
-          "license",
-          "notes"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1
-          },
-          "category": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "minLength": 1
-          },
-          "publisher": {
-            "type": "string",
-            "minLength": 1
-          },
-          "source_url": {
-            "type": "string",
-            "format": "uri",
-            "pattern": "^https://"
-          },
-          "source_kind": {
-            "enum": [
-              "publisher_page",
-              "manufacturer_support_page",
-              "official_project_site"
-            ]
-          },
-          "verification_status": {
-            "enum": [
-              "pending_review",
-              "verified",
-              "withdrawn"
-            ]
-          },
-          "windows_compatibility": {
-            "enum": [
-              "not_reviewed",
-              "supported",
-              "unsupported",
-              "partial"
-            ]
-          },
-          "architectures": {
-            "type": "array",
-            "items": {
-              "enum": [
-                "x64",
-                "x86",
-                "arm64",
-                "other"
-              ]
-            }
-          },
-          "license": {
-            "type": "string"
-          },
-          "notes": {
-            "type": "string"
-          },
-          "winget_id": {
-            "type": "string",
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]*$",
-            "description": "Optional WinGet package identifier for generating a local installation script; requires review."
+    "schema_version": { "const": "1.1.0" },
+    "updated_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/app" } }
+  },
+  "$defs": {
+    "app": {
+      "title": "App",
+      "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources; nothing here is verified unless verification_status says so.",
+      "type": "object",
+      "required": ["id", "name", "publisher", "category", "description", "source_url", "source_kind", "verification_status", "windows_compatibility", "architectures", "license", "notes", "sources"],
+      "additionalProperties": false,
+      "patternProperties": { "^x-": {} },
+      "properties": {
+        "id": { "$ref": "urn:anto-ltg:schema:common#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "publisher": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "category": { "$ref": "urn:anto-ltg:schema:common#/$defs/appCategory" },
+        "description": { "type": "string", "minLength": 1, "maxLength": 400, "description": "Short description in the source language (English for crawled records)." },
+        "description_id": { "type": "string", "maxLength": 400, "description": "Optional Indonesian description written by a maintainer." },
+        "notes": { "type": "string", "maxLength": 1000 },
+        "notes_id": { "type": "string", "maxLength": 1000 },
+        "source_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl", "description": "Official page for the product." },
+        "source_kind": { "$ref": "urn:anto-ltg:schema:common#/$defs/sourceKind" },
+        "verification_status": { "$ref": "urn:anto-ltg:schema:common#/$defs/verificationStatus" },
+        "reviewed_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
+        "review_notes": { "type": "string", "maxLength": 2000 },
+        "evidence_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" },
+        "windows_compatibility": { "enum": ["not_reviewed", "supported", "unsupported", "partial"], "description": "Outcome of a HUMAN compatibility review. 'not_reviewed' until someone has actually tested or researched it." },
+        "compatibility": {
+          "type": "object",
+          "required": ["windows10", "windows11"],
+          "additionalProperties": false,
+          "description": "What the SOURCE declares about Windows 10/11. Evidence-based; 'declared' is not a test result.",
+          "properties": {
+            "windows10": { "$ref": "urn:anto-ltg:schema:common#/$defs/compatState" },
+            "windows11": { "$ref": "urn:anto-ltg:schema:common#/$defs/compatState" },
+            "min_os_version": { "type": ["string", "null"], "pattern": "^\\d+(\\.\\d+){1,3}$" },
+            "basis": { "type": "string", "maxLength": 200 },
+            "note": { "type": "string", "maxLength": 300 }
           }
         },
-        "additionalProperties": true
-      }
+        "architectures": { "type": "array", "uniqueItems": true, "items": { "$ref": "urn:anto-ltg:schema:common#/$defs/architecture" }, "description": "Architectures for which the source lists an installer. Empty means unknown." },
+        "license": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "license_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" },
+        "winget_id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$", "description": "WinGet package identifier. Present only when the package exists in the winget source (proven by the crawler)." },
+        "version": { "$ref": "urn:anto-ltg:schema:common#/$defs/version" },
+        "release_date": { "$ref": "urn:anto-ltg:schema:common#/$defs/nullableDate" },
+        "installer_types": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9._-]+$", "maxLength": 32 } },
+        "installer_scopes": { "type": "array", "uniqueItems": true, "items": { "enum": ["user", "machine"] } },
+        "elevation": { "type": "array", "uniqueItems": true, "items": { "enum": ["elevationRequired", "elevationProhibited", "elevatesSelf"] } },
+        "portable": { "type": "boolean" },
+        "downloads": { "type": "array", "maxItems": 12, "items": { "$ref": "urn:anto-ltg:schema:common#/$defs/download" } },
+        "availability": {
+          "type": "object",
+          "required": ["status", "reason", "evidence_url"],
+          "additionalProperties": false,
+          "properties": {
+            "status": { "enum": ["unavailable"] },
+            "reason": { "type": "string", "minLength": 1, "maxLength": 400 },
+            "since": { "$ref": "urn:anto-ltg:schema:common#/$defs/date" },
+            "evidence_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" }
+          }
+        },
+        "tags": { "$ref": "urn:anto-ltg:schema:common#/$defs/tags" },
+        "quality_flags": { "$ref": "urn:anto-ltg:schema:common#/$defs/qualityFlags" },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "urn:anto-ltg:schema:common#/$defs/source" } },
+        "added_at": { "$ref": "urn:anto-ltg:schema:common#/$defs/date" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "verification_status": { "const": "verified" } }, "required": ["verification_status"] },
+          "then": { "required": ["reviewed_at", "review_notes", "evidence_url"], "properties": { "reviewed_at": { "type": "string" } } }
+        }
+      ]
     }
-  },
-  "additionalProperties": true
+  }
 }

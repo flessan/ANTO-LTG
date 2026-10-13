@@ -1,4 +1,34 @@
 {
-  "schema_version": "1.0.0",
-  "items": []
+  "schema_version": "1.1.0",
+  "updated_at": "2026-10-13T00:00:00.000Z",
+  "items": [
+    {
+      "id": "catalog-1-1-0",
+      "title": "Catalog 1.1.0: crawled WinGet metadata and sourced records",
+      "description": "Apps now carry versions, hash-pinned installer URLs and compatibility facts taken from microsoft/winget-pkgs, with per-field sources. Records that have no WinGet package show their official download, page or unavailable status.",
+      "path": "/software/",
+      "published_at": "2026-10-13T00:00:00.000Z"
+    },
+    {
+      "id": "crawler-and-api",
+      "title": "Polite crawler, search index and API documentation",
+      "description": "A robots-aware crawler proposes catalog changes for review, the build generates a search index, and the developer pages document the schemas and endpoints.",
+      "path": "/developers/",
+      "published_at": "2026-10-13T00:00:00.000Z"
+    },
+    {
+      "id": "driver-source-finder",
+      "title": "Driver source finder and vendor directory",
+      "description": "A searchable index of official driver sources (Intel, Realtek, FTDI, Silicon Labs, WCH and OEM portals) with evidence, hashes where publishers print them, and clearly labelled third-party leads.",
+      "path": "/drivers/",
+      "published_at": "2026-10-13T00:00:00.000Z"
+    },
+    {
+      "id": "winget-script-generator",
+      "title": "WinGet script generator with Ninite-style quick pick",
+      "description": "Pick apps, review the install plan and download a PowerShell script that checks Windows and WinGet, asks you to type YES and reports failures. Nothing is installed from the browser.",
+      "path": "/software/",
+      "published_at": "2026-10-13T00:00:00.000Z"
+    }
+  ]
 }

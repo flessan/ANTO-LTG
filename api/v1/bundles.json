@@ -1,5 +1,252 @@
 {
-  "schema_version": "1.0.0",
-  "updated_at": null,
-  "items": []
+  "schema_version": "1.1.0",
+  "updated_at": "2026-10-13T00:00:00.000Z",
+  "items": [
+    {
+      "id": "boot-and-install-media",
+      "name": "Boot and install media",
+      "name_id": "Media boot dan instalasi",
+      "description": "Make bootable USB drives and rescue media.",
+      "description_id": "Buat drive USB bootable dan media penyelamat.",
+      "app_ids": [
+        "7zip",
+        "balenaetcher",
+        "hirens-bootcd-pe",
+        "memtest86-plus",
+        "rufus",
+        "ventoy",
+        "windows-11-media-creation-tool"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "boot"
+      ],
+      "notes": "Hiren's BootCD PE, Memtest86+ and the Windows 11 media page have no WinGet package, so they appear as manual steps.",
+      "notes_id": "Hiren's BootCD PE, Memtest86+, dan halaman media Windows 11 tidak punya paket WinGet, sehingga muncul sebagai langkah manual."
+    },
+    {
+      "id": "creative-and-media",
+      "name": "Creative and media",
+      "name_id": "Kreatif dan media",
+      "description": "Screen recording, video, audio and image tools.",
+      "description_id": "Perekaman layar, video, audio, dan alat gambar.",
+      "app_ids": [
+        "audacity",
+        "blender",
+        "gimp",
+        "handbrake",
+        "inkscape",
+        "krita",
+        "obs-studio",
+        "videolan-vlc"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "media"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "developer-workstation",
+      "name": "Developer workstation",
+      "name_id": "Workstation pengembang",
+      "description": "Git, an editor, language runtimes, a modern terminal and common tooling.",
+      "description_id": "Git, editor, runtime bahasa, terminal modern, dan perkakas umum.",
+      "app_ids": [
+        "docker-desktop",
+        "git",
+        "github-cli",
+        "node-js-lts",
+        "postman",
+        "powershell",
+        "python-3-13",
+        "visual-studio-code",
+        "windows-terminal"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "developer"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "hardware-diagnostics",
+      "name": "Hardware diagnostics",
+      "name_id": "Diagnostik perangkat keras",
+      "description": "Identify components and test CPU, GPU, memory and storage.",
+      "description_id": "Identifikasi komponen dan uji CPU, GPU, memori, dan penyimpanan.",
+      "app_ids": [
+        "cpuid-cpu-z",
+        "crystaldiskinfo",
+        "crystaldiskmark",
+        "hwinfo",
+        "librehardwaremonitor",
+        "memtest86-plus",
+        "occt",
+        "smartmontools",
+        "techpowerup-gpu-z"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "diagnostics"
+      ],
+      "notes": "Memtest86+ is not a WinGet package; the script lists it as a manual step with its official page.",
+      "notes_id": "Memtest86+ bukan paket WinGet; skrip mencantumkannya sebagai langkah manual beserta halaman resminya."
+    },
+    {
+      "id": "new-pc-basics",
+      "name": "New PC basics",
+      "name_id": "Dasar untuk PC baru",
+      "description": "Browsers, office, PDF reader, media player, archiver and the runtimes many programs expect.",
+      "description_id": "Peramban, perkantoran, pembaca PDF, pemutar media, pengarsip, dan runtime yang dibutuhkan banyak program.",
+      "app_ids": [
+        "7zip",
+        "google-chrome",
+        "libreoffice",
+        "microsoft-net-windows-desktop-runtime-8-0",
+        "microsoft-visual-c-plus-plus-v14-redistributable-x64",
+        "microsoft-visual-c-plus-plus-v14-redistributable-x86",
+        "mozilla-firefox",
+        "sumatrapdf",
+        "videolan-vlc"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "home"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "remote-support-kit",
+      "name": "Remote support kit",
+      "name_id": "Perlengkapan dukungan jarak jauh",
+      "description": "Remote desktop, secure shell and network tools.",
+      "description_id": "Desktop jarak jauh, secure shell, dan alat jaringan.",
+      "app_ids": [
+        "advanced-ip-scanner",
+        "anydesk",
+        "mobaxterm",
+        "nmap",
+        "putty",
+        "tailscale",
+        "teamviewer",
+        "winscp",
+        "wireshark"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "network",
+        "remote"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "runtimes-pack",
+      "name": "Runtimes pack",
+      "name_id": "Paket runtime",
+      "description": "Visual C++ redistributables, .NET desktop runtimes, WebView2 and DirectX.",
+      "description_id": "Redistributable Visual C++, runtime desktop .NET, WebView2, dan DirectX.",
+      "app_ids": [
+        "directx-end-user-runtime-installer",
+        "microsoft-edge-webview2-runtime",
+        "microsoft-net-windows-desktop-runtime-6-0",
+        "microsoft-net-windows-desktop-runtime-8-0",
+        "microsoft-net-windows-desktop-runtime-9-0",
+        "microsoft-visual-c-plus-plus-2012-redistributable-x64",
+        "microsoft-visual-c-plus-plus-2012-redistributable-x86",
+        "microsoft-visual-c-plus-plus-2013-redistributable-x64",
+        "microsoft-visual-c-plus-plus-2013-redistributable-x86",
+        "microsoft-visual-c-plus-plus-v14-redistributable-x64",
+        "microsoft-visual-c-plus-plus-v14-redistributable-x86"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "runtimes"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "storage-and-recovery",
+      "name": "Storage and recovery",
+      "name_id": "Penyimpanan dan pemulihan",
+      "description": "Check disks, analyse space, recover partitions and files, and sync or back up data.",
+      "description_id": "Periksa disk, analisis ruang, pulihkan partisi dan berkas, serta sinkronkan atau cadangkan data.",
+      "app_ids": [
+        "crystaldiskinfo",
+        "duplicati",
+        "rclone",
+        "smartmontools",
+        "testdisk",
+        "wiztree"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "recovery",
+        "storage"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "technician-essentials",
+      "name": "Technician essentials",
+      "name_id": "Perlengkapan teknisi",
+      "description": "A compact everyday kit for repair and support work: archiver, editor, file search, disk usage, SSH/SFTP and hardware info.",
+      "description_id": "Perlengkapan ringkas sehari-hari untuk perbaikan dan dukungan: pengarsip, editor, pencarian berkas, penggunaan disk, SSH/SFTP, dan info perangkat keras.",
+      "app_ids": [
+        "7zip",
+        "autoruns",
+        "crystaldiskinfo",
+        "everything-search",
+        "hwinfo",
+        "notepad-plus-plus",
+        "process-explorer",
+        "putty",
+        "rufus",
+        "sysinternals-suite",
+        "winscp",
+        "wiztree"
+      ],
+      "status": "published",
+      "target_windows": [
+        "Windows 10",
+        "Windows 11"
+      ],
+      "tags": [
+        "technician"
+      ],
+      "notes": ""
+    }
+  ]
 }
