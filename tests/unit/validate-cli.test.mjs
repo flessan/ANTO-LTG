@@ -4,6 +4,7 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeSandbox, runBuild } from '../helpers/sandbox.mjs';
 import { root } from '../helpers/repo.mjs';
+import { readFileSync } from 'node:fs';
 
 async function expectFailure(name, mutate, { step, message }) {
   const sb = await makeSandbox();
@@ -22,7 +23,7 @@ describe('npm run validate', () => {
   it('passes on the repository as it is', () => {
     const r = runBuild(root, ['--validate']);
     assert.equal(r.code, 0, r.out.slice(-1200));
-    assert.match(r.out, /ANTO-LTG validate succeeded: \d+ apps, \d+ drivers, \d+ vendors, \d+ tools, \d+ bundles \(\d+ pending review, \d+ verified\)/);
+    assert.match(r.out, /ANTO-LTG validate succeeded: \d+ apps, \d+ drivers, \d+ vendors, \d+ tools, \d+ bundles \(\d+ published automatically, \d+ unavailable, \d+ human-verified\)/);
     assert.doesNotMatch(r.out, /FAIL/);
   });
 
@@ -42,7 +43,9 @@ describe('npm run validate', () => {
     ['an http URL', (sb) => sb.editJson(['catalogs', 'vendors.json'], (d) => { d.items[0].homepage_url = 'http://example.com/'; }), { step: 'Catalogs match their schemas' }],
     ['catalog items that are not in canonical order', (sb) => sb.editJson(['catalogs', 'tools.json'], (d) => { d.items.reverse(); }), { step: 'Catalogs are in canonical form', message: /tools\.json is not canonical/ }],
     ['a bundle that references an app that does not exist', (sb) => sb.editJson(['catalogs', 'bundles.json'], (d) => { d.items[0].app_ids.push('no-such-app'); }), { step: 'Cross-file and policy rules', message: /unknown app id "no-such-app"/ }],
-    ['an aggregator-sourced driver that carries a download link', (sb) => sb.editJson(['catalogs', 'drivers.json'], (d) => { const lead = d.items.find((x) => x.source_kind === 'third_party_aggregator'); lead.download = { kind: 'landing_page', url: 'https://www.driverscape.com/files/driver.exe' }; }), { step: 'Cross-file and policy rules', message: /must not carry a download URL/ }],
+    ['an aggregator-sourced driver that carries a download link', (sb) => sb.editJson(['catalogs', 'drivers.json'], (d) => { // leads never sit in drivers.json, so plant a copy of one
+      const lead = structuredClone(JSON.parse(readFileSync(new URL('../../catalogs/proposed/driver-listings.proposals.json', import.meta.url), 'utf8')).proposals[0].record);
+      lead.download = { kind: 'landing_page', url: 'https://www.driverscape.com/files/driver.exe' }; d.items.push(lead); }), { step: 'Cross-file and policy rules', message: /must not carry a download URL/ }],
     ['a stale generated API file', (sb) => sb.edit(['api', 'v1', 'apps.json'], (t) => `${t} `), { step: 'Generated files are up to date', message: /api\/v1\/apps\.json is out of date/ }],
     ['a missing generated search index', async (sb) => { const { rm } = await import('node:fs/promises'); await rm(sb.file('api', 'v1', 'search-index.json')); }, { step: 'Generated files are up to date', message: /search-index\.json is missing/ }],
     ['a stale openapi.json', (sb) => sb.edit(['openapi.json'], (t) => t.replace('3.1.0', '3.0.0')), { step: 'Generated files are up to date', message: /openapi\.json is out of date/ }],
@@ -57,7 +60,7 @@ describe('npm run validate', () => {
         d.proposals[0].record.review_notes = 'the crawler says so';
         d.proposals[0].record.evidence_url = 'https://example.com/';
       });
-    }, { step: 'Crawler proposals match their schema', message: /never promote|pending_review/ }],
+    }, { step: 'Crawler proposals match their schema', message: /never promote|not_reviewed/ }],
   ];
   for (const [name, mutate, expect] of failures) it(`fails on ${name}`, () => expectFailure(name, mutate, expect));
 

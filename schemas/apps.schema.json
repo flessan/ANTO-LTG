@@ -6,16 +6,16 @@
   "required": ["schema_version", "items"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.1.0" },
+    "schema_version": { "const": "1.2.0" },
     "updated_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
     "items": { "type": "array", "items": { "$ref": "#/$defs/app" } }
   },
   "$defs": {
     "app": {
       "title": "App",
-      "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources; nothing here is verified unless verification_status says so.",
+      "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources. publication says whether the machine rules passed; verification_status says whether a human reviewed it.",
       "type": "object",
-      "required": ["id", "name", "publisher", "category", "description", "source_url", "source_kind", "verification_status", "windows_compatibility", "architectures", "license", "notes", "sources"],
+      "required": ["id", "name", "publisher", "category", "description", "source_url", "source_kind", "verification_status", "publication", "windows_compatibility", "architectures", "license", "notes", "sources"],
       "additionalProperties": false,
       "patternProperties": { "^x-": {} },
       "properties": {
@@ -30,6 +30,7 @@
         "source_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl", "description": "Official page for the product." },
         "source_kind": { "$ref": "urn:anto-ltg:schema:common#/$defs/sourceKind" },
         "verification_status": { "$ref": "urn:anto-ltg:schema:common#/$defs/verificationStatus" },
+        "publication": { "$ref": "urn:anto-ltg:schema:common#/$defs/publication" },
         "reviewed_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
         "review_notes": { "type": "string", "maxLength": 2000 },
         "evidence_url": { "$ref": "urn:anto-ltg:schema:common#/$defs/httpsUrl" },

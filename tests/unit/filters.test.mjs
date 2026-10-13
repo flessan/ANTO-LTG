@@ -12,7 +12,7 @@ import { buildIndex, createSearcher } from '../../assets/js/lib/search.js';
 import { buildSearchDocs } from '../../scripts/lib/search-docs.mjs';
 import { loadCatalogs } from '../helpers/repo.mjs';
 
-const mkApp = (o) => ({ category: 'utilities', architectures: ['x64'], compatibility: { windows10: 'unknown', windows11: 'unknown' }, downloads: [], verification_status: 'pending_review', source_url: 'https://example.com/', ...o });
+const mkApp = (o) => ({ category: 'utilities', architectures: ['x64'], compatibility: { windows10: 'unknown', windows11: 'unknown' }, downloads: [], verification_status: 'not_reviewed', source_url: 'https://example.com/', publication: { state: 'published', method: 'automated', checked_at: '2026-10-13T00:00:00.000Z', checks: ['basic_fields'] }, ...o });
 const APPS = [
   mkApp({ id: 'firefox', name: 'Firefox', publisher: 'Mozilla', category: 'browsers', winget_id: 'Mozilla.Firefox', architectures: ['x64', 'x86', 'arm64'], compatibility: { windows10: 'declared', windows11: 'declared' } }),
   mkApp({ id: 'chrome', name: 'Chrome', publisher: 'Google', category: 'browsers', winget_id: 'Google.Chrome', architectures: ['x64'], compatibility: { windows10: 'declared', windows11: 'declared' } }),
@@ -94,10 +94,14 @@ describe('filterApps', () => {
     assert.ok(Object.isFrozen(DEFAULT_FILTERS));
     assert.equal(filterApps(APPS, {}).length, APPS.length);
   });
-  it('filters by category and review status', () => {
+  it('filters by category and by publication or review status', () => {
     assert.deepEqual(ids(filterApps(APPS, { category: 'browsers' })), ['chrome', 'firefox']);
-    assert.deepEqual(ids(filterApps(APPS, { review: 'verified' })), ['runtime']);
-    assert.deepEqual(ids(filterApps(APPS, { review: 'pending_review' })).length, 7);
+    assert.deepEqual(ids(filterApps(APPS, { status: 'verified' })), ['runtime']);
+    assert.equal(filterApps(APPS, { status: 'published' }).length, APPS.length, 'every fixture is published');
+    const withOneUnavailable = APPS.map((a, i) => (i === 0 ? { ...a, publication: { ...a.publication, state: 'unavailable', problems: ['downloads_pinned'] } } : a));
+    assert.deepEqual(ids(filterApps(withOneUnavailable, { status: 'unavailable' })), [APPS[0].id]);
+    assert.equal(filterApps(withOneUnavailable, { status: 'published' }).length, APPS.length - 1);
+    assert.equal(filterApps(APPS, { status: '' }).length, APPS.length, 'an empty status filter matches everything');
   });
   it('OS filter hides apps declared unsupported but keeps unknown ones', () => {
     const w10 = ids(filterApps(APPS, { os: 'windows10' }));
@@ -157,19 +161,20 @@ describe('filterApps', () => {
 
 describe('filterDrivers', () => {
   const D = [
-    { id: 'intel-wifi', name: 'Intel Wi-Fi', manufacturer: 'Intel', vendor_id: 'intel', component: 'network-wifi', source_kind: 'manufacturer_download', verification_status: 'pending_review', os_support: [{ os: 'windows-11' }, { os: 'windows-10' }], architectures: ['x64'], release_date: '2026-09-01', download: { kind: 'landing_page', sha256: 'a'.repeat(64) } },
-    { id: 'realtek-audio', name: 'Realtek Audio', manufacturer: 'Realtek', vendor_id: 'realtek', component: 'audio', source_kind: 'vendor_catalog', verification_status: 'pending_review', os_support: [{ os: 'windows-7' }], architectures: ['x86', 'x64'], release_date: '2020-01-01', download: { kind: 'none' } },
-    { id: 'acer-portal', name: 'Acer portal', manufacturer: 'Acer', vendor_id: 'acer', component: 'other', source_kind: 'manufacturer_support_page', verification_status: 'pending_review', os_support: [], architectures: [], download: { kind: 'none' } },
-    { id: 'lead-x', name: 'Lead X', manufacturer: 'Intel', vendor_id: 'intel', component: 'chipset', source_kind: 'third_party_aggregator', verification_status: 'pending_review', os_support: [{ os: 'windows-10' }], architectures: ['x64'], release_date: '2015-05-05', download: { kind: 'none' } },
+    { id: 'intel-wifi', name: 'Intel Wi-Fi', manufacturer: 'Intel', vendor_id: 'intel', component: 'network-wifi', source_kind: 'manufacturer_download', verification_status: 'not_reviewed', os_support: [{ os: 'windows-11' }, { os: 'windows-10' }], architectures: ['x64'], release_date: '2026-09-01', download: { kind: 'landing_page', sha256: 'a'.repeat(64) } },
+    { id: 'realtek-audio', name: 'Realtek Audio', manufacturer: 'Realtek', vendor_id: 'realtek', component: 'audio', source_kind: 'vendor_catalog', verification_status: 'not_reviewed', os_support: [{ os: 'windows-7' }], architectures: ['x86', 'x64'], release_date: '2020-01-01', download: { kind: 'none' } },
+    { id: 'acer-portal', name: 'Acer portal', manufacturer: 'Acer', vendor_id: 'acer', component: 'other', source_kind: 'manufacturer_support_page', verification_status: 'not_reviewed', os_support: [], architectures: [], download: { kind: 'none' } },
+    { id: 'lead-x', name: 'Lead X', manufacturer: 'Intel', vendor_id: 'intel', component: 'chipset', source_kind: 'third_party_aggregator', verification_status: 'not_reviewed', os_support: [{ os: 'windows-10' }], architectures: ['x64'], release_date: '2015-05-05', download: { kind: 'none' } },
     { id: 'direct', name: 'Direct tool', manufacturer: 'FTDI', vendor_id: 'ftdi', component: 'serial-adapter', source_kind: 'manufacturer_download', verification_status: 'verified', os_support: [{ os: 'windows-11' }], architectures: ['x64'], release_date: '2026-06-01', download: { kind: 'direct_binary', url: 'https://ftdichip.com/a.exe' } },
   ];
   const dids = (l) => l.map((d) => d.id);
   const searcher = createSearcher(buildIndex(D.map((d) => ({ type: 'driver', id: d.id, title: d.name, fields: { name: d.name, publisher: d.manufacturer, component: d.component } }))));
 
-  it('filters by vendor, component and review status', () => {
+  it('filters by vendor, component and publication or review status', () => {
     assert.deepEqual(dids(filterDrivers(D, { vendor: 'intel', sort: 'name' })), ['intel-wifi', 'lead-x']);
     assert.deepEqual(dids(filterDrivers(D, { component: 'audio' })), ['realtek-audio']);
-    assert.deepEqual(dids(filterDrivers(D, { review: 'verified' })), ['direct']);
+    assert.deepEqual(dids(filterDrivers(D, { status: 'verified' })), ['direct']);
+    assert.deepEqual(dids(filterDrivers(D, { status: 'unavailable' })), []);
   });
   it('unknown OS or architecture never matches an active filter', () => {
     assert.ok(!dids(filterDrivers(D, { os: 'windows-11' })).includes('acer-portal'));

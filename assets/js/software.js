@@ -8,6 +8,7 @@ import { planInstall, buildWingetScript, buildDownloadKitScript, buildWingetImpo
 import { createManifest, manifestToJson, parseManifest, encodeShare, decodeShare, cleanName, MAX_MANIFEST_BYTES } from './lib/bundle.js';
 import { createStorage, loadSelection, saveSelection, loadBundles, saveBundle, deleteBundle } from './lib/storage.js';
 import { safeHttpUrl } from './lib/html.js';
+import { publicationState, provenanceOf, isVerified } from './lib/status.js';
 
 const $ = (id) => document.getElementById(id);
 const storage = createStorage();
@@ -36,8 +37,15 @@ function compatChip(app, os) {
   const c = compatFor(app, os);
   return chip(c === 'declared' ? 'declared' : c === 'unsupported' ? 'bad' : 'unknown', c === 'declared' ? 'check' : c === 'unsupported' ? 'close' : 'info', `${OS_TARGETS[os]}: ${t(`compat.${c}`)}`, t(`compat.${c}.hint`));
 }
-function reviewChip(item) {
-  return item.verification_status === 'verified' ? chip('verified', 'shield', t('review.verified'), t('review.verified.hint')) : chip('pending', 'clock', t('review.pending'), t('review.pending.hint'));
+// Publication (the automated rules) and human review are two different facts, so they get two chips.
+function statusChips(item) {
+  const pub = publicationState(item) === 'unavailable'
+    ? chip('unavailable', 'warn', t('pub.unavailable'), t('pub.unavailable.hint'))
+    : chip('published', 'check', t('pub.published'), t('pub.published.hint'));
+  const review = isVerified(item)
+    ? chip('verified', 'shield', t('review.verified'), t('review.verified.hint'))
+    : chip('unknown', 'clock', t('review.not_reviewed'), t('review.not_reviewed.hint'));
+  return [pub, review];
 }
 function iconTile(app, large = false) {
   const el = h('span', { class: `app-icon${large ? ' lg' : ''}`, 'aria-hidden': 'true' }, iconLetters(app.name));
@@ -65,7 +73,7 @@ function toggle(id, on) {
 function readFilters() {
   const f = {
     q: $('sw-q').value, category: $('sw-cat').value, os: $('sw-os').value, arch: $('sw-arch').value, method: $('sw-method').value,
-    review: $('sw-review').value, sort: $('sw-sort').value, declaredOnly: $('sw-declared').checked,
+    status: $('sw-publication').value, sort: $('sw-sort').value, declaredOnly: $('sw-declared').checked,
   };
   if (f.q.trim() && f.sort === 'name' && !state.sortTouched) f.sort = 'relevance';
   return f;
@@ -112,7 +120,7 @@ function listCard(app) {
       iconTile(app, true),
       h('div', { class: 'grow' }, h('h3', {}, app.name), h('div', { class: 'small muted' }, `${app.publisher} - ${categoryLabel(app.category, getLang())}`))),
     h('p', { class: 'desc' }, localized(app, 'description', getLang())),
-    h('div', { class: 'meta' }, ...methodChips(app), compatChip(app, os), reviewChip(app),
+    h('div', { class: 'meta' }, ...methodChips(app), compatChip(app, os), ...statusChips(app),
       v ? chip('info', 'clock', `v${v.value}`, t('sw.version_from', { source: v.source, date: v.retrieved_at })) : null,
       app.portable ? chip('info', 'folder', t('sw.portable')) : null),
     h('div', { class: 'links' }, extLink(app.source_url, t('sw.publisher_page')), h('button', { type: 'button', class: 'btn-aero ghost sm', dataset: { info: app.id } }, icon('info'), t('sw.details'))));
@@ -136,7 +144,7 @@ function showDetails(id) {
   const body = h('div', { class: 'stack' });
   body.append(h('div', { class: 'row' }, iconTile(app, true), h('div', { class: 'grow' }, h('h2', {}, app.name), h('div', { class: 'muted' }, `${app.publisher} - ${categoryLabel(app.category, lang)}`))));
   body.append(h('p', {}, localized(app, 'description', lang)));
-  body.append(h('div', { class: 'meta row' }, ...methodChips(app), reviewChip(app), compatChip(app, 'windows11'), compatChip(app, 'windows10')));
+  body.append(h('div', { class: 'meta row' }, ...methodChips(app), ...statusChips(app), compatChip(app, 'windows11'), compatChip(app, 'windows10')));
   if (m.unavailable) body.append(h('div', { class: 'notice error' }, icon('warn'), h('div', {}, h('strong', {}, t('sw.unavailable_title')), h('p', {}, app.availability.reason), extLink(app.availability.evidence_url, t('sw.evidence')))));
   if (v && age !== null && age > 30) body.append(h('div', { class: 'notice warn' }, icon('warn'), h('div', {}, t('sw.version_stale', { days: age }))));
 
@@ -170,8 +178,10 @@ function showDetails(id) {
   }
   body.append(h('section', {}, h('h3', {}, t('sw.d.sources')), h('ul', {}, (app.sources ?? []).map((s) => h('li', {}, extLink(s.url, s.id), h('span', { class: 'muted small' }, ` - ${t('sw.d.source_line', { kind: s.kind.replace(/_/g, ' '), date: String(s.retrieved_at).slice(0, 10), fields: (s.fields ?? []).join(', ') || '-' })}`))))));
   if ((app.quality_flags ?? []).length) body.append(h('div', { class: 'notice warn' }, icon('warn'), h('div', {}, t('sw.d.flags'), ' ', app.quality_flags.map((f) => t(`flag.${f}`)).join(' '))));
-  if (app.verification_status === 'verified') body.append(h('p', { class: 'small' }, `${t('sw.d.reviewed')}: ${String(app.reviewed_at).slice(0, 10)} - ${app.review_notes}`, ' ', extLink(app.evidence_url, t('sw.evidence'))));
-  else body.append(h('p', { class: 'small muted' }, t('review.pending.long')));
+  body.append(h('p', { class: 'small muted' }, t(publicationState(app) === 'unavailable' ? 'pub.unavailable.long' : 'pub.published.long')));
+  body.append(h('p', { class: 'small muted' }, t(provenanceOf(app) === 'maintainer_curated' ? 'prov.curated.long' : 'prov.automated.long')));
+  if (isVerified(app)) body.append(h('p', { class: 'small' }, `${t('sw.d.reviewed')}: ${String(app.reviewed_at).slice(0, 10)} - ${app.review_notes}`, ' ', extLink(app.evidence_url, t('sw.evidence'))));
+  else body.append(h('p', { class: 'small muted' }, t('review.not_reviewed.long')));
 
   const sel = state.selection.has(id);
   const actions = [h('button', { type: 'button', class: 'btn-aero ghost', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))];

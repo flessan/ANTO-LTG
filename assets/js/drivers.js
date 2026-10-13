@@ -6,6 +6,7 @@ import { filterDrivers, DEFAULT_DRIVER_FILTERS, describeTrust } from './lib/driv
 import { COMPONENTS, componentLabel, localized } from './lib/model.js';
 import { parseHardwareIds, lookupVendor, matchDriversByHardwareId, parseHardwareReport, osKeyFromBuild, archFromReport } from './lib/hwid.js';
 import { safeHttpUrl } from './lib/html.js';
+import { publicationState, provenanceOf, isVerified } from './lib/status.js';
 
 const $ = (id) => document.getElementById(id);
 const state = { drivers: [], vendors: [], byId: new Map(), vendorsById: new Map(), searcher: null, meta: {}, visible: [] };
@@ -29,7 +30,8 @@ function typeChips(d) {
   const lead = d.source_kind === 'third_party_aggregator';
   const [cls, ic, key] = KIND_CHIP[d.kind] ?? KIND_CHIP.support_page;
   const chips = [lead ? chip('lead', 'warn', t('drv.lead'), t('drv.lead.hint')) : chip(cls, ic, t(key))];
-  chips.push(d.verification_status === 'verified' ? chip('verified', 'shield', t('review.verified'), t('review.verified.hint')) : chip('pending', 'clock', t('review.pending'), t('review.pending.hint')));
+  chips.push(publicationState(d) === 'unavailable' ? chip('unavailable', 'warn', t('pub.unavailable'), t('pub.unavailable.hint')) : chip('published', 'check', t('pub.published'), t('pub.published.hint')));
+  chips.push(isVerified(d) ? chip('verified', 'shield', t('review.verified'), t('review.verified.hint')) : chip('unknown', 'clock', t('review.not_reviewed'), t('review.not_reviewed.hint')));
   if (d.download?.sha256 || d.download?.sha512) chips.push(chip('info', 'check', t('drv.has_hash'), t('drv.has_hash.hint')));
   if (d.download?.kind === 'direct_binary') chips.push(chip('direct', 'download', t('drv.direct'), t('drv.direct.hint')));
   if ((d.download?.requires ?? []).length) chips.push(chip('unknown', 'lock', d.download.requires.map((r) => t(`req.${r}`)).join(', '), t('drv.requires.hint')));
@@ -77,14 +79,16 @@ function detail(id) {
   if (d.notes || d.notes_id) body.append(h('p', {}, localized(d, 'notes', lang)));
   body.append(h('section', {}, h('h3', {}, t('drv.d.evidence')), h('ul', {}, (d.evidence ?? []).map((e) => h('li', {}, extLink(e.url, t(`ev.${e.type}`)), h('span', { class: 'muted small' }, ` - ${e.retrieved_at}: ${e.note ?? ''}`))))));
   body.append(h('section', {}, h('h3', {}, t('sw.d.sources')), h('ul', {}, (d.sources ?? []).map((s) => h('li', {}, extLink(s.url, s.id), h('span', { class: 'muted small' }, ` - ${t('sw.d.source_line', { kind: s.kind.replace(/_/g, ' '), date: String(s.retrieved_at).slice(0, 10), fields: (s.fields ?? []).join(', ') || '-' })}`))))));
-  body.append(h('p', { class: 'small muted' }, t(d.verification_status === 'verified' ? 'review.verified.long' : 'review.pending.long')));
+  body.append(h('p', { class: 'small muted' }, t(publicationState(d) === 'unavailable' ? 'pub.unavailable.long' : 'pub.published.long')));
+  body.append(h('p', { class: 'small muted' }, t(provenanceOf(d) === 'maintainer_curated' ? 'prov.curated.long' : 'prov.automated.long')));
+  body.append(h('p', { class: 'small muted' }, t(isVerified(d) ? 'review.verified.long' : 'review.not_reviewed.long')));
   openDialog({ title: d.name, icon: COMPONENT_ICON[d.component] ?? 'chip', body, actions: [h('button', { type: 'button', class: 'btn-aero ghost', onclick: (e) => e.target.closest('dialog').close() }, t('common.close'))] });
 }
 
 function renderResults() {
   const f = {
     q: $('drv-q').value, vendor: $('drv-vendor').value, component: $('drv-component').value, os: $('drv-os').value, arch: $('drv-arch').value,
-    source: $('drv-source').value, review: $('drv-review').value, sort: $('drv-sort').value, directOnly: $('drv-direct').checked,
+    source: $('drv-source').value, status: $('drv-publication').value, sort: $('drv-sort').value, directOnly: $('drv-direct').checked,
   };
   state.visible = filterDrivers(state.drivers, f, { searcher: state.searcher });
   const box = $('drv-results'); clear(box); box.setAttribute('aria-busy', 'false');

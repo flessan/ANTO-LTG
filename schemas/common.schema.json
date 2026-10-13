@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:anto-ltg:schema:common",
   "title": "ANTO-LTG shared definitions",
-  "description": "Reusable definitions referenced by the catalog schemas. Schema version 1.1.0 is additive over 1.0.0: every field that existed before keeps its name and meaning.",
+  "description": "Reusable definitions referenced by the catalog schemas. Schema 1.2.0 is additive over 1.1.0 except verification_status, which now means human review only (not_reviewed became not_reviewed) and is accompanied by the machine-checked publication object. See docs/data-model.md.",
   "$defs": {
     "id": {
       "type": "string",
@@ -46,11 +46,24 @@
     },
     "verificationStatus": {
       "enum": [
-        "pending_review",
+        "not_reviewed",
         "verified",
         "withdrawn"
       ],
-      "description": "'verified' requires reviewed_at, review_notes and an evidence_url. Crawlers can only ever produce 'pending_review'."
+      "description": "HUMAN review status only. 'verified' means a maintainer checked the record against the official source and recorded reviewed_at, review_notes and an evidence_url. Automated publication never sets it: a record that no human has reviewed is 'not_reviewed', and that is normal for published records. See the 'publication' definition for machine-checked publication."
+    },
+    "publication": {
+      "type": "object",
+      "required": ["state", "method", "checked_at", "checks"],
+      "additionalProperties": false,
+      "description": "Machine-checked publication state. Separate from human review. 'published' means every rule in publication.mjs passed when this record was last generated; 'unavailable' means a later check (for example a link check or a removed WinGet package) found the record no longer meets the rules, and the record stays visible with a warning instead of silently disappearing.",
+      "properties": {
+        "state": { "enum": ["published", "unavailable"] },
+        "method": { "enum": ["automated", "maintainer_curated"], "description": "automated = produced by a crawler adapter and published by the merge rules; maintainer_curated = written by a maintainer from official pages, then checked by the same rules." },
+        "checked_at": { "$ref": "#/$defs/dateTime" },
+        "checks": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9_]+$", "maxLength": 64 }, "description": "Rule ids that passed at checked_at." },
+        "problems": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9_]+$", "maxLength": 64 }, "description": "Rule ids that failed at checked_at (empty for published records)." }
+      }
     },
     "sourceKind": {
       "enum": [

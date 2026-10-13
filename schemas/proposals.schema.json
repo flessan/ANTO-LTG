@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:anto-ltg:schema:proposals",
   "title": "ANTO-LTG crawler proposals",
-  "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be pending_review.",
+  "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be not_reviewed.",
   "type": "object",
   "required": ["schema", "adapter", "generated_at", "proposals", "errors"],
   "additionalProperties": false,

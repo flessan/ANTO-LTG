@@ -102,7 +102,7 @@ function header(kind, plan, meta) {
     psComment(`Target    : ${OS_TARGETS[plan.os] ?? 'Windows'}`),
     `# Packages  : ${plan.included.length}${plan.manual.length ? ` (+ ${plan.manual.length} manual step${plan.manual.length === 1 ? '' : 's'})` : ''}`,
     psComment(`Generated : ${meta.generatedAt}`),
-    psComment(`Catalog   : schema ${meta.schemaVersion ?? '1.1.0'}, updated ${meta.catalogUpdated ?? 'unknown'}; records are pending human review`),
+    psComment(`Catalog   : schema ${meta.schemaVersion ?? '1.2.0'}, updated ${meta.catalogUpdated ?? 'unknown'}; publication is automatic and is not a human review`),
     '#',
     '# READ THIS SCRIPT BEFORE YOU RUN IT.',
   ];

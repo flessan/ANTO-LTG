@@ -2,7 +2,7 @@
 //
 // Policy ("lead only"): an aggregator is never an official source. This adapter
 //   * reads only the listing page (robots.txt must allow it) and never requests the file links;
-//   * records the listing facts (device, vendor, version, date, size, OS) as pending_review leads
+//   * records the listing facts (device, vendor, version, date, size, OS) as not_reviewed leads
 //     labelled third_party_aggregator, with download.kind = "none";
 //   * maps each lead to the matching vendor's official portal so a reader can confirm it there;
 //   * raises quality flags for inconsistencies (vendor/device mismatch, filename/version mismatch,
@@ -16,6 +16,7 @@ import { extractTables } from '../lib/html.mjs';
 import { cleanText, parseIsoDate, parseSupportedOs, slugify, OS_LABELS } from '../lib/normalize.mjs';
 import { parseRobots, isAllowed } from '../lib/robots.mjs';
 import { isRetryableError } from '../lib/http.mjs';
+import { publicationFor } from '../../lib/publication.mjs';
 
 const LABELS = { 'device name:': 'device', 'driver date': 'date', 'driver date:': 'date', 'file size:': 'size', 'driver version:': 'version', 'vendor:': 'vendor', 'supported os:': 'os' };
 const VENDOR_TOKENS = { intel: /\bintel\b/i, realtek: /\brealtek\b/i, nvidia: /\bnvidia\b/i, amd: /\b(amd|ati)\b/i, synaptics: /\bsynaptics\b/i, broadcom: /\bbroadcom\b/i, qualcomm: /\b(qualcomm|atheros)\b/i, matrox: /\bmatrox\b/i, via: /\bvia\b/i, elan: /\belan\b/i, alps: /\balps\b/i };
@@ -117,7 +118,7 @@ export async function parseListing(html, { url, observedAt, vendors, robotsFor }
       publisher: owner.name, manufacturer: owner.name, vendor_id: owner.id, model: devices.length > 1 ? `${devices.length} devices (see evidence)` : devices[0], component, kind: 'catalog_entry',
       source_url: url, source_kind: 'third_party_aggregator',
       official_source: { url: owner.driver_search_url, vendor_id: owner.id, type: 'support_portal', stable: true },
-      verification_status: 'pending_review', windows_versions: windowsVersions, os_support: osParsed,
+      verification_status: 'not_reviewed', windows_versions: windowsVersions, os_support: osParsed,
       architectures: [...new Set(osParsed.flatMap((o) => o.architectures))],
       version, release_date: date, file_size_text: fields.size ? cleanText(fields.size.text, 32) : null,
       ...(hardwareIds.length ? { hardware_ids: hardwareIds } : {}),
@@ -131,6 +132,7 @@ export async function parseListing(html, { url, observedAt, vendors, robotsFor }
       tags: ['aggregator-lead', ...(flags.includes('legacy_os_only') ? ['legacy'] : [])],
       sources: [{ id: 'driverscape-online-125322', kind: 'aggregator_listing', url, retrieved_at: observedAt, fields: fieldsFrom, note: 'Third-party aggregator listing; parsed by the label-driven driver-listing adapter.' }],
     };
+    record.publication = publicationFor('drivers', record, { now: observedAt });
     proposals.push({
       target, key: `listing:${slugify(url, 60)}:${row}`, catalog: 'drivers', record,
       meta: { adapter: 'driver-listings', crawled_at: `${observedAt}T00:00:00.000Z`, quality_flags: flags, listing: { url, row, vendor_listed: vendor, devices, file_name: fileName, download_path_robots: fileRobots } },

@@ -144,15 +144,15 @@ describe('browser smoke tests', { skip }, () => {
 
   it('software: plan, manual steps and the generated script are safe and honest', async () => {
     await go(page, '/software/'); await waitResults('#sw-results');
-    await page.click('#qp-git'); await page.click('#qp-sysinternals-suite');
+    await page.click('#qp-git'); await page.click('#qp-memtest86');
     await page.waitForSelector('#in-script');
     const script = await text('#in-script');
     assert.match(script, /winget\.exe/); assert.match(script, /-cne 'YES'/); assert.match(script, /'Git\.Git'/);
     assert.doesNotMatch(script, /-ExecutionPolicy\s+Bypass/i);
     const packagesBlock = script.match(/\$Packages = @\(([\s\S]*?)\n\)/)?.[1] ?? '';
     const manualBlock = script.match(/\$ManualSteps = @\(([\s\S]*?)\n\)/)?.[1] ?? '';
-    assert.match(packagesBlock, /Git\.Git/); assert.doesNotMatch(packagesBlock, /Sysinternals/, 'no WinGet package => not in the install list');
-    assert.match(manualBlock, /Sysinternals Suite/, 'it is listed as a manual step instead');
+    assert.match(packagesBlock, /Git\.Git/); assert.doesNotMatch(packagesBlock, /MemTest86/i, 'no WinGet package => not in the install list');
+    assert.match(manualBlock, /MemTest86/i, 'it is listed as a manual step instead');
     assert.match(await text('#in-notices'), /manual step/i);
     await setValue('#in-name', "Bob's kit'; Remove-Item C:\\ -Recurse #");
     const script2 = await text('#in-script');
@@ -190,7 +190,7 @@ describe('browser smoke tests', { skip }, () => {
     await page.$eval('[data-info="mozilla-firefox"]', (b) => b.click());
     await page.waitForSelector('dialog[open]');
     const body = await text('dialog[open] .window-body');
-    assert.match(body, /winget install --id Mozilla\.Firefox --exact --source winget/); assert.match(body, /winget-pkgs/); assert.match(body, /Pending review|pending/i);
+    assert.match(body, /winget install --id Mozilla\.Firefox --exact --source winget/); assert.match(body, /winget-pkgs/); assert.match(body, /Published automatically|automated|publication/i);
     assert.match(body, /[a-f0-9]{64}/, 'SHA-256 published in the manifest is shown');
     await page.keyboard.press('Escape'); await sleep(200);
     assert.equal(await count('dialog[open]'), 0);
@@ -232,8 +232,9 @@ describe('browser smoke tests', { skip }, () => {
     await setValue('#drv-q', 'realtek');
     assert.ok((await count('.driver-card')) >= 10);
     await setValue('#drv-q', ''); await setValue('#drv-source', 'lead');
+    // Third-party aggregator listings are never published in drivers.json (publication rule), so the lead filter is empty.
     const leads = await count('.driver-card');
-    assert.ok(leads >= 10, `${leads} third-party leads`);
+    assert.equal(leads, 0, 'no aggregator listing is published as a driver record');
     assert.equal(await count('.driver-card.lead'), leads);
     assert.equal(await page.$$eval('.driver-card.lead a[href*="driverscape.com/files"]', (a) => a.length), 0, 'aggregator file links are never rendered');
     assert.equal(await page.$$eval('.driver-card.lead .btn-aero.green', (a) => a.length), 0, 'no direct-download button on a lead');
@@ -250,7 +251,7 @@ describe('browser smoke tests', { skip }, () => {
     await page.click('#hw-run'); await sleep(400);
     const out = await text('#hw-results');
     assert.match(out, /Intel/); assert.match(out, /FTDI/); assert.match(out, /Unknown vendor \(ID ABCD\)/);
-    assert.match(out, /state this exact hardware ID/);
+    assert.doesNotMatch(out, /state this exact hardware ID/, 'no published record states these IDs, so no exact match is claimed');
   });
 
   it('bundles open in the Software Center with their apps preselected', async () => {

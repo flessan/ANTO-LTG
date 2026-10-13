@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Driver / vendor-tool records and one support-portal record per vendor, built from official
-// vendor pages read on 2026-10-13. Nothing here is "verified": every record is pending_review and
+// vendor pages read on 2026-10-13. Nothing here is "verified": every record is not_reviewed and
 // each one lists the page it came from. Hashes are copied only where the vendor prints them.
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,7 +29,7 @@ function rec(o) {
     manufacturer: o.manufacturer ?? v.name, vendor_id: o.vendor_id, model: o.model, hardware_family: o.hardware_family, component: o.component,
     kind: o.kind ?? 'driver_package', source_url: o.page, source_kind: 'manufacturer_support_page',
     official_source: { url: o.page, vendor_id: o.vendor_id, type: o.pageType ?? 'download_page', stable: o.stable ?? true },
-    verification_status: 'pending_review', windows_versions: o.windows_versions ?? [], os_support: o.os_support ?? [], architectures: o.architectures ?? [],
+    verification_status: 'not_reviewed', windows_versions: o.windows_versions ?? [], os_support: o.os_support ?? [], architectures: o.architectures ?? [],
     version: o.version ?? null, release_date: o.release_date ?? null, file_size_text: o.size ?? null,
     download: o.download, install_instructions: steps.en, install_instructions_id: steps.id,
     evidence: [{ type: 'vendor_page', url: o.page, retrieved_at: DAY, note: o.evidence }],
@@ -129,7 +129,7 @@ for (const v of vendors.filter((x) => x.driver_search_url && !['qualcomm', 'broa
     publisher: v.name, manufacturer: v.name, vendor_id: v.id, model: v.kind === 'oem' ? `Any ${v.name} product (identify it as the portal asks)` : `${v.name} products`, component: PORTAL_COMPONENT,
     kind: v.kind === 'catalog' ? 'catalog_entry' : 'support_page', source_url: v.driver_search_url, source_kind: v.kind === 'catalog' ? 'vendor_catalog' : 'manufacturer_support_page',
     official_source: { url: v.driver_search_url, vendor_id: v.id, type: v.kind === 'catalog' ? 'catalog' : 'support_portal', stable: true },
-    verification_status: 'pending_review', windows_versions: [], os_support: [], architectures: [], version: null, release_date: null, file_size_text: null,
+    verification_status: 'not_reviewed', windows_versions: [], os_support: [], architectures: [], version: null, release_date: null, file_size_text: null,
     download: { kind: 'landing_page', url: v.driver_search_url, requires, stability: 'evergreen' },
     install_instructions: v.instructions, install_instructions_id: v.instructions_id,
     evidence: [{ type: 'vendor_page', url: v.driver_search_url, retrieved_at: DAY, note: `Portal page opened on the retrieval date; it asks for: ${requires.length ? requires.join(', ').replace(/_/g, ' ') : 'nothing before listing downloads'}.` }],

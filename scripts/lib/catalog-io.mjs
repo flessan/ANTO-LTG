@@ -4,12 +4,13 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 export const CATALOGS = ['apps', 'drivers', 'tools', 'vendors', 'bundles', 'updates'];
-export const SCHEMA_VERSION = '1.1.0';
+export const SCHEMA_VERSION = '1.2.0';
 
 const COMMON_REVIEW = ['verification_status', 'reviewed_at', 'review_notes', 'evidence_url'];
+// publication sits next to verification_status: machine state and human review are separate fields.
 export const KEY_ORDER = {
-  apps: ['id', 'name', 'publisher', 'category', 'description', 'description_id', 'source_url', 'source_kind', ...COMMON_REVIEW, 'windows_compatibility', 'compatibility', 'architectures', 'license', 'license_url', 'notes', 'notes_id', 'winget_id', 'version', 'release_date', 'installer_types', 'installer_scopes', 'elevation', 'portable', 'downloads', 'availability', 'tags', 'quality_flags', 'sources', 'added_at'],
-  drivers: ['id', 'name', 'publisher', 'manufacturer', 'vendor_id', 'model', 'hardware_family', 'component', 'kind', 'description', 'description_id', 'source_url', 'source_kind', 'official_source', ...COMMON_REVIEW, 'windows_versions', 'os_support', 'architectures', 'version', 'release_date', 'file_size_text', 'file_size_bytes', 'hardware_ids', 'download', 'install_instructions', 'install_instructions_id', 'evidence', 'quality_flags', 'notes', 'notes_id', 'tags', 'sources', 'added_at'],
+  apps: ['id', 'name', 'publisher', 'category', 'description', 'description_id', 'source_url', 'source_kind', ...COMMON_REVIEW, 'publication', 'windows_compatibility', 'compatibility', 'architectures', 'license', 'license_url', 'notes', 'notes_id', 'winget_id', 'version', 'release_date', 'installer_types', 'installer_scopes', 'elevation', 'portable', 'downloads', 'availability', 'tags', 'quality_flags', 'sources', 'added_at'],
+  drivers: ['id', 'name', 'publisher', 'manufacturer', 'vendor_id', 'model', 'hardware_family', 'component', 'kind', 'description', 'description_id', 'source_url', 'source_kind', 'official_source', ...COMMON_REVIEW, 'publication', 'windows_versions', 'os_support', 'architectures', 'version', 'release_date', 'file_size_text', 'file_size_bytes', 'hardware_ids', 'download', 'install_instructions', 'install_instructions_id', 'evidence', 'quality_flags', 'notes', 'notes_id', 'tags', 'sources', 'added_at'],
   tools: ['id', 'name', 'category', 'description', 'description_id', 'publisher', 'app_id', 'source_url', 'source_kind', ...COMMON_REVIEW, 'requires_admin', 'portable', 'bootable_media', 'use_cases', 'use_cases_id', 'cautions', 'cautions_id', 'downloads', 'notes', 'notes_id', 'tags', 'sources'],
   vendors: ['id', 'name', 'kind', 'homepage_url', 'support_url', 'driver_search_url', 'detection_tool', 'domains', 'pci_vendor_ids', 'usb_vendor_ids', 'requires', 'instructions', 'instructions_id', 'source_kind', ...COMMON_REVIEW, 'notes', 'notes_id', 'sources'],
   bundles: ['id', 'name', 'name_id', 'description', 'description_id', 'app_ids', 'status', 'target_windows', 'tags', 'notes', 'notes_id'],
@@ -22,6 +23,7 @@ const NESTED_ORDER = {
   compatibility: ['windows10', 'windows11', 'min_os_version', 'basis', 'note'],
   official_source: ['url', 'vendor_id', 'type', 'stable'],
   link_check: ['status', 'checked_at', 'http_status', 'final_url', 'content_type', 'size_bytes', 'note'],
+  publication: ['state', 'method', 'checked_at', 'checks', 'problems'],
 };
 const SORTED_ARRAYS = new Set(['architectures', 'installer_types', 'installer_scopes', 'elevation', 'tags', 'quality_flags', 'windows_versions', 'hardware_ids', 'domains', 'requires', 'pci_vendor_ids', 'usb_vendor_ids']);
 

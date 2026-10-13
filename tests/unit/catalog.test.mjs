@@ -17,6 +17,9 @@ const schemas = await loadSchemas(fromRoot('schemas'));
 const validators = createValidators(schemas);
 const clone = () => structuredClone(base);
 const TODAY = new Date().toISOString().slice(0, 10);
+// Aggregator leads are never published, so they live only in the crawler's lead file. Tests that need one insert a copy into a mutated catalog.
+const LEADS = (await readJson('catalogs', 'proposed', 'driver-listings.proposals.json')).proposals.map((p) => p.record);
+assert.ok(LEADS.length >= 10, 'test fixture: expected aggregator leads in the proposal file');
 const first = (list, pred) => { const x = list.find(pred); assert.ok(x, 'test fixture: expected the catalog to contain a matching record'); return x; };
 
 describe('real catalogs', () => {
@@ -64,7 +67,7 @@ describe('honesty invariants of the data', () => {
   });
   it('crawled records are never promoted: every winget-pkgs-sourced record that nobody reviewed is pending', () => {
     for (const a of base.apps.items.filter((x) => x.sources.some((s) => s.id === 'winget-pkgs'))) {
-      if (!a.reviewed_at) assert.equal(a.verification_status, 'pending_review', a.id);
+      if (!a.reviewed_at) assert.equal(a.verification_status, 'not_reviewed', a.id);
     }
   });
   it('windows_compatibility (a human conclusion) stays not_reviewed unless notes and evidence exist', () => {
@@ -111,13 +114,14 @@ describe('honesty invariants of the data', () => {
     const fake = /^(0{64}|1{64}|a{64}|f{64}|(0123456789abcdef)+)$/;
     for (const a of base.apps.items) for (const d of a.downloads ?? []) if (d.sha256) assert.doesNotMatch(d.sha256, fake, `${a.id}: placeholder hash`);
   });
-  it('driver records: leads are labelled leads, carry no download, and point at an official source', () => {
-    const leads = base.drivers.items.filter((d) => d.source_kind === 'third_party_aggregator');
-    assert.ok(leads.length >= 10);
-    for (const d of leads) {
+  it('drivers.json holds no aggregator lead (the semantic rule forbids them in the catalog)', () => {
+    assert.equal(base.drivers.items.filter((d) => d.source_kind === 'third_party_aggregator').length, 0);
+  });
+  it('driver leads (crawler lead file): labelled leads, carry no download, and point at an official source', () => {
+    for (const d of LEADS) {
       assert.equal(d.download.kind, 'none', d.id);
       assert.ok(!d.download.url, d.id);
-      assert.equal(d.verification_status, 'pending_review', d.id);
+      assert.equal(d.verification_status, 'not_reviewed', d.id);
       assert.ok(d.official_source?.url, `${d.id}: a lead must name the official place to check it`);
       assert.ok(isAggregatorHost(new URL(d.source_url).hostname), d.id);
       assert.match(d.description, /lead/i, `${d.id}: description says it is a lead`);
@@ -188,7 +192,7 @@ describe('honesty invariants of the data', () => {
 
 describe('policy rules reject bad data (negative tests)', () => {
   const crawled = (c) => first(c.apps.items, (a) => a.winget_id && a.sources.some((s) => s.id === 'winget-pkgs') && a.downloads?.some((d) => d.kind === 'direct_binary'));
-  const lead = (c) => first(c.drivers.items, (d) => d.source_kind === 'third_party_aggregator');
+  const lead = (c) => { c.drivers.items.push(structuredClone(LEADS[0])); return c.drivers.items[c.drivers.items.length - 1]; };
   const official = (c) => first(c.drivers.items, (d) => d.source_kind !== 'third_party_aggregator' && d.official_source && d.vendor_id === 'intel' && d.version);
   const cases = [
     ['duplicate id', (c) => c.apps.items.push(structuredClone(c.apps.items[0])), /duplicate id/],
@@ -261,7 +265,7 @@ describe('schemas reject bad records (negative tests)', () => {
   rejects('an unknown download kind', 'apps', (i) => { first(i, (a) => a.downloads?.length).downloads[0].kind = 'magic'; }, /allowed/);
   rejects('an unknown compatibility state', 'apps', (i) => { i[0].compatibility.windows11 = 'works'; }, /allowed/);
   rejects('an unknown driver component', 'drivers', (i) => { i[0].component = 'toaster'; }, /allowed/);
-  rejects('an aggregator source kind with a direct download kind', 'drivers', (i) => { const d = first(i, (x) => x.source_kind === 'third_party_aggregator'); d.download = { kind: 'direct_binary', url: 'https://www.driverscape.com/x.exe' }; }, /.*/);
+  rejects('an aggregator source kind with a direct download kind', 'drivers', (i) => { i.push(structuredClone(LEADS[0])); const d = i[i.length - 1]; d.download = { kind: 'direct_binary', url: 'https://www.driverscape.com/x.exe' }; }, /.*/);
   rejects('a bundle with an invalid status', 'bundles', (i) => { i[0].status = 'live'; }, /allowed/);
   rejects('a vendor without domains', 'vendors', (i) => { delete i[0].domains; }, /domains/);
   rejects('an update with a malformed time', 'updates', (i) => { i[0].published_at = 'yesterday'; }, /format|pattern/);

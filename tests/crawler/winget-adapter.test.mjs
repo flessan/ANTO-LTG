@@ -87,7 +87,7 @@ describe('crawling a package', () => {
     const rec = p.record;
     assert.deepEqual([rec.id, rec.name, rec.publisher, rec.category, rec.winget_id, rec.version, rec.release_date, rec.license], ['example-app', 'Example App', 'Example Publisher', 'developer-tools', 'Example.App', '1.2.0', '2026-09-30', 'MIT']);
     assert.equal(rec.description, 'An example application for testing the crawler.');
-    assert.deepEqual([rec.verification_status, rec.windows_compatibility], ['pending_review', 'not_reviewed']);
+    assert.deepEqual([rec.verification_status, rec.windows_compatibility], ['not_reviewed', 'not_reviewed']);
     assert.deepEqual(rec.architectures, ['x64']);
     assert.deepEqual(rec.installer_types, ['inno']);
     assert.deepEqual(rec.installer_scopes, ['machine']);
@@ -135,10 +135,10 @@ describe('crawling a package', () => {
     assert.deepEqual(r.source, { id: 'winget-pkgs', repo: 'microsoft/winget-pkgs', ref: 'master', commit: 'c0ffee'.padEnd(40, '0') });
   });
 
-  it('can never produce anything but pending_review (the adapter has no way to verify)', async () => {
+  it('can never produce anything but not_reviewed (the adapter has no way to verify)', async () => {
     const r = await run({ ...files, ...manifestFiles({ id: 'Other.Tool', version: '2.0' }) }, { seeds: { categories: { utilities: ['Example.App', 'Other.Tool'] } } });
     assert.equal(r.proposals.length, 2);
-    for (const p of r.proposals) { assert.equal(p.record.verification_status, 'pending_review'); assert.ok(!('reviewed_at' in p.record) && !('review_notes' in p.record) && !('evidence_url' in p.record)); }
+    for (const p of r.proposals) { assert.equal(p.record.verification_status, 'not_reviewed'); assert.ok(!('reviewed_at' in p.record) && !('review_notes' in p.record) && !('evidence_url' in p.record)); }
   });
 
   it('chooses the newest STABLE version numerically and ignores directories that are not versions', async () => {

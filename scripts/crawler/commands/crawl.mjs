@@ -134,5 +134,6 @@ export async function crawl({ flags, positional, log = console.error }) {
     await writeFile(path.join(outDir, 'report.json'), JSON.stringify(report, null, 2) + '\n');
     await writeFile(path.join(outDir, 'report.md'), renderMarkdown(report) + '\n');
   }
-  return report;
+  // Where the files went (relative to the repository), so the console message points at the right report.
+  return { ...report, out_dir: path.relative(repoRoot, outDir) };
 }

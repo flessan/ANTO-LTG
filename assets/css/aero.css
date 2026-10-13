@@ -228,6 +228,7 @@ button.btn-aero::before, button.btn-aero::after { content: none !important; }
 .chip.unavailable { background: #eceff2; border-color: #9aa9b6; color: #3d4b57; text-decoration: line-through; text-decoration-color: rgba(60, 75, 87, 0.6); }
 .chip.pending { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); }
 .chip.verified { background: var(--ok-bg); border-color: #6bb350; color: var(--ok-ink); }
+.chip.published { background: #eef8e6; border-color: #a6d48a; color: #2c5a18; }
 .chip.lead { background: #fbeedd; border-color: #d9a25c; color: #6a3d06; }
 .chip.declared { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); }
 .chip.unknown { background: #f1f4f7; border-color: #b6c4d1; color: #3e5366; border-style: dashed; }

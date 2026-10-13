@@ -12,7 +12,7 @@
     "Pick your Windows version and download from the vendor's own page."
   ],
   "source_kind": "manufacturer_support_page",
-  "verification_status": "pending_review",
+  "verification_status": "not_reviewed",
   "notes": "The domains list is what the validator uses to decide whether a driver link is really the vendor's own.",
   "sources": [
     {

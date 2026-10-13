@@ -11,7 +11,7 @@
   "additionalProperties": false,
   "properties": {
     "schema_version": {
-      "const": "1.1.0"
+      "const": "1.2.0"
     },
     "updated_at": {
       "oneOf": [
@@ -73,6 +73,7 @@
         "source_url",
         "source_kind",
         "verification_status",
+        "publication",
         "manufacturer",
         "model",
         "component",
@@ -180,6 +181,9 @@
         },
         "verification_status": {
           "$ref": "urn:anto-ltg:schema:common#/$defs/verificationStatus"
+        },
+        "publication": {
+          "$ref": "urn:anto-ltg:schema:common#/$defs/publication"
         },
         "reviewed_at": {
           "oneOf": [

@@ -27,7 +27,7 @@ describe('repository automation files', () => {
 
   it('the pull request template carries the evidence rules', async () => {
     const t = await readText('.github', 'PULL_REQUEST_TEMPLATE.md');
-    for (const rule of ['npm run check', 'pending_review', 'did \\*\\*not\\*\\* invent', 'added no installer, driver, firmware', 'en.js', 'assets/manifest.json']) {
+    for (const rule of ['npm run check', 'not_reviewed', 'did \\*\\*not\\*\\* invent', 'added no installer, driver, firmware', 'en.js', 'assets/manifest.json']) {
       assert.match(t, new RegExp(rule), rule);
     }
   });

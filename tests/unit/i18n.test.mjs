@@ -9,7 +9,7 @@ import { PAGES } from '../../scripts/lib/chrome.mjs';
 import { BLOCKING_FLAGS } from '../../scripts/crawler/lib/merge.mjs';
 import { PERSISTED_FLAGS } from '../../scripts/crawler/adapters/winget.mjs';
 import { root, listFiles, readText, readJson, stripJsComments, loadCatalogs } from '../helpers/repo.mjs';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const placeholders = (s) => [...String(s).matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
@@ -121,6 +121,11 @@ describe('every key the UI asks for exists', () => {
     const catalogs = await loadCatalogs();
     const flags = new Set([...BLOCKING_FLAGS.drivers, ...PERSISTED_FLAGS]);
     for (const name of ['apps', 'drivers']) for (const i of catalogs[name].items) for (const f of i.quality_flags ?? []) flags.add(f);
+    // Flags that only proposals carry (the crawler's output) are labelled too.
+    for (const f of (await readdir(new URL('../../catalogs/proposed/', import.meta.url)))) {
+      if (!f.endsWith('.proposals.json')) continue;
+      for (const p of (await readJson('catalogs', 'proposed', f)).proposals ?? []) for (const x of [...(p.meta?.quality_flags ?? []), ...(p.record?.quality_flags ?? [])]) flags.add(x);
+    }
     assert.ok(flags.size >= 12);
     for (const f of flags) for (const [lang, dict] of [['en', en], ['id', id]]) assert.ok(`flag.${f}` in dict, `${lang}: flag.${f}`);
   });

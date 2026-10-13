@@ -5,6 +5,11 @@ import { tokenize, normalizeText, editDistanceAtMostOne } from './text.js';
 export const INDEX_FORMAT = 'anto-ltg.search-index/1';
 
 // Field weights: an exact name or identifier match must outrank a mention in a description.
+// An identifier typed exactly (a WinGet id such as "Git.Git", or a catalog id) is almost always what the user
+// wants. Ids are compared without punctuation, so "Git.Git", "git-git" and "gitgit" are the same query.
+export const ID_MATCH_BONUS = 40;
+export const compactId = (value) => String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
 export const FIELD_WEIGHTS = {
   name: 8, ids: 7, hardware_ids: 6, publisher: 4, model: 4, tags: 3, category: 3, component: 3, description: 1, extra: 1,
 };
@@ -24,7 +29,8 @@ export function buildIndex(docs) {
       if (!postings.has(tok)) postings.set(tok, []);
       postings.get(tok).push(docIdx, w);
     }
-    return { type: doc.type, id: doc.id, title: doc.title, subtitle: doc.subtitle ?? '', url: doc.url, norm: normalizeText(doc.title) };
+    const ids = [...new Set([doc.fields.ids ?? []].flat().map(compactId).filter(Boolean))];
+    return { type: doc.type, id: doc.id, title: doc.title, subtitle: doc.subtitle ?? '', url: doc.url, norm: normalizeText(doc.title), ids };
   });
   const tokens = [...postings.keys()].sort();
   return {
@@ -81,6 +87,7 @@ export function createSearcher(index) {
   function search(query, { types = null, limit = 50, allow = null } = {}) {
     const qTokens = tokenize(query).filter((t) => t.length >= 1);
     const qNorm = normalizeText(query);
+    const qId = compactId(query);
     if (!qTokens.length) return [];
     // Query tokens come from tokenize(), which also adds a joined form ("7 zip" -> "7zip");
     // treat the joined form as an alternative, not as an extra required word.
@@ -105,7 +112,8 @@ export function createSearcher(index) {
       const doc = docs[d];
       if (types && !types.includes(doc.type)) continue;
       if (allow && !allow.has(`${doc.type}:${doc.id}`)) continue;
-      out.push({ doc, score: score + titleBonus(doc.norm, qNorm) });
+      const idBonus = qId && (doc.ids ?? []).includes(qId) ? ID_MATCH_BONUS : 0;
+      out.push({ doc, score: score + titleBonus(doc.norm, qNorm) + idBonus });
     }
     out.sort((a, b) => b.score - a.score || (a.doc.title < b.doc.title ? -1 : a.doc.title > b.doc.title ? 1 : 0));
     return out.slice(0, limit);

@@ -36,7 +36,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -154,7 +154,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -209,7 +223,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -315,7 +329,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -362,7 +390,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -461,7 +489,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -506,7 +548,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -600,7 +642,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -645,7 +701,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -739,7 +795,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -784,7 +854,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -886,7 +956,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -934,7 +1018,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1033,7 +1117,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1078,7 +1176,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1173,7 +1271,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1218,7 +1330,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1309,7 +1421,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1354,7 +1480,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1463,7 +1589,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1509,7 +1649,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1600,7 +1740,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1645,7 +1799,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1739,7 +1893,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1784,7 +1952,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -1888,7 +2056,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -1934,7 +2116,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -2039,7 +2221,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -2084,7 +2280,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows XP"
         ],
@@ -2159,7 +2355,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -2205,7 +2415,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows XP"
         ],
@@ -2280,7 +2490,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -2326,7 +2550,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -2431,7 +2655,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",
@@ -2477,7 +2715,7 @@
           "type": "support_portal",
           "stable": true
         },
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_versions": [
           "Windows 10",
           "Windows 8.1",
@@ -2578,7 +2816,21 @@
             ],
             "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
           }
-        ]
+        ],
+        "publication": {
+          "state": "unavailable",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "source_recorded",
+            "direct_download_pinned"
+          ],
+          "problems": [
+            "https_official_source",
+            "aggregator_not_published"
+          ]
+        }
       },
       "meta": {
         "adapter": "driver-listings",

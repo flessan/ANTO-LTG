@@ -6,7 +6,7 @@
   "required": ["schema_version", "items"],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.1.0" },
+    "schema_version": { "const": "1.2.0" },
     "updated_at": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" }, { "type": "null" }] },
     "items": { "type": "array", "items": { "$ref": "#/$defs/update" } }
   },

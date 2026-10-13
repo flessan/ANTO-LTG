@@ -8,7 +8,7 @@ import { readCatalog, writeCatalog } from '../lib/catalog-io.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DAY = '2026-10-13';
-const base = { source_kind: 'manufacturer_support_page', verification_status: 'pending_review' };
+const base = { source_kind: 'manufacturer_support_page', verification_status: 'not_reviewed' };
 const src = (id, url, fields, note) => [{ id, kind: 'vendor_page', url, retrieved_at: DAY, fields, ...(note ? { note } : {}) }];
 const F = ['name', 'homepage_url', 'driver_search_url', 'domains', 'instructions', 'requires'];
 

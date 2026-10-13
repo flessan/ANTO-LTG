@@ -38,7 +38,7 @@ async function loadStats() {
     const s = idx.stats;
     clear(stats);
     const item = (n, key) => h('span', {}, h('strong', {}, String(n)), ' ', tn(key, n));
-    stats.append(item(s.apps.total, 'home.stat.apps'), item(s.drivers.total, 'home.stat.drivers'), item(s.vendors.total, 'home.stat.vendors'), h('span', {}, h('strong', {}, String(s.review.verified)), ' ', t('home.stat.verified')), h('span', {}, h('strong', {}, String(s.review.pending_review)), ' ', t('home.stat.pending')));
+    stats.append(item(s.apps.total, 'home.stat.apps'), item(s.drivers.total, 'home.stat.drivers'), item(s.vendors.total, 'home.stat.vendors'), h('span', {}, h('strong', {}, String(s.publication.published)), ' ', t('home.stat.published')), h('span', {}, h('strong', {}, String(s.review.verified)), ' ', t('home.stat.verified')));
   } catch { /* the stats strip is optional */ }
 }
 loadStats();

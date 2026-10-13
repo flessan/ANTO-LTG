@@ -80,8 +80,8 @@
           <select id="drv-arch" name="arch"><option value="" data-i18n="common.any">Any</option><option value="x64">x64</option><option value="x86">x86 (32-bit)</option><option value="arm64">ARM64</option></select></div>
         <div class="field"><label for="drv-source" data-i18n="drv.f.source">Source</label>
           <select id="drv-source" name="source"><option value="" data-i18n="common.any">Any</option><option value="official" data-i18n="drv.f.source.official">Official vendor</option><option value="lead" data-i18n="drv.f.source.lead">Third-party leads only</option></select></div>
-        <div class="field"><label for="drv-review" data-i18n="drv.f.review">Review status</label>
-          <select id="drv-review" name="review"><option value="" data-i18n="common.any">Any</option><option value="pending_review" data-i18n="review.pending">Pending review</option><option value="verified" data-i18n="review.verified">Verified</option></select></div>
+        <div class="field"><label for="drv-publication" data-i18n="drv.f.status">Publication and review</label>
+          <select id="drv-publication" name="publication"><option value="" data-i18n="common.any">Any</option><option value="published" data-i18n="status.published">Published automatically</option><option value="unavailable" data-i18n="status.unavailable">Unavailable (needs attention)</option><option value="verified" data-i18n="status.verified">Human-verified</option></select></div>
         <div class="field"><label for="drv-sort" data-i18n="sw.f.sort">Sort by</label>
           <select id="drv-sort" name="sort"><option value="relevance" data-i18n="sw.sort.relevance">Best match</option><option value="newest" data-i18n="drv.sort.newest">Newest release date</option><option value="name" data-i18n="sw.sort.name">Name</option><option value="manufacturer" data-i18n="drv.f.vendor">Manufacturer</option></select></div>
         <label class="check"><input type="checkbox" id="drv-direct" name="directOnly"><span data-i18n="drv.f.direct">Only records with an official direct link</span></label>
@@ -129,7 +129,7 @@
       <section aria-labelledby="footer-trust">
         <h2 id="footer-trust" data-i18n="footer.trust">Trust and data</h2>
         <ul class="footer-links">
-          <li><a href="../developers/#review-status" data-i18n="footer.review">What "pending review" means</a></li>
+          <li><a href="../developers/#publication-status" data-i18n="footer.publication">How publication and review differ</a></li>
           <li><a href="../developers/#api" data-i18n="footer.api">Open JSON API</a></li>
           <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.security">Security policy</a></li>
         </ul>

@@ -6,7 +6,8 @@
 // reported as an error, never invented or "fixed".
 //
 // Output: one proposal per package, shaped like an apps.json record plus crawl metadata.
-// Every record is "pending_review"; this adapter has no way to produce "verified".
+// Every record is "not_reviewed" (no human review) and carries a machine-computed publication state;
+// this adapter has no way to produce "verified".
 import { readFile } from 'node:fs/promises';
 import { parseYaml } from '../lib/yaml-lite.mjs';
 import {
@@ -16,6 +17,7 @@ import {
 import { classifyUrl } from '../lib/classify-url.mjs';
 import { runPool } from '../lib/pool.mjs';
 import { isRetryableError } from '../lib/http.mjs';
+import { publicationFor } from '../../lib/publication.mjs';
 
 // Flags worth showing to users are copied into the catalog record; the rest stay in the proposal.
 export const PERSISTED_FLAGS = ['manifest_older_than_2_years', 'no_https_publisher_url', 'installer_without_sha256', 'installer_url_not_https'];
@@ -166,7 +168,7 @@ export function buildAppProposal({ id, versionDoc, installerDoc, localeDoc, vers
     description,
     source_url: sourceUrl,
     source_kind: sourceKind,
-    verification_status: 'pending_review',
+    verification_status: 'not_reviewed',
     windows_compatibility: 'not_reviewed',
     architectures,
     license: cleanText(localeDoc?.License, 80) || 'Unknown',
@@ -192,6 +194,7 @@ export function buildAppProposal({ id, versionDoc, installerDoc, localeDoc, vers
       fields,
     }],
   };
+  record.publication = publicationFor('apps', record, { now: retrievedAt });
   return { record, flags };
 }
 

@@ -13,7 +13,7 @@ const TODAY = '2026-10-13';
 const source = (extra = {}) => ({ id: 'winget-pkgs', kind: 'package_index', url: 'https://github.com/microsoft/winget-pkgs/tree/master/manifests/e/Example/App/1.0', ref: 'microsoft/winget-pkgs@abc', retrieved_at: '2026-10-13T00:00:00.000Z', fields: ['version', 'downloads'], ...extra });
 const app = (o = {}) => ({
   id: 'example-app', name: 'Example App', publisher: 'Example', category: 'utilities', description: 'An example.', source_url: 'https://example.com/app', source_kind: 'publisher_page',
-  verification_status: 'pending_review', windows_compatibility: 'not_reviewed', architectures: ['x64'], license: 'MIT', notes: '', winget_id: 'Example.App', version: '1.0',
+  verification_status: 'not_reviewed', windows_compatibility: 'not_reviewed', architectures: ['x64'], license: 'MIT', notes: '', winget_id: 'Example.App', version: '1.0',
   downloads: [], tags: ['example'], sources: [source()], ...o,
 });
 const proposal = (record, flags = []) => ({ target: record.winget_id ?? record.id, key: `k:${record.id}`, catalog: 'apps', record, meta: { adapter: 'winget', crawled_at: '2026-10-13T00:00:00.000Z', quality_flags: flags } });
@@ -21,11 +21,11 @@ const doc = (items, updated_at = '2026-01-01T00:00:00.000Z') => ({ schema_versio
 const merge = (items, proposals, o = {}) => planMerge({ catalog: o.catalog ?? 'apps', doc: doc(items), proposals, today: TODAY, allowFlagged: o.allowFlagged });
 
 describe('adding new records', () => {
-  it('adds an unknown package as pending_review with the date it was added', () => {
+  it('adds an unknown package as not_reviewed with the date it was added', () => {
     const { doc: out, actions } = merge([], [proposal(app())]);
     assert.deepEqual(actions, [{ type: 'add', id: 'example-app', target: 'Example.App' }]);
     assert.equal(out.items.length, 1);
-    assert.equal(out.items[0].verification_status, 'pending_review');
+    assert.equal(out.items[0].verification_status, 'not_reviewed');
     assert.equal(out.items[0].added_at, TODAY);
     assert.equal(out.updated_at, `${TODAY}T00:00:00.000Z`);
   });
@@ -54,20 +54,20 @@ describe('adding new records', () => {
 });
 
 describe('a proposal can never promote or verify', () => {
-  it('skips a proposal that claims to be anything but pending_review', () => {
+  it('skips a proposal that claims to be anything but not_reviewed', () => {
     for (const status of ['verified', 'withdrawn', undefined]) {
       const { doc: out, actions } = merge([], [proposal(app({ verification_status: status }))]);
-      assert.deepEqual(actions.map((a) => [a.type, a.reason]), [['skip', 'proposal_not_pending_review']], String(status));
+      assert.deepEqual(actions.map((a) => [a.type, a.reason]), [['skip', 'proposal_claims_review']], String(status));
       assert.equal(out.items.length, 0);
     }
   });
   it('never changes verification or review fields of an existing record, whatever the proposal says', () => {
-    const existing = app({ verification_status: 'pending_review', reviewed_at: null, review_notes: 'human note', windows_compatibility: 'partial', evidence_url: 'https://example.com/e' });
+    const existing = app({ verification_status: 'not_reviewed', reviewed_at: null, review_notes: 'human note', windows_compatibility: 'partial', evidence_url: 'https://example.com/e' });
     const incoming = app({ version: '2.0', windows_compatibility: 'supported', review_notes: 'crawler wrote this', evidence_url: 'https://evil.example/', reviewed_at: '2026-10-13T00:00:00.000Z' });
     const { doc: out } = merge([existing], [proposal(incoming)]);
     const r = out.items[0];
     assert.equal(r.version, '2.0', 'data fields are refreshed');
-    assert.equal(r.verification_status, 'pending_review');
+    assert.equal(r.verification_status, 'not_reviewed');
     assert.equal(r.reviewed_at, null);
     assert.equal(r.review_notes, 'human note');
     assert.equal(r.windows_compatibility, 'partial');
@@ -152,20 +152,20 @@ describe('finding the existing record (never by name alone)', () => {
 });
 
 describe('quality gates for driver leads', () => {
-  const lead = (flags) => ({ target: 't1', key: 'k', catalog: 'drivers', record: { id: 'lead-1', name: 'Lead', verification_status: 'pending_review', version: '1.0', sources: [source()], source_url: 'https://www.driverscape.com/x' }, meta: { quality_flags: flags } });
-  it('every blocking flag holds a lead back', () => {
-    for (const flag of BLOCKING_FLAGS.drivers) {
-      const { doc: out, actions } = merge([], [lead([flag])], { catalog: 'drivers' });
-      assert.equal(actions[0].type, 'skip', flag);
-      assert.equal(actions[0].reason, 'blocking_quality_flags');
-      assert.deepEqual(actions[0].flags, [flag]);
+  const lead = (flags) => ({ target: 't1', key: 'k', catalog: 'drivers', record: { id: 'lead-1', name: 'Lead', verification_status: 'not_reviewed', version: '1.0', sources: [source()], source_url: 'https://www.driverscape.com/x' }, meta: { quality_flags: flags } });
+  it('an aggregator lead is never published, whatever its flags say', () => {
+    for (const flags of [[], ['architecture_not_stated'], ['lists_end_of_support_os'], ['legacy_os_only']]) {
+      const { doc: out, actions } = merge([], [lead(flags)], { catalog: 'drivers' });
+      assert.equal(actions[0].type, 'skip', flags.join(','));
+      assert.equal(actions[0].reason, 'ineligible');
+      assert.ok(actions[0].problems.includes('aggregator_not_published'));
       assert.equal(out.items.length, 0);
     }
   });
-  it('informational flags do not block', () => {
-    for (const flag of ['architecture_not_stated', 'lists_end_of_support_os', 'legacy_os_only', 'download_gated_by_verification_code']) assert.equal(merge([], [lead([flag])], { catalog: 'drivers' }).actions[0].type, 'add', flag);
+  it('--allow-flagged does not publish a lead either: leads are never part of drivers.json', () => assert.equal(merge([], [lead(['vendor_device_mismatch'])], { catalog: 'drivers', allowFlagged: true }).actions[0].type, 'skip'));
+  it('blocking flags are still enforced before the publication rules run', () => {
+    for (const flag of BLOCKING_FLAGS.drivers) assert.equal(merge([], [lead([flag])], { catalog: 'drivers' }).actions[0].reason, 'blocking_quality_flags', flag);
   });
-  it('--allow-flagged lets a reviewer include flagged leads deliberately', () => assert.equal(merge([], [lead(['vendor_device_mismatch'])], { catalog: 'drivers', allowFlagged: true }).actions[0].type, 'add'));
   it('apps have no blocking flags', () => assert.deepEqual(BLOCKING_FLAGS.apps, []));
 });
 
@@ -194,7 +194,7 @@ describe('idempotency and purity', () => {
 });
 
 describe('merged output still validates', () => {
-  it('real catalog + a real-shaped proposal passes the schema and policy rules, and stays pending_review', async () => {
+  it('real catalog + a real-shaped proposal passes the schema and policy rules, and stays not_reviewed', async () => {
     const catalogs = await loadCatalogs();
     const validators = createValidators(await loadSchemas(fromRoot('schemas')));
     const example = JSON.parse(await (await import('node:fs/promises')).readFile(fromRoot('docs', 'examples', 'proposal.example.json'), 'utf8'));
@@ -203,6 +203,6 @@ describe('merged output still validates', () => {
     const merged = { ...catalogs, apps: canonicalizeDoc('apps', apps) };
     assert.deepEqual(validators.validate('apps', merged.apps).errors, []);
     assert.deepEqual(checkSemantics(merged).filter((e) => !/example-package/.test(e) || !/winget-pkgs source/.test(e)), [], 'no policy problems beyond the example package placeholders');
-    assert.equal(merged.apps.items.find((i) => i.id === 'example-package').verification_status, 'pending_review');
+    assert.equal(merged.apps.items.find((i) => i.id === 'example-package').verification_status, 'not_reviewed');
   });
 });

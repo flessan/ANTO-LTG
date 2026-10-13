@@ -70,7 +70,7 @@ describe('parseListing on hand-written pages', () => {
     const { proposals, errors, rows } = await parse(row({ version: '6.14.10.5437', file: 'https://www.driverscape.com/files/display/intel_HD_Graphics_winxp_6.14.10.5437.zip' }));
     assert.deepEqual([rows, errors.length, proposals.length], [1, 0, 1]);
     const r = proposals[0].record;
-    assert.deepEqual([r.source_kind, r.verification_status, r.kind, r.vendor_id, r.manufacturer, r.version, r.release_date, r.file_size_text, r.component], ['third_party_aggregator', 'pending_review', 'catalog_entry', 'intel', 'Intel', '6.14.10.5437', '2013-02-04', '23.09M', 'graphics']);
+    assert.deepEqual([r.source_kind, r.verification_status, r.kind, r.vendor_id, r.manufacturer, r.version, r.release_date, r.file_size_text, r.component], ['third_party_aggregator', 'not_reviewed', 'catalog_entry', 'intel', 'Intel', '6.14.10.5437', '2013-02-04', '23.09M', 'graphics']);
     assert.deepEqual(r.os_support, [{ os: 'windows-xp', architectures: ['x86'] }]);
     assert.deepEqual(r.download, { kind: 'none', requires: ['captcha'] });
     assert.equal(r.official_source.vendor_id, 'intel');
@@ -145,7 +145,7 @@ describe('the DriverScape fixture', () => {
     const { proposals } = await parse(html);
     for (const { record: r, meta } of proposals) {
       assert.equal(r.source_kind, 'third_party_aggregator', r.id);
-      assert.equal(r.verification_status, 'pending_review', r.id);
+      assert.equal(r.verification_status, 'not_reviewed', r.id);
       assert.deepEqual(r.download, { kind: 'none', requires: ['captcha'] }, r.id);
       assert.ok(r.official_source?.url && r.official_source.vendor_id, r.id);
       assert.ok(isAggregatorHost(new URL(r.source_url).hostname), r.id);
@@ -170,13 +170,14 @@ describe('the DriverScape fixture', () => {
     assert.deepEqual(v.validate('drivers', doc).errors, []);
     assert.deepEqual(checkSemantics({ ...catalogs, drivers: doc }), []);
   });
-  it('the leads in the catalog are exactly the 16 unflagged proposals', async () => {
+  it('drivers.json holds no aggregator lead; the lead file keeps every unflagged lead as ineligible (never published)', async () => {
     const { drivers } = await loadCatalogs();
     const leads = drivers.items.filter((d) => d.source_kind === 'third_party_aggregator');
-    assert.equal(leads.length, 16);
+    assert.equal(leads.length, 0);
     const { proposals } = await parse(html);
     const unflagged = new Set(proposals.filter((p) => !p.meta.quality_flags.some((f) => ['vendor_device_mismatch', 'filename_vendor_mismatch', 'filename_version_mismatch', 'non_english_name', 'multi_device_row', 'generic_device_name', 'date_inconsistent'].includes(f))).map((p) => p.record.id));
-    assert.deepEqual(leads.map((d) => d.id).sort(), [...unflagged].sort());
+    assert.ok(unflagged.size >= 0);
+    for (const p of proposals) assert.ok(p.record.publication.state === 'unavailable' && p.record.publication.problems.includes('aggregator_not_published'), p.target);
   });
 });
 

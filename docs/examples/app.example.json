@@ -7,7 +7,7 @@
   "description_id": "Contoh catatan yang menunjukkan kolom pada aplikasi kurasi. Ini bukan program sungguhan.",
   "source_url": "https://example.com/portable-tool",
   "source_kind": "publisher_page",
-  "verification_status": "pending_review",
+  "verification_status": "not_reviewed",
   "windows_compatibility": "not_reviewed",
   "compatibility": {
     "windows10": "unknown",
@@ -16,7 +16,9 @@
     "basis": "The publisher page does not state supported Windows versions.",
     "note": "Unknown stays unknown: do not guess."
   },
-  "architectures": ["x64"],
+  "architectures": [
+    "x64"
+  ],
   "license": "Proprietary",
   "notes": "Write what a technician should know, in plain text. No HTML.",
   "downloads": [
@@ -25,19 +27,41 @@
       "url": "https://example.com/portable-tool/download",
       "stability": "unknown",
       "evidence": "Download page linked from the publisher's home page.",
-      "link_check": { "status": "unchecked" }
+      "link_check": {
+        "status": "unchecked"
+      }
     }
   ],
-  "tags": ["example", "portable"],
+  "tags": [
+    "example",
+    "portable"
+  ],
   "sources": [
     {
       "id": "publisher-page",
       "kind": "vendor_page",
       "url": "https://example.com/portable-tool",
       "retrieved_at": "2026-10-13",
-      "fields": ["name", "publisher", "description", "downloads"],
+      "fields": [
+        "name",
+        "publisher",
+        "description",
+        "downloads"
+      ],
       "note": "Every field that came from a page is listed here, so a reviewer knows what to re-check."
     }
   ],
-  "added_at": "2026-10-13"
+  "added_at": "2026-10-13",
+  "publication": {
+    "state": "published",
+    "method": "maintainer_curated",
+    "checked_at": "2026-10-13T00:00:00.000Z",
+    "checks": [
+      "basic_fields",
+      "https_official_source",
+      "source_recorded",
+      "downloads_pinned",
+      "winget_package_proven"
+    ]
+  }
 }

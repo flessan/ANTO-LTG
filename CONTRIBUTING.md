@@ -20,8 +20,10 @@ every claim cites a source, unknown stays unknown, and a person (not a script) d
    personal data.
 6. **Hashes are copied, never computed.** Add a `sha256` only if the publisher states it, and say where in
    `sha256_source`.
-7. **Leave records `pending_review`.** `verified` needs a human who opened the source, with `reviewed_at`,
-   `review_notes` and `evidence_url`. If you are that human, say what you checked in the pull request.
+7. **Leave `verification_status` as `not_reviewed`.** Publication is automatic: the merge rules publish a record when
+   they pass, and you must not edit the `publication` object by hand. Only a human who opened the source may set
+   `verified`, with `reviewed_at`, `review_notes` and `evidence_url`. If you are that human, say what you checked in
+   the pull request.
 8. **Be kind.** Disagree about the data, not about people.
 
 ## Set up
@@ -104,7 +106,7 @@ an app through `app_id` where one exists. A bundle's `app_ids` must all exist in
 
 Read [`docs/crawler.md`](docs/crawler.md) first. A new adapter must declare its host allow-list, respect robots.txt
 (or explain in `robots_note` why a documented API makes it unnecessary), prefer an official API over scraping HTML,
-emit `pending_review` proposals with provenance only, and be tested **without the network** (fixtures or the fake
+emit `not_reviewed` proposals with provenance only (publication is decided by `scripts/lib/publication.mjs`), and be tested **without the network** (fixtures or the fake
 `fetch` helpers). The crawler must never download, mirror or execute a binary, auto-promote a record, or bypass a
 login, captcha or rate limit.
 
@@ -142,7 +144,7 @@ To report a security problem, do not open a public issue: see [SECURITY.md](SECU
    kompatibilitas Windows, atau ID paket.
 3. **Jangan menyebut "aman"**; HTTPS atau checksum bukan bukti. Tautan hanya ke halaman resmi penerbit/vendor, tanpa
    mirror pihak ketiga. Jangan commit installer, driver, firmware, token, atau data pribadi.
-4. **Hash hanya disalin dari penerbit**, bukan dihitung sendiri. Biarkan `pending_review`; `verified` hanya oleh
+4. **Hash hanya disalin dari penerbit**, bukan dihitung sendiri. Biarkan `verification_status` `not_reviewed`; `verified` hanya oleh
    manusia yang sudah memeriksa sumbernya, lengkap dengan `reviewed_at`, `review_notes`, dan `evidence_url`.
 5. Jalankan `npm run check` sebelum membuat pull request. Teks UI baru harus ada di `en.js` **dan** `id.js`. Jangan
    mengedit file hasil build (`api/`, `openapi.json`, `assets/CREDITS.md`) secara manual.

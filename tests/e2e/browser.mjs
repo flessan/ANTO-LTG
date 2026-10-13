@@ -20,6 +20,10 @@ export async function findBrowser() {
     process.env.AWS_EXECUTION_ENV ??= 'AWS_Lambda_nodejs22.x'; // makes @sparticuz/chromium unpack the shared libraries it needs
     const mod = await import('@sparticuz/chromium');
     const chromium = mod.default;
-    return { executablePath: await chromium.executablePath(), args: [...chromium.args, '--no-sandbox'], source: '@sparticuz/chromium' };
+    // Drop flags that would weaken or distort the tests: --single-process breaks separate browser contexts, and the
+    // web-security / isolation switches would hide the CSP and CORS behaviour the suite checks.
+    const UNSAFE = new Set(['--single-process', '--disable-web-security', '--allow-running-insecure-content', '--disable-site-isolation-trials']);
+    const args = chromium.args.filter((a) => !UNSAFE.has(a));
+    return { executablePath: await chromium.executablePath(), args: [...args, '--no-sandbox'], source: '@sparticuz/chromium' };
   } catch { return null; }
 }

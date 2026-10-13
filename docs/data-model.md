@@ -2,7 +2,8 @@
 
 ANTO-LTG is a **research index**, not a live database. The data lives in six JSON files under
 [`catalogs/`](../catalogs), is checked against JSON Schemas in [`schemas/`](../schemas), and is published as
-static files in [`api/v1/`](../api/v1) by `npm run build`. Current schema version: **1.1.0** (additive over 1.0).
+static files in [`api/v1/`](../api/v1) by `npm run build`. Current schema version: **1.2.0**. It adds the machine-checked `publication` object and separates it from human review
+(migration: `scripts/migrations/002-schema-1.2.0.mjs`).
 
 Example records that are validated by the test suite live in [`docs/examples/`](examples).
 
@@ -14,10 +15,12 @@ Example records that are validated by the test suite live in [`docs/examples/`](
    absent, or `unknown`. It is never guessed, inferred from a similar name, or copied from a neighbouring record.
 3. **Hashes are copied, never computed.** A `sha256` / `sha512` is stored only when the publisher states it, and
    `sha256_source` / `sha512_source` say where. The build never downloads a file to hash it.
-4. **Humans verify, machines propose.** The crawler can only create `pending_review` records and can never change
-   the review fields. See [`docs/crawler.md`](crawler.md).
+4. **Machines publish, humans verify.** A record is *published* when the automated rules in
+   `scripts/lib/publication.mjs` pass. No person approves that. A record becomes *verified* only when a maintainer
+   checks it against the official source and records the review. The two facts are stored separately. See
+   [`docs/crawler.md`](crawler.md).
 5. **Official sources only for downloads.** A direct link must be on a domain the vendor owns. Third-party
-   aggregators can be *leads* (no download link, never verified).
+   aggregators are *leads* only: they are never published in a catalog and carry no download link.
 6. **No binaries in the repository.** Records point to official pages; nothing is mirrored.
 
 ## 2. Files
@@ -34,7 +37,7 @@ Example records that are validated by the test suite live in [`docs/examples/`](
 Also generated: `api/v1/index.json` (endpoint list with counts and SHA-256 of each file),
 `api/v1/search-index.json` (build-time search index), `openapi.json` and `assets/CREDITS.md`.
 Never edit generated files by hand: run `npm run build` and commit the result.
-Shared building blocks are in `schemas/common.schema.json`.
+Shared building blocks are in `schemas/common.schema.json` (including the `publication` definition).
 The browser export format is `schemas/bundle-manifest.schema.json`, and crawler output is
 `schemas/proposals.schema.json`.
 
@@ -42,7 +45,7 @@ Every catalog file is a wrapper object:
 
 | Field | Meaning |
 | --- | --- |
-| `schema_version` | Schema version the file conforms to (`1.1.0`). |
+| `schema_version` | Schema version the file conforms to (`1.2.0`). |
 | `updated_at` | When the file last changed. |
 | `items` | The records, **sorted by `id`** with a fixed key order. `npm run format:catalogs` writes this canonical form and `npm run validate` fails on any other. |
 
@@ -61,15 +64,36 @@ Every catalog file is a wrapper object:
 
 | Field | Meaning |
 | --- | --- |
-| `verification_status` | `pending_review` (default), `verified`, or `withdrawn`. |
+| `verification_status` | **Human review only.** `not_reviewed` (default), `verified`, or `withdrawn`. |
 | `reviewed_at` | When a human reviewed the record. |
 | `review_notes` | What was checked and how. |
 | `evidence_url` | The page that supports the review. |
 
-`verified` requires `reviewed_at`, `review_notes` and `evidence_url` (schema rule). Crawlers can only produce
-`pending_review`. A record that a human verified is never overwritten by a crawl; differences are reported as
-*drift* for re-review. At the time of writing **no record is verified**: verification is a human act that has not
-happened yet, and the UI says so.
+`verified` requires `reviewed_at`, `review_notes` and `evidence_url` (schema rule). Automated publication never sets it.
+A record that no human has reviewed is `not_reviewed`, and that is normal for published records. A record that a
+human verified is never overwritten by a crawl; differences are reported as *drift* for re-review. Nothing in the
+catalogs is `verified` until a maintainer does that review.
+
+### Publication (automated)
+
+| Field (inside `publication`) | Meaning |
+| --- | --- |
+| `state` | `published` or `unavailable`. `published` means every rule for the catalog passed when `checked_at` was recorded. `unavailable` means a later check found the record no longer meets the rules, and the record stays visible with a warning. |
+| `method` | `automated` (produced by a crawler adapter and published by the merge rules) or `maintainer_curated` (written by a maintainer from official pages, then checked by the same rules). |
+| `checked_at` | When the rules were evaluated. |
+| `checks` | Rule ids that passed. |
+| `problems` | Rule ids that failed. Empty for a published record. |
+
+Rules, by catalog (each rule id is listed in `scripts/lib/publication.mjs`):
+
+* **Apps:** `basic_fields`, `https_official_source`, `source_recorded`, `downloads_pinned`, `winget_package_proven`.
+  A `winget_id` is published only when a `winget-pkgs` source proves that the package exists.
+* **Drivers:** `basic_fields`, `https_official_source`, `source_recorded`, `aggregator_not_published`,
+  `direct_download_official`. A `direct_binary` link must be HTTPS, must not be hosted by an aggregator, and must
+  be on a vendor domain (checked by the validator).
+
+Publication is a fact about the data and its sources. It is **not** a review and not a safety rating. Read it
+together with `verification_status`: a record can be `published` and still `not_reviewed`.
 
 ### Provenance: `sources[]` and `evidence[]`
 
@@ -164,14 +188,15 @@ The last seven driver flags **hold a proposal back** from merging unless a perso
 
 ### `apps.json`
 
-Required fields: `id`, `name`, `publisher`, `category`, `description`, `source_url`, `source_kind`, `verification_status`, `windows_compatibility`, `architectures`, `license`, `notes`, `sources`.
+Required fields: `id`, `name`, `publisher`, `category`, `description`, `source_url`, `source_kind`, `verification_status`, `publication`, `windows_compatibility`, `architectures`, `license`, `notes`, `sources`.
 
 | Field | Notes |
 | --- | --- |
 | `id`, `name`, `publisher`, `category`, `description` | Required. `category` is one of `browsers`, `communication`, `office`, `media`, `utilities`, `developer-tools`, `runtimes`, `security`, `diagnostics`, `storage`, `network-remote`, `boot-media`, `system-tools`, `vendor-tools`, `gaming`. |
 | `description_id`, `notes`, `notes_id` | Human-written text. `*_id` is the Indonesian translation. The crawler never touches these. |
 | `source_url`, `source_kind` | The publisher page or package index the record is based on. |
-| `verification_status`, `reviewed_at`, `review_notes`, `evidence_url` | Review fields (above). |
+| `verification_status`, `reviewed_at`, `review_notes`, `evidence_url` | Human review fields (above). |
+| `publication` | Automated publication state (above). Required. |
 | `windows_compatibility` | Human review state: `not_reviewed`, `supported`, `unsupported`, `partial`. Anything but `not_reviewed` needs `review_notes` and `evidence_url`. |
 | `compatibility` | What the *source* declares: `windows10`, `windows11` (each `declared`, `unsupported` or `unknown`), `min_os_version`, `basis`, `note`. |
 | `architectures` | Architectures the source lists. |
@@ -185,21 +210,22 @@ Required fields: `id`, `name`, `publisher`, `category`, `description`, `source_u
 
 ### `drivers.json`
 
-Required fields: `id`, `name`, `description`, `publisher`, `source_url`, `source_kind`, `verification_status`, `manufacturer`, `model`, `component`, `kind`, `windows_versions`, `architectures`, `notes`, `download`, `sources`.
+Required fields: `id`, `name`, `description`, `publisher`, `source_url`, `source_kind`, `verification_status`, `publication`, `manufacturer`, `model`, `component`, `kind`, `windows_versions`, `architectures`, `notes`, `download`, `sources`.
 
 | Field | Notes |
 | --- | --- |
 | `id`, `name`, `description`, `publisher`, `manufacturer`, `model`, `component`, `kind` | Required. `kind` is `driver_package`, `support_page`, `vendor_tool` or `catalog_entry`. `component` is one of `graphics`, `audio`, `network-ethernet`, `network-wifi`, `bluetooth`, `chipset`, `storage`, `usb`, `input`, `camera`, `card-reader`, `firmware`, `serial-adapter`, `printer-scanner`, `system-management`, `other`. |
 | `vendor_id`, `hardware_family` | Link to `vendors.json`, and the family or series when known. |
 | `description_id`, `notes`, `notes_id`, `install_instructions`, `install_instructions_id` | Human-written text, with Indonesian counterparts. |
-| `source_url`, `source_kind` | Where the record came from. `third_party_aggregator` records are leads. |
+| `source_url`, `source_kind` | Where the record came from. `third_party_aggregator` records are leads and never appear in `drivers.json`. |
 | `official_source` | The official place to get the driver: `url`, `vendor_id`, `type` (`download_page`, `support_portal`, `catalog`, `release_notes`), `stable`. Its host must be one of the vendor's `domains`. |
 | `windows_versions`, `os_support`, `architectures` | `windows_versions` are labels: `Windows XP`, `Windows Vista`, `Windows 7`, `Windows 8`, `Windows 8.1`, `Windows 10`, `Windows 11`, `Windows Server`, `other`. Each `os_support` entry pairs an `os` key (`windows-xp`, `windows-vista`, `windows-7`, `windows-8`, `windows-8-1`, `windows-10`, `windows-11`, `windows-server`) with its `architectures`; the labels and keys must agree. A driver whose architecture is unknown never matches an architecture filter. |
 | `version`, `release_date`, `file_size_text`, `file_size_bytes` | Only as the source states them. `file_size_text` is the size as listed. |
 | `hardware_ids` | PCI / USB hardware IDs the source associates with the driver. |
 | `download` | A download entry (above). Aggregator records must use `kind: none`. A `direct_binary` must be on an official vendor domain and not ephemeral. |
 | `evidence` | Evidence entries. |
-| `verification_status`, `reviewed_at`, `review_notes`, `evidence_url` | Review fields. An aggregator listing alone can never be `verified`. |
+| `verification_status`, `reviewed_at`, `review_notes`, `evidence_url` | Human review fields. An aggregator listing alone can never be `verified`. |
+| `publication` | Automated publication state (above). Required. Aggregator listings are never published in this catalog: they stay in the crawler's lead file. |
 | `quality_flags`, `tags`, `sources`, `added_at` | As for apps. |
 
 ### `vendors.json`
@@ -208,7 +234,7 @@ Required fields: `id`, `name`, `kind`, `homepage_url`, `domains`, `source_kind`,
 
 | Field | Notes |
 | --- | --- |
-| `id`, `name`, `kind`, `homepage_url`, `domains`, `source_kind`, `verification_status`, `sources` | Required. `kind`: `oem`, `component_vendor`, `os_vendor`, `catalog`, `peripheral_vendor`. |
+| `id`, `name`, `kind`, `homepage_url`, `domains`, `source_kind`, `verification_status`, `sources` | Required. Vendors have no `publication` object: they are directory entries whose facts are checked against their own domains. Use `verification_status` for human review. `kind`: `oem`, `component_vendor`, `os_vendor`, `catalog`, `peripheral_vendor`. |
 | `support_url`, `driver_search_url` | Official support and driver-search pages. |
 | `detection_tool` | The vendor's own detection tool: `name`, `url`, `winget_id`. |
 | `domains` | The domains the vendor owns. Official direct links are checked against this list. |
@@ -257,16 +283,28 @@ Most apps are `unknown` because most manifests state no minimum Windows version.
 includes unknown apps with a note by default, and only leaves out an app that a source says is unsupported on
 the chosen target.
 
-## 6. Verification workflow
+## 6. Publication and verification workflow
 
-1. A record enters as `pending_review` (curated by hand, or proposed by the crawler and merged by a person).
-2. A reviewer opens the official page, checks each claim in `sources[]`, and writes down what was checked in
+**Publication (automatic).**
+
+1. The crawler (`crawl` / `merge`) proposes records. Each record is checked against the rules for its catalog.
+2. A record whose rules all pass is written with `publication.state: "published"` and `method: "automated"`.
+3. A record that fails a rule is not written to the catalog (the merge reports it as skipped with the failed rule ids).
+   A record that was published and later fails a check (for example a removed WinGet package) is kept with
+   `publication.state: "unavailable"` so the UI can warn, instead of disappearing silently.
+4. Nothing needs approval for this step. Every run prints the counts and writes a machine-readable report.
+
+**Verification (human, optional).**
+
+1. A maintainer opens the official page, checks each claim in `sources[]`, and writes what was checked in
    `review_notes` with an `evidence_url`.
-3. Only then may `verification_status` become `verified`, with `reviewed_at`.
-4. A later crawl that sees different data for a verified record does not change it; it prints `DRIFT` and a
+2. Only then may `verification_status` become `verified`, with `reviewed_at`.
+3. A later crawl that sees different data for a verified record does not change it; it prints `DRIFT` and a
    person decides.
-5. A record that is no longer correct becomes `withdrawn`. It stays in the file, and the UI leaves it out of
+4. A record that is no longer correct becomes `withdrawn`. It stays in the file, and the UI leaves it out of
    install plans.
+
+The site shows publication and verification separately: a published, not-reviewed record is labelled as such.
 
 ## 7. Derived data
 

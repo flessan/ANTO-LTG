@@ -48,7 +48,8 @@ export async function main(argv = process.argv.slice(2)) {
       const { crawl } = await import('./commands/crawl.mjs');
       const report = await crawl({ flags, positional });
       const failed = report.adapters.reduce((n, a) => n + (a.stats?.failed ?? 0), 0);
-      console.error(`Finished. ${failed} target(s) failed (see catalogs/proposed/report.md).`);
+      const where = report.out_dir ? `${report.out_dir}/report.md` : 'the output directory (report.md)';
+      console.error(`Finished. ${failed} target(s) failed (see ${where}).`);
       return 0;
     }
     case 'merge': {

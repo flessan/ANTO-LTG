@@ -1,14 +1,18 @@
 // Merging crawler proposals into a catalog document.
 //
 // Hard rules (tests/crawler/merge.test.mjs):
+//  * publication is computed by the rules in scripts/lib/publication.mjs, never copied from a proposal;
 //  * a proposal can never change verification_status, reviewed_at, review_notes, evidence_url,
 //    windows_compatibility, human-written text (notes, *_id fields) or a record's id;
-//  * new records always enter as pending_review;
+//  * new records enter as not_reviewed (no human has checked them) and are published only when the
+//    automated rules pass; an ineligible new record is skipped and listed with its failing rules;
+//  * an existing record that stops passing the rules is marked publication.state "unavailable";
 //  * a record that a human has verified is never overwritten - differences are reported as
 //    "drift" so a person can re-review;
 //  * proposals carrying blocking quality flags are skipped unless explicitly allowed;
 //  * duplicates are detected by stable key (winget id / canonical URL / id), never by name alone.
 import { slugify, canonicalUrl } from './normalize.mjs';
+import { evaluate, publicationFor } from '../../lib/publication.mjs';
 
 export const BLOCKING_FLAGS = {
   apps: [],
@@ -17,8 +21,8 @@ export const BLOCKING_FLAGS = {
 
 // Data fields a crawler is allowed to refresh on an unverified record.
 const OVERWRITE = {
-  apps: ['version', 'release_date', 'compatibility', 'architectures', 'installer_types', 'installer_scopes', 'elevation', 'portable', 'downloads', 'license', 'license_url', 'quality_flags'],
-  drivers: ['version', 'release_date', 'file_size_text', 'file_size_bytes', 'os_support', 'windows_versions', 'architectures', 'hardware_ids', 'download', 'quality_flags'],
+  apps: ['version', 'release_date', 'compatibility', 'architectures', 'installer_types', 'installer_scopes', 'elevation', 'portable', 'downloads', 'license', 'license_url', 'quality_flags', 'publication'],
+  drivers: ['version', 'release_date', 'file_size_text', 'file_size_bytes', 'os_support', 'windows_versions', 'architectures', 'hardware_ids', 'download', 'quality_flags', 'publication'],
 };
 const FILL_IF_MISSING = {
   apps: ['name', 'publisher', 'description', 'category', 'source_url', 'source_kind', 'winget_id'],
@@ -64,9 +68,22 @@ export function planMerge({ catalog, doc, proposals, today, allowFlagged = false
     const flags = p.meta?.quality_flags ?? [];
     const blocking = flags.filter((f) => (BLOCKING_FLAGS[catalog] ?? []).includes(f));
     if (blocking.length && !allowFlagged) { actions.push({ type: 'skip', reason: 'blocking_quality_flags', flags: blocking, target: p.target }); continue; }
-    if (record.verification_status !== 'pending_review') { actions.push({ type: 'skip', reason: 'proposal_not_pending_review', target: p.target }); continue; }
+    if (record.verification_status !== 'not_reviewed') { actions.push({ type: 'skip', reason: 'proposal_claims_review', target: p.target }); continue; }
 
+    const now = `${today}T00:00:00.000Z`;
+    const verdict = evaluate(catalog, record);
     const existing = findExisting(catalog, items, record);
+    if (!verdict.eligible) {
+      if (existing && existing.verification_status !== 'verified' && existing.publication?.state !== 'unavailable') {
+        existing.publication = { ...existing.publication, state: 'unavailable', checked_at: now, checks: verdict.checks, problems: verdict.problems };
+        actions.push({ type: 'unavailable', id: existing.id, target: p.target, problems: verdict.problems });
+      } else {
+        actions.push({ type: 'skip', reason: 'ineligible', problems: verdict.problems, target: p.target });
+      }
+      continue;
+    }
+    record.publication = publicationFor(catalog, record, { now });
+
     if (!existing) {
       record.id = uniqueId(items, record);
       record.added_at = today;
@@ -75,13 +92,20 @@ export function planMerge({ catalog, doc, proposals, today, allowFlagged = false
       continue;
     }
     if (existing.verification_status === 'verified') {
-      const drift = OVERWRITE[catalog].filter((f) => f in record && !same(record[f], existing[f]));
+      const drift = OVERWRITE[catalog].filter((f) => f in record && f !== 'publication' && !same(record[f], existing[f]));
       actions.push(drift.length ? { type: 'drift', id: existing.id, target: p.target, fields: drift } : { type: 'unchanged', id: existing.id, target: p.target });
       continue;
     }
     const changed = [];
     for (const f of OVERWRITE[catalog]) {
       if (NEVER.has(f)) continue;
+      if (f === 'publication') {
+        // checked_at moves every run; only a real change in state, method or rule results counts.
+        const { checked_at: _a, ...nextPub } = record.publication ?? {};
+        const { checked_at: _b, ...prevPub } = existing.publication ?? {};
+        if (!same(nextPub, prevPub)) { existing.publication = record.publication; changed.push(f); }
+        continue;
+      }
       if (f in record) { if (!same(record[f], existing[f])) { existing[f] = record[f]; changed.push(f); } }
       else if (f in existing && ['quality_flags'].includes(f)) { delete existing[f]; changed.push(f); }
     }

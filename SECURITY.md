@@ -71,7 +71,7 @@ reproducible impact.
 * HTTPS links to the publisher or vendor only; prefer official project pages.
 * Do not mirror or repack binaries unless the license explicitly allows redistribution.
 * Do not store installers, firmware, credentials, tokens or personal data in the repository.
-* `pending_review` is the default; `verified` needs a human check and referable evidence
+* `not_reviewed` is the default; publication is automatic and is not a review. `verified` needs a human check and referable evidence
   (`reviewed_at`, `review_notes`, `evidence_url`).
 
 ## Ringkasan (Bahasa Indonesia)

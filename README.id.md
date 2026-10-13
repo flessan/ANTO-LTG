@@ -5,9 +5,11 @@ bundel awal, catatan alat teknisi, panduan, API JSON statis terbuka, dan crawler
 data untuk ditinjau manusia. Dibangun dengan HTML, CSS, JavaScript native, dan JSON, dengan skrip Node untuk build.
 Tanpa framework, tanpa dependency runtime, tanpa CDN.
 
-> **Status: alpha.** Semua entri katalog berstatus `pending_review`. **Belum ada yang ditandai `verified`**, karena
-> verifikasi adalah pekerjaan manusia yang belum dilakukan. Entri katalog bukan pernyataan bahwa program aman,
-> kompatibel dengan semua Windows, atau telah diaudit oleh ANTO-LTG.
+> **Status: publikasi otomatis.** Sebuah entri dipublikasikan ketika aturan mesin di
+> [`scripts/lib/publication.mjs`](scripts/lib/publication.mjs) lolos; tidak ada persetujuan manusia untuk langkah itu.
+> Publikasi dan tinjauan manusia ditampilkan terpisah. **Belum ada yang ditandai `verified`**: belum ada pengelola yang
+> memeriksa entri terhadap sumber resminya. Entri katalog bukan pernyataan bahwa program aman, kompatibel dengan semua
+> Windows, atau telah diaudit oleh ANTO-LTG.
 >
 > Dokumentasi lengkap ada dalam bahasa Inggris: [README.md](README.md).
 
@@ -57,7 +59,7 @@ npm run serve        # http://localhost:8080
 - Setiap entri mencantumkan sumbernya (`sources[]`). Yang tidak diketahui tetap ditulis tidak diketahui: versi,
   tanggal, ukuran, hash, atau kompatibilitas tidak pernah ditebak.
 - Hash hanya disalin dari penerbit, tidak pernah dihitung sendiri. Kompatibilitas hanya yang *dinyatakan* sumber.
-- Crawler hanya membuat usulan `pending_review`; hanya manusia yang boleh menandai `verified`, dengan bukti.
+- Crawler hanya membuat usulan. `merge` mempublikasikan entri secara otomatis ketika aturan mesin lolos, dan tidak pernah menandai `verified`; hanya manusia yang boleh menandai `verified`, dengan bukti.
 
 ## Keamanan
 
@@ -69,7 +71,8 @@ CSP yang ketat, DOM dibangun tanpa `innerHTML`, ID paket divalidasi, skrip Power
 
 - Skrip PowerShell yang dihasilkan diuji secara **struktural**, tidak dijalankan (tidak ada PowerShell di CI).
 - Tautan katalog belum diperiksa (`unchecked`): robots.txt GitHub melarang pemeriksaan URL unduhan rilis.
-- Belum ada entri yang diverifikasi secara independen.
+- Belum ada entri yang diverifikasi oleh pengelola. Publikasi bersifat otomatis; tinjauan tidak.
+- Data driver masih terbatas. Daftar driver pihak ketiga hanya petunjuk dan tidak pernah dipublikasikan.
 
 ## Berkontribusi dan lisensi
 

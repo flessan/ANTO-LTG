@@ -3,6 +3,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { collectLinks, toLinkCheck, runLinkChecks, applyResults, buildReport, summarizeResults, checkLinks, LINK_CATALOGS, REPORT_SCHEMA } from '../../scripts/crawler/commands/check-links.mjs';
 import { createHttpClient, CrawlerError } from '../../scripts/crawler/lib/http.mjs';
@@ -10,6 +11,10 @@ import { RobotsChecker } from '../../scripts/crawler/lib/robots.mjs';
 import { main } from '../../scripts/crawler/cli.mjs';
 import { loadSchemas, createValidators } from '../../scripts/lib/schema.mjs';
 import { checkSemantics } from '../../scripts/lib/semantic.mjs';
+// Download count of the real sysinternals-suite entry, so the expectations track the catalog instead of a literal.
+const SYS_ENTRY = JSON.parse(readFileSync(new URL('../../catalogs/apps.json', import.meta.url), 'utf8')).items.find((a) => a.id === 'sysinternals-suite');
+const SYS_DOWNLOADS = SYS_ENTRY.downloads.length;
+const SYS_URLS = new Set(SYS_ENTRY.downloads.map((d) => d.url)).size; // a dry run probes each distinct URL once
 import { CATALOGS } from '../../scripts/lib/catalog-io.mjs';
 import { scriptedFetch, virtualClock, trackedBody, ok, redirect } from '../helpers/net.mjs';
 import { makeSandbox } from '../helpers/sandbox.mjs';
@@ -185,7 +190,7 @@ describe('runLinkChecks (against a scripted server)', () => {
 
 describe('applyResults changes link_check and nothing else', () => {
   const doc = () => ({
-    apps: { schema_version: '1.1.0', updated_at: '2026-01-01T00:00:00.000Z', items: [{ id: 'a', verification_status: 'pending_review', downloads: [{ kind: 'direct_binary', url: 'https://dl.example.com/a.exe', sha256: 'a'.repeat(64), link_check: { status: 'unchecked' } }] }, { id: 'b', verification_status: 'verified', downloads: [{ kind: 'landing_page', url: 'https://dl.example.com/b', link_check: { status: 'unchecked' } }] }] },
+    apps: { schema_version: '1.1.0', updated_at: '2026-01-01T00:00:00.000Z', items: [{ id: 'a', verification_status: 'not_reviewed', downloads: [{ kind: 'direct_binary', url: 'https://dl.example.com/a.exe', sha256: 'a'.repeat(64), link_check: { status: 'unchecked' } }] }, { id: 'b', verification_status: 'verified', downloads: [{ kind: 'landing_page', url: 'https://dl.example.com/b', link_check: { status: 'unchecked' } }] }] },
     drivers: { schema_version: '1.1.0', updated_at: '2026-01-01T00:00:00.000Z', items: [{ id: 'd', download: { kind: 'landing_page', url: 'https://dl.example.com/d' } }] },
     tools: { schema_version: '1.1.0', updated_at: '2026-01-01T00:00:00.000Z', items: [] },
   });
@@ -199,12 +204,12 @@ describe('applyResults changes link_check and nothing else', () => {
     assert.deepEqual(catalogs.apps.items[0].downloads[0].link_check, OKC);
     const strip = (c) => { const x = structuredClone(c); for (const i of x.apps.items) for (const d of i.downloads ?? []) delete d.link_check; delete x.apps.updated_at; return x; };
     assert.deepEqual(strip(catalogs), strip(before));
-    assert.equal(catalogs.apps.items[0].verification_status, 'pending_review');
+    assert.equal(catalogs.apps.items[0].verification_status, 'not_reviewed');
     assert.equal(catalogs.apps.items[0].downloads[0].sha256, 'a'.repeat(64), 'a hash is never recomputed or changed');
   });
   it('a link check can never promote or demote a record', () => {
     const { catalogs } = applyResults(doc(), [result('apps', 'a', 0, 'https://dl.example.com/a.exe', { status: 'broken', checked_at: NOW, http_status: 404 }), result('apps', 'b', 0, 'https://dl.example.com/b', { status: 'ok', checked_at: NOW, http_status: 200 })], '2026-10-13');
-    assert.deepEqual(catalogs.apps.items.map((i) => i.verification_status), ['pending_review', 'verified']);
+    assert.deepEqual(catalogs.apps.items.map((i) => i.verification_status), ['not_reviewed', 'verified']);
     assert.equal(catalogs.apps.items.length, 2, 'a broken link does not remove the record or the link');
     assert.equal(catalogs.apps.items[0].downloads.length, 1);
   });
@@ -251,11 +256,11 @@ describe('the check-links command', () => {
       const { client, net } = clientFor(answer);
       const code = await checkLinks({ flags: ONLY, log: (m) => logs.push(m), root: sb.dir, client, now: () => NOW });
       assert.equal(code, 0);
-      assert.deepEqual(net.calls.map((c) => c.method), ['HEAD', 'HEAD']);
+      assert.deepEqual(net.calls.map((c) => c.method), Array(SYS_URLS).fill('HEAD'));
       assert.deepEqual(await Promise.all(CATALOGS.map((n) => sb.read('catalogs', `${n}.json`))), before);
       const report = JSON.parse(await sb.read('catalogs', 'proposed', 'link-check.report.json'));
       assert.equal(report.schema, REPORT_SCHEMA);
-      assert.deepEqual(report.results.map((r) => [r.catalog, r.id, r.status]), [['apps', 'sysinternals-suite', 'ok'], ['apps', 'sysinternals-suite', 'ok']]);
+      assert.deepEqual(report.results.map((r) => [r.catalog, r.id, r.status]), Array.from({ length: SYS_DOWNLOADS }, () => ['apps', 'sysinternals-suite', 'ok']));
       assert.match(logs.join('\n'), /Dry run for the catalogs/);
     } finally { await sb.destroy(); }
   });
@@ -271,7 +276,7 @@ describe('the check-links command', () => {
       assert.equal(code, 0);
       const apps = await read('apps');
       const probed = apps.items.find((a) => a.id === 'sysinternals-suite').downloads;
-      assert.ok(probed.length === 2 && probed.every((d) => d.link_check.status === 'ok' && d.link_check.checked_at === NOW && d.link_check.http_status === 200));
+      assert.ok(probed.length === SYS_DOWNLOADS && probed.every((d) => d.link_check.status === 'ok' && d.link_check.checked_at === NOW && d.link_check.http_status === 200));
       for (const d of probed) assert.deepEqual(validLinkCheck(d.link_check).errors, []);
       const others = apps.items.filter((a) => a.id !== 'sysinternals-suite').flatMap((a) => a.downloads ?? []);
       assert.ok(others.length > 100 && others.every((d) => d.link_check?.status === 'unchecked'), 'links that were not probed stay "unchecked"');
@@ -297,7 +302,7 @@ describe('the check-links command', () => {
       const drivers = JSON.parse(await sb.read('catalogs', 'drivers.json'));
       const checked = drivers.items.filter((d) => d.download?.link_check?.status === 'ok');
       assert.ok(checked.length >= 1);
-      assert.ok(checked.every((d) => d.verification_status === 'pending_review'));
+      assert.ok(checked.every((d) => d.verification_status === 'not_reviewed'));
     } finally { await sb.destroy(); }
   });
 
@@ -308,9 +313,9 @@ describe('the check-links command', () => {
       assert.equal(await checkLinks({ flags: { ...ONLY, apply: true }, log: () => {}, root: sb.dir, client, now: () => NOW }), 0);
       const apps = JSON.parse(await sb.read('catalogs', 'apps.json'));
       const sys = apps.items.find((a) => a.id === 'sysinternals-suite');
-      assert.deepEqual(sys.downloads.map((d) => d.link_check.status), ['broken', 'broken']);
-      assert.ok(sys.downloads.length === 2 && sys.downloads.every((d) => d.url && d.kind), 'a broken link is reported, never deleted');
-      assert.equal(sys.verification_status, 'pending_review');
+      assert.deepEqual(sys.downloads.map((d) => d.link_check.status), Array(SYS_DOWNLOADS).fill('broken'));
+      assert.ok(sys.downloads.length === SYS_DOWNLOADS && sys.downloads.every((d) => d.url && d.kind), 'a broken link is reported, never deleted');
+      assert.equal(sys.verification_status, 'not_reviewed');
     } finally { await sb.destroy(); }
   });
 

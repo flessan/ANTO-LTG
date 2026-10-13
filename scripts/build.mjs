@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { CATALOGS, SCHEMA_VERSION, canonicalizeDoc, serialize, readCatalog } from './lib/catalog-io.mjs';
 import { loadSchemas, createValidators } from './lib/schema.mjs';
 import { checkSemantics } from './lib/semantic.mjs';
+import { checkPublication } from './lib/publication.mjs';
 import { buildSearchDocs } from './lib/search-docs.mjs';
 import { buildOpenApi } from './lib/openapi.mjs';
 import { syncPages } from './lib/chrome.mjs';
@@ -59,6 +60,8 @@ if (mode === 'format') {
 }
 
 // ---- derive artifacts ---------------------------------------------------------------------------
+const countWhere = (names, pred) => names.reduce((n, c) => n + (catalogs[c]?.items ?? []).filter(pred).length, 0);
+
 function stats() {
   const by = (items, f) => Object.fromEntries(Object.entries(items.reduce((m, i) => { const k = f(i); m[k] = (m[k] ?? 0) + 1; return m; }, {})).sort(([a], [b]) => (a < b ? -1 : 1)));
   const apps = catalogs.apps.items;
@@ -66,7 +69,14 @@ function stats() {
     apps: { total: apps.length, by_category: by(apps, (a) => a.category), by_primary_method: by(apps, (a) => installMethods(a).primary), windows11_declared: apps.filter((a) => compatFor(a, 'windows11') === 'declared').length, windows10_declared: apps.filter((a) => compatFor(a, 'windows10') === 'declared').length },
     drivers: { total: catalogs.drivers.items.length, by_component: by(catalogs.drivers.items, (d) => d.component), by_source_kind: by(catalogs.drivers.items, (d) => d.source_kind), by_kind: by(catalogs.drivers.items, (d) => d.kind) },
     vendors: { total: catalogs.vendors.items.length },
-    review: { pending_review: ['apps', 'drivers', 'tools', 'vendors'].reduce((n, c) => n + catalogs[c].items.filter((i) => i.verification_status === 'pending_review').length, 0), verified: ['apps', 'drivers', 'tools', 'vendors'].reduce((n, c) => n + catalogs[c].items.filter((i) => i.verification_status === 'verified').length, 0) },
+    // Human review (verification_status) and machine publication are counted separately.
+    review: { verified: countWhere(['apps', 'drivers', 'tools', 'vendors'], (i) => i.verification_status === 'verified'), not_reviewed: countWhere(['apps', 'drivers', 'tools', 'vendors'], (i) => i.verification_status === 'not_reviewed') },
+    publication: {
+      published: countWhere(['apps', 'drivers'], (i) => i.publication?.state === 'published'),
+      unavailable: countWhere(['apps', 'drivers'], (i) => i.publication?.state === 'unavailable'),
+      automated: countWhere(['apps', 'drivers'], (i) => i.publication?.method === 'automated'),
+      maintainer_curated: countWhere(['apps', 'drivers'], (i) => i.publication?.method === 'maintainer_curated'),
+    },
   };
 }
 
@@ -102,6 +112,7 @@ await step('Catalogs match their schemas', async () => {
 });
 await step('Catalogs are in canonical form (sorted ids, stable key order)', async () => CATALOGS.filter((n) => serialize(catalogs[n]) !== `${JSON.stringify(raw[n], null, 2)}\n`).map((n) => `catalogs/${n}.json is not canonical (run npm run format:catalogs)`));
 await step('Cross-file and policy rules (references, official domains, aggregators, URLs, dates)', async () => checkSemantics(catalogs));
+await step('Every catalog record carries a publication state that matches the automated rules', async () => checkPublication(catalogs));
 await step('Crawler proposals match their schema', async () => {
   const { readdir } = await import('node:fs/promises');
   const dir = path.join(root, 'catalogs', 'proposed'); const problems = [];
@@ -109,7 +120,7 @@ await step('Crawler proposals match their schema', async () => {
     const doc = JSON.parse(await readFile(path.join(dir, f), 'utf8'));
     const r = validators.validate('proposals', doc);
     if (!r.ok) problems.push(...r.errors.slice(0, 8).map((e) => `catalogs/proposed/${f} ${e}`));
-    for (const p of doc.proposals ?? []) if (p.record?.verification_status !== 'pending_review') problems.push(`catalogs/proposed/${f}: proposal ${p.target} is not pending_review (crawlers must never promote)`);
+    for (const p of doc.proposals ?? []) if (p.record?.verification_status !== 'not_reviewed' || 'reviewed_at' in (p.record ?? {})) problems.push(`catalogs/proposed/${f}: proposal ${p.target} claims a human review (crawlers must never promote to verified)`);
   }
   return problems;
 });
@@ -141,5 +152,5 @@ const failed = results.filter((r) => r.problems.length);
 if (failed.length) { console.error(`\nANTO-LTG ${mode} failed: ${failed.length} check(s) reported problems.`); process.exitCode = 1; }
 else {
   const s = stats();
-  console.log(`\nANTO-LTG ${mode} succeeded: ${s.apps.total} apps, ${s.drivers.total} drivers, ${s.vendors.total} vendors, ${catalogs.tools.items.length} tools, ${catalogs.bundles.items.length} bundles (${s.review.pending_review} pending review, ${s.review.verified} verified).`);
+  console.log(`\nANTO-LTG ${mode} succeeded: ${s.apps.total} apps, ${s.drivers.total} drivers, ${s.vendors.total} vendors, ${catalogs.tools.items.length} tools, ${catalogs.bundles.items.length} bundles (${s.publication.published} published automatically, ${s.publication.unavailable} unavailable, ${s.review.verified} human-verified).`);
 }

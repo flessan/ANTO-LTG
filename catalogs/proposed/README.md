@@ -14,10 +14,14 @@ public API read `catalogs/*.json`, never this folder.
 
 ## Reviewing a proposal
 
+Publication is automatic. `merge` publishes a record when the machine rules in `scripts/lib/publication.mjs` pass,
+and a proposal that fails them stays out of the catalog with its reasons recorded. Review is a separate step.
+
 1. Read the proposal's `record`, its `sources[]` (page, pinned commit, time, fields) and `meta.quality_flags`.
 2. Open the cited official page yourself. A proposal is a pointer to where to look, not evidence.
 3. `npm run crawl:merge` shows what would change. `node scripts/crawler/cli.mjs merge --apply` writes it. New records
-   enter as `pending_review`; a record a human verified is never overwritten (differences print as `DRIFT`).
+   are published when the rules pass and keep `verification_status: not_reviewed`. A record a human verified is never
+   overwritten (differences print as `DRIFT`).
 4. Only a person who has checked the source may set `verification_status` to `verified`, and only with `reviewed_at`,
    `review_notes` and `evidence_url`.
 

@@ -15,7 +15,7 @@
 <script type="module" src="../assets/js/site.js"></script>
 <!--chrome:head:end-->
 <title>Developers - ANTO-LTG</title>
-<meta name="description" content="Open data, schemas, OpenAPI, the search index format, the crawler and how to contribute a record to ANTO-LTG. Includes the review-status rules and the security model.">
+<meta name="description" content="Open data, schemas, OpenAPI, the search index format, the crawler and how to contribute a record to ANTO-LTG. Includes the publication and review rules and the security model.">
 <script type="module" src="../assets/js/developers.js"></script>
 </head>
 <body data-page="developers">
@@ -60,7 +60,7 @@
             <li><a href="#overview" data-i18n="dev.s.overview">Overview</a></li>
             <li><a href="#api" data-i18n="dev.s.api">Open JSON API</a></li>
             <li><a href="#data-model" data-i18n="dev.s.model">Data model</a></li>
-            <li><a href="#review-status" data-i18n="dev.s.review">Review status</a></li>
+            <li><a href="#publication-status" data-i18n="dev.s.publication">Publication and review</a></li>
             <li><a href="#software" data-i18n="dev.s.software">Software and scripts</a></li>
             <li><a href="#drivers" data-i18n="dev.s.drivers">Drivers</a></li>
             <li><a href="#search" data-i18n="dev.s.search">Search index</a></li>
@@ -115,7 +115,8 @@ curl -s https://YOUR-SITE/api/v1/apps.json | jq '.items[] | select(.winget_id=="
   "description": "One factual sentence about what it does.",
   "source_url": "https://example.com/app",
   "source_kind": "publisher_page",
-  "verification_status": "pending_review",
+  "publication": { "state": "published", "method": "automated", "checked_at": "2026-10-13T00:00:00.000Z", "checks": ["basic_fields", "https_official_source", "source_recorded", "downloads_pinned", "winget_package_proven"] },
+  "verification_status": "not_reviewed",
   "windows_compatibility": "not_reviewed",
   "architectures": [],
   "license": "Unknown",
@@ -128,11 +129,15 @@ curl -s https://YOUR-SITE/api/v1/apps.json | jq '.items[] | select(.winget_id=="
             <p class="small">Missing facts stay missing: omit <code>version</code>, <code>release_date</code> and <code>downloads</code> rather than guessing. A <code>sha256</code> is only ever copied from the publisher.</p>
           </section>
 
-          <section id="review-status">
-            <h2>Review status</h2>
+          <section id="publication-status">
+            <h2>Publication and review</h2>
+            <p>Two separate facts describe every record. Neither one is a safety rating.</p>
+            <div data-lang-block="id" hidden lang="id" class="notice"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#info"></use></svg><div><strong>Ringkasan:</strong> <em>publikasi</em> ditentukan otomatis oleh aturan mesin (<code>publication.state</code>: <code>published</code> atau <code>unavailable</code>). <em>Tinjauan</em> hanya dilakukan oleh pengelola manusia (<code>verification_status</code>: <code>not_reviewed</code> atau <code>verified</code>). Catatan yang dipublikasikan otomatis tetap <code>not_reviewed</code> sampai seseorang memeriksanya.</div></div>
             <ul>
-              <li><code>pending_review</code>: the record has sources and evidence, but no maintainer has verified it. Crawlers and first-time contributors can only produce this.</li>
-              <li><code>verified</code>: a person checked the claims against the official source and recorded <code>reviewed_at</code>, <code>review_notes</code> and an <code>evidence_url</code>. The validator refuses <code>verified</code> without all three, and refuses it for aggregator-sourced driver records.</li>
+              <li><code>publication.state</code> <code>published</code>: every automated rule passed when <code>checked_at</code> was recorded. <code>unavailable</code>: a later check found the record no longer meets the rules, so it stays visible with a warning. Publication is decided by <code>scripts/lib/publication.mjs</code> and needs no approval.</li>
+              <li><code>publication.method</code>: <code>automated</code> (produced by a crawler adapter and published by the merge rules) or <code>maintainer_curated</code> (written from official pages, then checked by the same rules).</li>
+              <li><code>verification_status</code> <code>not_reviewed</code>: no person has checked the record against the official source yet. This is the normal state of a published record.</li>
+              <li><code>verification_status</code> <code>verified</code>: a person checked the claims against the official source and recorded <code>reviewed_at</code>, <code>review_notes</code> and an <code>evidence_url</code>. The validator refuses <code>verified</code> without all three, and refuses it for aggregator-sourced driver records.</li>
               <li><code>withdrawn</code>: removed from use (kept for history).</li>
             </ul>
             <p><code>windows_compatibility</code> (<code>supported</code>, <code>partial</code>, <code>unsupported</code>) is a human conclusion that also needs notes and evidence. The machine-readable <code>compatibility</code> object only says what the SOURCE declares ("declared", "unsupported" or "unknown") and is never a test result.</p>
@@ -223,7 +228,7 @@ npm run crawl:links -- --hosts github.com  # header-only link check</code></pre>
       <section aria-labelledby="footer-trust">
         <h2 id="footer-trust" data-i18n="footer.trust">Trust and data</h2>
         <ul class="footer-links">
-          <li><a href="../developers/#review-status" data-i18n="footer.review">What "pending review" means</a></li>
+          <li><a href="../developers/#publication-status" data-i18n="footer.publication">How publication and review differ</a></li>
           <li><a href="../developers/#api" data-i18n="footer.api">Open JSON API</a></li>
           <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.security">Security policy</a></li>
         </ul>

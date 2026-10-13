@@ -20,7 +20,7 @@ Example: https://example.com/downloads (publisher page, read 2026-10-13): states
 
 - [ ] `npm run check` passes (validate, tests, build, and no uncommitted change to generated files).
 - [ ] I did **not** invent a version, date, hash, package ID or compatibility claim. Hashes come from the publisher.
-- [ ] I left new records `pending_review`. (If I set `verified`, I opened the source myself and filled `reviewed_at`, `review_notes` and `evidence_url`.)
+- [ ] Publication is automatic: `npm run crawl:merge -- --apply` and `npm run build` publish a record only when the machine rules pass; I did not edit `publication` by hand. I left `verification_status` as `not_reviewed` unless I opened the source myself and filled `reviewed_at`, `review_notes` and `evidence_url`.
 - [ ] Links go to official publisher or vendor pages. No mirrors, file hosts or aggregator download links.
 - [ ] I added no installer, driver, firmware, archive, token or personal data.
 - [ ] New UI text exists in both `assets/js/i18n/en.js` and `id.js`, and the HTML default text equals the English entry.

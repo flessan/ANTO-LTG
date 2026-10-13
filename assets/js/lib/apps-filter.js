@@ -1,7 +1,8 @@
 // Filtering and sorting of the Software Center catalog. Pure functions, unit-tested.
 import { installMethods, compatFor, displayRank } from './model.js';
+import { matchesStatus } from './status.js';
 
-export const DEFAULT_FILTERS = Object.freeze({ q: '', category: '', os: '', arch: '', method: '', review: '', declaredOnly: false, sort: 'name' });
+export const DEFAULT_FILTERS = Object.freeze({ q: '', category: '', os: '', arch: '', method: '', status: '', declaredOnly: false, sort: 'name' });
 
 // Rules that matter for trust:
 //  * "unknown" never matches an active architecture filter (we do not guess);
@@ -17,7 +18,7 @@ export function filterApps(apps, f, { searcher = null } = {}) {
   const out = apps.filter((a) => {
     if (scored && !scored.has(a.id)) return false;
     if (filters.category && a.category !== filters.category) return false;
-    if (filters.review && a.verification_status !== filters.review) return false;
+    if (!matchesStatus(a, filters.status)) return false;
     if (filters.os) {
       const c = compatFor(a, filters.os);
       if (c === 'unsupported') return false;

@@ -7,7 +7,7 @@
   "app_id": "7zip",
   "source_url": "https://example.com/portable-tool",
   "source_kind": "publisher_page",
-  "verification_status": "pending_review",
+  "verification_status": "not_reviewed",
   "requires_admin": "not_reviewed",
   "portable": true,
   "use_cases": ["Check something quickly without installing it."],

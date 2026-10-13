@@ -12,7 +12,7 @@ import { loadCatalogs } from '../helpers/repo.mjs';
 
 const META = { generatedAt: '2026-10-13T00:00:00.000Z', bundleName: 'Test bundle', schemaVersion: '1.1.0', catalogUpdated: '2026-10-13' };
 const app = (o = {}) => ({
-  id: 'git', name: 'Git', winget_id: 'Git.Git', category: 'developer-tools', verification_status: 'pending_review', source_url: 'https://git-scm.com/',
+  id: 'git', name: 'Git', winget_id: 'Git.Git', category: 'developer-tools', verification_status: 'not_reviewed', source_url: 'https://git-scm.com/',
   compatibility: { windows10: 'unknown', windows11: 'unknown' }, downloads: [], ...o,
 });
 const winget = (apps, os = 'windows11') => planInstall({ apps, os, method: 'winget' });

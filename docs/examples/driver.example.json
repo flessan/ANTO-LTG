@@ -17,11 +17,22 @@
     "type": "support_portal",
     "stable": true
   },
-  "verification_status": "pending_review",
-  "windows_versions": ["Windows 11"],
-  "os_support": [{ "os": "windows-11", "architectures": [] }],
+  "verification_status": "not_reviewed",
+  "windows_versions": [
+    "Windows 11"
+  ],
+  "os_support": [
+    {
+      "os": "windows-11",
+      "architectures": []
+    }
+  ],
   "architectures": [],
-  "download": { "kind": "landing_page", "url": "https://www.intel.com/content/www/us/en/download-center/home.html", "stability": "evergreen" },
+  "download": {
+    "kind": "landing_page",
+    "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+    "stability": "evergreen"
+  },
   "install_instructions": [
     "Open the official page and search for the adapter name or hardware ID.",
     "Download only from the vendor's own page and compare any published hash."
@@ -35,15 +46,34 @@
     }
   ],
   "notes": "Example only. A real record names the exact model, the page it came from and what that page does and does not say.",
-  "tags": ["example"],
+  "tags": [
+    "example"
+  ],
   "sources": [
     {
       "id": "intel-download-center",
       "kind": "vendor_page",
       "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
       "retrieved_at": "2026-10-13",
-      "fields": ["name", "description", "download", "windows_versions"]
+      "fields": [
+        "name",
+        "description",
+        "download",
+        "windows_versions"
+      ]
     }
   ],
-  "added_at": "2026-10-13"
+  "added_at": "2026-10-13",
+  "publication": {
+    "state": "published",
+    "method": "maintainer_curated",
+    "checked_at": "2026-10-13T00:00:00.000Z",
+    "checks": [
+      "basic_fields",
+      "https_official_source",
+      "source_recorded",
+      "aggregator_not_published",
+      "direct_download_official"
+    ]
+  }
 }

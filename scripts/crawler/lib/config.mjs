@@ -33,7 +33,7 @@ export function validateConfig(cfg) {
 }
 
 export async function loadAdapter(type) {
-  const map = { winget: 'winget.mjs', 'driver-listing': 'driver-listing.mjs' };
+  const map = { winget: 'winget.mjs', 'winget-index': 'winget-index.mjs', 'driver-listing': 'driver-listing.mjs' };
   if (!map[type]) throw new Error(`Unknown adapter type "${type}"`);
   const mod = await import(pathToFileURL(path.join(crawlerDir, 'adapters', map[type])).href);
   return mod.default;

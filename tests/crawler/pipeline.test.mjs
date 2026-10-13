@@ -208,7 +208,8 @@ describe('configuration', () => {
       const adapter = await loadAdapter(a.type);
       assert.equal(typeof adapter.run, 'function', name);
       assert.ok(adapter.id && adapter.describe, name);
-      if (a.hosts.some((h) => h !== 'api.github.com')) assert.equal(a.robots, 'required', `${name} reads web pages, so it must honour robots.txt`);
+      if (a.robots === 'not_applicable') assert.ok(a.robots_note && a.hosts.every((h) => h === 'api.github.com' || h === 'github.com'), `${name}: robots "not_applicable" needs a note and GitHub-only hosts`);
+      else if (a.hosts.some((h) => h !== 'api.github.com')) assert.equal(a.robots, 'required', `${name} reads web pages, so it must honour robots.txt`);
     }
   });
   it('refuses an unknown adapter type', async () => {

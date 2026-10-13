@@ -21,7 +21,7 @@ const tool = (o) => {
     id: o.id ?? app.id, name: o.name ?? app.name, category: o.category ?? app.category,
     description: o.description, description_id: o.description_id, publisher: o.publisher ?? app.publisher,
     ...(app ? { app_id: app.id } : {}), source_url: o.source_url ?? app.source_url, source_kind: o.source_kind ?? app.source_kind ?? 'publisher_page',
-    verification_status: 'pending_review', requires_admin: o.admin ?? 'not_reviewed',
+    verification_status: 'not_reviewed', requires_admin: o.admin ?? 'not_reviewed',
     ...(o.portable !== undefined ? { portable: o.portable } : {}), ...(o.bootable ? { bootable_media: true } : {}),
     use_cases: o.use, use_cases_id: o.use_id, cautions: o.caution, cautions_id: o.caution_id,
     notes: o.notes ?? '', ...(o.notes_id ? { notes_id: o.notes_id } : {}), tags: o.tags ?? [],

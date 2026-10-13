@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "updated_at": "2026-10-13T00:00:00.000Z",
   "items": [
     {
@@ -12,7 +12,7 @@
       "app_id": "anydesk",
       "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/AnyDesk/AnyDesk/9.8.1",
       "source_kind": "package_index",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Help a user remotely."
@@ -56,7 +56,7 @@
       "app_id": "autoruns",
       "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Find what slows boot or keeps re-launching after cleanup."
@@ -101,7 +101,7 @@
       "app_id": "balenaetcher",
       "source_url": "https://etcher.balena.io/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Flash Linux images or single-board-computer cards."
@@ -146,7 +146,7 @@
       "app_id": "cpuid-cpu-z",
       "source_url": "https://www.cpuid.com/softwares/cpu-z.html",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Check RAM speed and slots before an upgrade.",
@@ -192,7 +192,7 @@
       "app_id": "crystaldiskinfo",
       "source_url": "https://crystalmark.info/en/software/crystaldiskinfo/",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Check a disk before reinstalling Windows or cloning it.",
@@ -243,7 +243,7 @@
       "app_id": "crystaldiskmark",
       "source_url": "https://crystalmark.info/en/software/crystaldiskmark/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Confirm a new SSD performs as expected.",
@@ -290,7 +290,7 @@
       "app_id": "display-driver-uninstaller",
       "source_url": "https://www.wagnardsoft.com/display-driver-uninstaller-ddu",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "yes",
       "use_cases": [
         "Clean up before installing a different GPU vendor's driver."
@@ -337,7 +337,7 @@
       "app_id": "hirens-bootcd-pe",
       "source_url": "https://www.hirensbootcd.org/download/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "bootable_media": true,
       "use_cases": [
@@ -385,7 +385,7 @@
       "app_id": "hwinfo",
       "source_url": "https://www.hwinfo.com/download/",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Identify exactly which components are in a PC, including chipset and Wi-Fi model.",
@@ -432,7 +432,7 @@
       "app_id": "intel-driver-and-support-assistant",
       "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/i/Intel/IntelDriverAndSupportAssistant/26.2.0.7",
       "source_kind": "package_index",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Find out which Intel driver updates exist for a PC."
@@ -477,7 +477,7 @@
       "app_id": "librehardwaremonitor",
       "source_url": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Lightweight alternative when you only need sensor values."
@@ -522,7 +522,7 @@
       "app_id": "memtest86",
       "source_url": "https://www.memtest86.com/download.htm",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "bootable_media": true,
       "use_cases": [
@@ -569,7 +569,7 @@
       "app_id": "memtest86-plus",
       "source_url": "https://www.memtest.org/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "bootable_media": true,
       "use_cases": [
@@ -619,7 +619,7 @@
       "app_id": "nmap",
       "source_url": "https://nmap.org/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Check what a device exposes on the network."
@@ -664,7 +664,7 @@
       "app_id": "occt",
       "source_url": "https://www.ocbase.com/occt-personal-use",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Reproduce random crashes or reboots under load.",
@@ -710,7 +710,7 @@
       "app_id": "process-explorer",
       "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "See which process holds a file open or uses CPU."
@@ -755,7 +755,7 @@
       "app_id": "process-monitor",
       "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/procmon",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "yes",
       "use_cases": [
         "Find what a failing program is trying to open."
@@ -800,7 +800,7 @@
       "app_id": "rufus",
       "source_url": "https://rufus.ie/",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "yes",
       "use_cases": [
         "Make a Windows installation USB.",
@@ -849,7 +849,7 @@
       "app_id": "smartmontools",
       "source_url": "https://sourceforge.net/projects/smartmontools",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Script health checks across several machines.",
@@ -897,7 +897,7 @@
       "app_id": "sysinternals-suite",
       "source_url": "https://learn.microsoft.com/sysinternals/downloads/sysinternals-suite",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "portable": true,
       "use_cases": [
@@ -943,7 +943,7 @@
       "app_id": "teamviewer",
       "source_url": "https://www.teamviewer.com/",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Help a user remotely."
@@ -989,7 +989,7 @@
       "app_id": "techpowerup-gpu-z",
       "source_url": "https://www.techpowerup.com/gpuz/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Confirm the actual GPU model and driver version.",
@@ -1036,7 +1036,7 @@
       "app_id": "testdisk",
       "source_url": "https://www.cgsecurity.org/wiki/TestDisk",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "yes",
       "use_cases": [
         "Recover a partition table after a bad repartition.",
@@ -1085,7 +1085,7 @@
       "app_id": "ventoy",
       "source_url": "https://www.ventoy.net/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "yes",
       "use_cases": [
         "Carry several installers and rescue disks on one drive."
@@ -1133,7 +1133,7 @@
       "app_id": "wireshark",
       "source_url": "https://www.wireshark.org/download.html",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "See why a connection stalls or what a device is sending."
@@ -1178,7 +1178,7 @@
       "app_id": "wiztree",
       "source_url": "https://diskanalyzer.com/",
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
       "use_cases": [
         "Explain a full C: drive in seconds."

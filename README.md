@@ -5,16 +5,18 @@ finder, starter bundles, technician tool notes and guides, an open static JSON A
 proposes data for human review. Plain HTML, CSS, native JavaScript and JSON, with Node scripts for the build.
 No framework, no runtime dependencies, no CDN.
 
-> **Status: alpha.** Every catalog record is `pending_review`; **nothing is marked `verified`**, because
-> verification is a human act that has not happened yet. A record is not a statement that a program is safe, that it
-> works on every Windows, or that ANTO-LTG audited it. *Bahasa Indonesia: [README.id.md](README.id.md).*
+> **Status: publishing automatically.** A record is published when the machine rules in
+> [`scripts/lib/publication.mjs`](scripts/lib/publication.mjs) pass; no person approves that step. Publication and
+> human review are shown separately. **No record is `verified` yet**: nothing is marked `verified` because a maintainer has not checked any record against
+> its official source. A record is not a statement that a program is safe, that it works on every Windows, or that
+> ANTO-LTG audited it. Known limits are listed under [Limitations](#limitations). *Bahasa Indonesia: [README.id.md](README.id.md).*
 
 ## What is in it
 
 | Page | What it does |
 | --- | --- |
-| **Software Center** (`software/`) | Search by name, publisher, category, description or package ID. Filter by category, Windows version, architecture, install method and review status. Cards show the publisher, source, install method and a version only when a source states one. Multi-select (it survives filtering and reloads, with select/deselect all visible), then review the install plan and copy or download a **WinGet PowerShell script** (or a `winget import` file), export or import a portable JSON manifest, save bundles in your browser, or share a link. A second method, the *download kit*, only downloads and checks hashes that the publisher states; it never runs a file. |
-| **Driver source finder** (`drivers/`) | Search by manufacturer, model, motherboard, component, version, release date or hardware ID. Every result shows its official source, evidence, review status and a direct link **only** when the link is official and stable. A hardware-ID analyser maps `PCI\VEN_...` / `USB\VID_...` to the right vendor. An OEM/vendor directory links to Acer, ASUS, Dell, HP, Lenovo, MSI, GIGABYTE, ASRock, Intel, AMD, NVIDIA, Realtek, Microsoft Update Catalog and more. |
+| **Software Center** (`software/`) | Search by name, publisher, category, description or package ID. Filter by category, Windows version, architecture, install method and publication or review status. Cards show the publisher, source, install method and a version only when a source states one. Multi-select (it survives filtering and reloads, with select/deselect all visible), then review the install plan and copy or download a **WinGet PowerShell script** (or a `winget import` file), export or import a portable JSON manifest, save bundles in your browser, or share a link. A second method, the *download kit*, only downloads and checks hashes that the publisher states; it never runs a file. |
+| **Driver source finder** (`drivers/`) | Search by manufacturer, model, motherboard, component, version, release date or hardware ID. Every result shows its official source, evidence, publication and review status, and a direct link **only** when the link is official and stable. A hardware-ID analyser maps `PCI\VEN_...` / `USB\VID_...` to the right vendor. An OEM/vendor directory links to Acer, ASUS, Dell, HP, Lenovo, MSI, GIGABYTE, ASRock, Intel, AMD, NVIDIA, Realtek, Microsoft Update Catalog and more. |
 | **Bundles** (`bundles/`) | Ready-made selections that open in the Software Center. Nothing is installed until you download the script and type `YES`. |
 | **Tools** (`tools/`) | Technician tool notes: use cases, cautions, whether admin rights or boot media are needed. |
 | **Guides** (`guides/`) | Short guides, including how to read and run the generated script. |
@@ -53,7 +55,7 @@ npm run serve          # http://localhost:8080  (also: node scripts/serve.mjs --
 | `npm run build` | Regenerates `api/v1/*`, the search index, `openapi.json`, `assets/CREDITS.md` and the shared page header/footer. Set `SITE_URL=https://your.domain` to also write `sitemap.xml`, `robots.txt` and `feed.xml`. |
 | `npm run format:catalogs` | Rewrites `catalogs/*.json` in canonical form (sorted ids, fixed key order). |
 | `npm run check` | validate, test, build, and fail if the build changed a committed file. Run this before a pull request. |
-| `npm run crawl`, `crawl:dry`, `crawl:merge`, `crawl:links` | The crawler. See [docs/crawler.md](docs/crawler.md). |
+| `npm run crawl -- winget-index --incremental`, `crawl:dry`, `crawl:merge`, `crawl:links` | The crawler (the weekly GitHub Actions refresh runs the first one). See [docs/crawler.md](docs/crawler.md). |
 
 ## Repository layout
 
@@ -81,11 +83,25 @@ tests/             unit, crawler and browser (e2e) tests
 * Hashes are copied from the publisher, never computed. Compatibility is only what a source *declares*; a human
   `windows_compatibility` review is a separate field.
 * Links point to official pages. Aggregator listings are labelled leads and never carry a download link.
-* The crawler can only create `pending_review` proposals. See [docs/data-model.md](docs/data-model.md).
+* The crawler only proposes records. `merge` publishes a record automatically when the machine rules pass, and it
+  never sets `verified`. Human review is a separate field (`verification_status`) that stays `not_reviewed` until a
+  maintainer records evidence. See [docs/data-model.md](docs/data-model.md#publication-automated).
 
 The apps come mostly from the `microsoft/winget-pkgs` index (every package ID was proven to exist) plus a few
 hand-curated apps that have no WinGet package. The driver records are official vendor portals, publisher-stated
 packages, and clearly labelled aggregator leads. Exact, current counts are in [`api/v1/index.json`](api/v1/index.json).
+
+## Limitations
+
+* **Nothing is human-verified yet.** Publication is automatic; review is not. Filter by *Human-verified* to see
+  whatever a maintainer has actually checked (currently none).
+* **Driver data is thin.** Vendor download portals are template-rendered or captcha-gated, so they were entered by
+  hand from cited pages (see `scripts/curation/`). Third-party driver listings are leads only and are never published.
+* **Discovery is capped per category** and taken in alphabetical order; it is not a popularity ranking.
+* **Link checks** could not probe every host from the build environment, and `github.com` robots.txt blocks
+  release-asset URLs, so many download links stay `unchecked`.
+* **Generated scripts are tested structurally, not executed**: CI does not run them on Windows.
+* **The API is a static snapshot** regenerated by `npm run build` and the weekly refresh. It is not a live database.
 
 ## Security model
 

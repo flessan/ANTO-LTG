@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "updated_at": "2026-10-13T00:00:00.000Z",
   "items": [
     {
@@ -30,7 +30,7 @@
         "Di Windows Anda dapat mengunduh utilitas deteksi nomor seri Acer dari halaman itu untuk membacakan nomornya."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The detection utility is offered on the page for Windows operating systems only.",
       "sources": [
         {
@@ -80,7 +80,7 @@
         "Atau cari berdasarkan produk (misalnya CPU Ryzen atau GPU Radeon) untuk mendapatkan driver dan dukungannya."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The page links a web installer whose file name carries the Adrenalin version; that link changes with each release.",
       "notes_id": "Halaman menautkan penginstal web yang nama berkasnya memuat versi Adrenalin; tautan itu berubah pada setiap rilis.",
       "sources": [
@@ -123,7 +123,7 @@
         "Support Center juga menjelaskan cara menemukan nomor seri dan versi BIOS."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "sources": [
         {
           "id": "asrock-support",
@@ -173,7 +173,7 @@
         "Pada laptop, MyASUS dapat mengunduh driver secara langsung; halaman juga dapat mendeteksi nomor seri komputer ini setelah Anda setuju membagikannya."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The model name is printed on the device; ASUS has an article on how to find it.",
       "sources": [
         {
@@ -215,7 +215,7 @@
         "Broadcom membuat chip Wi-Fi/Bluetooth/jaringan. Mulailah dari situs perusahaan yang membuat laptop atau motherboard Anda, dan gunakan ID perangkat keras untuk memastikan chipnya."
       ],
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Listed so that hardware IDs can be matched to a chip vendor. Only the vendor homepage is recorded; no driver portal was verified.",
       "notes_id": "Didaftarkan agar ID perangkat keras dapat dicocokkan dengan vendor chip. Hanya beranda vendor yang dicatat; tidak ada portal driver yang diverifikasi.",
       "sources": [
@@ -262,7 +262,7 @@
         "Pilih sistem operasi dan kategori, lalu unduh paketnya; setiap halaman driver mencantumkan hash berkasnya."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Service Tag is printed on the device and shown in the BIOS.",
       "notes_id": "Service Tag tercetak pada perangkat dan ditampilkan di BIOS.",
       "sources": [
@@ -305,7 +305,7 @@
         "FTDI menyatakan drivernya hanya boleh dipakai dengan produk berbasis komponen FTDI."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The page also lists no-longer-supported releases for Windows XP, Vista and 2000.",
       "sources": [
         {
@@ -352,7 +352,7 @@
         "GIGABYTE Control Center ditautkan dari halaman untuk mengelola produk GIGABYTE dan AORUS yang didukung."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The page also links an article on how to find the product serial number.",
       "sources": [
         {
@@ -402,7 +402,7 @@
         "Staf TI dapat memakai HP Image Assistant untuk menganalisis PC HP dan merekomendasikan pembaruan driver, BIOS, dan perangkat lunak."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Signing in to an HP account is optional on the page.",
       "sources": [
         {
@@ -457,7 +457,7 @@
         "Setujui perjanjian lisensi untuk memulai unduhan, lalu bandingkan hash berkas dengan nilai di halaman."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Download pages show the SHA-256 (or SHA-512) of each file. Direct file links are not stored because Intel gates them behind a license acceptance and they change per version.",
       "notes_id": "Halaman unduhan menampilkan SHA-256 (atau SHA-512) tiap berkas. Tautan berkas langsung tidak disimpan karena Intel menempatkannya di balik persetujuan lisensi dan berubah pada tiap versi.",
       "sources": [
@@ -505,7 +505,7 @@
         "Buka Drivers & Software untuk produk yang teridentifikasi lalu unduh paket untuk versi Windows Anda."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The portal redirects to your country or region site.",
       "notes_id": "Portal mengalihkan ke situs negara atau wilayah Anda.",
       "sources": [
@@ -548,7 +548,7 @@
         "MediaTek membuat chip Wi-Fi/Bluetooth/jaringan. Mulailah dari situs perusahaan yang membuat laptop atau motherboard Anda, dan gunakan ID perangkat keras untuk memastikan chipnya."
       ],
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Listed so that hardware IDs can be matched to a chip vendor. Only the vendor homepage is recorded; no driver portal was verified.",
       "notes_id": "Didaftarkan agar ID perangkat keras dapat dicocokkan dengan vendor chip. Hanya beranda vendor yang dicatat; tidak ada portal driver yang diverifikasi.",
       "sources": [
@@ -601,7 +601,7 @@
         "Tiap model Surface menerima pembaruan driver dan firmware sampai tanggal akhir layanannya (lihat halaman siklus hidup Microsoft)."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Lifecycle dates: https://learn.microsoft.com/surface/surface-driver-firmware-lifecycle-support",
       "sources": [
         {
@@ -642,7 +642,7 @@
         "Tambahkan pembaruan yang cocok ke keranjang lalu unduh; paket driver berupa berkas CAB yang diekstrak dan dipasang melalui Device Manager."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Microsoft's own catalog of updates and driver packages. The page itself only offers a search box and a download basket.",
       "notes_id": "Katalog pembaruan dan paket driver milik Microsoft. Halamannya hanya menyediakan kotak pencarian dan keranjang unduhan.",
       "sources": [
@@ -684,7 +684,7 @@
         "MSI menyarankan memakai Chrome atau Edge untuk mengunduh BIOS dan driver."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The global site offers a switch to your local MSI site.",
       "sources": [
         {
@@ -733,7 +733,7 @@
         "Pada laptop, pabrikan menyediakan driver tersertifikasi untuk model tertentu; driver generik NVIDIA biasanya dapat dipasang, tetapi periksa pabrikan terlebih dahulu."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The driver pages are rendered by script, so ANTO-LTG does not scrape or state a \"latest\" version.",
       "notes_id": "Halaman driver dirender dengan skrip, sehingga ANTO-LTG tidak mengambil data maupun menyebut versi \"terbaru\".",
       "sources": [
@@ -778,7 +778,7 @@
         "Qualcomm membuat chip Wi-Fi/Bluetooth/jaringan. Mulailah dari situs perusahaan yang membuat laptop atau motherboard Anda, dan gunakan ID perangkat keras untuk memastikan chipnya."
       ],
       "source_kind": "official_project_site",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Listed so that hardware IDs can be matched to a chip vendor. Only the vendor homepage is recorded; no driver portal was verified.",
       "notes_id": "Didaftarkan agar ID perangkat keras dapat dicocokkan dengan vendor chip. Hanya beranda vendor yang dicatat; tidak ada portal driver yang diverifikasi.",
       "sources": [
@@ -829,7 +829,7 @@
         "Laptop dan motherboard sering membawa driver Realtek yang sudah disesuaikan: utamakan paket dari pabrikan komputer atau papan, dan gunakan paket generik Realtek bila tidak tersedia."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "The lists include Windows Vista, 7, 8/8.1 and XP packages with their dates, which makes them useful for older PCs.",
       "notes_id": "Daftar mencakup paket Windows Vista, 7, 8/8.1, dan XP beserta tanggalnya, sehingga berguna untuk PC lama.",
       "sources": [
@@ -879,7 +879,7 @@
         "Baca catatan rilis firmware untuk model Anda sebelum memperbarui, dan lakukan pencadangan terlebih dahulu."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "notes": "Firmware is device specific; ANTO-LTG lists the portal only and never individual firmware files.",
       "notes_id": "Firmware bersifat khusus perangkat; ANTO-LTG hanya mendaftarkan portalnya dan tidak pernah berkas firmware individual.",
       "sources": [
@@ -922,7 +922,7 @@
         "Catatan rilis ditautkan pada tab Tech Docs."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "sources": [
         {
           "id": "silabs-cp210x",
@@ -965,7 +965,7 @@
         "Halaman menyatakan sertifikasi WHQL dan mencantumkan versi Windows serta chip yang didukung."
       ],
       "source_kind": "manufacturer_support_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "sources": [
         {
           "id": "wch-ch341ser",

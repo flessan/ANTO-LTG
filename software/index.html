@@ -82,8 +82,8 @@
             <select id="sw-arch" name="arch"><option value="" data-i18n="common.any">Any</option><option value="x64">x64</option><option value="x86">x86 (32-bit)</option><option value="arm64">ARM64</option></select></div>
           <div class="field"><label for="sw-method" data-i18n="sw.f.method">Install method</label>
             <select id="sw-method" name="method"><option value="" data-i18n="common.any">Any</option><option value="winget" data-i18n="chip.winget">Package manager</option><option value="direct" data-i18n="chip.direct">Direct download</option><option value="page" data-i18n="sw.f.method.pageonly">Publisher page only</option><option value="unavailable" data-i18n="chip.unavailable">Unavailable</option></select></div>
-          <div class="field"><label for="sw-review" data-i18n="sw.f.review">Review status</label>
-            <select id="sw-review" name="review"><option value="" data-i18n="common.any">Any</option><option value="pending_review" data-i18n="review.pending">Pending review</option><option value="verified" data-i18n="review.verified">Verified</option></select></div>
+          <div class="field"><label for="sw-publication" data-i18n="sw.f.status">Publication and review</label>
+            <select id="sw-publication" name="publication"><option value="" data-i18n="common.any">Any</option><option value="published" data-i18n="status.published">Published automatically</option><option value="unavailable" data-i18n="status.unavailable">Unavailable (needs attention)</option><option value="verified" data-i18n="status.verified">Human-verified</option></select></div>
           <div class="field"><label for="sw-sort" data-i18n="sw.f.sort">Sort by</label>
             <select id="sw-sort" name="sort"><option value="name" data-i18n="sw.sort.name">Name</option><option value="category" data-i18n="sw.sort.category">Category</option><option value="relevance" data-i18n="sw.sort.relevance">Best match</option></select></div>
           <label class="check"><input type="checkbox" id="sw-declared" name="declaredOnly"><span data-i18n="sw.f.declared">Only packages that declare support for the chosen Windows</span></label>
@@ -146,7 +146,7 @@
       <section aria-labelledby="footer-trust">
         <h2 id="footer-trust" data-i18n="footer.trust">Trust and data</h2>
         <ul class="footer-links">
-          <li><a href="../developers/#review-status" data-i18n="footer.review">What "pending review" means</a></li>
+          <li><a href="../developers/#publication-status" data-i18n="footer.publication">How publication and review differ</a></li>
           <li><a href="../developers/#api" data-i18n="footer.api">Open JSON API</a></li>
           <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.security">Security policy</a></li>
         </ul>

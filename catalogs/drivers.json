@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "updated_at": "2026-10-13T00:00:00.000Z",
   "items": [
     {
@@ -21,7 +21,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -93,7 +105,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -167,7 +191,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -256,7 +292,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -327,7 +375,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -400,7 +460,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -474,7 +546,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows Server",
         "Windows Vista",
@@ -581,7 +665,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11",
@@ -687,7 +783,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 11"
       ],
@@ -774,7 +882,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -843,7 +963,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -915,7 +1047,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -1000,7 +1144,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -1073,7 +1229,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -1176,7 +1344,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -1277,7 +1457,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11",
@@ -1385,7 +1577,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 7",
@@ -1480,7 +1684,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -1563,7 +1779,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -1639,7 +1867,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -1721,1730 +1961,6 @@
       "added_at": "2026-10-13"
     },
     {
-      "id": "lead-intel-r-6-series-c200-series-management-engine-interface-1c3a-1-2-3-65a667",
-      "name": "Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A - 1.2.3.2005 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A",
-      "component": "chipset",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a chipset driver \"Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A\" version 1.2.3.2005 dated 2014-01-02 for Windows 10, Windows 8.1, Windows 7, Windows Vista, Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista",
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-vista"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [
-        "x64"
-      ],
-      "version": "1.2.3.2005",
-      "release_date": "2014-01-02",
-      "file_size_text": "1.92M",
-      "hardware_ids": [
-        "PCI\\VEN_8086&DEV_1C3A"
-      ],
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 33: device \"Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A\", vendor \"Intel\", date 2014-01-02, size 1.92M, version 1.2.3.2005, OS \"Windows 10 64 bit, Windows 8.1 64bit, Windows 7 64bit, Windows Vista 64bit, Windows XP 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures",
-            "hardware_ids"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-intel-r-6-series-c200-series-management-engine-interface-1c3a-10-0-ced285",
-      "name": "Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A - 10.0.27.1012 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A",
-      "component": "chipset",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a chipset driver \"Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A\" version 10.0.27.1012 dated 2014-08-05 for Windows 10, Windows 8.1, Windows 7, Windows Vista, Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista",
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-vista"
-        },
-        {
-          "architectures": [],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [
-        "x64",
-        "x86"
-      ],
-      "version": "10.0.27.1012",
-      "release_date": "2014-08-05",
-      "file_size_text": "73.23M",
-      "hardware_ids": [
-        "PCI\\VEN_8086&DEV_1C3A"
-      ],
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 34: device \"Intel(R) 6 Series/C200 Series Management Engine Interface - 1C3A\", vendor \"Intel\", date 2014-08-05, size 73.23M, version 10.0.27.1012, OS \"Windows 10 32 & 64bit, Windows 8.1 32 & 64bit, Windows 7 32 & 64bit, Windows Vista 32 & 64bit, Windows XP\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "architecture_not_stated",
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures",
-            "hardware_ids"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-intel-r-display-audio-6-16-00-3154-d6b4a9",
-      "name": "Intel(R) Display-Audio - 6.16.00.3154 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Intel(R) Display-Audio",
-      "component": "audio",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a audio driver \"Intel(R) Display-Audio\" version 6.16.00.3154 dated 2014-09-09 for Windows 10, Windows 8.1, Windows 7, Windows Vista. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-vista"
-        }
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "version": "6.16.00.3154",
-      "release_date": "2014-09-09",
-      "file_size_text": "69.09M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 20: device \"Intel(R) Display-Audio\", vendor \"Intel(R)\", date 2014-09-09, size 69.09M, version 6.16.00.3154, OS \"Windows 10 32 bit, Windows 8.1 32bit, Windows 7 32bit, Windows Vista 32bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-intel-r-display-audio-6-16-00-3154-fa54d7",
-      "name": "Intel(R) Display-Audio - 6.16.00.3154 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Intel(R) Display-Audio",
-      "component": "audio",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a audio driver \"Intel(R) Display-Audio\" version 6.16.00.3154 dated 2014-09-09 for Windows 10, Windows 8.1, Windows 7, Windows Vista. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-vista"
-        }
-      ],
-      "architectures": [
-        "x64"
-      ],
-      "version": "6.16.00.3154",
-      "release_date": "2014-09-09",
-      "file_size_text": "124.05M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 21: device \"Intel(R) Display-Audio\", vendor \"Intel(R)\", date 2014-09-09, size 124.05M, version 6.16.00.3154, OS \"Windows 10 64 bit, Windows 8.1 64bit, Windows 7 64bit, Windows Vista 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-realtek-pcie-gbe-family-controller-106-13-0115-2015-0fcecf",
-      "name": "Realtek PCIe GBE Family Controller - 106.13.0115.2015 (aggregator listing)",
-      "publisher": "Realtek",
-      "manufacturer": "Realtek",
-      "vendor_id": "realtek",
-      "model": "Realtek PCIe GBE Family Controller",
-      "component": "network-ethernet",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a network-ethernet driver \"Realtek PCIe GBE Family Controller\" version 106.13.0115.2015 dated 2015-01-15 for Windows Vista. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.realtek.com/Download/List?cate_id=584",
-        "vendor_id": "realtek",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows Vista"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-vista"
-        }
-      ],
-      "architectures": [
-        "x64",
-        "x86"
-      ],
-      "version": "106.13.0115.2015",
-      "release_date": "2015-01-15",
-      "file_size_text": "5.88M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 10: device \"Realtek PCIe GBE Family Controller\", vendor \"Realtek\", date 2015-01-15, size 5.88M, version 106.13.0115.2015, OS \"Windows Vista 32 & 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-realtek-pcie-gbe-family-controller-5-830-1204-2014-2cdbcb",
-      "name": "Realtek PCIe GBE Family Controller - 5.830.1204.2014 (aggregator listing)",
-      "publisher": "Realtek",
-      "manufacturer": "Realtek",
-      "vendor_id": "realtek",
-      "model": "Realtek PCIe GBE Family Controller",
-      "component": "network-ethernet",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a network-ethernet driver \"Realtek PCIe GBE Family Controller\" version 5.830.1204.2014 dated 2014-12-04 for Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.realtek.com/Download/List?cate_id=584",
-        "vendor_id": "realtek",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [],
-      "version": "5.830.1204.2014",
-      "release_date": "2014-12-04",
-      "file_size_text": "5.73M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 9: device \"Realtek PCIe GBE Family Controller\", vendor \"Realtek\", date 2014-12-04, size 5.73M, version 5.830.1204.2014, OS \"Windows XP\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "architecture_not_stated",
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-realtek-pcie-gbe-family-controller-7-092-0115-2015-d3d35d",
-      "name": "Realtek PCIe GBE Family Controller - 7.092.0115.2015 (aggregator listing)",
-      "publisher": "Realtek",
-      "manufacturer": "Realtek",
-      "vendor_id": "realtek",
-      "model": "Realtek PCIe GBE Family Controller",
-      "component": "network-ethernet",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a network-ethernet driver \"Realtek PCIe GBE Family Controller\" version 7.092.0115.2015 dated 2015-01-15 for Windows 7. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.realtek.com/Download/List?cate_id=584",
-        "vendor_id": "realtek",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 7"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-7"
-        }
-      ],
-      "architectures": [
-        "x64",
-        "x86"
-      ],
-      "version": "7.092.0115.2015",
-      "release_date": "2015-01-15",
-      "file_size_text": "5.93M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 11: device \"Realtek PCIe GBE Family Controller\", vendor \"Realtek\", date 2015-01-15, size 5.93M, version 7.092.0115.2015, OS \"Windows 7 32 & 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-realtek-pcie-gbe-family-controller-8-034-0617-2014-125155",
-      "name": "Realtek PCIe GBE Family Controller - 8.034.0617.2014 (aggregator listing)",
-      "publisher": "Realtek",
-      "manufacturer": "Realtek",
-      "vendor_id": "realtek",
-      "model": "Realtek PCIe GBE Family Controller",
-      "component": "network-ethernet",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a network-ethernet driver \"Realtek PCIe GBE Family Controller\" version 8.034.0617.2014 dated 2014-06-17 for Windows 10, Windows 8.1, Windows 8. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.realtek.com/Download/List?cate_id=584",
-        "vendor_id": "realtek",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 8",
-        "Windows 8.1"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-8"
-        }
-      ],
-      "architectures": [
-        "x64",
-        "x86"
-      ],
-      "version": "8.034.0617.2014",
-      "release_date": "2014-06-17",
-      "file_size_text": "5.79M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 13: device \"Realtek PCIe GBE Family Controller\", vendor \"Realtek\", date 2014-06-17, size 5.79M, version 8.034.0617.2014, OS \"Windows 10 32 & 64bit, Windows 8.1 32 & 64bit, Windows 8 32 & 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-realtek-pcie-gbe-family-controller-8-038-0115-2015-53a950",
-      "name": "Realtek PCIe GBE Family Controller - 8.038.0115.2015 (aggregator listing)",
-      "publisher": "Realtek",
-      "manufacturer": "Realtek",
-      "vendor_id": "realtek",
-      "model": "Realtek PCIe GBE Family Controller",
-      "component": "network-ethernet",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a network-ethernet driver \"Realtek PCIe GBE Family Controller\" version 8.038.0115.2015 dated 2015-01-15 for Windows 8.1, Windows 8. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.realtek.com/Download/List?cate_id=584",
-        "vendor_id": "realtek",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 8",
-        "Windows 8.1"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64",
-            "x86"
-          ],
-          "os": "windows-8"
-        }
-      ],
-      "architectures": [
-        "x64",
-        "x86"
-      ],
-      "version": "8.038.0115.2015",
-      "release_date": "2015-01-15",
-      "file_size_text": "5.84M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 12: device \"Realtek PCIe GBE Family Controller\", vendor \"Realtek\", date 2015-01-15, size 5.84M, version 8.038.0115.2015, OS \"Windows 8.1 32 & 64bit, Windows 8 32 & 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-6-14-10-5437-4bcc9f",
-      "name": "Video Controller (VGA Compatible) - 6.14.10.5437 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 6.14.10.5437 dated 2013-02-04 for Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [
-        "x64"
-      ],
-      "version": "6.14.10.5437",
-      "release_date": "2013-02-04",
-      "file_size_text": "29.67M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 2: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2013-02-04, size 29.67M, version 6.14.10.5437, OS \"Windows XP 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-6-14-10-5437-fb5c1b",
-      "name": "Video Controller (VGA Compatible) - 6.14.10.5437 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 6.14.10.5437 dated 2013-02-04 for Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "version": "6.14.10.5437",
-      "release_date": "2013-02-04",
-      "file_size_text": "23.09M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 1: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2013-02-04, size 23.09M, version 6.14.10.5437, OS \"Windows XP 32bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-8-15-10-2827-0035aa",
-      "name": "Video Controller (VGA Compatible) - 8.15.10.2827 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 8.15.10.2827 dated 2012-07-31 for Windows 10, Windows 8.1, Windows 7, Windows Vista. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-vista"
-        }
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "version": "8.15.10.2827",
-      "release_date": "2012-07-31",
-      "file_size_text": "72.72M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 5: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2012-07-31, size 72.72M, version 8.15.10.2827, OS \"Windows 10 32 bit, Windows 8.1 32bit, Windows 7 32bit, Windows Vista 32bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-8-15-10-2827-bea2e8",
-      "name": "Video Controller (VGA Compatible) - 8.15.10.2827 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 8.15.10.2827 dated 2012-07-31 for Windows 7, Windows Vista. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 7",
-        "Windows Vista"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-vista"
-        }
-      ],
-      "architectures": [
-        "x64"
-      ],
-      "version": "8.15.10.2827",
-      "release_date": "2012-07-31",
-      "file_size_text": "83.36M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 3: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2012-07-31, size 83.36M, version 8.15.10.2827, OS \"Windows 7 64bit, Windows Vista 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "legacy_os_only",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead",
-        "legacy"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-9-17-10-2770-906019",
-      "name": "Video Controller (VGA Compatible) - 9.17.10.2770 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 9.17.10.2770 dated 2012-05-29 for Windows 10, Windows 8.1, Windows 8. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 8",
-        "Windows 8.1"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x64"
-          ],
-          "os": "windows-8"
-        }
-      ],
-      "architectures": [
-        "x64"
-      ],
-      "version": "9.17.10.2770",
-      "release_date": "2012-05-29",
-      "file_size_text": "166.73M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 7: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2012-05-29, size 166.73M, version 9.17.10.2770, OS \"Windows 10 64 bit, Windows 8.1 64bit, Windows 8 64bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-9-17-10-2770-a80f72",
-      "name": "Video Controller (VGA Compatible) - 9.17.10.2770 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 9.17.10.2770 dated 2012-05-29 for Windows 10, Windows 8.1, Windows 7. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-7"
-        }
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "version": "9.17.10.2770",
-      "release_date": "2012-05-29",
-      "file_size_text": "126.69M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 4: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2012-05-29, size 126.69M, version 9.17.10.2770, OS \"Windows 10 32 bit, Windows 8.1 32bit, Windows 7 32bit\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
-      "id": "lead-video-controller-vga-compatible-9-17-10-4101-cc59a6",
-      "name": "Video Controller (VGA Compatible) - 9.17.10.4101 (aggregator listing)",
-      "publisher": "Intel",
-      "manufacturer": "Intel",
-      "vendor_id": "intel",
-      "model": "Video Controller (VGA Compatible)",
-      "component": "graphics",
-      "kind": "catalog_entry",
-      "description": "Third-party listing of a graphics driver \"Video Controller (VGA Compatible)\" version 9.17.10.4101 dated 2015-01-30 for Windows 10, Windows 8.1, Windows 7, Windows Vista, Windows XP. It is a lead to check on the vendor's official page, not a verified package.",
-      "source_url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-      "source_kind": "third_party_aggregator",
-      "official_source": {
-        "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
-        "vendor_id": "intel",
-        "type": "support_portal",
-        "stable": true
-      },
-      "verification_status": "pending_review",
-      "windows_versions": [
-        "Windows 10",
-        "Windows 7",
-        "Windows 8.1",
-        "Windows Vista",
-        "Windows XP"
-      ],
-      "os_support": [
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-10"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-8-1"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-7"
-        },
-        {
-          "architectures": [
-            "x86"
-          ],
-          "os": "windows-vista"
-        },
-        {
-          "architectures": [],
-          "os": "windows-xp"
-        }
-      ],
-      "architectures": [
-        "x86"
-      ],
-      "version": "9.17.10.4101",
-      "release_date": "2015-01-30",
-      "file_size_text": "96.5M",
-      "download": {
-        "kind": "none",
-        "requires": [
-          "captcha"
-        ]
-      },
-      "install_instructions": [
-        "Do not use the aggregator's file. Open the official vendor portal linked as the official source.",
-        "Search for the device name or hardware ID and compare the vendor's version and date with this lead.",
-        "Download only from the vendor's own page."
-      ],
-      "install_instructions_id": [
-        "Jangan memakai berkas dari agregator. Buka portal vendor resmi yang ditautkan sebagai sumber resmi.",
-        "Cari nama perangkat atau ID perangkat keras lalu bandingkan versi dan tanggal dari vendor dengan lead ini.",
-        "Unduh hanya dari halaman milik vendor."
-      ],
-      "evidence": [
-        {
-          "type": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "note": "Listing row 6: device \"Video Controller (VGA Compatible)\", vendor \"Intel\", date 2015-01-30, size 96.5M, version 9.17.10.4101, OS \"Windows 10 32 bit, Windows 8.1 32bit, Windows 7 32bit, Windows Vista 32bit, Windows XP\". The listing asks for a verification code and its file path is disallowed by the site's robots.txt; the file was never requested."
-        }
-      ],
-      "quality_flags": [
-        "architecture_not_stated",
-        "download_gated_by_verification_code",
-        "download_path_robots_disallowed",
-        "lists_end_of_support_os"
-      ],
-      "notes": "Aggregator lead only. No download link is stored: the listing's file path sits behind a verification code and, per the site's robots.txt, is not for crawlers. Confirm this version and date on the vendor's official page before relying on it.",
-      "notes_id": "Hanya lead dari agregator. Tidak ada tautan unduhan yang disimpan: jalur berkas pada listing berada di balik kode verifikasi dan, menurut robots.txt situs, tidak untuk crawler. Konfirmasi versi dan tanggal ini di halaman resmi vendor sebelum diandalkan.",
-      "tags": [
-        "aggregator-lead"
-      ],
-      "sources": [
-        {
-          "id": "driverscape-online-125322",
-          "kind": "aggregator_listing",
-          "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
-          "retrieved_at": "2026-10-13",
-          "fields": [
-            "name",
-            "description",
-            "manufacturer",
-            "model",
-            "version",
-            "release_date",
-            "file_size_text",
-            "os_support",
-            "windows_versions",
-            "architectures"
-          ],
-          "note": "Third-party aggregator listing; parsed by the label-driven driver-listing adapter."
-        }
-      ],
-      "added_at": "2026-10-13"
-    },
-    {
       "id": "lenovo-official-driver-portal",
       "name": "Lenovo official driver and download portal",
       "publisher": "Lenovo",
@@ -3463,7 +1979,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -3536,7 +2064,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -3610,7 +2150,19 @@
         "type": "catalog",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -3682,7 +2234,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -3753,7 +2317,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -3827,7 +2403,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows Server",
         "Windows XP",
@@ -3925,7 +2513,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 7",
@@ -4040,7 +2640,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 7",
@@ -4154,7 +2766,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -4230,7 +2854,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows Server",
         "Windows Vista"
@@ -4317,7 +2953,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11"
@@ -4402,7 +3050,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 11"
       ],
@@ -4482,7 +3142,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 7",
         "Windows Server"
@@ -4568,7 +3240,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 8",
         "Windows 8.1",
@@ -4659,7 +3343,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows Server",
         "Windows XP"
@@ -4745,7 +3441,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows Server"
@@ -4831,7 +3539,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 11",
         "Windows Server"
@@ -4916,7 +3636,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "other"
       ],
@@ -4988,7 +3720,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -5061,7 +3805,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -5137,7 +3893,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -5213,7 +3981,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],
@@ -5283,7 +4063,19 @@
         "type": "download_page",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [
         "Windows 10",
         "Windows 11",
@@ -5430,7 +4222,19 @@
         "type": "support_portal",
         "stable": true
       },
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
+      "publication": {
+        "state": "published",
+        "method": "maintainer_curated",
+        "checked_at": "2026-10-13T00:00:00.000Z",
+        "checks": [
+          "basic_fields",
+          "https_official_source",
+          "source_recorded",
+          "aggregator_not_published",
+          "direct_download_official"
+        ]
+      },
       "windows_versions": [],
       "os_support": [],
       "architectures": [],

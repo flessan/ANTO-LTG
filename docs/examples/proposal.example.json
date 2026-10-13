@@ -22,7 +22,7 @@
         "description_id": "Contoh catatan yang menunjukkan kolom pada aplikasi kurasi. Ini bukan program sungguhan.",
         "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/e/Example/Package/1.2.3",
         "source_kind": "package_index",
-        "verification_status": "pending_review",
+        "verification_status": "not_reviewed",
         "windows_compatibility": "not_reviewed",
         "compatibility": {
           "windows10": "unknown",
@@ -82,7 +82,19 @@
         "release_date": "2026-09-30",
         "installer_types": [
           "inno"
-        ]
+        ],
+        "publication": {
+          "state": "published",
+          "method": "automated",
+          "checked_at": "2026-10-13T00:00:00.000Z",
+          "checks": [
+            "basic_fields",
+            "https_official_source",
+            "source_recorded",
+            "downloads_pinned",
+            "winget_package_proven"
+          ]
+        }
       },
       "meta": {
         "adapter": "winget",

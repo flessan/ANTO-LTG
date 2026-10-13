@@ -1,8 +1,10 @@
 # Crawler
 
 `scripts/crawler/` collects **proposals** for the catalogs from official package indexes and public pages.
-Nothing it writes is trusted: every output is a reviewable JSON file that a person merges, and no record ever
-leaves `pending_review` because of the crawler.
+`merge` then publishes a record **automatically** when the machine rules in
+[`scripts/lib/publication.mjs`](../scripts/lib/publication.mjs) pass; a record that fails them is skipped and
+the failed rule ids are printed. The crawler never sets `verified`: human review is a separate field that stays
+`not_reviewed` until a maintainer checks the official source (see [data model](data-model.md#publication-automated)).
 
 Zero runtime dependencies: Node 22.12+ and its built-in `fetch`.
 
@@ -20,7 +22,7 @@ Zero runtime dependencies: Node 22.12+ and its built-in `fetch`.
 | Credentials go only to the exact host they were configured for, are never forwarded on a redirect, and cookies are never sent | `lib/http.mjs` | `http.test.mjs` |
 | Conditional requests (ETag / Last-Modified) with an on-disk cache, so repeat runs are cheap | `lib/http.mjs` | `http.test.mjs` |
 | Fetched text is treated as untrusted: parsed with a small purpose-built YAML/HTML reader, never evaluated, flattened to plain text in reports | `lib/yaml-lite.mjs`, `lib/html.mjs`, `lib/report.mjs` | `yaml-lite.test.mjs`, `html.test.mjs`, `pipeline.test.mjs` |
-| Output is `pending_review` only; merge never touches review fields or human-written text | `lib/merge.mjs` | `merge.test.mjs` |
+| Crawled records enter as `not_reviewed` and are published only when the publication rules pass; merge never touches review fields or human-written text | `lib/merge.mjs`, `scripts/lib/publication.mjs` | `merge.test.mjs`, `winget-index.test.mjs` |
 | Nothing is downloaded, mirrored or executed | by construction | `http.test.mjs`, `check-links.test.mjs` |
 
 The crawler does **not** attempt to bypass logins, captchas, rate limits or bot detection, and it will not.
@@ -101,13 +103,16 @@ Each adapter declares the settings below. `loadConfig` rejects a config that vio
 | Adapter setting | Meaning |
 | --- | --- |
 | `enabled` | Whether a bare `crawl` runs it. |
-| `type` | Which adapter implementation to load (`winget` or `driver-listing`). |
+| `type` | Which adapter implementation to load (`winget`, `winget-index` or `driver-listing`). |
 | `description` | Human-readable summary (shown by `adapters`; not used by the code). |
 | `hosts` | A bare host-name allow-list. Requests (and redirects) to anything else are refused. |
 | `robots` | `required`, or `not_applicable`, which must come with a written `robots_note` (for example "uses a documented API"). |
 | `host_rules` | Optional per-host `min_interval_ms` and `concurrency` that override the global values. |
 | `requires_flag` | A command-line flag that must be passed to run the adapter (`--allow-aggregators`). |
 | `repo`, `branch` | (winget) The package index repository and branch to read. |
+| `repo_url` | (winget-index) The public git remote to clone. Only `https://github.com/<owner>/<repo>.git` is accepted. |
+| `work_dir` | (winget-index) Where the blob-less clone lives (`.cache/crawler`, git-ignored). |
+| `discovery` | (winget-index) `enabled`; `max_per_category` (how many discovered IDs each category may add); `exclude` (case-sensitive regular expressions on package IDs: pre-release channels, locale and MSIX variants, vendor families that are out of scope); `rules` (`category` plus a case-insensitive `match` regular expression on the ID). |
 | `seed_file` | (winget) The curated list of package IDs to look up (`seeds/winget.json`). |
 | `default_locale` | (winget) Locale to read when a manifest does not name its default one (`en-US`). |
 | `targets_file` | (driver-listings) The listing pages to read, with their fixtures (`seeds/driver-listings.json`). |
@@ -118,8 +123,23 @@ Each adapter declares the settings below. `loadConfig` rejects a config that vio
 
 | Adapter | Source | Status |
 | --- | --- | --- |
-| `winget` | The documented GitHub REST API for `microsoft/winget-pkgs` (package metadata and hash-pinned installer URLs). No HTML is scraped. Targets come from `seeds/winget.json` (IDs that were each proven to exist). | Enabled. Uses `GITHUB_TOKEN` / `GH_TOKEN` when set, sent only to `api.github.com`; without a token GitHub allows 60 requests an hour. |
-| `driver-listings` | Third-party driver listing pages (currently one DriverScape page), robots-checked, parsed by label. Output is **lead-only**: records are `third_party_aggregator`, carry quality flags, never include a download link, and map to the vendor's official portal. | Disabled by default; needs `--allow-aggregators`. |
+| `winget` | The documented GitHub REST API for `microsoft/winget-pkgs` (package metadata and hash-pinned installer URLs). No HTML is scraped. Kept for single-package lookups and as a fallback. | Disabled for full crawls (superseded by `winget-index`). Uses `GITHUB_TOKEN` / `GH_TOKEN` when set, sent only to `api.github.com`; without a token GitHub allows 60 requests an hour. |
+| `winget-index` | The public git repository `microsoft/winget-pkgs`, read as a blob-less clone with a sparse checkout. One tree listing gives the whole index of package IDs (about 15,000 at the time of writing). Targets are the seeds (`seeds/winget.json`, each proven to exist, otherwise `NOT_FOUND`) plus the discovery rules. Only the manifests of the selected packages are fetched. No HTML and no API quota. | Enabled. Used for the scheduled and full crawls. |
+| `driver-listings` | Third-party driver listing pages (currently one DriverScape page), robots-checked, parsed by label. Output is **lead-only**: records are `third_party_aggregator`, carry quality flags, never include a download link, and map to the vendor's official portal. Leads are never published: they stay in `catalogs/proposed/driver-listings.proposals.json` and `drivers.json` never contains one. | Disabled by default; needs `--allow-aggregators`. |
+
+**Why `winget-index` says `robots: not_applicable`.** robots.txt governs web pages. `winget-index` fetches no web
+page: it reads a public git repository over git's smart HTTPS protocol, the same way `git clone` does, and it
+accepts only `github.com` remotes. The decision is recorded in the adapter's `robots_note` and enforced by
+`tests/crawler/pipeline.test.mjs`, which allows `not_applicable` only for GitHub hosts with a written note. Any
+adapter that reads an HTML page must use `robots: required`.
+
+**Discovery policy (winget-index).** Seeds are curated and always included. Discovery adds IDs that match a category
+rule and no exclusion, with at most `max_per_category` IDs per category. Within a category the IDs are taken in
+alphabetical order. That is deterministic and reproducible, but it is **not** a popularity ranking, and a category
+with more matches than its cap will not contain all of them. Raise the cap, or add an ID to the seeds, to change
+that. Excluded: pre-release channels (beta, preview, nightly, insider, canary, RC, alpha, and their lower-case
+forms), locale and MSIX variants, version-pinned IDs, Chinese-market consumer apps, OEM utilities, and NirSoft
+(opt-in: add an ID to the seeds to include one).
 
 Official vendor sites (Intel, NVIDIA, AMD, Dell, HP, Lenovo, ASUS, MSI, Acer, GIGABYTE, Realtek, ...) are **not**
 crawled by an adapter. Their pages are template-rendered, script-driven or captcha-gated, and their records in
@@ -143,7 +163,7 @@ A proposal looks like this (full example: [`docs/examples/proposal.example.json`
   "target": "Git.Git",
   "key": "winget:git.git",
   "catalog": "apps",
-  "record": { "id": "git", "name": "Git", "verification_status": "pending_review", "...": "..." },
+  "record": { "id": "git", "name": "Git", "verification_status": "not_reviewed", "publication": { "state": "published", "method": "automated", "checked_at": "...", "checks": ["..."] }, "...": "..." },
   "meta": { "adapter": "winget", "crawled_at": "...", "quality_flags": [], "fingerprint": "..." }
 }
 ```
@@ -175,13 +195,16 @@ use `--incremental`.
 
 * A proposal can never change `id`, `verification_status`, `reviewed_at`, `review_notes`, `evidence_url`,
   `windows_compatibility`, `notes`, `notes_id`, `description_id` or `added_at`.
-* New records enter as `pending_review`.
+* New records enter as `not_reviewed`. Each one is checked against the publication rules for its catalog: a record
+  that passes is written as `publication.state: "published"`; a record that fails is skipped and the rule ids that
+  failed are shown in the plan.
 * On an unverified record the crawler may refresh data fields (version, release date, compatibility, architectures,
   installer details, downloads, license, quality flags) and fill empty descriptive fields. Anything else a person
   wrote stays.
 * A **verified** record is never overwritten: differences are printed as `DRIFT` for a person to re-review.
 * Duplicates are found by stable key (WinGet ID, canonical URL, id), never by name alone, so merging twice changes
   nothing (idempotent).
+* Aggregator (`third_party_aggregator`) records are never merged into `drivers.json`, whatever their flags.
 * Driver proposals with a blocking quality flag (`vendor_device_mismatch`, `filename_vendor_mismatch`,
   `filename_version_mismatch`, `non_english_name`, `multi_device_row`, `generic_device_name`, `date_inconsistent`)
   are held back; `--allow-flagged` overrides that deliberately.
@@ -246,7 +269,7 @@ so the other hosts could not be probed there.
    `commands/merge.mjs`.
 3. Add it to `crawler.config.json` with its **host allow-list** and `robots` mode. Prefer a documented API over
    scraping HTML. Leave it `enabled: false` until it has been reviewed.
-4. Produce `pending_review` records only, with `sources[]` for every field, and quality flags for anything doubtful.
+4. Produce `not_reviewed` records only, with `sources[]` for every field, and quality flags for anything doubtful. Publication is decided by the shared rules in `scripts/lib/publication.mjs`, never by the adapter.
    If a value cannot be parsed with confidence, return `null`.
 5. Test it without the network: save a fixture, or use the fake `fetch` helpers in `tests/helpers/`
    (`fake-github.mjs`, `net.mjs`). Tests must never reach the internet.
@@ -266,3 +289,19 @@ returned by a text-extraction fetch, because the sandbox could not `curl` the si
 It exists to test the parser and the quality flags; the proposals it produced are labelled `mode: fixture`, and
 the file download links on that site (disallowed by its robots.txt and gated by a verification code) are never
 stored.
+
+## Scheduled refresh (GitHub Actions)
+
+`.github/workflows/catalog-refresh.yml` runs every Monday at 03:17 UTC, and can be started by hand (`workflow_dispatch`):
+
+1. `npm ci`, then an incremental `winget-index` crawl. The blob-less clone is cached between runs under `.cache/crawler`
+   (git-ignored and never committed). `catalogs/proposed/state.json` keeps the per-package fingerprints, so an unchanged
+   manifest is not re-read.
+2. `merge --apply`, so the publication rules decide what is published. Nothing is marked `verified`.
+3. `format:catalogs`, `validate`, `npm test` and `build`. If any of these fails, nothing is proposed.
+4. If the catalogs or API changed, the job pushes `automated/catalog-refresh` and opens or updates one pull request.
+   A person reads the diff before it is merged.
+
+Limitations of the workflow: a push made with the default `GITHUB_TOKEN` does not start other workflows, so the checks
+that run on pull requests do not run automatically on this one. The job runs the same checks itself before it pushes.
+The repository must allow Actions to create pull requests (Settings → Actions → General).

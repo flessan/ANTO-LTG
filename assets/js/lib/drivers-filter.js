@@ -1,6 +1,7 @@
 // Filtering and sorting of the driver source finder. Unknown stays unknown: a record with no stated OS or
 // architecture never matches an active OS / architecture filter.
-export const DEFAULT_DRIVER_FILTERS = Object.freeze({ q: '', vendor: '', component: '', os: '', arch: '', source: '', review: '', directOnly: false, sort: 'relevance' });
+import { matchesStatus } from './status.js';
+export const DEFAULT_DRIVER_FILTERS = Object.freeze({ q: '', vendor: '', component: '', os: '', arch: '', source: '', status: '', directOnly: false, sort: 'relevance' });
 
 export function filterDrivers(drivers, f, { searcher = null } = {}) {
   const filters = { ...DEFAULT_DRIVER_FILTERS, ...f };
@@ -13,7 +14,7 @@ export function filterDrivers(drivers, f, { searcher = null } = {}) {
     if (scored && !scored.has(d.id)) return false;
     if (filters.vendor && d.vendor_id !== filters.vendor) return false;
     if (filters.component && d.component !== filters.component) return false;
-    if (filters.review && d.verification_status !== filters.review) return false;
+    if (!matchesStatus(d, filters.status)) return false;
     if (filters.source === 'official' && d.source_kind === 'third_party_aggregator') return false;
     if (filters.source === 'lead' && d.source_kind !== 'third_party_aggregator') return false;
     if (filters.directOnly && d.download?.kind !== 'direct_binary') return false;

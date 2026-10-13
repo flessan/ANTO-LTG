@@ -3,7 +3,7 @@
   "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
   "info": {
     "title": "ANTO-LTG Catalog API",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Static, read-only JSON files generated from catalogs/ by `npm run build`. This is a research index: statuses, sources and retrieval dates must be read before a record is used in a critical workflow. It is not a live driver database and not a real-time API.",
     "license": {
       "name": "MIT (code); see LICENSING.md for data and third-party notices",
@@ -43,7 +43,7 @@
             }
           }
         },
-        "description": "Software that technicians commonly install, with sourced versions, hash-pinned installer URLs and declared compatibility. The file currently holds 278 items.",
+        "description": "Software that technicians commonly install, with sourced versions, hash-pinned installer URLs and declared compatibility. The file currently holds 394 items.",
         "tags": [
           "catalogs"
         ]
@@ -65,7 +65,7 @@
             }
           }
         },
-        "description": "Driver source records: official packages, vendor tools, support portals and clearly labelled third-party leads. The file currently holds 60 items.",
+        "description": "Driver source records: official packages, vendor tools, support portals and clearly labelled third-party leads. The file currently holds 44 items.",
         "tags": [
           "catalogs"
         ]
@@ -269,7 +269,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [
@@ -291,7 +291,7 @@
       },
       "Apps_app": {
         "title": "App",
-        "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources; nothing here is verified unless verification_status says so.",
+        "description": "A piece of software that technicians commonly install. Facts (version, downloads, compatibility) come from cited sources. publication says whether the machine rules passed; verification_status says whether a human reviewed it.",
         "type": "object",
         "required": [
           "id",
@@ -302,6 +302,7 @@
           "source_url",
           "source_kind",
           "verification_status",
+          "publication",
           "windows_compatibility",
           "architectures",
           "license",
@@ -357,6 +358,9 @@
           },
           "verification_status": {
             "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "publication": {
+            "$ref": "#/components/schemas/Common_publication"
           },
           "reviewed_at": {
             "oneOf": [
@@ -673,7 +677,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [
@@ -1001,6 +1005,55 @@
         ],
         "format": "date"
       },
+      "Common_publication": {
+        "type": "object",
+        "required": [
+          "state",
+          "method",
+          "checked_at",
+          "checks"
+        ],
+        "additionalProperties": false,
+        "description": "Machine-checked publication state. Separate from human review. 'published' means every rule in publication.mjs passed when this record was last generated; 'unavailable' means a later check (for example a link check or a removed WinGet package) found the record no longer meets the rules, and the record stays visible with a warning instead of silently disappearing.",
+        "properties": {
+          "state": {
+            "enum": [
+              "published",
+              "unavailable"
+            ]
+          },
+          "method": {
+            "enum": [
+              "automated",
+              "maintainer_curated"
+            ],
+            "description": "automated = produced by a crawler adapter and published by the merge rules; maintainer_curated = written by a maintainer from official pages, then checked by the same rules."
+          },
+          "checked_at": {
+            "$ref": "#/components/schemas/Common_dateTime"
+          },
+          "checks": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$",
+              "maxLength": 64
+            },
+            "description": "Rule ids that passed at checked_at."
+          },
+          "problems": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$",
+              "maxLength": 64
+            },
+            "description": "Rule ids that failed at checked_at (empty for published records)."
+          }
+        }
+      },
       "Common_qualityFlags": {
         "type": "array",
         "uniqueItems": true,
@@ -1145,11 +1198,11 @@
       },
       "Common_verificationStatus": {
         "enum": [
-          "pending_review",
+          "not_reviewed",
           "verified",
           "withdrawn"
         ],
-        "description": "'verified' requires reviewed_at, review_notes and an evidence_url. Crawlers can only ever produce 'pending_review'."
+        "description": "HUMAN review status only. 'verified' means a maintainer checked the record against the official source and recorded reviewed_at, review_notes and an evidence_url. Automated publication never sets it: a record that no human has reviewed is 'not_reviewed', and that is normal for published records. See the 'publication' definition for machine-checked publication."
       },
       "Common_version": {
         "type": [
@@ -1170,7 +1223,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [
@@ -1220,6 +1273,7 @@
           "source_url",
           "source_kind",
           "verification_status",
+          "publication",
           "manufacturer",
           "model",
           "component",
@@ -1327,6 +1381,9 @@
           },
           "verification_status": {
             "$ref": "#/components/schemas/Common_verificationStatus"
+          },
+          "publication": {
+            "$ref": "#/components/schemas/Common_publication"
           },
           "reviewed_at": {
             "oneOf": [
@@ -1646,7 +1703,7 @@
       },
       "Proposals": {
         "title": "ANTO-LTG crawler proposals",
-        "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be pending_review.",
+        "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be not_reviewed.",
         "type": "object",
         "required": [
           "schema",
@@ -1837,7 +1894,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [
@@ -2045,7 +2102,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [
@@ -2110,7 +2167,7 @@
         "additionalProperties": false,
         "properties": {
           "schema_version": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "updated_at": {
             "oneOf": [

@@ -10,7 +10,7 @@ import { readCatalog, writeCatalog } from '../lib/catalog-io.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DAY = '2026-10-13';
-const base = { verification_status: 'pending_review', windows_compatibility: 'not_reviewed', added_at: DAY, notes: '' };
+const base = { verification_status: 'not_reviewed', windows_compatibility: 'not_reviewed', added_at: DAY, notes: '' };
 const dl = (kind, url, extra = {}) => ({ kind, url, link_check: { status: 'unchecked' }, ...extra });
 const unknownCompat = { windows10: 'unknown', windows11: 'unknown', min_os_version: null, basis: 'The source page does not state a minimum Windows version', note: 'Not declared by the source; not tested by ANTO-LTG.' };
 
