@@ -161,6 +161,13 @@ label { color: var(--ink); }
 .field > label, .field > .label { font-weight: 650; font-size: 0.85rem; color: var(--ink-soft); }
 .field input, .field select { width: 100%; }
 .field.inline { display: flex; align-items: center; gap: 0.5rem; }
+/* 7.css checkboxes are an input followed by its label. The drawn box is the label's ::before; keep it at its
+   full size when the label sits in a flex or grid row, and give each row room to breathe. */
+input[type="checkbox"] + label { line-height: 1.35; padding: 0.2rem 0; }
+input[type="checkbox"] + label::before { flex: none; }
+.check-row { display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0; min-height: 2rem; }
+.check-row > input[type="checkbox"] { flex: none; }
+.sw-toolbar > input[type="checkbox"] + label, .drv-toolbar > input[type="checkbox"] + label { text-align: center; }
 /* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements;
 
 /* ---- notices -------------------------------------------------------------------------------- */
@@ -206,8 +213,9 @@ dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-fil
 .notice-board[hidden] { display: none; }
 .notice-board.ok { background: #f1faea; }
 .notice-board.error { background: #fdeeee; }
-.notice-field { flex: 1 1 auto; min-width: 0; overflow: hidden; margin: 0; padding: 0.3rem 0.5rem; border: 0; box-shadow: none; display: flex; align-items: center; }
-.notice-text { display: inline-block; white-space: nowrap; font-weight: 600; color: var(--ink); }
+.notice-field { flex: 1 1 auto; min-width: 0; overflow: hidden; margin: 0; padding: 0.45rem 1rem; border: 0; box-shadow: none; display: flex; align-items: center; text-align: center; }
+/* auto inline margins centre a short message; when it overflows they collapse to 0, so the ticker starts at the edge */
+.notice-text { display: inline-block; margin-inline: auto; white-space: nowrap; font-weight: 600; color: var(--ink); line-height: 1.4; }
 .notice-text.is-scrolling { animation: notice-ticker var(--ticker-time, 10s) linear 1 both; }
 @keyframes notice-ticker { from { transform: translateX(0); } to { transform: translateX(calc(-1 * var(--ticker-distance, 0px))); } }
 .notice-board.error .notice-text { color: #6a1212; }
