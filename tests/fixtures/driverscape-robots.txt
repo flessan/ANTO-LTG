@@ -1,0 +1,11 @@
+# RECONSTRUCTED from notes taken on 2026-10-13 when https://www.driverscape.com/robots.txt was read.
+# Only the rules that matter for this project are reproduced.
+User-agent: *
+Disallow: /files/
+Disallow: /privacy
+
+User-agent: spbot
+Crawl-delay: 30
+
+User-agent: MJ12bot
+Disallow: /

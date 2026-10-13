@@ -1,0 +1,15 @@
+{
+  "_comment": "Third-party driver listing pages the driver-listings adapter may read when run with --allow-aggregators. Output is lead-only. 'observed_at' is used when a fixture stands in for the live page.",
+  "targets": [
+    {
+      "id": "driverscape-online-125322",
+      "url": "https://www.driverscape.com/manufacturers/online/laptops-desktops/online/125322",
+      "aggregator": "DriverScape",
+      "observed_at": "2026-10-13",
+      "fixture": {
+        "html": "tests/fixtures/driverscape-online-125322.html",
+        "robots": "tests/fixtures/driverscape-robots.txt"
+      }
+    }
+  ]
+}

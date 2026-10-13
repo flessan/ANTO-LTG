@@ -1,0 +1,51 @@
+{
+  "$comment": "Crawler configuration. Every adapter declares the hosts it may contact; requests (and redirects) to any other host are refused. Adapters that read documented APIs say so in robots_note; adapters that read web pages always honour robots.txt.",
+  "user_agent": "ANTO-LTG-Crawler/0.2 (+https://github.com/flessan/ANTO-LTG; catalog research bot; honours robots.txt)",
+  "product_token": "ANTO-LTG-Crawler",
+  "timeout_ms": 20000,
+  "retries": 3,
+  "backoff_base_ms": 1000,
+  "backoff_max_ms": 30000,
+  "max_bytes": 2097152,
+  "max_redirects": 5,
+  "concurrency": 4,
+  "per_host_min_interval_ms": 2000,
+  "cache_dir": ".cache/crawler/http",
+  "cache_ttl_hours": 24,
+  "output_dir": "catalogs/proposed",
+  "adapters": {
+    "winget": {
+      "enabled": true,
+      "type": "winget",
+      "description": "Package metadata and hash-pinned installer URLs from microsoft/winget-pkgs.",
+      "hosts": ["api.github.com"],
+      "host_rules": { "api.github.com": { "min_interval_ms": 120, "concurrency": 4 } },
+      "robots": "not_applicable",
+      "robots_note": "Uses the documented GitHub REST API (authenticated with GITHUB_TOKEN / GH_TOKEN, sent only to api.github.com); no HTML pages are fetched.",
+      "repo": "microsoft/winget-pkgs",
+      "branch": "master",
+      "seed_file": "seeds/winget.json",
+      "default_locale": "en-US",
+      "limit": null
+    },
+    "vendor-pages": {
+      "enabled": false,
+      "type": "vendor-page",
+      "description": "Label-driven extraction of version, date and size from official vendor driver/download pages listed in seeds/vendor-pages.json.",
+      "hosts": ["www.intel.com", "downloadcenter.intel.com", "www.nvidia.com", "us.download.nvidia.com", "www.amd.com", "www.realtek.com", "www.catalog.update.microsoft.com", "learn.microsoft.com", "www.microsoft.com", "support.microsoft.com", "www.dell.com", "dl.dell.com", "support.hp.com", "support.lenovo.com", "download.lenovo.com", "www.asus.com", "www.msi.com", "www.acer.com", "www.gigabyte.com", "ftdichip.com", "www.silabs.com", "www.wch-ic.com", "www.prolific.com.tw"],
+      "robots": "required",
+      "targets_file": "seeds/vendor-pages.json",
+      "enabled_note": "Disabled by default because every vendor page layout is different; enable it per target after checking the selectors in the targets file."
+    },
+    "driver-listings": {
+      "enabled": false,
+      "type": "driver-listing",
+      "description": "Third-party driver listing pages (aggregators). Output is lead-only: records are labelled third_party_aggregator, carry quality flags and never include a download link.",
+      "hosts": ["www.driverscape.com"],
+      "robots": "required",
+      "requires_flag": "--allow-aggregators",
+      "targets_file": "seeds/driver-listings.json",
+      "policy": "lead_only"
+    }
+  }
+}

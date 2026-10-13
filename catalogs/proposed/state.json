@@ -1,0 +1,2814 @@
+{
+  "schema": "anto-ltg.crawl-state/1",
+  "adapters": {
+    "winget": {
+      "targets": {
+        "7zip.7zip": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "7zip.7zip.installer.yaml:9c1d6218d28bcaec20dcf30a16b04992f2702a0b|7zip.7zip.locale.en-US.yaml:b95efb68cdec90aea6b1791990a46eacc33af048|7zip.7zip.locale.zh-CN.yaml:24b9def077db915d6c1148d816e7bf7fc55f2347|7zip.7zip.yaml:eef56e90dbe5ff220561eba12d24a76b08fcaf0b"
+        },
+        "ALCPU.CoreTemp": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ALCPU.CoreTemp.installer.yaml:78f4d71315e3b90316ddf65b9dfec5813c3c4728|ALCPU.CoreTemp.locale.en-US.yaml:2235ba97bc059648e46c6ab3defe41c1c617c769|ALCPU.CoreTemp.yaml:fbb64b121706898f53ad002a4187be1e886e7444"
+        },
+        "AMD.RyzenMaster": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/AMD/RyzenMaster in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "AOMEI.Backupper.Standard": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AOMEI.Backupper.Standard.installer.yaml:748ac512f88589a84d13e6b0f07497a78317967b|AOMEI.Backupper.Standard.locale.en-US.yaml:f8d45fb42c84c48df583f4c583cf03a922559e9f|AOMEI.Backupper.Standard.yaml:b863d39fa24b7ee7b62d914c4e898224128b33ba"
+        },
+        "AOMEI.BackupperStandard": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/AOMEI/BackupperStandard in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "AOMEI.PartitionAssistant": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AOMEI.PartitionAssistant.installer.yaml:286eb1202392e74d49cf71679aef1cece94e1dd8|AOMEI.PartitionAssistant.locale.en-US.yaml:3f5ed6bd6a924b63032786ef11a9cacb18a1216a|AOMEI.PartitionAssistant.yaml:042f7a3ab8a69b44bbe32d09dafd5d005d1ef7b8"
+        },
+        "ASUS.ArmouryCrate": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/ASUS/ArmouryCrate in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Acer.AcerCareCenter": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/Acer/AcerCareCenter in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Adobe.Acrobat.Reader.64-bit": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Adobe.Acrobat.Reader.64-bit.installer.yaml:817011f2b4253eae2eafd2bdebbe2307a3c2c58d|Adobe.Acrobat.Reader.64-bit.locale.en-US.yaml:0dd3ae6088dac2d9ed0294c64a6189c3210c597f|Adobe.Acrobat.Reader.64-bit.locale.zh-CN.yaml:1c8fcdb770a7f560cfb3393f41a54139f3f17c5b|Adobe.Acrobat.Reader.64-bit.yaml:f0617c2a13d4bd03dd982b1a741821ca50959651"
+        },
+        "AdrienAllard.FileConverter": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AdrienAllard.FileConverter.installer.yaml:97631fff257b6b4ac5aee2a63512b6fab21902fc|AdrienAllard.FileConverter.locale.en-US.yaml:e5008baf7ded7e0413a7ec1608cc37d3528a8876|AdrienAllard.FileConverter.yaml:807bc3631b11c1d659868f5f90ca74f1b97f0a4a"
+        },
+        "Alcpu.CoreTemp": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/Alcpu/CoreTemp in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Alexx2000.DoubleCommander": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:18:56.728Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/Alexx2000/DoubleCommander in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Amazon.AWSCLI": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Amazon.AWSCLI.installer.yaml:070a5d6cf8ad4fb9793611f6e59024ce6d35423e|Amazon.AWSCLI.locale.en-US.yaml:707ef0b0f1f4e8602e04cc0ee5280d4bafda75bf|Amazon.AWSCLI.locale.zh-CN.yaml:4042d7cb628ce501764d2daad4724d038ed6fe0c|Amazon.AWSCLI.yaml:b86bda9eabf8057f90c09b31e4137359695d2b21"
+        },
+        "AntibodySoftware.WizTree": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AntibodySoftware.WizTree.installer.yaml:aab0ed66e4822e94c4996cccc7fbe1170c3eb7ff|AntibodySoftware.WizTree.locale.en-US.yaml:3582e30a5912ee0fae35b1200951e95a8ae9355a|AntibodySoftware.WizTree.locale.zh-CN.yaml:1c253e6543488661017af6955db9f4f857e2cc76|AntibodySoftware.WizTree.yaml:6d925f313e7ee53607d6f23d29bb7c938d0f6536"
+        },
+        "AnyDesk.AnyDesk": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AnyDesk.AnyDesk.installer.yaml:666291b696bdbaeb866ffbad22b88e78f6054305|AnyDesk.AnyDesk.locale.en-US.yaml:3c7f5123a1f719653c5ce5ad7766a3bb581bbbbf|AnyDesk.AnyDesk.locale.zh-CN.yaml:b820b4c8c22902af50f20f7d7775afe0726aadc1|AnyDesk.AnyDesk.yaml:c7679f7334e276d39e4b573cd32ec2c5b8ccea45"
+        },
+        "AnyDeskSoftwareGmbH.AnyDesk": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/a/AnyDeskSoftwareGmbH/AnyDesk in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Apache.OpenOffice": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Apache.OpenOffice.installer.yaml:55abec4d93d768d06e350e2fd3048cc9dcf20f67|Apache.OpenOffice.locale.en-US.yaml:8fbc33908772203d1806a4d1f77483f6c15262d4|Apache.OpenOffice.locale.zh-CN.yaml:a19b121c05862810d1c0ad0acede0c85eb983d34|Apache.OpenOffice.yaml:20fcb5022d0bbae5154f097b9d6e89cefa088b59"
+        },
+        "Atlassian.Sourcetree": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Atlassian.Sourcetree.installer.yaml:5df4cc387596f9740c831e521f0655234079d862|Atlassian.Sourcetree.locale.en-US.yaml:7b7edaaa8f7815d48edf77f8138d14bd58bbe780|Atlassian.Sourcetree.locale.zh-CN.yaml:01afc526c550c74597aed4333a631db1e382cbae|Atlassian.Sourcetree.yaml:f9a4ba7e44933ca921ef2969bab7a23015f80111"
+        },
+        "Audacity.Audacity": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Audacity.Audacity.installer.yaml:cfbd038ca8907531ff16e6f9bb33a1fc2896ee2d|Audacity.Audacity.locale.en-GB.yaml:9442b4a42d6b5b3bd1626df7d802d5c7ef306870|Audacity.Audacity.locale.en-US.yaml:c2b3d59276a486281a85803fc59f160ba6947a63|Audacity.Audacity.locale.zh-CN.yaml:fc3d1e6c65fa92e93c30687d238b17e8897f5ef6|Audacity.Audacity.yaml:953b154caf9e36e0f89a4967a6f0b9279bbacd79"
+        },
+        "AutoHotkey.AutoHotkey": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "AutoHotkey.AutoHotkey.installer.yaml:db50a283d11671b7743f5e94d609c2b8458cb7ab|AutoHotkey.AutoHotkey.locale.en-US.yaml:c79755986f47051e01409d197585235dc6737490|AutoHotkey.AutoHotkey.locale.zh-CN.yaml:d4118ec1305e09b8a5a70d4085902a18f9164d69|AutoHotkey.AutoHotkey.yaml:00c3c2cb20fa373552a441f43a34b643714f8749"
+        },
+        "Balena.Etcher": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Balena.Etcher.installer.yaml:f50970182018a4e0d8cb31c4a26bb1bd5bdc1897|Balena.Etcher.locale.en-US.yaml:5f917a14dc9d48f2660806183e6995227bdd7d6a|Balena.Etcher.locale.zh-CN.yaml:0cd11174d20a416c1c0376d4ea6b216feb22e07c|Balena.Etcher.yaml:23f87f7ff65859378aa3549331b2b51913f7da2f"
+        },
+        "Bandisoft.Bandizip": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Bandisoft.Bandizip.installer.yaml:995bf9f6c7eab531e19df0a681a00d1624b61a75|Bandisoft.Bandizip.locale.en-US.yaml:49314d6c7d0c058aa2485a22f7a165f72b8368d5|Bandisoft.Bandizip.locale.zh-CN.yaml:4648bae15691758a8509b2cde3fc31e28ccdeffb|Bandisoft.Bandizip.yaml:88823e68424d5035e03efb9d49dc0c1ae8545f79"
+        },
+        "BatteryInfoView.BatteryInfoView": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/b/BatteryInfoView/BatteryInfoView in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Bitvise.SSH.Client": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Bitvise.SSH.Client.installer.yaml:99614419498ff9a1943fe7dcd30d2f7e49c0d148|Bitvise.SSH.Client.locale.en-US.yaml:9a19ec8596302d34a70f01cfbb93a0b437fdd1db|Bitvise.SSH.Client.locale.zh-CN.yaml:b1464228969e52c91b5e087d35151fb97aef8952|Bitvise.SSH.Client.yaml:a873fb8d8fbc64df7e515147e06c7386e93801b9"
+        },
+        "Bitwarden.Bitwarden": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Bitwarden.Bitwarden.installer.yaml:198335826a4cedecef56cd4713124782d9e70c11|Bitwarden.Bitwarden.locale.en-US.yaml:92591665348be11c4658ef5c3fb3025cc4a241ab|Bitwarden.Bitwarden.locale.pt-BR.yaml:36f0de22256b58113d0c23e44e62115bcc412e57|Bitwarden.Bitwarden.locale.zh-CN.yaml:8835a1769be27a84ef85ad1caa665894f4804836|Bitwarden.Bitwarden.yaml:d12656b46d634f803eb4b95280e398bb47b8b548"
+        },
+        "BleachBit.BleachBit": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "BleachBit.BleachBit.installer.yaml:5db14259749f0e29259f7d911ec803c65d3bdd74|BleachBit.BleachBit.locale.en-US.yaml:363b6eb8684bacce04dda077217d9705d6a1bac4|BleachBit.BleachBit.locale.zh-CN.yaml:db8bc7950c9bff95bc41604c0d4071f5c11276d9|BleachBit.BleachBit.yaml:2e9c53699d754366aadff80adf824f97c127fa72"
+        },
+        "BlenderFoundation.Blender": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "BlenderFoundation.Blender.installer.yaml:0963564d5b4dab0584e41ee6e5d19636dd7b8f68|BlenderFoundation.Blender.locale.en-US.yaml:305c355005dd708aef56eda9d5a38645a8a05c3c|BlenderFoundation.Blender.locale.zh-CN.yaml:a4f4031ce8ac49712721a5de7a4ce39f7d017fef|BlenderFoundation.Blender.yaml:08e43ed9d13311b83e73fb472fd865a282ce3a56"
+        },
+        "Bopsoft.Listary": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Bopsoft.Listary.installer.yaml:2abe595b1f41db6ca07ad4eebe42bf5718f22433|Bopsoft.Listary.locale.en-US.yaml:7597a8beb8732f78a0f83dd681158a9f2523324a|Bopsoft.Listary.locale.zh-CN.yaml:b0407e79566ae27df1351dd76c68a2c533b7c5fc|Bopsoft.Listary.yaml:faf5d44d434241cd0c152936efab00e98ad7d735"
+        },
+        "Brave.Brave": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Brave.Brave.installer.yaml:304aab02a95e84bc80786411b9efe1d3f07857e8|Brave.Brave.locale.en-US.yaml:b61be4682a23b829a3d75bb433488daa7ce219a6|Brave.Brave.locale.zh-CN.yaml:077c58dd78b6c45a304d6fc8294f688da3e38bfe|Brave.Brave.yaml:14d94f984dcf5d8938c7c8f9e3cacc46b4e843ec"
+        },
+        "CGSecurity.TestDisk": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "CGSecurity.TestDisk.installer.yaml:b31bf0c4d34e59172d300a372b27068a07a1acbb|CGSecurity.TestDisk.locale.en-US.yaml:62d0bad9beef3c944809c28d62cc0f9d6de3f9ff|CGSecurity.TestDisk.yaml:284cb3aaac24bd0cff42ea5dde5261d021543dc0"
+        },
+        "CPUID.CPU-Z": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "CPUID.CPU-Z.installer.yaml:89a1b3654f2fd948c13b4de5273841a6b77c0417|CPUID.CPU-Z.locale.en-US.yaml:ca07d369ad782fea717519e2b06439fefd060583|CPUID.CPU-Z.yaml:bddfb84068d60109cbdbcf66a5fbcfc0212c2ac1"
+        },
+        "CPUID.HWMonitor": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "CPUID.HWMonitor.installer.yaml:6c1b8698ab0b20d7684d20170023e439bd4590bc|CPUID.HWMonitor.locale.en-US.yaml:04635cadc8c22b18fa093ac382734c177f437001|CPUID.HWMonitor.locale.zh-CN.yaml:6d9b93a2b06d5fe4c450616295f241e472cd39d9|CPUID.HWMonitor.yaml:d7081fc0c8ec3bcfd1de93a9571329867ddb18ac"
+        },
+        "Canonical.Ubuntu.2404": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Canonical.Ubuntu.2404.installer.yaml:b26da96f9ed8efae30a16b9efc5c3a5c7fae3826|Canonical.Ubuntu.2404.locale.en-US.yaml:6d9937f3a5d336beb428bee3391c64cc77a83436|Canonical.Ubuntu.2404.locale.zh-CN.yaml:d871983722aa1ce7f3bc256cf1ea73db90d6b278|Canonical.Ubuntu.2404.yaml:f09d892f6f7064cdb622c7aea6c624946484c885"
+        },
+        "Chuyu.Dism++": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/c/Chuyu/Dism++ in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Cisco.Webex": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Cisco.Webex.installer.yaml:d628973186e5f49aa81a997ec15c5fd290251e33|Cisco.Webex.locale.en-US.yaml:8fdbe41ea2cf7b181988546ba569d824c050ae2b|Cisco.Webex.locale.zh-CN.yaml:73b660bc90512ec07e70beb3cbc43c47319f099b|Cisco.Webex.yaml:ef3973c7d52ee2fe731c3e5d509e99faa6d1f5ca"
+        },
+        "Citrix.Workspace": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Citrix.Workspace.installer.yaml:6d629ccdaa066b8a41a1a51a30a95333490c8e24|Citrix.Workspace.locale.en-GB.yaml:5d589382ee7d159d2e791dcd49e97e2cd1f8482b|Citrix.Workspace.locale.en-US.yaml:7432a0f41a7f94133267421365fc1750e2678756|Citrix.Workspace.locale.zh-CN.yaml:e1854459733164fc2a46bdae0aad25168b49022d|Citrix.Workspace.yaml:141f0050a8d8f243196d12b1e2340b50421f36bd"
+        },
+        "ClamWin.ClamWin": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ClamWin.ClamWin.installer.yaml:57452f99574d23a4832385e8c67d820a19bb8b84|ClamWin.ClamWin.locale.en-US.yaml:db5bf2b1d2799a322af16487d3366ac9336026c3|ClamWin.ClamWin.yaml:272d1e634c344225e064838c4446cc2228790481"
+        },
+        "Cloudflare.Warp": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Cloudflare.Warp.installer.yaml:4f5d3d870370519fe76d45cd6fcd70f68624605d|Cloudflare.Warp.locale.en-US.yaml:3557cc2a4352f2de48556f0bcee69431dc1c1231|Cloudflare.Warp.yaml:256066d08f16115a4a4d85c9bc4e27bf26ae29da"
+        },
+        "Cloudflare.cloudflared": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Cloudflare.cloudflared.installer.yaml:179fe6ce1f1b374a7449a9937ebd5731907a141a|Cloudflare.cloudflared.locale.en-US.yaml:56de639b54b2fe783c348a90e58a305129091db4|Cloudflare.cloudflared.yaml:7156f2f603ed867c8f3ece497973580b5c9ec69c"
+        },
+        "Corsair.iCUE.5": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Corsair.iCUE.5.installer.yaml:17312252cf8ca39d6853c7a4bc496b3f7541d0c3|Corsair.iCUE.5.locale.en-US.yaml:187aa072a9728127d2305b992000cc2db857f7dd|Corsair.iCUE.5.locale.zh-CN.yaml:693e57ef751d4e1e9e71412456d03a1997807de4|Corsair.iCUE.5.yaml:013080bff2397ddc07219519823e14be78a3d113"
+        },
+        "Cryptomator.Cryptomator": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Cryptomator.Cryptomator.installer.yaml:971c3cfec65f37e021234be9a9b95815a7ac705e|Cryptomator.Cryptomator.locale.en-US.yaml:ec014a2d83fd9aae8a01f2cd6806c08efe9e86f4|Cryptomator.Cryptomator.yaml:603b22796587e5528fa3a49719385c6244224e11"
+        },
+        "CrystalDewWorld.CrystalDiskInfo": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "CrystalDewWorld.CrystalDiskInfo.installer.yaml:92b4fb0d1bc03040f78cedf0905946278a5b2ba9|CrystalDewWorld.CrystalDiskInfo.locale.en-US.yaml:5ffeed48dd38119a682b3feb6f690981d163c26f|CrystalDewWorld.CrystalDiskInfo.locale.ja-JP.yaml:9b8328f984ab59f4090c45acb40bfa04c3665ec0|CrystalDewWorld.CrystalDiskInfo.locale.zh-CN.yaml:9119da36e2430d14f770ed84dfd2e1748a20a475|CrystalDewWorld.CrystalDiskInfo.yaml:17a64d16079328af69d69c34d20166797a54fc5f"
+        },
+        "CrystalDewWorld.CrystalDiskMark": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "CrystalDewWorld.CrystalDiskMark.installer.yaml:1438ccfdb81def24debf02fbf05c70a749d6fcf5|CrystalDewWorld.CrystalDiskMark.locale.en-US.yaml:0771d6ed4690dd628c4266586e0710704d560386|CrystalDewWorld.CrystalDiskMark.locale.ja-JP.yaml:5e69c145c50d49691838e04d6b39a00bca18f9b7|CrystalDewWorld.CrystalDiskMark.locale.zh-CN.yaml:6b9319072cfd64679135b2456d7255c2a46af3f2|CrystalDewWorld.CrystalDiskMark.yaml:3ebbd1b726d91bb3fc86b6555a0b57084501c7ec"
+        },
+        "Cygwin.Cygwin": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Cygwin.Cygwin.installer.yaml:073d1422f5554f1e64e63809fc77de98b816359f|Cygwin.Cygwin.locale.en-US.yaml:422da6575f6ccdb8d7fc33c259a0193599d6500d|Cygwin.Cygwin.locale.zh-CN.yaml:def4018becd226417b20ade2e30dfd693e7dbb40|Cygwin.Cygwin.yaml:c62b8a34056f84de7a9d006c9059225259880cff"
+        },
+        "DBeaver.DBeaver": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:18:56.728Z",
+          "error": {
+            "code": "NO_VERSION",
+            "message": "No version-like directory under manifests/d/DBeaver/DBeaver",
+            "retryable": false
+          }
+        },
+        "DBeaver.DBeaver.Community": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "DBeaver.DBeaver.Community.installer.yaml:6c5ebe6f2f734e058482fabe3ac917757b4c0773|DBeaver.DBeaver.Community.locale.en-US.yaml:932ecf3128697ac4e1a88510a0103a4833659981|DBeaver.DBeaver.Community.locale.zh-CN.yaml:81eb14b7632807736ac5b51a838171b9e37e7360|DBeaver.DBeaver.Community.yaml:ac86f51ce202030bae5aa86b5a2f198ff6dd8318"
+        },
+        "Dell.CommandUpdate": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Dell.CommandUpdate.installer.yaml:94fcaf7afa4e2d7c398942ff908dff1508897823|Dell.CommandUpdate.locale.en-US.yaml:ff030c0e5fa5ac06334fe6563cce1cb0818b4091|Dell.CommandUpdate.locale.zh-CN.yaml:a6eda964c8622411ac77d974c4ffbd21cd9d5f50|Dell.CommandUpdate.yaml:4a4411c6c405f93600d8439dbd4102735e7a5612"
+        },
+        "Dell.CommandUpdate.Universal": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Dell.CommandUpdate.Universal.installer.yaml:0e8f3ac96b815e36eb40aeff69b74caee0fc89c9|Dell.CommandUpdate.Universal.locale.en-US.yaml:8dd35c63ba4b38654baa9179b989201f7c0eab17|Dell.CommandUpdate.Universal.locale.zh-CN.yaml:1c8c4b2ac30e7459fd902a4dc53582e6a0e1d61a|Dell.CommandUpdate.Universal.yaml:e34a7edd961cbdbb9c424f671996598ea7be4a6e"
+        },
+        "DigitalScholar.Zotero": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "DigitalScholar.Zotero.installer.yaml:92915f55e50f7c7b64a7047f4fe3fa6ac89292a0|DigitalScholar.Zotero.locale.en-US.yaml:5e4ffed483cfa6b831f3d68f0bfe03a1be2015bd|DigitalScholar.Zotero.locale.zh-CN.yaml:19b8e66529ccffa596f29cfaeb95d6bd9100d986|DigitalScholar.Zotero.yaml:5daac470dd3538c56a05357da046b14ff55d5043"
+        },
+        "Discord.Discord": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Discord.Discord.installer.yaml:871d0337d7324377ff7be53f01224d6a2e414436|Discord.Discord.locale.en-US.yaml:7884bf354a34ec80c92f0322ff9758d316b5bd44|Discord.Discord.locale.pt-BR.yaml:2e3e5c0f43c3cb8f1b1cee85ecde2eb6d757f4f0|Discord.Discord.locale.zh-CN.yaml:bbf11066b239c71381ad267191e1f31c048eb643|Discord.Discord.yaml:715d5877c78c79fb2d499854f978503e1ed5290e"
+        },
+        "DiskGenius.DiskGenius": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/d/DiskGenius/DiskGenius in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Ditto.Ditto": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Ditto.Ditto.installer.yaml:c91bf8273ef1118b4381182da39d457bb8ba17e2|Ditto.Ditto.locale.en-US.yaml:f860bcad513bf5b76b48f255ea581e623bc0ec1d|Ditto.Ditto.locale.zh-CN.yaml:c1a69b49a18457191161af471e9d7b5e5e48e3d2|Ditto.Ditto.yaml:21a8793386435db03eb3622aaeb65ebd36ed0075"
+        },
+        "Docker.DockerDesktop": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Docker.DockerDesktop.installer.yaml:1701ac53e3e72484a2e494a4c9dd1d0f91431e33|Docker.DockerDesktop.locale.en-GB.yaml:8fc2f26babb83838e72d30105d8296e9bc74e74f|Docker.DockerDesktop.locale.en-US.yaml:062a7f26816f4581f687fc5cf18e09d06cdf7054|Docker.DockerDesktop.locale.zh-CN.yaml:bf69b672e4ed01afc6588a31eb00f73ea5d47c76|Docker.DockerDesktop.yaml:e2d2c18f8a3a29e805880583056859e86a43477c"
+        },
+        "DominikReichl.KeePass": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "DominikReichl.KeePass.installer.yaml:46ab8ea6f152fa3b3c68f0161157750ea6063eda|DominikReichl.KeePass.locale.en-US.yaml:7c95106e7b2fb37633b555373848a29a032f8da5|DominikReichl.KeePass.locale.zh-CN.yaml:cbf253f01d4230991a754fc40dfb8f6ac71fc8cb|DominikReichl.KeePass.yaml:ae92f63304b298b7f896016353fdf4cb73a6df31"
+        },
+        "Doublecmd.DoubleCommander": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/d/Doublecmd/DoubleCommander in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Dropbox.Dropbox": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Dropbox.Dropbox.installer.yaml:8e3e37917646ec3046286f73c3c02f6aba2076b5|Dropbox.Dropbox.locale.en-GB.yaml:274cc5934c8362ac41e8447b931938a2a8843460|Dropbox.Dropbox.locale.en-US.yaml:a7f627168deb96f14987b720189b86274ad0ed14|Dropbox.Dropbox.yaml:2a4df0eadcbd6691b5987df7ec66ff853736ba87"
+        },
+        "DuongDieuPhap.ImageGlass": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "DuongDieuPhap.ImageGlass.installer.yaml:e2cad968d250f907d70ddb24601943e5a158bfa8|DuongDieuPhap.ImageGlass.locale.en-US.yaml:c619f96aae6d748eef7881dfecb7f57d2bb3a61b|DuongDieuPhap.ImageGlass.locale.zh-CN.yaml:808acf08d60bea147b8a0b7aeee5c7932fdddb6c|DuongDieuPhap.ImageGlass.yaml:800675cb89bad429786deccc83905fc0a4cf98e7"
+        },
+        "Duplicati.Duplicati": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Duplicati.Duplicati.installer.yaml:ef6c9bda7195bec84af9a8d5fe8bde007873669a|Duplicati.Duplicati.locale.en-US.yaml:fdfd3b18efb66197155f08a3016793d9f93dda87|Duplicati.Duplicati.yaml:a14c057e65448b93a8e61580ed3fbd705e0a2ab3"
+        },
+        "ESnet.iperf3": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/e/ESnet/iperf3 in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "EaseUS.TodoBackup": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "EaseUS.TodoBackup.installer.yaml:92f5a2c17c932c78d23319bb8fc0d0cba9fd3812|EaseUS.TodoBackup.locale.en-US.yaml:d9eda126b72b82fd97e7576f31e8cc023804fde3|EaseUS.TodoBackup.yaml:ad15b5c608424df734cb2c74ee45801c6a8c76fa"
+        },
+        "EclipseAdoptium.Temurin.17.JDK": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "EclipseAdoptium.Temurin.17.JDK.installer.yaml:5b7cf65c5bcd1bee2a47a752bdfbde2a82d51eed|EclipseAdoptium.Temurin.17.JDK.locale.en-US.yaml:8cdc73f47cef7f2c7f9390cfa3ab71e9558ab2da|EclipseAdoptium.Temurin.17.JDK.locale.zh-CN.yaml:b91aa0c43f49cc835fe0d05e78cb54c657fd124e|EclipseAdoptium.Temurin.17.JDK.yaml:e477929f2c5c85629df61fa65aa39f395ebd142b"
+        },
+        "EclipseAdoptium.Temurin.21.JDK": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "EclipseAdoptium.Temurin.21.JDK.installer.yaml:cadc86c905199c26056dbc3c8e5532c9d38b85d8|EclipseAdoptium.Temurin.21.JDK.locale.en-US.yaml:524713a075b0bd384aba88f836d5d868bdf7cfb1|EclipseAdoptium.Temurin.21.JDK.locale.zh-CN.yaml:3b522117cf5cdacf9c4c2af6d0971d8843dc067e|EclipseAdoptium.Temurin.21.JDK.yaml:386eaa6a398dfe9b5cfcab3e464b4aeb04e8ef87"
+        },
+        "ElectronicArts.EADesktop": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ElectronicArts.EADesktop.installer.yaml:a0c6173799e35a0b6baaddefa8b8a66fb0b07fe7|ElectronicArts.EADesktop.locale.en-US.yaml:0a26295d0f14b45d17c1e0ee3d3d094508216041|ElectronicArts.EADesktop.locale.zh-CN.yaml:79d8ae58965bdfbb6348bda9bbabdc12ad77af52|ElectronicArts.EADesktop.yaml:396785e1fc9ec121bb7a69c44955aef5c4b13775"
+        },
+        "Element.Element": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Element.Element.installer.yaml:ecc677597cf438c36fc8c67b65b2e79b6d2e13a1|Element.Element.locale.en-US.yaml:6b558320b8fa98e332f96bac22068fa88f472d0f|Element.Element.locale.zh-CN.yaml:f45e77e42ebe319829b7bbed0ded7a79d6847eef|Element.Element.yaml:745a268b5d440d871ac5d5c259921d60470cc093"
+        },
+        "EpicGames.EpicGamesLauncher": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "EpicGames.EpicGamesLauncher.installer.yaml:e0bc0a57c7bbf01f918d79dd593df040f2fd49c5|EpicGames.EpicGamesLauncher.locale.en-US.yaml:6359ccdc3b9a5666e2c6ae19402e95a72a88fe25|EpicGames.EpicGamesLauncher.yaml:81d3a3a2a128672d057475ebe1d9b15f9926657f"
+        },
+        "Evernote.Evernote": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Evernote.Evernote.installer.yaml:3a3793434315b94f2b1843bd9fe0a5655f805875|Evernote.Evernote.locale.en-US.yaml:ba6922cbd0e25c608462a3f20efeb8adcf997cf9|Evernote.Evernote.locale.zh-CN.yaml:b10a07c90e91c9f95bbe8f80fc414eb756e0ba5a|Evernote.Evernote.yaml:47d37e99ce6a384f4b8611e9fd694182118e9784"
+        },
+        "Famatech.AdvancedIPScanner": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Famatech.AdvancedIPScanner.installer.yaml:f96804c61dad47ed482e166739b31fc241015e60|Famatech.AdvancedIPScanner.locale.en-GB.yaml:01ff40f6c8736fa2d229149b703308cb7cd573f4|Famatech.AdvancedIPScanner.locale.en-US.yaml:13275243c067644776a997aeae41870d7473faee|Famatech.AdvancedIPScanner.locale.zh-CN.yaml:8f29eda4b8476289e5a5d9ebc7e932d3e3cb1a25|Famatech.AdvancedIPScanner.yaml:a1af0998259896ec61172bff4a292bee67ef5420"
+        },
+        "Famatech.AdvancedPortScanner": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/f/Famatech/AdvancedPortScanner in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Fedora.FedoraMediaWriter": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Fedora.FedoraMediaWriter.installer.yaml:29d509b12203bbdedc28694d1a3851d9630e911e|Fedora.FedoraMediaWriter.locale.en-US.yaml:c7e310e32c0563b9d47bdc936eebce4ac258f8f0|Fedora.FedoraMediaWriter.yaml:ec0244d6be867f54e8d0f45c5fe48daade13d6db"
+        },
+        "Fedora.MediaWriter": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/f/Fedora/MediaWriter in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Files-Community.Files": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/f/Files-Community/Files in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "FinalWire.AIDA64.Extreme": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "FinalWire.AIDA64.Extreme.installer.yaml:9120d926422e142e398001176df5d4cd853b57b8|FinalWire.AIDA64.Extreme.locale.en-US.yaml:f8892c780fa6d4a7dd0cdd634cd1eb46684e4fae|FinalWire.AIDA64.Extreme.locale.zh-CN.yaml:8a42a7b8d406e2010d2ad133d80ce7faaf49fd0d|FinalWire.AIDA64.Extreme.yaml:68b9a0a63834aadeff2bdc62ed82e122cdc7fad6"
+        },
+        "FlorianHeidenreich.Mp3tag": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "FlorianHeidenreich.Mp3tag.installer.yaml:226f0242b182c21fac9bf958913feff1fc794f81|FlorianHeidenreich.Mp3tag.locale.en-US.yaml:c0df031cdb33a4e282271638489ac560678cf0d0|FlorianHeidenreich.Mp3tag.locale.zh-CN.yaml:bc11a8f68ed5356138a0ba62c9c13be1acf2c7df|FlorianHeidenreich.Mp3tag.yaml:73cdc6c8e2d1c4ce83df0afe3a6b0fe00fa3f309"
+        },
+        "Flow-Launcher.Flow-Launcher": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Flow-Launcher.Flow-Launcher.installer.yaml:cac0cfd4723ae03115f9a2e9f049aa986fe5ebb2|Flow-Launcher.Flow-Launcher.locale.en-US.yaml:532137b1364c41a90a8b8c74e30ff0743477844c|Flow-Launcher.Flow-Launcher.yaml:66e6b9843a76d6ffeec5f708665eec92c2413c87"
+        },
+        "Foxit.FoxitReader": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Foxit.FoxitReader.installer.yaml:92ba1ace092bdf87c05c0c5b68a8293446f6b890|Foxit.FoxitReader.locale.en-US.yaml:1837bea8bac2b35b3a7d2eac7ff0eec407dff696|Foxit.FoxitReader.locale.zh-CN.yaml:e91a4361024edb68564b81916e7b70207b6a8142|Foxit.FoxitReader.yaml:df7e484f01413e44ac7bbbf92cf3a2a7bbeb2eaa"
+        },
+        "FreeFileSync.FreeFileSync": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/f/FreeFileSync/FreeFileSync in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "GIMP.GIMP.3": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GIMP.GIMP.3.installer.yaml:1555020e7f90249bd56da031c6f5db89979a4d9f|GIMP.GIMP.3.locale.en-US.yaml:226d67643e39e9c966d030d550337bb39d89ab1a|GIMP.GIMP.3.locale.zh-CN.yaml:ff47d3daffa0c0aa05fa174fe2ef5fe396242228|GIMP.GIMP.3.yaml:3d70463e43624a5dd8952dd4615047cc2b499afc"
+        },
+        "GOG.Galaxy": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GOG.Galaxy.installer.yaml:d56b51c8d3863b98bd99805d6cf73329668b9452|GOG.Galaxy.locale.en-US.yaml:15e8b22003cbdc6c8139abb5cfe62ad5b0285b1f|GOG.Galaxy.locale.zh-CN.yaml:ad110eef42f3d4c6be4274dc457f2faeadb63a68|GOG.Galaxy.yaml:4c6ac0fb99c065003ccd22c4c55924724378dacc"
+        },
+        "Geeks3D.FurMark": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NO_MANIFEST",
+            "message": "None of the newest 2 version directories under manifests/g/Geeks3D/FurMark contained a usable manifest",
+            "retryable": false
+          }
+        },
+        "Geeks3D.FurMark.2": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Geeks3D.FurMark.2.installer.yaml:ff4f3ab677f9e061086d5294456ee7750e22fb8a|Geeks3D.FurMark.2.locale.en-US.yaml:2a2e6d041563859643e495720033deb6a3747e00|Geeks3D.FurMark.2.yaml:9271b9908d40751fad61692f37cbcc09c9882e45"
+        },
+        "Giorgiotani.Peazip": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Giorgiotani.Peazip.installer.yaml:a5824e648b893f6c89f439eeff2321288c4fc337|Giorgiotani.Peazip.locale.en-US.yaml:b04eb8d1013ff46a1c4325d0cc1899a7ba1cae04|Giorgiotani.Peazip.yaml:30209528270ee093c29b44a2cc63561d471151ae"
+        },
+        "Git.Git": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Git.Git.installer.yaml:dc95caca84c356b1b27c64da44d4af41368f21cb|Git.Git.locale.en-US.yaml:32e38dedfedd36ce303cf3764532b9df4f66be3f|Git.Git.locale.zh-CN.yaml:3361be8669c41b7a6f243e1f02dfe01a0be5ef01|Git.Git.yaml:f538d126833315fc864c38db10fc15c9aa94252e"
+        },
+        "GitHub.GitHubDesktop": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GitHub.GitHubDesktop.installer.yaml:a312bfec54e4583ee4bcf7cbe083ce118d3ad439|GitHub.GitHubDesktop.locale.en-US.yaml:dd01f738235b2bae413a23596e3410776e3982f8|GitHub.GitHubDesktop.locale.zh-CN.yaml:76565a3270702887a3a9b2986b906d105eaa54fb|GitHub.GitHubDesktop.yaml:f64138f2b3c162d024a3ce014e090fa1d71f3c85"
+        },
+        "GitHub.cli": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GitHub.cli.installer.yaml:01416c2307c879611b277add33b956d481744d09|GitHub.cli.locale.en-US.yaml:1d66794320a967d99d19adb4e6e6a20c95fe426d|GitHub.cli.yaml:b5bea65f0371ef751b3d799b61b7827ecbcbbc66"
+        },
+        "GlavSoft.TightVNC": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GlavSoft.TightVNC.installer.yaml:27c3e3ffac93a4bf15a85488db070fd33ac922be|GlavSoft.TightVNC.locale.en-US.yaml:4dc1449e7258a04600009da8aa84d46c6a81a3e3|GlavSoft.TightVNC.yaml:f61ca001a8e98783d4da248ee5dbbc82574c8a6f"
+        },
+        "GnuPG.Gpg4win": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GnuPG.Gpg4win.installer.yaml:511782a2d6e06077b991aae7417a3cd49eb2dd3d|GnuPG.Gpg4win.locale.en-US.yaml:d2e7f91bc7a718122c4435bd21687f152f3fb54d|GnuPG.Gpg4win.locale.zh-CN.yaml:c960e7aa414cf23d95af2656f33f987753c89d0c|GnuPG.Gpg4win.yaml:78c6796a608c4d064d9f832f0de8e1886d808249"
+        },
+        "GoLang.Go": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "GoLang.Go.installer.yaml:99333522ff6662d42b5abd8da09ff2df0ba801c1|GoLang.Go.locale.en-US.yaml:9dbcad8159e219537ed58fdcc9f0d97fc5f20e6d|GoLang.Go.locale.zh-CN.yaml:f6b9946739b2f09ff53bdee53f6f5d85888a5a54|GoLang.Go.yaml:e340f4ea2a73fc429fa6725bb0204d38609f552c"
+        },
+        "Google.Chrome": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Google.Chrome.installer.yaml:9e60d802e59ff959381c1f42b1da04d2ac796b1f|Google.Chrome.locale.en-US.yaml:0f57abbee4df4c0add7c2adec8521928b8c8ef4c|Google.Chrome.locale.nb-NO.yaml:727403866c771cb9b81a8eeeaac1c824b463879d|Google.Chrome.locale.zh-CN.yaml:59465dd33f0614d96d904bf0cebf2910fb439f7b|Google.Chrome.yaml:bdfd08e2b65a179ba1b047d7db44fdff4578f726"
+        },
+        "Google.ChromeRemoteDesktopHost": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Google.ChromeRemoteDesktopHost.installer.yaml:51b85066c65d824e941d2b722deb9ea9181c1432|Google.ChromeRemoteDesktopHost.locale.en-US.yaml:9c09a7882c47185db1e6927de576ee5e9325a4db|Google.ChromeRemoteDesktopHost.locale.zh-CN.yaml:76e214dce605484efe9b552e584f9df1a9ed1e19|Google.ChromeRemoteDesktopHost.yaml:78579422a76f9afd293d351a53874633499b78c0"
+        },
+        "Google.GoogleDrive": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Google.GoogleDrive.installer.yaml:cfc72b923cf0a94c2cac172d6a9573a1e7b73347|Google.GoogleDrive.locale.cs-CZ.yaml:fbe03c483f55aff45fb4911ce0acf638c21bd655|Google.GoogleDrive.locale.da-DK.yaml:01d83cc08c1ce44ef4dc9f3df95fd98e6c654ddd|Google.GoogleDrive.locale.en-US.yaml:a29d5e406651b2c916788827acb828400d3bbdc9|Google.GoogleDrive.locale.fr-CA.yaml:e18f484af178ab86c3f6c9020c9b407a794f9c8d|Google.GoogleDrive.locale.ja-JP.yaml:7646dcb86d5115d69854456561cd6a86e55ef9e0|Google.GoogleDrive.locale.nb-NO.yaml:81d27cc01550377487f094b79a2672846ea38b02|Google.GoogleDrive.locale.pl-PL.yaml:0d341319f68d0f8afb175bbef25ada5fc0e3bc10|Google.GoogleDrive.locale.th-TH.yaml:c4b908bfae167ac67061b20b916530c821359bf7|Google.GoogleDrive.locale.ua-UA.yaml:3393bccd5ae9391bcb9e914cc09698ed736367d4|Google.GoogleDrive.locale.zh-CN.yaml:b0fe11a29f1aba4d15b1894b4b83467713725f79|Google.GoogleDrive.locale.zh-TW.yaml:936385eb3a392feab48651123abf85362d4659b7|Google.GoogleDrive.yaml:17622f49e1f368c9990bf6856d88e6168dd2dcfe"
+        },
+        "Greenshot.Greenshot": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Greenshot.Greenshot.installer.yaml:3f57ea3d3a35f21d10e2756f419b591d12fd2656|Greenshot.Greenshot.locale.en-US.yaml:84bfc5b15a60a4744f638059a2a8e14a73c78163|Greenshot.Greenshot.locale.zh-CN.yaml:c4346a55cb61e4090040c67f7690106afe525bfe|Greenshot.Greenshot.yaml:8b7d2fbf6e4c6489d8ed4262eaa420373b1bd5a3"
+        },
+        "Guru3D.Afterburner": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Guru3D.Afterburner.installer.yaml:09e0103b0b011e9e16deb796be486dfdc6c9b76d|Guru3D.Afterburner.locale.en-US.yaml:f6473d4d6a17d34c080796adca7e50b2dfc26155|Guru3D.Afterburner.yaml:259f9d3dd6c26fd5d9c77e1f949879ea7fd662d5"
+        },
+        "Guru3D.RTSS": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Guru3D.RTSS.installer.yaml:c9fc9d78869ab0570316c5e89752d00fad9b778a|Guru3D.RTSS.locale.en-US.yaml:66489937a3a42053c85233c84eadc29581169a70|Guru3D.RTSS.yaml:df49a2c4bf07ced569f3d3996e3b017fbb440ec9"
+        },
+        "Gyan.FFmpeg": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Gyan.FFmpeg.installer.yaml:32e7e9e1ec5b66de616b92f06352bc18dba4d593|Gyan.FFmpeg.locale.en-US.yaml:0e30ebbb91f3a0c880ad1d84b978bb0ab527e3b2|Gyan.FFmpeg.locale.zh-CN.yaml:0b287b4d72e5da3cc8dca3437fa42db7562b66d2|Gyan.FFmpeg.yaml:db6b03e88a7a031ba3b2ac98a0cdfa3849480cd5"
+        },
+        "HDDGURU.HDDLowLevelFormat": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/h/HDDGURU/HDDLowLevelFormat in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "HP.HPSupportAssistant": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/h/HP/HPSupportAssistant in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "HP.ImageAssistant": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "HP.ImageAssistant.installer.yaml:0b2465faa6c0de964080b1b86f2cc2284301ac75|HP.ImageAssistant.locale.en-US.yaml:353c9533a0e4124606647a52f8ddea58e1e3b233|HP.ImageAssistant.yaml:21a5cc85cd78d3ffb9907396a65ab964ac172b1c"
+        },
+        "HandBrake.HandBrake": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "HandBrake.HandBrake.installer.yaml:bbacd2c637a50a725b45458aaee7671030c32c4a|HandBrake.HandBrake.locale.en-US.yaml:3b6f1b3d87bd22645621ff9a8addd1d575cc8c04|HandBrake.HandBrake.locale.zh-CN.yaml:38b7256f5c283f67f6ee99239023278b3d154a50|HandBrake.HandBrake.yaml:df2b540f4201603571006a70bc173e293a36f19d"
+        },
+        "Hashicorp.Terraform": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Hashicorp.Terraform.installer.yaml:50ca77fbfcd3e262056945ae2e661a47033bddb6|Hashicorp.Terraform.locale.en-US.yaml:fc21f6a66d6dbb6013268214abbde74fbeddc4e2|Hashicorp.Terraform.locale.zh-CN.yaml:c112e912bb06d1343152d678bf133d7f1c054b1e|Hashicorp.Terraform.yaml:75f8ec2f85254dd60a1d4de568bec33d850087b3"
+        },
+        "Hasleo.BackupSuite": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/h/Hasleo/BackupSuite in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Henry++.simplewall": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Henry++.simplewall.installer.yaml:5c5aaf2d04b56ba94211f82e97c5bde47f2313e0|Henry++.simplewall.locale.en-US.yaml:f86c0c27d7066b874d16569f2db6d06fee16cff9|Henry++.simplewall.yaml:ca81d5dc96453bbc33315dcc67830bc460a6813e"
+        },
+        "HeroicGamesLauncher.HeroicGamesLauncher": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "HeroicGamesLauncher.HeroicGamesLauncher.installer.yaml:25b15e9751732377346739aa24d835d0f81c6b7f|HeroicGamesLauncher.HeroicGamesLauncher.locale.en-US.yaml:447c43f62e2f3bcb171d0daeb975b638a51bf90f|HeroicGamesLauncher.HeroicGamesLauncher.yaml:37310f8e1f87c350a9aa6570123d9a0ab9860f1c"
+        },
+        "Hibbiki.Chromium": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Hibbiki.Chromium.installer.yaml:38cebe33902834b1a021e88b50dabedaf33c615a|Hibbiki.Chromium.locale.en-US.yaml:162a489a6174788a0fdf54a0a90f79b306721d67|Hibbiki.Chromium.yaml:70d1e0604a412ad74fd0983f83bca9c88ced49ac"
+        },
+        "IDRIX.VeraCrypt": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "IDRIX.VeraCrypt.installer.yaml:3b7c644468b1a31eb062ddf868606039634ce64e|IDRIX.VeraCrypt.locale.en-US.yaml:8a3700828a703649a95c4864ba782b2f39c35923|IDRIX.VeraCrypt.yaml:01660aa403c27c1ece1abc545828ee529f03003b"
+        },
+        "ImageMagick.ImageMagick": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ImageMagick.ImageMagick.installer.yaml:36e88b4782473040e98176455350084dca3a6372|ImageMagick.ImageMagick.locale.en-US.yaml:787d40be4198371e2b0cecfa4e7b01e106136b3a|ImageMagick.ImageMagick.locale.zh-CN.yaml:f04b651330e9b1b53e8eb7f3c90f0a2b8de7a835|ImageMagick.ImageMagick.yaml:2852ad915ed693ef24971f46d6bc2cb8bf94f3b3"
+        },
+        "ImageWriter.Win32DiskImager": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/i/ImageWriter/Win32DiskImager in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Inkscape.Inkscape": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Inkscape.Inkscape.installer.yaml:5d89f3e2f4497c1b290e6bf8dc98dcff989c8eb9|Inkscape.Inkscape.locale.en-US.yaml:a7910943121199ef4653a721f8ea0b45ae283c0f|Inkscape.Inkscape.locale.zh-CN.yaml:71b38ce2db3bc8aeb69ab3f83ab7ac8a2f207871|Inkscape.Inkscape.yaml:69e94f6753ca60d8109a8533955387c20045b366"
+        },
+        "Insecure.Nmap": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Insecure.Nmap.installer.yaml:8a27d4432fba45e383fc7481643b40a356ab94c3|Insecure.Nmap.locale.en-US.yaml:bc0df4dac50a0294672fb591e99efa8fbcabd5e6|Insecure.Nmap.yaml:080bde702cec7926b6003bc13f051d3298a7b0a0"
+        },
+        "Insecure.Npcap": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/i/Insecure/Npcap in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Intel.IntelDriverAndSupportAssistant": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Intel.IntelDriverAndSupportAssistant.installer.yaml:eb1d3eec4cf06f0b5fab6eaf57207676cfc5f4db|Intel.IntelDriverAndSupportAssistant.locale.en-US.yaml:861e356e68009634a44b296541284aa261b6a2df|Intel.IntelDriverAndSupportAssistant.yaml:afa9a00c8afc916d24329e84edd41a3b7d29e2b2"
+        },
+        "Intel.IntelGraphicsSoftware": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/i/Intel/IntelGraphicsSoftware in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Intel.IntelWirelessWiFiDriver": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/i/Intel/IntelWirelessWiFiDriver in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Intel.WirelessBluetooth": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/i/Intel/WirelessBluetooth in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "IrfanSkiljan.IrfanView": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "IrfanSkiljan.IrfanView.installer.yaml:5490d293d5b26f102d226d9082bd2c1f7a47160b|IrfanSkiljan.IrfanView.locale.en-US.yaml:8e4c071e9b65f864e495e8f291e6720c70d90025|IrfanSkiljan.IrfanView.locale.zh-CN.yaml:aa329c3ec08b88dbc3b610dee159cd1ff9eefe92|IrfanSkiljan.IrfanView.yaml:d5323290ecbf32f5f3aed1e49a75ada76d3b5954"
+        },
+        "JAMSoftware.TreeSize.Free": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "JAMSoftware.TreeSize.Free.installer.yaml:7663d756e24851b6b50ca26e83cc9e3421416538|JAMSoftware.TreeSize.Free.locale.en-US.yaml:b207f863e6e417d750c53543be4399b5a2635913|JAMSoftware.TreeSize.Free.yaml:c0219ec0a3364106c7a22b337ec0f4e26798696f"
+        },
+        "JGraph.Draw": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "JGraph.Draw.installer.yaml:e9f695f542854015637c87a76ae2a88617612750|JGraph.Draw.locale.en-US.yaml:1380f112a70152ebbd7260cd2f13f114a7911ceb|JGraph.Draw.locale.zh-CN.yaml:05e3fd7a711b93d6352fbdbca180a42b31bd05f6|JGraph.Draw.yaml:0ca2173358cdfb09cbe4acab574f04cc977893f7"
+        },
+        "JetBrains.IntelliJIDEA.Community": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "JetBrains.IntelliJIDEA.Community.installer.yaml:b9065ac1c88ccd56fc9c32bf4e0df9eb3129f6e1|JetBrains.IntelliJIDEA.Community.locale.en-US.yaml:57d7d52d9079085cc38840b6d032ceada4e791eb|JetBrains.IntelliJIDEA.Community.locale.zh-CN.yaml:fdfc8ca8e65f74f201a49d376cd6c95b03126e0f|JetBrains.IntelliJIDEA.Community.yaml:12bcfca1652f1fa32a09ee3def02eba809e33a52"
+        },
+        "JetBrains.PyCharm.Community": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "JetBrains.PyCharm.Community.installer.yaml:72b4bf0ec7b209594a9c221806d3651476cb4c2e|JetBrains.PyCharm.Community.locale.en-US.yaml:fd99c2eeac15fc6e2a427899d7f34fccd4d0380a|JetBrains.PyCharm.Community.locale.zh-CN.yaml:adf8e2ab4657a74f78e566bc3dfa62c3c3eb4425|JetBrains.PyCharm.Community.yaml:d67ea26627d5447d7f99720a52faaad316513715"
+        },
+        "JetBrains.Toolbox": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "JetBrains.Toolbox.installer.yaml:13e14260ff46a433b4fb35fb340bfd222fe888d6|JetBrains.Toolbox.locale.en-US.yaml:3a4f21cc34f533e6a97137f597bc56a8743a891c|JetBrains.Toolbox.locale.zh-CN.yaml:1abe50f7da6560f1d0954590359f7c15509549df|JetBrains.Toolbox.yaml:1d9c43b7056026283aad7f9e5996ec4c2bd67bf3"
+        },
+        "Joplin.Joplin": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Joplin.Joplin.installer.yaml:a6c07045388a4eea840a106c32204f2c4c2b48d2|Joplin.Joplin.locale.en-US.yaml:fb6c3d2888774f43d624efa343f4ffa765c65ff8|Joplin.Joplin.locale.zh-CN.yaml:e34df45e306d7263a24ba8cebc86a3d6f5f42331|Joplin.Joplin.yaml:d8fa13695d393770d7201878a5af7de375024cd3"
+        },
+        "KDE.Kdenlive": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "KDE.Kdenlive.installer.yaml:57aeac9ac902a6825a94619a701085fa09710093|KDE.Kdenlive.locale.en-US.yaml:b432c8a31e8fb7d37ca0d06deeae9b7665b1f28c|KDE.Kdenlive.locale.zh-CN.yaml:d3d9f23aa5d28c483baea441e63e0c5e1ac9c689|KDE.Kdenlive.yaml:4e00a8cdae563e7e4661883a59fa4803ab4414eb"
+        },
+        "KDE.Krita": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "KDE.Krita.installer.yaml:205316b673d2d572d625097fb0b3bbe7a6cf6297|KDE.Krita.locale.en-US.yaml:cdb066f2bdb32a9f58ae7d8b65ea2aeb33bd1578|KDE.Krita.locale.zh-CN.yaml:738e8bada0442a5b64521f9c93e4a199018dadf3|KDE.Krita.yaml:aa233b29bdfaa1be8f3073d14953d240d5b4b9bc"
+        },
+        "KeePassXCTeam.KeePassXC": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "KeePassXCTeam.KeePassXC.installer.yaml:58bc692ace808af42fcb67f35951247ec14376b0|KeePassXCTeam.KeePassXC.locale.en-US.yaml:875a79689540fe61635b8a9953b37bef9f5358af|KeePassXCTeam.KeePassXC.locale.zh-CN.yaml:41b59b20b3f9bca7e578395bd7630e5b34fc4f62|KeePassXCTeam.KeePassXC.yaml:51188ac56b5de7694a676a587755e85037d30bce"
+        },
+        "Kitware.CMake": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Kitware.CMake.installer.yaml:b63c9a0cb43ba89d8ab70542777e0545e676ea9c|Kitware.CMake.locale.en-US.yaml:538852df6c5485e966fa520b101efdecf44a2c9f|Kitware.CMake.yaml:1dd024329c0938f97dfff0aa564d8cc534554a71"
+        },
+        "Klocman.BulkCrapUninstaller": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Klocman.BulkCrapUninstaller.installer.yaml:7d612d80bd89e85a42287d41e6adf6a56b647f65|Klocman.BulkCrapUninstaller.locale.en-US.yaml:4798f7a6d545703d5b783715d8f0a6e4820e7c76|Klocman.BulkCrapUninstaller.locale.zh-CN.yaml:b7f729b8a647e37a7d88a6e0ce73d2c67aa28641|Klocman.BulkCrapUninstaller.yaml:d9919d509dcd820a62abb4a6e4a6cf3d1793a1ac"
+        },
+        "Kubernetes.kubectl": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Kubernetes.kubectl.installer.yaml:03a91097e53eb12f72f7ee4f0de597fda5d5bca0|Kubernetes.kubectl.locale.en-US.yaml:5aec96fd7e24553ff74a557efb8d1e1ff7a50b8f|Kubernetes.kubectl.locale.zh-CN.yaml:46f71f846f949d19f5a51698f885b6022f705bcf|Kubernetes.kubectl.yaml:e51e9592c98984c70e7a4c7dd846b76d9aad6ba1"
+        },
+        "LIGHTNINGUK.ImgBurn": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "LIGHTNINGUK.ImgBurn.installer.yaml:45c3e7d50816bc623591dad4b8dcc379be046f81|LIGHTNINGUK.ImgBurn.locale.en-US.yaml:fc1f638f9fa2cefe3b51eb6128e9f57754df3e8e|LIGHTNINGUK.ImgBurn.locale.zh-CN.yaml:1ee820bc45ce3d6165e939ac7d6714f1664864b2|LIGHTNINGUK.ImgBurn.yaml:3c5485ca641cfcb960c4233b9625fd9900f0d2c1"
+        },
+        "LINE.LINE": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/l/LINE/LINE in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "LLVM.LLVM": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "LLVM.LLVM.installer.yaml:99c48538c1537469ce5c320895d1801db6034e7f|LLVM.LLVM.locale.de-DE.yaml:ecc72684bf0e39f69b4ba4fff948ff2155492714|LLVM.LLVM.locale.en-US.yaml:8d987756315b99bed03d9e63068ab193f414e7a2|LLVM.LLVM.locale.zh-CN.yaml:ffeeeaaeb98c7f078d1c7deb7feb0817c77dac5f|LLVM.LLVM.yaml:13198f78819eb44fdbe37e7356d5e62e9db082dd"
+        },
+        "Lenovo.SystemUpdate": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Lenovo.SystemUpdate.installer.yaml:87c0b000ab09181a51626280ea3f0316a85d5690|Lenovo.SystemUpdate.locale.en-US.yaml:0630c39f33c046f9da6c45f2f12d0810bfae7fd0|Lenovo.SystemUpdate.locale.zh-CN.yaml:3ddad405bd7508a3cea71970a1d79ef9942eb700|Lenovo.SystemUpdate.yaml:3cdd123024c618a8dc478115d19d253aae783dd6"
+        },
+        "LibreHardwareMonitor.LibreHardwareMonitor": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "LibreHardwareMonitor.LibreHardwareMonitor.installer.yaml:fdd55ffe9fe8a568f2c677b32bf0fefe7ba15a6c|LibreHardwareMonitor.LibreHardwareMonitor.locale.en-US.yaml:89245489631d8849973a7ab58b50405005f53b46|LibreHardwareMonitor.LibreHardwareMonitor.yaml:582138f979d0b9de412cd7c432d30714e8714054"
+        },
+        "LibreWolf.LibreWolf": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "LibreWolf.LibreWolf.installer.yaml:85189b4b150106368d0944db735b721b111cb784|LibreWolf.LibreWolf.locale.en-US.yaml:a734c5e6b51f876931f222c36c907d27e0241ff1|LibreWolf.LibreWolf.locale.zh-CN.yaml:16fdf18373b84c6b656d72ecef3d195b14dcf6c0|LibreWolf.LibreWolf.yaml:0d5f81a2769230aadd7e0ec21c5fd69ffb80e994"
+        },
+        "LizardByte.Sunshine": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "LizardByte.Sunshine.installer.yaml:aee3fb9a0f81d6ae3b21b03a703795b9ee26e2e7|LizardByte.Sunshine.locale.en-US.yaml:003f250f7d63808fd3e7e7a3ede7bd6f0f93fed3|LizardByte.Sunshine.yaml:76f9625caaa9b2647ec27c8129e4046f3769f2c4"
+        },
+        "Logitech.GHUB": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Logitech.GHUB.installer.yaml:719afdae4181579cb8fc0d54e1625dce905d785f|Logitech.GHUB.locale.en-GB.yaml:f72ba71268e1e2f8fc6473662ca3eba329483311|Logitech.GHUB.locale.en-US.yaml:6b878151b0ad9e1df6228ffd7168e351c8dba96e|Logitech.GHUB.yaml:3fd2d1c6e97d78581bd71583ce3ba7f3c9cb5ad3"
+        },
+        "Logitech.OptionsPlus": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Logitech.OptionsPlus.installer.yaml:6890bec33e0b90b6430efba9f66c55327cd0f513|Logitech.OptionsPlus.locale.en-US.yaml:e483169c710fe2ed1a0d1b5592fb5f5f7c859a53|Logitech.OptionsPlus.yaml:b821a5c002537c6198b518a17aeb8a69279314d9"
+        },
+        "Logseq.Logseq": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Logseq.Logseq.installer.yaml:ffaf6eee89fad947e196244a630e76cf9057936e|Logseq.Logseq.locale.en-US.yaml:acc78cf01334972116767a9696f9273209930e7e|Logseq.Logseq.locale.zh-CN.yaml:65e444e6193d33cc945940b3d2b37b71f4519e04|Logseq.Logseq.yaml:dd53ad21bbcf74a09bba6e1fb32316d7957fb78b"
+        },
+        "MHNexus.HxD": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MHNexus.HxD.installer.yaml:25ae03df45c1ee7c474dc8be2fd555f9290f47f8|MHNexus.HxD.locale.en-US.yaml:36cbd5772e8a60a28cc6428953a2e30956677691|MHNexus.HxD.yaml:d9928187b6672f30603cf7a4642364369a1488eb"
+        },
+        "MPC-BE.MPC-BE": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MPC-BE.MPC-BE.installer.yaml:d728fe0287e3e7fc53ef4bd2dc855831d07d0d11|MPC-BE.MPC-BE.locale.en-US.yaml:c4a6cd8c2f3ef535998aeaaa1ee1064ea5d62f5a|MPC-BE.MPC-BE.locale.zh-CN.yaml:d74cd1e524774674ed18642a1e5a5f1b809f7d3e|MPC-BE.MPC-BE.yaml:b9dd1fff62e135651c955659a0e49e054f8d37fa"
+        },
+        "MSI.Center": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/MSI/Center in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "MSYS2.MSYS2": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MSYS2.MSYS2.installer.yaml:239fc2047c09f1be23a1df464caa33bf0b30065c|MSYS2.MSYS2.locale.en-US.yaml:5176de4a741cc0683342532806aaac115f34b66a|MSYS2.MSYS2.locale.zh-CN.yaml:45d7b060281abfd45f346faf42efe3af1bf5af31|MSYS2.MSYS2.yaml:088348ac8c2c2bae587e3b4525dbc6eaf748a841"
+        },
+        "Macrium.ReflectFree": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Macrium/ReflectFree in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Malwarebytes.Malwarebytes": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Malwarebytes.Malwarebytes.installer.yaml:6af5f0a72bf065fcaeaf5dbba255585227a6f7b3|Malwarebytes.Malwarebytes.locale.en-US.yaml:3cb05a08353ee2fde6360c4d6291583a801cb85d|Malwarebytes.Malwarebytes.locale.zh-CN.yaml:0116acac4a3fb93ca90430824cb3ec38554a3ebc|Malwarebytes.Malwarebytes.yaml:6b486a7b3029885d2e928bc8f469534c3249879a"
+        },
+        "Maxon.CinebenchR23": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Maxon.CinebenchR23.installer.yaml:fafe927fc18edfda58e1533d3012e096e4b6658f|Maxon.CinebenchR23.locale.en-US.yaml:73310772474b90c5e19407c8484a341e0ba05a59|Maxon.CinebenchR23.yaml:9ae09f883efc4d936ac48ba169bfac0744f0931d"
+        },
+        "Mega.MEGASync": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mega.MEGASync.installer.yaml:cf2162f7a33ce01565850fba8e5556f82055477f|Mega.MEGASync.locale.en-US.yaml:73e53157ca3b98d39a32cedb1c659445ed5ec8a3|Mega.MEGASync.yaml:b3c132bf24229a6ee05c6f691a8955a9b99005f1"
+        },
+        "Meld.Meld": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Meld.Meld.installer.yaml:1d0d5e9c352d983feefc35f774a512b6788db89c|Meld.Meld.locale.en-US.yaml:df2beb19c4e4f8fdf438b96e1a03d0a417f47841|Meld.Meld.locale.zh-CN.yaml:07b589dbbeeb2f95ffcfddcc7148482f2f7539e9|Meld.Meld.yaml:65c1dd197bf462fdeb832d4572d027090afc5171"
+        },
+        "Meltytech.Shotcut": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Meltytech.Shotcut.installer.yaml:b9c720c4c3587fe22aa3585e4692b88de857a8bf|Meltytech.Shotcut.locale.en-US.yaml:b2de3a49f43ed6912187a509fe70816295e0dad5|Meltytech.Shotcut.locale.zh-CN.yaml:1c37b7aa0c8d708f8c495506a49f47e3c9a6b657|Meltytech.Shotcut.yaml:8ba0d2cb5046cf84dc3dc2f941e64f63fbfef5ae"
+        },
+        "Microsoft.ADKPEAddon": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/ADKPEAddon in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.AppInstaller": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.AppInstaller.installer.yaml:b8d605c346a6e5dbd7d9f183362320c54432658e|Microsoft.AppInstaller.locale.af.yaml:c1a970e11edda2321861af808c7536326cb0abaa|Microsoft.AppInstaller.locale.am.yaml:d7545b330c7a2dc8cea70ad19185f6f4536fa10d|Microsoft.AppInstaller.locale.as.yaml:9252fef78cf6daf6b2c2da90bdff073b047306c4|Microsoft.AppInstaller.locale.az.yaml:64ebd474867f55885e5f6ce227aaad3a5af27f3a|Microsoft.AppInstaller.locale.bg.yaml:bfaa66f8bc82036c70f25997f8404205640a1d54|Microsoft.AppInstaller.locale.bn.yaml:13dc9467f59dec5e5358e762f4e887c4f31abfd2|Microsoft.AppInstaller.locale.bs.yaml:2f63a7848342d44f730348ff3f5862a67f213917|Microsoft.AppInstaller.locale.ca-ES-valencia.yaml:111a703c5b678b712692e5483ee381e75a0021c1|Microsoft.AppInstaller.locale.ca.yaml:4e28fb51c064d3a9814705cd3cff8cac7bae52b5|Microsoft.AppInstaller.locale.cy.yaml:a2ae6f8825d767c408e3d80f67ece863a010c006|Microsoft.AppInstaller.locale.da.yaml:1afddae61622f564d98043c6b3c761e733eccfaf|Microsoft.AppInstaller.locale.de.yaml:37e9f1c570e33e680e9725c061cd379a901095a5|Microsoft.AppInstaller.locale.el.yaml:0ab2c263845d57f12647a9a725e96d8819b88f3b|Microsoft.AppInstaller.locale.en-US.yaml:73ff98555b3cc3f342f1a88a96c1545d379b6460|Microsoft.AppInstaller.locale.es.yaml:2e2c1cc4b7d2ab662913f66cb1637b3fa5125ffa|Microsoft.AppInstaller.locale.et.yaml:93e7af0a52002d0eb0ba78c82be453028dd7aa55|Microsoft.AppInstaller.locale.eu.yaml:e2d76954c8eb1b6e951dc0fc4bbefe1e3af8359f|Microsoft.AppInstaller.locale.fr.yaml:7a21a88a290fd154f5d1db38ad70f7843f7ae8b0|Microsoft.AppInstaller.locale.ga.yaml:346d96d94410c103fa092f5d9a6ac1aeca77aac3|Microsoft.AppInstaller.locale.gd.yaml:191b2f116822b184f8c9260168c542bbf4bc8aaf|Microsoft.AppInstaller.locale.gl.yaml:a17f64c155b783c67ac8961ce0a1d46f224d66a3|Microsoft.AppInstaller.locale.gu.yaml:fcab080c9e4aeab79a7a77d36099e32f473531ba|Microsoft.AppInstaller.locale.hi.yaml:9b0352b2eb5ba4f9af950deb4c7c7f43e446d57b|Microsoft.AppInstaller.locale.hr.yaml:555703ee37b8e030bf36221e66717654ee134538|Microsoft.AppInstaller.locale.id.yaml:11d0be48e55ac3a7c2d741f0706244a618cb82b9|Microsoft.AppInstaller.locale.is.yaml:fe8c8a5d2edb69e9a46c5b673eadb30b05e9b286|Microsoft.AppInstaller.locale.it.yaml:423caea96fa262bd35475d6b8806bd75d8fcf1e8|Microsoft.AppInstaller.locale.ja.yaml:c3b5d0f5d726b9847c31106f968e6b3b797fac76|Microsoft.AppInstaller.locale.ka.yaml:dd345fb610f146adad0d3075556e560f041400d8|Microsoft.AppInstaller.locale.kk.yaml:9a31edfe344873be2f7a897d9ccb3ed61642cb3d|Microsoft.AppInstaller.locale.kn.yaml:c53a72088ef7e0f0248824735abeef03e40b859b|Microsoft.AppInstaller.locale.ko.yaml:c17d5b645b63598bde0e7a8c477b9e9a2bd71628|Microsoft.AppInstaller.locale.kok.yaml:54fe156f4c98e7053bde82af1ef6da195d49c316|Microsoft.AppInstaller.locale.lb.yaml:f250a38dcaeba89821ebe4a5f90bbaed235d18b9|Microsoft.AppInstaller.locale.lt.yaml:b035f55503ca31584106c5a86dc1ce07d73eb4d3|Microsoft.AppInstaller.locale.mi.yaml:c1c487815351701c9122e1640ec1bd3c60ff8cae|Microsoft.AppInstaller.locale.ml.yaml:a7382fec5fd34709885087becf82d0c6d9ddceb1|Microsoft.AppInstaller.locale.mr.yaml:01e0da847cba6a9c22ab89b1c0a4514de4cf43ed|Microsoft.AppInstaller.locale.ms.yaml:127fd9e3ba4ce7a3d531aa7955ecb0afbfc57226|Microsoft.AppInstaller.locale.mt.yaml:63034411572c75b912a88ba6294d5fd0cad8ca15|Microsoft.AppInstaller.locale.nb.yaml:eb479151d1ccb603d3adb26ae4ff20af91922bfc|Microsoft.AppInstaller.locale.ne.yaml:e16eda8201d8daa6de1154fbf13b04dae5c47f0e|Microsoft.AppInstaller.locale.nl.yaml:7169ae7e1b5557a898c8d4259878298ed9ddd41d|Microsoft.AppInstaller.locale.nn.yaml:073e89b250e722e7ad881638ac255dd3ba5242a0|Microsoft.AppInstaller.locale.or.yaml:cd28f3f2688370a0372bc0cb231fa3c68b74c726|Microsoft.AppInstaller.locale.pl.yaml:96c8796f240d8600701192b7c663edbed6de1850|Microsoft.AppInstaller.locale.pt-BR.yaml:19356a7ddecbaf625112282a50332c84e1e7c6a5|Microsoft.AppInstaller.locale.pt-PT.yaml:9ebfa59982e39ae824131b3c449f2160965009fa|Microsoft.AppInstaller.locale.sk.yaml:489bbd21622a093b4056107a5e1efe62b942d058|Microsoft.AppInstaller.locale.sq.yaml:2c94ca545f69fbca40952c3be1e872db9b80df39|Microsoft.AppInstaller.locale.sr-Latn.yaml:5e984a6e63b259f30cbcb731064f3b8ad9c13f9a|Microsoft.AppInstaller.locale.sv.yaml:fecc2ed93a1316d40d333eb6ef8a23bffcfb5825|Microsoft.AppInstaller.locale.te.yaml:d6dbc37f73eba4e0570e793f8e0dd9fee30cc493|Microsoft.AppInstaller.locale.th.yaml:1e9102a39a5e63284c5dd5987bceab405c63ce00|Microsoft.AppInstaller.locale.tt.yaml:135d5e56954b836e8b9e2c1dae96c002f84e801c|Microsoft.AppInstaller.locale.ug.yaml:43b5f676275c5861f46b853f3c2d601071de8bff|Microsoft.AppInstaller.yaml:ed29a5b37e08731690da21516c244b9f848e1901"
+        },
+        "Microsoft.Azure.AzureCLI": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/Azure/AzureCLI in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.AzureCLI": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.AzureCLI.installer.yaml:18c7a8486430e911929fcb738a4a1bcf71c18c5d|Microsoft.AzureCLI.locale.en-US.yaml:9de023280ba5eeb9d16aa2032fb12b2e7e72c0a9|Microsoft.AzureCLI.yaml:da24ea3927276f54c635008004232128fa1f441a"
+        },
+        "Microsoft.DirectX": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DirectX.installer.yaml:d63ae778aafea3fec5a0aee4009f65e14b1b09f2|Microsoft.DirectX.locale.cs-CZ.yaml:2ec263a85bd228d2329d0ac19176d6fc267add61|Microsoft.DirectX.locale.de-DE.yaml:68a8f6ea0b34dbeee2d74dcb6a9161ce8726c88c|Microsoft.DirectX.locale.en-US.yaml:2583ae7596112e070cbb03285c0dff5fc149011f|Microsoft.DirectX.locale.es-ES.yaml:503891d3f1e623ccfd812d961554d5f610133856|Microsoft.DirectX.locale.fr-FR.yaml:fac26c5e15d42a1972d53fe18b80ac638941606f|Microsoft.DirectX.locale.it-IT.yaml:833d332a8cf044caf93b04546e588b3f988afc02|Microsoft.DirectX.locale.ja-JP.yaml:bdae9333775d8c08a41e5f02e479bd763a4b0342|Microsoft.DirectX.locale.ko-KR.yaml:e113a179d67f4ef12978469af294aec81ff1d53b|Microsoft.DirectX.locale.nl-NL.yaml:7bd30c76049e4f5d80b6ab2aaf369cdea18289e4|Microsoft.DirectX.locale.pl-PL.yaml:cff7f8ff13f0a7bf513c5b834887fb37f5a4f671|Microsoft.DirectX.locale.pt-BR.yaml:534e986e07e35c1987325b811640c4b57f0b3a76|Microsoft.DirectX.locale.ru-RU.yaml:3cc1a43bb46898938146c6495268b72e495e4481|Microsoft.DirectX.locale.sv-SE.yaml:a9dfddcbf28967a4260273d0ecf04252d09c3d05|Microsoft.DirectX.locale.zh-TW.yaml:1b76d8ed3b2fa7d70c52279184049c713b99eb54|Microsoft.DirectX.yaml:a20c45197fda1e21de7ad868371c752575a285c8"
+        },
+        "Microsoft.DotNet.AspNetCore.8": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.AspNetCore.8.installer.yaml:eb5b088eeb1e0bb7abd23bd532369ffffa62ad81|Microsoft.DotNet.AspNetCore.8.locale.en-US.yaml:9ef122bc29326408d35e7109ccfc9406f2668d55|Microsoft.DotNet.AspNetCore.8.yaml:f7b39b9e5bbe38d1c7d5a8adb88dbcc1ff55307c"
+        },
+        "Microsoft.DotNet.DesktopRuntime.6": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.DesktopRuntime.6.installer.yaml:7e9840bb4688e98a742476c021a7963de728b1c1|Microsoft.DotNet.DesktopRuntime.6.locale.en-US.yaml:0a4d6d10577890401f388de958970bd44b3fa0c0|Microsoft.DotNet.DesktopRuntime.6.yaml:c7cf4f365a43461fed34ecec570a77e52f7a0aa6"
+        },
+        "Microsoft.DotNet.DesktopRuntime.8": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.DesktopRuntime.8.installer.yaml:a5ed815f704d1a26da917c2c6b2e776cdcf91057|Microsoft.DotNet.DesktopRuntime.8.locale.en-US.yaml:3cd0bbb5c8aaf65c0b2b850a22a32ca9a1deb6f6|Microsoft.DotNet.DesktopRuntime.8.yaml:4de11aa4740c8d8023f092b749dba5cc8cf7e4f9"
+        },
+        "Microsoft.DotNet.DesktopRuntime.9": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.DesktopRuntime.9.installer.yaml:875dd31eaf67ff59da6de282df00df018528d699|Microsoft.DotNet.DesktopRuntime.9.locale.en-US.yaml:814d2f0f55919d855f078d27be52486bb73d7743|Microsoft.DotNet.DesktopRuntime.9.yaml:f84acb6894153772ca197988c73723a12cef9e72"
+        },
+        "Microsoft.DotNet.Runtime.8": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.Runtime.8.installer.yaml:609b4e8e1884840fff0d10f97c9e54c552dea17f|Microsoft.DotNet.Runtime.8.locale.en-US.yaml:a1de4d2e7cdd3cacc1baac106a220314d10d601d|Microsoft.DotNet.Runtime.8.yaml:4db5de19498bd7722fd235a18c5a032362c122c0"
+        },
+        "Microsoft.DotNet.SDK.8": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.SDK.8.installer.yaml:b0bd81b7fe829a753f5a7ef85e140a0f33d76297|Microsoft.DotNet.SDK.8.locale.en-US.yaml:07a69e4e3af9d917f2470a0b12e2330eedd80b17|Microsoft.DotNet.SDK.8.yaml:915f4035574e0af9d54663b122e1cde0a97a331e"
+        },
+        "Microsoft.DotNet.SDK.9": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.DotNet.SDK.9.installer.yaml:bd961bfad19007c05b2bd2128a429f735e00a4ce|Microsoft.DotNet.SDK.9.locale.en-US.yaml:052e8574c7924b941dcaf3a69b8eca7040f13e34|Microsoft.DotNet.SDK.9.yaml:95575552ee594579d70bea8b3c50979ca2f328d1"
+        },
+        "Microsoft.Edge": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Edge.installer.yaml:d155e6e3f0bb6e5ad8f05091bef198ae6a9c3995|Microsoft.Edge.locale.en-US.yaml:0666158d63ef0ba70e62fdcb9fdff2b1f738b78c|Microsoft.Edge.yaml:235e596bfb6fe1e3c426e25994abc4d9a41a7e80"
+        },
+        "Microsoft.EdgeWebView2Runtime": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.EdgeWebView2Runtime.installer.yaml:fb596954520f4b1ea62ef9297078e3bbd63227b8|Microsoft.EdgeWebView2Runtime.locale.en-US.yaml:479e78dba18bb0f7b27dbd3cd7695b3b1e1b997a|Microsoft.EdgeWebView2Runtime.locale.zh-CN.yaml:5ee21e507e8eb5b9a04640a1c4509df959db7703|Microsoft.EdgeWebView2Runtime.yaml:2b3a7891d45cb02afcd7b2498ae76959176cfa4a"
+        },
+        "Microsoft.PowerShell": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.PowerShell.installer.yaml:65c3ddb78a3eb24ba971268641b62627174f74d4|Microsoft.PowerShell.locale.en-US.yaml:6c87e759dc75848b02615e701b7af582cd0eb075|Microsoft.PowerShell.yaml:1fa557a64581d8ec6956cb12ec3b90094847cc04"
+        },
+        "Microsoft.PowerToys": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.PowerToys.installer.yaml:a494f327e6b691b9cd17278b56f22bfb8dd7c3d2|Microsoft.PowerToys.locale.en-US.yaml:3cd607c92a5fefdce482a7b02f7e0d4f82bc6916|Microsoft.PowerToys.yaml:4a456c188ca52ba32fb3946f6bcb5035111cea76"
+        },
+        "Microsoft.RemoteDesktopClient": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.RemoteDesktopClient.installer.yaml:ff43039e7def89dbc7429774aeadf94fb2ad7181|Microsoft.RemoteDesktopClient.locale.en-US.yaml:30b8702220d0be1b0e5fd6dbeb70b70d55c9f2ba|Microsoft.RemoteDesktopClient.locale.zh-CN.yaml:78e37dc99364d2759a056cd1a8833f2220e0127f|Microsoft.RemoteDesktopClient.yaml:cb576d726cd8ffbab24a449ba95dedabaa2f4167"
+        },
+        "Microsoft.RemoteHelp": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.RemoteHelp.installer.yaml:e6d29d9b9eeffa7a83ffa203ef03c91b1f57a6e4|Microsoft.RemoteHelp.locale.en-US.yaml:d7eb7d163d8aba69b48a70e410f6815a47b9f2b6|Microsoft.RemoteHelp.yaml:18e988f3a0903a8c6b488d6280b408f45cea9b7f"
+        },
+        "Microsoft.SQLServerManagementStudio": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.SQLServerManagementStudio.installer.yaml:1694ac65c58fc9eac7f33e7b00c061238eacc442|Microsoft.SQLServerManagementStudio.locale.de-DE.yaml:ebc9b96a56d0a804d63abad3bac4269e2079bf41|Microsoft.SQLServerManagementStudio.locale.en-US.yaml:61a97e5a180172439d72a709f5c59d31ec778b26|Microsoft.SQLServerManagementStudio.locale.es-ES.yaml:dbe3b66cfd2592a346fda802ef4bdf0e903d209c|Microsoft.SQLServerManagementStudio.locale.fr-FR.yaml:041dc8eae3f2bba1670e64d6346ad6c964dc280c|Microsoft.SQLServerManagementStudio.locale.it-IT.yaml:c1b7f2715835875589cf0e7498a2ec90ab310ffa|Microsoft.SQLServerManagementStudio.locale.ja-JP.yaml:49021843d908a343d326a02f22f333c7b0dbb563|Microsoft.SQLServerManagementStudio.locale.ko-KR.yaml:e0794ce72b72fc56f65d5e39e5b55e5fe0afa7ad|Microsoft.SQLServerManagementStudio.locale.pt-BR.yaml:3b72abb3c0a8a91c0a0c466df171eb104ea41851|Microsoft.SQLServerManagementStudio.locale.ru-RU.yaml:13305065701fc83c6c785dfae75a222cbef21536|Microsoft.SQLServerManagementStudio.locale.zh-CN.yaml:8c7505d0f41de6498b093163348db8b18af7e36a|Microsoft.SQLServerManagementStudio.locale.zh-HK.yaml:35a357c9c64b056da0b893657e46f403f74cb6eb|Microsoft.SQLServerManagementStudio.locale.zh-TW.yaml:d2508d8de73bfb76ff559ad4078cd083da19a267|Microsoft.SQLServerManagementStudio.yaml:0b98d8118130a2be1168e2c9c2941a4eafb2801f"
+        },
+        "Microsoft.Sysinternals.Autoruns": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.Autoruns.installer.yaml:abdf22697ecd8e5284621fcd0642ca7079931003|Microsoft.Sysinternals.Autoruns.locale.en-US.yaml:aa15205970c823935bd054d30f07a7b51e7af925|Microsoft.Sysinternals.Autoruns.yaml:bb0551597c0919b0835fddf1bc75a3cedaa73fdd"
+        },
+        "Microsoft.Sysinternals.BGInfo": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.BGInfo.installer.yaml:aba960423c3ca5409c579b5bcda2b0ec5e672c45|Microsoft.Sysinternals.BGInfo.locale.en-US.yaml:32d23bbdc588cd0aecde39d694b0296eea50ef6e|Microsoft.Sysinternals.BGInfo.yaml:89fde3187d5cb8041361b205e0bcf7721770d8bf"
+        },
+        "Microsoft.Sysinternals.Disk2vhd": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/Sysinternals/Disk2vhd in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.Sysinternals.DiskView": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/Sysinternals/DiskView in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.Sysinternals.Handle": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.Handle.installer.yaml:6ffc671b2bfc4d23a65814a7f1a54583b02d622d|Microsoft.Sysinternals.Handle.locale.en-US.yaml:5ebdbc4073d64f05d3c95b7eb2b6549ab9a2291d|Microsoft.Sysinternals.Handle.yaml:e36fdc5c5e0088fb41a9e4f7a4d214c6fc2a423a"
+        },
+        "Microsoft.Sysinternals.ProcDump": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/Sysinternals/ProcDump in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.Sysinternals.ProcessExplorer": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.ProcessExplorer.installer.yaml:4adbef9a2115ccaeaf524535ddaa3ac957bdc33d|Microsoft.Sysinternals.ProcessExplorer.locale.en-US.yaml:0c9378693ad7e22b40e29fe6a49bac3595f5ae26|Microsoft.Sysinternals.ProcessExplorer.yaml:16d7a58022d6da1274afa9351fc7dcc271f7daa6"
+        },
+        "Microsoft.Sysinternals.ProcessMonitor": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.ProcessMonitor.installer.yaml:969d6dbf4c0ea6d60f8592c8b595f981ce3c1265|Microsoft.Sysinternals.ProcessMonitor.locale.en-US.yaml:459eafac3698a5db8ae2dc8d2992f766f9aaa422|Microsoft.Sysinternals.ProcessMonitor.yaml:41c437babde5f37fff990f733ea1167d1f76e1b1"
+        },
+        "Microsoft.Sysinternals.PsTools": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.PsTools.installer.yaml:bcbeb1a6af8095262e49a87cb08919cbf47f4e7f|Microsoft.Sysinternals.PsTools.locale.en-US.yaml:fb5989612e2497aa806056c07841dbbfbe29298b|Microsoft.Sysinternals.PsTools.yaml:329b611bd214eb371504694faec1c8f0fa46ebad"
+        },
+        "Microsoft.Sysinternals.RAMMap": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.RAMMap.installer.yaml:6a8d76d7868fb3cac8cca941e2868b7943f19291|Microsoft.Sysinternals.RAMMap.locale.en-US.yaml:87c6741b1840c94d6bd38c8ecc6d0e313df4f6ef|Microsoft.Sysinternals.RAMMap.yaml:cec2c7635480e3921a9eab29e49759561e9ec135"
+        },
+        "Microsoft.Sysinternals.Sigcheck": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.Sigcheck.installer.yaml:d24a8b5c48b34d0ebfd1dc00c9e5aa116e19b883|Microsoft.Sysinternals.Sigcheck.locale.en-US.yaml:0a10b51c7f2701a70f953f8863b1f4c68b8f2764|Microsoft.Sysinternals.Sigcheck.yaml:3634ae439de627e30442c275477712a43342679e"
+        },
+        "Microsoft.Sysinternals.Sysmon": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.Sysmon.installer.yaml:e40d2e2e2201feec6fe71df80f5a23442718c214|Microsoft.Sysinternals.Sysmon.locale.en-US.yaml:64766409102cc67859ba2ae1735f3907d487239f|Microsoft.Sysinternals.Sysmon.yaml:9e800bb70f129078494c72a6fb9e643092c02d7b"
+        },
+        "Microsoft.Sysinternals.TCPView": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Sysinternals.TCPView.installer.yaml:80f9fa5d65141fbe630ce04638649089da9d6e3a|Microsoft.Sysinternals.TCPView.locale.en-US.yaml:023ac20fd820341f6ae573fd463e64b4b00b9629|Microsoft.Sysinternals.TCPView.yaml:2c3cae614073f5794dc17eb2b72e29ce0396be03"
+        },
+        "Microsoft.Teams": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.Teams.installer.yaml:ea84bc9bd51d617efafec9c2df9e9a9c45434c04|Microsoft.Teams.locale.en-US.yaml:b51d68ad702c3dc8864126e850b0cf66e978b6bd|Microsoft.Teams.locale.zh-CN.yaml:a70cd6a332089bb6b7106cc18c06fdb302fb7fb8|Microsoft.Teams.yaml:030065ffa00dffdca5d413c7b0754038508f2639"
+        },
+        "Microsoft.VCRedist.2008.x64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2008.x64.installer.yaml:0b01f23a1e331bd0de5a46affdec6ab47f9fda3e|Microsoft.VCRedist.2008.x64.locale.en-US.yaml:546224282a3cc266e041051ce51a2b9d9eea79f8|Microsoft.VCRedist.2008.x64.locale.zh-CN.yaml:b5e52953ed9fe43f6d37768fa67fa57d7c645e3c|Microsoft.VCRedist.2008.x64.yaml:3622f76c28273822c9b32327b71306835b861d17"
+        },
+        "Microsoft.VCRedist.2008.x86": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2008.x86.installer.yaml:a03029e58538536f9436c7713dfe105296c0cda0|Microsoft.VCRedist.2008.x86.locale.en-US.yaml:9096cdd9cc95fd8fb5d06cf255ba622f9cc0b4b9|Microsoft.VCRedist.2008.x86.locale.zh-CN.yaml:513ae2eb955b1ee3a3ba8cce0b7512f44b76ec16|Microsoft.VCRedist.2008.x86.yaml:dd2a31b8f249ff9d73f3d627f8e98e2f936bc644"
+        },
+        "Microsoft.VCRedist.2010.x64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2010.x64.installer.yaml:8d22f3ad48378c5ffca07b3952b19e24be9b643c|Microsoft.VCRedist.2010.x64.locale.en-US.yaml:f3d6ecbb9695e24298fe0a182acf26b91ef55f42|Microsoft.VCRedist.2010.x64.locale.zh-CN.yaml:6b3ea0be2e5f494addbb8381d9198eee30e5f155|Microsoft.VCRedist.2010.x64.yaml:5caa9e9f6b068363efe42fad4d0ba55b1394fca6"
+        },
+        "Microsoft.VCRedist.2010.x86": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2010.x86.installer.yaml:3786b70ac9bde644c799218420ead74b0588f123|Microsoft.VCRedist.2010.x86.locale.en-US.yaml:eb537eadc93ede43319725a2d6386e480b3a3d85|Microsoft.VCRedist.2010.x86.locale.zh-CN.yaml:888225d728aa071a57be3ba154ae714aee85038e|Microsoft.VCRedist.2010.x86.yaml:6994f3784bea78143ec6a5dd11cce6f8d56f74ff"
+        },
+        "Microsoft.VCRedist.2012.x64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2012.x64.installer.yaml:facbff2500c71ea4e752deb35ee85cc60127efc5|Microsoft.VCRedist.2012.x64.locale.en-US.yaml:195816b78014e226e8f3554f174da96eeeeca334|Microsoft.VCRedist.2012.x64.yaml:6071506ff8cba3411fd60fec533fdf1fc5cf7a79"
+        },
+        "Microsoft.VCRedist.2012.x86": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2012.x86.installer.yaml:d470a0467aec497e03b3d21fd9cb415e2d0fcd98|Microsoft.VCRedist.2012.x86.locale.en-US.yaml:dde9db5de000d38186004499dbb01529a5c5030d|Microsoft.VCRedist.2012.x86.yaml:0f4e5a9024441eaa8976da7dd0a8b012bc48756a"
+        },
+        "Microsoft.VCRedist.2013.x64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2013.x64.installer.yaml:b3a4d1bae0cbdf46e0658c1a33ed9b52a3b43e66|Microsoft.VCRedist.2013.x64.locale.en-US.yaml:94578514b78ceedaf15fa489ab386b210ccdc8c8|Microsoft.VCRedist.2013.x64.yaml:044c5cd3cee179823f3882607c36f91b7710e92a"
+        },
+        "Microsoft.VCRedist.2013.x86": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2013.x86.installer.yaml:a076cc9533890dd02598dc2f5821e9da0c8f2bb9|Microsoft.VCRedist.2013.x86.locale.en-US.yaml:b8d21a41c23042216555cac88abbc8999ad08ac8|Microsoft.VCRedist.2013.x86.yaml:65fd34351bdaf94470cec64da993ce37bd4c8f09"
+        },
+        "Microsoft.VCRedist.2015+.arm64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2015+.arm64.installer.yaml:2aaf03f1331bd3a1535db73d1250a77722169c42|Microsoft.VCRedist.2015+.arm64.locale.en-US.yaml:14dcbc2f7d97234fd29c62e63cfa0f789d30734c|Microsoft.VCRedist.2015+.arm64.locale.zh-CN.yaml:61647d0f0544b1041b4b21f34c1f2a9084a099c2|Microsoft.VCRedist.2015+.arm64.yaml:cf1b1a7e5ae054e78ee96b1c9ca1510bb2314627"
+        },
+        "Microsoft.VCRedist.2015+.x64": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2015+.x64.installer.yaml:876bdbf08de920e4a041a10b8e6467c224eda447|Microsoft.VCRedist.2015+.x64.locale.cs-CZ.yaml:3b82254f24d8c31e3257db1a356f457fa3ba896b|Microsoft.VCRedist.2015+.x64.locale.en-US.yaml:0f4f2df9416f2f2b53c864c8e40a2a358c67cdd9|Microsoft.VCRedist.2015+.x64.locale.ja-JP.yaml:8082850008c62d5e59a6f850a038e9330540f381|Microsoft.VCRedist.2015+.x64.locale.ko-KR.yaml:88caea87cadfeb056c8336670d10ab643ffe3c64|Microsoft.VCRedist.2015+.x64.locale.pt-BR.yaml:32d3ef0e5dae083127d448071efd18de22d39f11|Microsoft.VCRedist.2015+.x64.locale.tr-TR.yaml:b4a8733f4c9a275502fa6f3f98e97c0dc5b6e845|Microsoft.VCRedist.2015+.x64.locale.zh-CN.yaml:d62c3f11e8e4a15a82aeed704dfec770a6de8ad0|Microsoft.VCRedist.2015+.x64.locale.zh-TW.yaml:36c3017ee54fb148eee142f401abce7bf3699853|Microsoft.VCRedist.2015+.x64.yaml:e77ae2d3378f46b6c378aa9a44c8724b96f2695a"
+        },
+        "Microsoft.VCRedist.2015+.x86": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VCRedist.2015+.x86.installer.yaml:21c7880466b5c791963e2ffdc588f8ef85fbf7c2|Microsoft.VCRedist.2015+.x86.locale.en-US.yaml:0f5b9216828ebef9fe517a5706073738d138819d|Microsoft.VCRedist.2015+.x86.locale.zh-CN.yaml:f2e3437a9d849b00ceca90267aeaddaa81d9413a|Microsoft.VCRedist.2015+.x86.yaml:2c4f66bddc12e9323c49f4e69a14da894dee54ce"
+        },
+        "Microsoft.VisualStudio.2022.BuildTools": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VisualStudio.2022.BuildTools.installer.yaml:fd2fb8fff8cf7c393ef95fdea8f1ed7b390c0fd7|Microsoft.VisualStudio.2022.BuildTools.locale.en-US.yaml:af4089fafa2c25c3b22f50a0851d64e02166e08e|Microsoft.VisualStudio.2022.BuildTools.yaml:9cc19c32e1c1c7e196ce3623ba01048232ac6c80"
+        },
+        "Microsoft.VisualStudio.2022.Community": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VisualStudio.2022.Community.installer.yaml:d0ae891e63fd1680e08c9675e0103f1e0f25f3fb|Microsoft.VisualStudio.2022.Community.locale.en-US.yaml:25f2ec49819bd5378f78ff30971302dcfa735abc|Microsoft.VisualStudio.2022.Community.yaml:6447178154bc6a977f29da1cb1ee3f52feab2dc5"
+        },
+        "Microsoft.VisualStudioCode": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.VisualStudioCode.installer.yaml:43aef50714075e1be469d1fee0910b8761b9e38f|Microsoft.VisualStudioCode.locale.en-US.yaml:fc63db1889cd5a165fcd2ff93ed448bc89a80db6|Microsoft.VisualStudioCode.yaml:9ca0c6aee63261ce16e06f3596d6f30df63956a4"
+        },
+        "Microsoft.WSL": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.WSL.installer.yaml:db12b7080abada249f13d6d147d9f3b3955f519d|Microsoft.WSL.locale.cs-CZ.yaml:7e25aedc6ef44dd5016abbc84a993163947cf3d1|Microsoft.WSL.locale.da-DK.yaml:2657aec9e9586d417e32ce8cd6aed704ffd031b0|Microsoft.WSL.locale.de-DE.yaml:fef21e6ae012f0a90c43b1c24d8a358acd3381ad|Microsoft.WSL.locale.en-US.yaml:c323854095f2994b0c678a8dfe7f6dc759dd1c3a|Microsoft.WSL.locale.es-ES.yaml:fa00cbeb923a390fa5655789fadc91d5f7f79c1b|Microsoft.WSL.locale.fi-FI.yaml:a751b153417097217ff8f39e45bb886a117d460c|Microsoft.WSL.locale.fr-FR.yaml:8d789081c2498586d9d8fcd17be802d17b62454c|Microsoft.WSL.locale.hu-HU.yaml:aaf580352c2ef4c1b8c30ce56bd6fa1f43cfa90d|Microsoft.WSL.locale.it-IT.yaml:0ea0e97d689f7942c34aecf50e2cf813e3a286d7|Microsoft.WSL.locale.ja-JP.yaml:cc808667a2a6425327a477d61a4b0ead72ed3294|Microsoft.WSL.locale.ko-KR.yaml:33daa5134777e627fce08e7b4b3fea1da530481a|Microsoft.WSL.locale.nb-NO.yaml:6455896696a0152ba5195a2e524c525e3c7cdd27|Microsoft.WSL.locale.nl-NL.yaml:a7dd09f2510c8fd7e6c75e7e8855c65685b08888|Microsoft.WSL.locale.pl-PL.yaml:caad11092c6ba5a62ed5190de5f8cc59aaa7ab03|Microsoft.WSL.locale.pt-BR.yaml:22dec400bb49c1fb7c39cf1cf6bf0263b46a01d5|Microsoft.WSL.locale.pt-PT.yaml:2082d06e58d58c74449414192d446d70742e9d67|Microsoft.WSL.locale.ru-RU.yaml:492f105bf44eeb851709ef07275f75b21fbcc6cc|Microsoft.WSL.locale.sv-SE.yaml:e054704b37e5933ec5514ee8e1de764986841e67|Microsoft.WSL.locale.tr-TR.yaml:dac68c3861e9d5e8ab0193e3e78ea92b9975be49|Microsoft.WSL.locale.zh-CN.yaml:83e100c7f63f69585029f9b86e1f1559aa425b15|Microsoft.WSL.locale.zh-TW.yaml:f264230f78a70933e3a49dae7f824fa5eeead911|Microsoft.WSL.yaml:e702176ad92a002e00b7324500165f4e60b978a5"
+        },
+        "Microsoft.WindowsADK": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.WindowsADK.installer.yaml:da29e7d50b301b38c5a7763b05a8530fe81d081c|Microsoft.WindowsADK.locale.en-GB.yaml:67f9fd91ca1ef7c4352e424bf48ccc06240cd0c3|Microsoft.WindowsADK.locale.en-US.yaml:52d09a27918607b96779b570dfc9de8a20273394|Microsoft.WindowsADK.locale.nb-NO.yaml:f8ede713c2866873189c7bd7527981d64e1f77e4|Microsoft.WindowsADK.locale.zh-CN.yaml:f93493f6e6cb349b30b0e9b5d236e52386ddf1a0|Microsoft.WindowsADK.yaml:51b7688392b53306a65c5a361475d4b3f6d283f2"
+        },
+        "Microsoft.WindowsMediaCreationTool": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/Microsoft/WindowsMediaCreationTool in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Microsoft.WindowsTerminal": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.WindowsTerminal.installer.yaml:2b79e6ef416a7254bc6320a1e3613d76b3c63fca|Microsoft.WindowsTerminal.locale.en-US.yaml:7481ce417b1b92a82167f9120ff2a536ee62a6a3|Microsoft.WindowsTerminal.locale.fr-FR.yaml:2611e6d363063de04b5c453ffd962e9121906910|Microsoft.WindowsTerminal.locale.it-IT.yaml:8dafde81e7574994698a8eea6237248594b03906|Microsoft.WindowsTerminal.locale.ja-JP.yaml:6e1703f4f97c160bbbf40ccdc686c8d7f56a267a|Microsoft.WindowsTerminal.locale.ko-KR.yaml:f3be86a7db8c0696a4a8cde39a893effe5d3d5b9|Microsoft.WindowsTerminal.locale.pt-BR.yaml:192dca82ae1b8a04186caa2a2d1029b0f89cb547|Microsoft.WindowsTerminal.locale.ru-RU.yaml:ac9bca670f9dcf36526a5e9f655f23afc7fa55a1|Microsoft.WindowsTerminal.locale.zh-CN.yaml:a9bdade74d4d66a91d9f6fd5aafffa3ca35584a0|Microsoft.WindowsTerminal.locale.zh-TW.yaml:7f11ec1224cc84baf69d612a2a2bf20685ff6ce7|Microsoft.WindowsTerminal.yaml:681162fb576cb0d2c6a4d1ef593c688a20f809f9"
+        },
+        "Microsoft.XNARedist": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Microsoft.XNARedist.installer.yaml:35d4a31c2b9054379ccfb4065d12cddd4d44435b|Microsoft.XNARedist.locale.en-US.yaml:3aaddbb9279b6083fecb6f75fce0e289a7b7b1fb|Microsoft.XNARedist.yaml:342fa402b31d5787b87396cff5bd4c9c7a2b5c1e"
+        },
+        "MiniTool.PartitionWizard.Free": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MiniTool.PartitionWizard.Free.installer.yaml:b4f013345fc3a7129a29d13f77e4865db142eab0|MiniTool.PartitionWizard.Free.locale.en-US.yaml:15018ca3e9eca591f848bac9893bce47f0ec5384|MiniTool.PartitionWizard.Free.yaml:aac8859f272fdec59452864d08cf8bada3075f4c"
+        },
+        "Mobatek.MobaXterm": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mobatek.MobaXterm.installer.yaml:74f1270e53c00e75a21b053196a774d49f247fa9|Mobatek.MobaXterm.locale.en-US.yaml:70b8eda1f82924cfcb103b13dc8a31821620d5dc|Mobatek.MobaXterm.locale.zh-CN.yaml:9a5b28a7032b360bb367c316e6e0b01095b25f69|Mobatek.MobaXterm.yaml:5f7d47637240c0b8aafbce8d3bd9a916b3c0e8ca"
+        },
+        "MoonlightGameStreamingProject.Moonlight": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MoonlightGameStreamingProject.Moonlight.installer.yaml:22ab8237b2726e2d243554fd3a209427911be8cf|MoonlightGameStreamingProject.Moonlight.locale.en-US.yaml:a11553009b3df14323cd632ede45486e168f979a|MoonlightGameStreamingProject.Moonlight.yaml:e87d2339465adc98d31d5c3c4a7e7d9ff23e5859"
+        },
+        "MoritzBunkus.MKVToolNix": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "MoritzBunkus.MKVToolNix.installer.yaml:8dc0f95035308c193abc73ef33da92518a7056f0|MoritzBunkus.MKVToolNix.locale.en-US.yaml:eac4c251bfc8b8ba9a8f2bed71ab063b0da76d37|MoritzBunkus.MKVToolNix.locale.zh-CN.yaml:5ee8dc87583126c005110752ee91568a129cec01|MoritzBunkus.MKVToolNix.yaml:ab50b35ce2cc1fde33927ced35e0dcd7e2d6f593"
+        },
+        "Mozilla.Firefox": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mozilla.Firefox.installer.yaml:165aa8a4104730258202b99d90499c326149eb2d|Mozilla.Firefox.locale.cs-CZ.yaml:71ee9cc3a887d8879717b526a6693a04e18b4e0d|Mozilla.Firefox.locale.da-DK.yaml:feedd13c99c719be5cfcffff3799b9c3c3a19689|Mozilla.Firefox.locale.de-DE.yaml:8b5e1647536712a7dcb62f7fd69be848619e4ebc|Mozilla.Firefox.locale.el-GR.yaml:c593b37bfaefbd9999f31a6a9ec0c37ca76f4110|Mozilla.Firefox.locale.en-GB.yaml:2f666396bd440d4d28abb924c56474dd81f53e9c|Mozilla.Firefox.locale.en-US.yaml:58884abff32a5cf3b52ec2656710f97c610ca82b|Mozilla.Firefox.locale.es-MX.yaml:5c2e75735fdaa36bc1a7fa0213aa8080d3ace095|Mozilla.Firefox.locale.fr-FR.yaml:956dda72c3337fadbbf929785c2fdbc85aa4e4ff|Mozilla.Firefox.locale.hu-HU.yaml:c40390ce46613d41dc84bc7599834300e01d6b63|Mozilla.Firefox.locale.ja-JP.yaml:02e41fa481296a34e0489aae5d6181a14204ce5b|Mozilla.Firefox.locale.nb-NO.yaml:a9dcfbe71e3e6b0078a303a6df2de08072eb141e|Mozilla.Firefox.locale.ru-RU.yaml:9e12907f65f5701fd6531aaa96f722af3c377aba|Mozilla.Firefox.locale.ta-IN.yaml:b4618eaa5f9ceeeee052add9ab0970b424fe0d3a|Mozilla.Firefox.locale.zh-CN.yaml:9ca816c3d9c5f5c93ab830952a2d6bd67f69993c|Mozilla.Firefox.yaml:2641fc29e7ec7c919c9b7cc9e20287bcec591960"
+        },
+        "Mozilla.Firefox.DeveloperEdition": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mozilla.Firefox.DeveloperEdition.installer.yaml:577bcc2f1225ee18325fba6d474954f482a69d63|Mozilla.Firefox.DeveloperEdition.locale.en-US.yaml:f14d72d1c13e30bbfb490c860fdef875c2a150ec|Mozilla.Firefox.DeveloperEdition.yaml:31535bf93a8986cf772189e24a8aaf4c3209bea4"
+        },
+        "Mozilla.Firefox.ESR": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mozilla.Firefox.ESR.installer.yaml:e214cedc334d54423fcebb57c2d3aa9655aa5723|Mozilla.Firefox.ESR.locale.de-DE.yaml:e1c3e7f1680ba1f7def8d78af48f34bcb4b45b9f|Mozilla.Firefox.ESR.locale.en-US.yaml:faa68a73355143f98f9798fb1624845fc25d47ff|Mozilla.Firefox.ESR.locale.zh-CN.yaml:bab25946858edf181182ef3fd0812cf92305805d|Mozilla.Firefox.ESR.yaml:8b5b81a9c2c725134fcaa523dee6af340a7125b2"
+        },
+        "Mozilla.Thunderbird": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Mozilla.Thunderbird.installer.yaml:58dc7a91da9e4046a307b0a7e72f92a9308570c6|Mozilla.Thunderbird.locale.en-US.yaml:ae3b98f6801bab997eae143216d465705b50e82f|Mozilla.Thunderbird.locale.zh-CN.yaml:005c64248f4c27eaa8944f4ffbf44027ab00134b|Mozilla.Thunderbird.yaml:3734844fcbff5e5eed2b56bf3403d1e4e75bab54"
+        },
+        "MusicBee.MusicBee": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/m/MusicBee/MusicBee in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "NGWIN.PicPick": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "NGWIN.PicPick.installer.yaml:d2a351cabeadde95a7b365b58290fe9b25898502|NGWIN.PicPick.locale.en-US.yaml:375725eb83564d58fd2fc9f13c75884ad66e3420|NGWIN.PicPick.locale.zh-CN.yaml:3d24c29e5e1b5925bb1f78eecfac8e1094dfdcd7|NGWIN.PicPick.yaml:1b71a5cb9559e929e510ebfcf368db1ce588f084"
+        },
+        "NVIDIA.NVIDIAApp": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/n/NVIDIA/NVIDIAApp in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Neovim.Neovim": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Neovim.Neovim.installer.yaml:1b6226ab37797aa7dcfe507079263f1b2317455f|Neovim.Neovim.locale.en-US.yaml:3d6198746c63e0f2f6f823d2fdbbc7921fba3e2d|Neovim.Neovim.yaml:d8fe801342d464a99ca3b664ebeb6f305169f0ff"
+        },
+        "Nextcloud.NextcloudDesktop": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Nextcloud.NextcloudDesktop.installer.yaml:2305a6daba460547f2d9ab95eb12e2d08bcb1edf|Nextcloud.NextcloudDesktop.locale.en-GB.yaml:1bb3c55cfd829c300bf417d68e77e20844d0892d|Nextcloud.NextcloudDesktop.locale.en-US.yaml:c99ed6360a3bfd802b2dc0c537d24fc43ab4f350|Nextcloud.NextcloudDesktop.yaml:5211a1b60a0cf813ba0c17d0aa1da1db8ec16010"
+        },
+        "NickeManarin.ScreenToGif": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "NickeManarin.ScreenToGif.installer.yaml:8f7310e757b34c6151d2a13d57626ba5bf0d5f96|NickeManarin.ScreenToGif.locale.en-US.yaml:72f2f8a56ce0a31280e2ec3652a616ec3388e5be|NickeManarin.ScreenToGif.locale.pt-BR.yaml:fb5501ffaa4db5b71a8ffb473ffdc36c18c64164|NickeManarin.ScreenToGif.locale.zh-CN.yaml:432937e6182a37286eba0bcf6e09762d30989edc|NickeManarin.ScreenToGif.yaml:17b91f95678f1c90f4f1b2a53aef8e2f92c1d852"
+        },
+        "Notepad++.Notepad++": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Notepad++.Notepad++.installer.yaml:2a6504b5e0b23f7dec881677600e82021d761baf|Notepad++.Notepad++.locale.en-US.yaml:df5e3622e218d8e8acd76383c4c0a4a9161f386d|Notepad++.Notepad++.yaml:d5f12a8697da54026f25b4bf4dcf8ae83a0fbc25"
+        },
+        "Notion.Notion": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Notion.Notion.installer.yaml:debb98074f830fbf40b8100f3a2ced56a669952f|Notion.Notion.locale.en-US.yaml:dcf27c7a7adebc80e3e52f6f83a336b5819af799|Notion.Notion.locale.zh-CN.yaml:954f24769c905bb1c6a8d197277a6cbfc3fc971c|Notion.Notion.yaml:99427415906f72c83383c8678264a7a6551f5f0d"
+        },
+        "Nvidia.GeForceExperience": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/n/Nvidia/GeForceExperience in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Nvidia.NvidiaApp": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:18:56.728Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/n/Nvidia/NvidiaApp in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "OBSProject.OBSStudio": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OBSProject.OBSStudio.installer.yaml:e64af5b7010bb5055d7a618b182d2babbd2668ef|OBSProject.OBSStudio.locale.en-US.yaml:4b75094625542577549d7850120685f220190298|OBSProject.OBSStudio.yaml:ab7d5ec1ad162e8c02efab0657e55c1f57afa5db"
+        },
+        "OCBase.OCCT.Personal": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OCBase.OCCT.Personal.installer.yaml:840a723c0683b74786abaa8aca27650fd121333e|OCBase.OCCT.Personal.locale.en-US.yaml:579e427e980341fe79bc2da7b983de67f59b07c9|OCBase.OCCT.Personal.yaml:2b59472ab313a92abf20ab0b2c3daccb68fb2cb1"
+        },
+        "ONLYOFFICE.DesktopEditors": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ONLYOFFICE.DesktopEditors.installer.yaml:379d90bf9b7b707d23a2c8955262ae0d4f98817c|ONLYOFFICE.DesktopEditors.locale.en-US.yaml:de9d520ae07ff729aefc916d1b2d14e2dff2f026|ONLYOFFICE.DesktopEditors.yaml:6162c2ae73f9db9f28ef3deb5aecdde2ccfb7e30"
+        },
+        "Obsidian.Obsidian": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Obsidian.Obsidian.installer.yaml:d426a8dcd69e30359e71e6d367761f9ffed49a21|Obsidian.Obsidian.locale.en-US.yaml:7aeee2647df93193e1a39505c0f99d17e0786abb|Obsidian.Obsidian.locale.zh-CN.yaml:cd0cc3f02f9ff71bd95412cad6cfda6c65a939b1|Obsidian.Obsidian.yaml:bbcbea58d1ba8a721ede66a13e18288936f56037"
+        },
+        "Open-Shell.Open-Shell-Menu": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Open-Shell.Open-Shell-Menu.installer.yaml:5a368af2584c0a1e22adcb6d76e6649c587f842e|Open-Shell.Open-Shell-Menu.locale.en-US.yaml:504325a458f9a31115510b84a96b792248e09111|Open-Shell.Open-Shell-Menu.locale.zh-CN.yaml:5b369137dc5da455404f406611f5fa752e487d49|Open-Shell.Open-Shell-Menu.yaml:7f892bbd15fd9bb3a5eb3b46ac9cef7548bac6e0"
+        },
+        "OpenHardwareMonitor.OpenHardwareMonitor": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/o/OpenHardwareMonitor/OpenHardwareMonitor in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "OpenJS.NodeJS": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OpenJS.NodeJS.installer.yaml:ecb3bf08b4d9a54f69a9444de8acbe9156c405aa|OpenJS.NodeJS.locale.en-US.yaml:ccbb9eeff55863781170fc2d98aac46972b2406b|OpenJS.NodeJS.locale.zh-CN.yaml:bcb9c7b1aee8c739d259fdd8676decddcdfb5189|OpenJS.NodeJS.yaml:6a6a5561f3e17ec595922efb10b8e7b6ff39bd6d"
+        },
+        "OpenJS.NodeJS.LTS": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OpenJS.NodeJS.LTS.installer.yaml:bffa66de40eb6566fe0b76b16be04f67b1f9421f|OpenJS.NodeJS.LTS.locale.en-US.yaml:e6f223ab12afd41ab3cf7edab0163958ebfa025a|OpenJS.NodeJS.LTS.locale.zh-CN.yaml:601770e203f8e152aaca8470bb5a6a62d72f8c59|OpenJS.NodeJS.LTS.yaml:cdf4f57f4bcf5abcc54e1150bec827fd65fe7c63"
+        },
+        "OpenVPNTechnologies.OpenVPN": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OpenVPNTechnologies.OpenVPN.installer.yaml:c801e7103d7e107fb348e73e838e0f4b118ef242|OpenVPNTechnologies.OpenVPN.locale.en-GB.yaml:0670c7bd0f154393e0c17c0c0663065f2fcb7204|OpenVPNTechnologies.OpenVPN.locale.en-US.yaml:7a71e05ae7a3ec73c67b6a45b54b6927cc902b36|OpenVPNTechnologies.OpenVPN.locale.zh-CN.yaml:fd587e35d73b70de78aa9fa023a7c5f6d21d8c50|OpenVPNTechnologies.OpenVPN.yaml:653cfd570ba289df19eb7515b8afbe17ffa44bc7"
+        },
+        "OpenWhisperSystems.Signal": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "OpenWhisperSystems.Signal.installer.yaml:f917703c1f55ec7471bc5dd9e93da9a0c3e3a4f1|OpenWhisperSystems.Signal.locale.en-US.yaml:2a7d78d38795a5e40224dd3b9d5a6d05d7dd739a|OpenWhisperSystems.Signal.yaml:6745eeb80c76c09906a75027eb38c7ae27819529"
+        },
+        "Opera.Opera": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Opera.Opera.installer.yaml:4327a87a2acef5cda219729195dcadaea05ab0ff|Opera.Opera.locale.en-US.yaml:a1546d79b8c79006c1793ab36f9889a2a15b7ade|Opera.Opera.locale.nb-NO.yaml:9238518df92f298df6be76949ebdb4660aa2c98a|Opera.Opera.locale.zh-CN.yaml:d032bca3274c35b4f8d6aa30dd4e79d9cf0207e0|Opera.Opera.yaml:718d739e45651fbb65c603f10ae71a7b91431416"
+        },
+        "Opera.OperaGX": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Opera.OperaGX.installer.yaml:a6f3787fc58cca1894a6dc988b4d5e6070e016ed|Opera.OperaGX.locale.en-US.yaml:a465f96e3719eaf88182b9f06cebfaf245e427d9|Opera.OperaGX.locale.zh-CN.yaml:96605ed9320fe99f150d2ccb1d12be9c79e49dea|Opera.OperaGX.yaml:52e3967cd7f7638e47f2b863edde4a3524c63a8c"
+        },
+        "Oracle.JavaRuntimeEnvironment": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Oracle.JavaRuntimeEnvironment.installer.yaml:8cb2405a3878a8604ca2a046197b7a27da67b10d|Oracle.JavaRuntimeEnvironment.locale.en-US.yaml:a00b89feb712d2ffa9ebb961ac3396468e6a4e9b|Oracle.JavaRuntimeEnvironment.locale.zh-CN.yaml:1e49a560dd892899e603cb60c2089443a327a2ec|Oracle.JavaRuntimeEnvironment.yaml:252a9b2f64464cd50220b1073ee9713d632fe55c"
+        },
+        "Oracle.VirtualBox": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Oracle.VirtualBox.installer.yaml:d95cc68d873359f504b50d4996802b8a16e4a17d|Oracle.VirtualBox.locale.en-US.yaml:5612abdc3e6c75cca6cb6ccb45ee08602ee0dc58|Oracle.VirtualBox.yaml:2b6277be80705d5df9f08a61561c86faf5826537"
+        },
+        "PDFsam.PDFsam": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PDFsam.PDFsam.installer.yaml:8848fceec76a19e7fae7bb801238aba45a3881c0|PDFsam.PDFsam.locale.en-US.yaml:e731cfd0e76bf781e0c0f50d40e24b92c8339aaf|PDFsam.PDFsam.locale.zh-CN.yaml:6e122738b986fc035404fc8b24e68cff313b44f2|PDFsam.PDFsam.yaml:d492738e10d4e52238bbacd5ab390a2b33b83b26"
+        },
+        "Parsec.Parsec": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Parsec.Parsec.installer.yaml:93bc0b3413c55c3cd5531b622120a1e12d70121c|Parsec.Parsec.locale.en-US.yaml:12e8a8184fb13c509d5487e625e5ac5028271aed|Parsec.Parsec.yaml:8e8f76307f9d8c2db34c7579bb5fe79f16d1916f"
+        },
+        "PassMark.OSFMount": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PassMark.OSFMount.installer.yaml:445208cabbe206d0150607d06b96a26566d98c33|PassMark.OSFMount.locale.en-US.yaml:d8b1fb8139d4f69301fe078d10b78c54df9aa034|PassMark.OSFMount.yaml:0bd114ce11bf8e1b79f54b7959eda7ad871e575e"
+        },
+        "PassMark.PerformanceTest": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PassMark.PerformanceTest.installer.yaml:7f84e646dbb7e42d4c7e64704767d23dd87f5cf6|PassMark.PerformanceTest.locale.en-GB.yaml:a2dedf840fa67733500f49d5554b7742a4f0280d|PassMark.PerformanceTest.locale.en-US.yaml:4b6a0f0707751ca9d673f11941be282c5b5b39fd|PassMark.PerformanceTest.yaml:53753f77dfee8594eff34f106ce8de4ae3e997f4"
+        },
+        "PeterPawlowski.foobar2000": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PeterPawlowski.foobar2000.installer.yaml:4eda8aadc80db1946f1d1b645686bc45613545b1|PeterPawlowski.foobar2000.locale.en-US.yaml:70f152596b088b2323e38ba393a084c6a862df42|PeterPawlowski.foobar2000.locale.zh-CN.yaml:cce9d53d4164975022efa9dda57045a357db489b|PeterPawlowski.foobar2000.yaml:0e91054f56cf3fef4e6f246bc4ef7056eef41910"
+        },
+        "Piriform.CCleaner": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Piriform.CCleaner.installer.yaml:7c25d77175063efa82b82e75c9e514b2971adae8|Piriform.CCleaner.locale.en-US.yaml:a6f11bf9aa7341889ec486084619c72efd14ba6b|Piriform.CCleaner.locale.zh-CN.yaml:e2903b8247556cdf3b269c6ad16d7ff48fd7e386|Piriform.CCleaner.yaml:bfd7d8704c82232d78c49f0a7aecbd49d66d038d"
+        },
+        "Piriform.Recuva": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Piriform.Recuva.installer.yaml:0e339fab404e9ac8457e0dcee46b26328147fb55|Piriform.Recuva.locale.en-US.yaml:7ade65e9bf74117a3dbfb76b872929c25c279612|Piriform.Recuva.yaml:9201b64fb3e6e174ccdb2a02dc9190f2d26a4057"
+        },
+        "Piriform.Speccy": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Piriform.Speccy.installer.yaml:f0c2739f111e7083991102d1aca9f918f37c2ac0|Piriform.Speccy.locale.en-US.yaml:ddcc0b93d8b1eb1d35a085840c9f6a4a634a28a7|Piriform.Speccy.yaml:b8fb195dfa4d8c3cc9b7efc2952a923f3eba2f1f"
+        },
+        "Playnite.Playnite": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Playnite.Playnite.installer.yaml:8b30f7f9fb6f1e69f1e95b29bd6722c1e130ab7b|Playnite.Playnite.locale.en-US.yaml:7d39178720a4a2bcaf23afe55ea23fc54634f24d|Playnite.Playnite.yaml:23437a5ff665324c904e398ef7ee3f3f47ab6ecd"
+        },
+        "Postman.Postman": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Postman.Postman.installer.yaml:764ec38722f9656ccf95e2aa5ec6f52c1300642f|Postman.Postman.locale.en-US.yaml:ff8f3d3e611628eafbc7b54c37366fe8c05fcdb5|Postman.Postman.locale.zh-CN.yaml:cf592ec7cb70aa8655d2a9661fadebcc08fb1801|Postman.Postman.yaml:499421baf1f955b007fb474322cdb8c75c4c7829"
+        },
+        "PowerSoftware.AnyBurn": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PowerSoftware.AnyBurn.installer.yaml:ba85c7cc4bf34185d986a7f30c743c3ba9e80a71|PowerSoftware.AnyBurn.locale.en-US.yaml:f023430dff0828b2da2698841cb5bcb1fa15c42f|PowerSoftware.AnyBurn.locale.zh-CN.yaml:7d33295da6bbdb04f283dc8cc0898b52d4bf5a01|PowerSoftware.AnyBurn.locale.zh-TW.yaml:6198a968ec3c09fe0c07f87bca0e708c1c7bd929|PowerSoftware.AnyBurn.yaml:21d01db11506d4fcb4b1ccb0c95a6a2fa6dd7d09"
+        },
+        "PrimateLabs.Geekbench.6": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PrimateLabs.Geekbench.6.installer.yaml:a66f16e2583566416fb99b5589ab67243fbbd3c7|PrimateLabs.Geekbench.6.locale.en-US.yaml:cf7978ed4965f6ab49e7983b9b4f9c573703b9ba|PrimateLabs.Geekbench.6.yaml:07a48a925c441a1e1c22888b7b2085970ed0b5f8"
+        },
+        "Proton.ProtonDrive": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Proton.ProtonDrive.installer.yaml:007cb443700e158b0f6331a9d7014d791b35b856|Proton.ProtonDrive.locale.en-US.yaml:e7534922b87c2dd3e634b475f2bc392aefb60d0c|Proton.ProtonDrive.locale.zh-CN.yaml:bcc7a0bd1d70ea0e489629caa39f78bfb5d15dc6|Proton.ProtonDrive.yaml:e56f373000c6d876520630551f1091dc9684e944"
+        },
+        "Proton.ProtonPass": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Proton.ProtonPass.installer.yaml:865c4dd345d5d2e3cbb1a60d2b2975ad36a555e6|Proton.ProtonPass.locale.en-US.yaml:9dd1dc6ca5fa4c6daccd72d11fda562c19a3972f|Proton.ProtonPass.yaml:d240cae2389a177fc4fcae29b7f771d679fcf59f"
+        },
+        "Proton.ProtonVPN": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Proton.ProtonVPN.installer.yaml:9a0cebbe28e98bea912fca77c566ccf05451d46c|Proton.ProtonVPN.locale.en-US.yaml:aa645f93d5e1e452c0d545f1db2c20b9d98ab8ff|Proton.ProtonVPN.yaml:48c6c68dd44965afc068eb724eb167c2b416fda6"
+        },
+        "PuTTY.PuTTY": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "PuTTY.PuTTY.installer.yaml:e443bd2f53927d00031936ff6c68dcfc855bc829|PuTTY.PuTTY.locale.en-US.yaml:f8d8f59b59e257803535ebe8b1defb13ada5f7b4|PuTTY.PuTTY.locale.zh-CN.yaml:960764f8f5e334aaf67ab29246410400828ad6a7|PuTTY.PuTTY.yaml:a5a9aa7ec1ba672d6b534eb89b6fca53531bcd26"
+        },
+        "Python.Python.3.12": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Python.Python.3.12.installer.yaml:463db36d9e81943c8be021b1f49b6b1bc69dde9d|Python.Python.3.12.locale.en-US.yaml:6ac06f1f865fb85ffccd75d13a63c393a1062d66|Python.Python.3.12.locale.zh-CN.yaml:d1c4f8d6f5be4a5c66ea0706a338fc248135d641|Python.Python.3.12.yaml:4d85442acef610541d1565b88b968a56fbd9d807"
+        },
+        "Python.Python.3.13": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Python.Python.3.13.installer.yaml:3ed36a49344b0e68014f35922cfece4ff7cc544e|Python.Python.3.13.locale.en-US.yaml:d75fbdb197232e062ebc3618501f951d65c8965f|Python.Python.3.13.locale.zh-CN.yaml:e1bfb39df3efde83b36514fc954f6afe2bccb618|Python.Python.3.13.yaml:c9ee6e764c0c2300db036adfb1279ae98f611ec1"
+        },
+        "RARLab.WinRAR": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "RARLab.WinRAR.installer.yaml:95043ed0619630cfe5f0d173f28866de761cbef8|RARLab.WinRAR.locale.de-CH.yaml:b06ec5bbcc3f482ec26fe90772d03f66845b4ca9|RARLab.WinRAR.locale.de-DE.yaml:9e1997593c84780bf3a0179a284a872f51c1a631|RARLab.WinRAR.locale.en-GB.yaml:d513baecfda46c587e2e8a0ef3c300ee4f4abf06|RARLab.WinRAR.locale.en-US.yaml:ae36389d9f1e27c14cfbe86c030b985b86cd2188|RARLab.WinRAR.locale.zh-CN.yaml:4d785e69e10303cde853040738f554b02cc7ed13|RARLab.WinRAR.yaml:89cefa9c7c4bf7e49b814699a93bb2c149e702d9"
+        },
+        "REALiX.HWiNFO": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "REALiX.HWiNFO.installer.yaml:770c3c29bd53624c0013fd2ddff118f4a9917845|REALiX.HWiNFO.locale.en-US.yaml:c041e04d4b3fba09ebc1ad03d0c458c444d51f59|REALiX.HWiNFO.locale.zh-CN.yaml:c5a8344db46495391f84f8a2d967739ffdd0eaf1|REALiX.HWiNFO.yaml:2f2f6807911ec6f5af01c88c911390eeaaede1cd"
+        },
+        "Rainmeter.Rainmeter": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Rainmeter.Rainmeter.installer.yaml:020e7569c260bde83f446056656e32d0a67bb5ba|Rainmeter.Rainmeter.locale.en-GB.yaml:e72bf317e0470271cb325ddbdb0dd3e507bfd465|Rainmeter.Rainmeter.locale.en-US.yaml:cb4d2fe956e7162e97784266630f996f5e0a8081|Rainmeter.Rainmeter.yaml:006591b4999fc868edf52c413c2317e86be19d5e"
+        },
+        "Razer.Synapse3": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/r/Razer/Synapse3 in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Rclone.Rclone": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Rclone.Rclone.installer.yaml:5e06820f69019b6d83a22e37a3cef87a7f413ef6|Rclone.Rclone.locale.en-US.yaml:612513dc495fc90e2734d57c751395e314be4710|Rclone.Rclone.yaml:6841e4cef5e603e2ba584b674722496f2e898b62"
+        },
+        "RealVNC.VNCViewer": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "RealVNC.VNCViewer.installer.yaml:b7a51a1af38ca750d5ea587378bef68eccd40b6f|RealVNC.VNCViewer.locale.en-US.yaml:a97e460f6da5023fd9c625ba3a1c82977841d9cc|RealVNC.VNCViewer.locale.zh-CN.yaml:15e83a4313ae93bb1cfb3dee198f9dcb6cf72df3|RealVNC.VNCViewer.yaml:dc75606ddcec217e95c4cb4d66aca5c8cc31acff"
+        },
+        "Realtek.RealtekHDAudioDriver": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/r/Realtek/RealtekHDAudioDriver in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "RevoUninstaller.RevoUninstaller": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "RevoUninstaller.RevoUninstaller.installer.yaml:ec46b1274a74c36db13b9e2335b1d8b4248dac09|RevoUninstaller.RevoUninstaller.locale.en-US.yaml:f3839e9c4345a32f6ebfccc512ed555f7e0be7f3|RevoUninstaller.RevoUninstaller.locale.zh-CN.yaml:8f826c222a78fa36a9b8e53cd9837bd07c5b847b|RevoUninstaller.RevoUninstaller.yaml:59958f5c0cadaf950eac80828f9620ac06063911"
+        },
+        "Rufus.Rufus": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Rufus.Rufus.installer.yaml:0f0d30e6eb7b4430f296b2bf184151c257fc371f|Rufus.Rufus.locale.en-US.yaml:1d9add47cf123d82411b4458d86813b885c55b2b|Rufus.Rufus.yaml:1b95d1a46af47bfa0a6e4c630b6eab49c9bf7cbd"
+        },
+        "RustDesk.RustDesk": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/r/RustDesk/RustDesk in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Rustlang.Rustup": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Rustlang.Rustup.installer.yaml:c2eca7bac3bd1c74c069e9d7a436cbee9afa6f16|Rustlang.Rustup.locale.en-US.yaml:a74e69cec541a4f77256ba0495a8c4120904fb5f|Rustlang.Rustup.locale.zh-CN.yaml:efc77d383a7059646ec5d800eaa89e19867b85eb|Rustlang.Rustup.yaml:16220e52345ac2c2ab36a40cdad95a09ee4ede2d"
+        },
+        "SDAssociation.SDCardFormatter": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/s/SDAssociation/SDCardFormatter in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Samsung.SamsungMagician": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/s/Samsung/SamsungMagician in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "ShareX.ShareX": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "ShareX.ShareX.installer.yaml:d1ad6f6f70eb40553df766cb144546d7fab91f54|ShareX.ShareX.locale.en-US.yaml:454ffd85c2d9c8c5a058fea7e4f1e4cb2577065a|ShareX.ShareX.locale.zh-CN.yaml:421760b05fbf5a585137bd8b0f05be9ae1672a9b|ShareX.ShareX.yaml:44a8d6e40fedd0451b73fce81b2cfb96c3e1a392"
+        },
+        "Skillbrains.Lightshot": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Skillbrains.Lightshot.installer.yaml:c046a6fb08eb9cb401f99c70f40acf2322df9179|Skillbrains.Lightshot.locale.en-US.yaml:b2c8b57eb4efe769f747d54c3c0a2846cb11b9c6|Skillbrains.Lightshot.locale.zh-CN.yaml:6a194d7742617fa755cf63a77cf084c90691d53a|Skillbrains.Lightshot.yaml:1640afce186b3251637ad65cec2b0a17096c16f9"
+        },
+        "SlackTechnologies.Slack": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "SlackTechnologies.Slack.installer.yaml:555c98401eb466f08cba5c14dc9037d089d38940|SlackTechnologies.Slack.locale.en-US.yaml:b013c6b6cce34dbbd3b5f38de3ab899f073252ad|SlackTechnologies.Slack.locale.zh-CN.yaml:4f1c43d298ac05a35d3dcd9068f2bd6a48806039|SlackTechnologies.Slack.yaml:94e0d9782cc89c5fe42e5c439823455801ab2aed"
+        },
+        "Splashtop.SplashtopBusiness": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Splashtop.SplashtopBusiness.installer.yaml:44905be63b18811a342302bbd23c14f5f714fbd3|Splashtop.SplashtopBusiness.locale.en-US.yaml:6f1d0274f59f0b0328faae1224accf88986e78c2|Splashtop.SplashtopBusiness.yaml:fbc7f4ad55ae3d975c6d6ffd6e8782e34b0264ca"
+        },
+        "Spotify.Spotify": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Spotify.Spotify.installer.yaml:a7b6f9d87c9c93aa54b1b2d265f4d57566b57c09|Spotify.Spotify.locale.en-US.yaml:cd03b445f41f0adf4f1e1d89ea0520e4aff9c231|Spotify.Spotify.locale.zh-CN.yaml:73e93f216d2bea37fb1964348d7b3f1851bf6998|Spotify.Spotify.yaml:a5c8feb521cf23a20a0238535dbef6f3beb23b9f"
+        },
+        "SteelSeries.GG": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "SteelSeries.GG.installer.yaml:9200c5adea8c6921d2ca5a86f5765afd3b4f8a1c|SteelSeries.GG.locale.en-US.yaml:8d4c77d0d31679099b709583bed543872cb885e7|SteelSeries.GG.yaml:2c3887655c68771ea0ffde4e289b6294a0873ae0"
+        },
+        "SublimeHQ.SublimeText.4": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "SublimeHQ.SublimeText.4.installer.yaml:a07ad37444dc97245f411b0a7fd157cc4c7f5478|SublimeHQ.SublimeText.4.locale.en-US.yaml:e9460ebb3f6a1e4286e0205a1292c50f0ade3610|SublimeHQ.SublimeText.4.yaml:51c21b340517a5264ecd2ae886c94888c4628dea"
+        },
+        "SumatraPDF.SumatraPDF": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "SumatraPDF.SumatraPDF.installer.yaml:7d0a13f28aca0832fbcbf0b19f00f2e9dfef9c58|SumatraPDF.SumatraPDF.locale.en-US.yaml:b3060e9bfddf14f2e374e7702f0398396252047a|SumatraPDF.SumatraPDF.yaml:60b1f226740b186d6a313d20b3fc13d2726ddc97"
+        },
+        "Syncthing.Syncthing": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Syncthing.Syncthing.installer.yaml:13cbda4e81072cacda91b6605f2c20e8d95679de|Syncthing.Syncthing.locale.en-US.yaml:e363ed4ec6cfb0ffab4ef1bb6306828eaa8fa51a|Syncthing.Syncthing.locale.pt-BR.yaml:b7b8671c36eea38eff7134dc62e7af4183139ede|Syncthing.Syncthing.yaml:715bdb42d1f59c8739b3ba31f8b292319542312c"
+        },
+        "SysProgs.WinCDEmu": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/s/SysProgs/WinCDEmu in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Tailscale.Tailscale": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Tailscale.Tailscale.installer.yaml:c65cb15374a11d396321560dd0d992596135f31a|Tailscale.Tailscale.locale.en-US.yaml:131fd6e20a6cd94b990448befb54a09dd8faa064|Tailscale.Tailscale.locale.zh-CN.yaml:758d1854dc9491f32436aee144678b77c017d813|Tailscale.Tailscale.yaml:fa1e38348ed159b812762da1e37783287dc16e93"
+        },
+        "TeamViewer.TeamViewer": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TeamViewer.TeamViewer.installer.yaml:5d62e9b9f6d3440f90e123deead4751890085afa|TeamViewer.TeamViewer.locale.de-CH.yaml:5bb9f4caf1beba648fc1797cbb6bdd51afb02f3b|TeamViewer.TeamViewer.locale.de-DE.yaml:4d7d3109d02242e984a0253fb2b85d05ea0e09f6|TeamViewer.TeamViewer.locale.en-US.yaml:622e343a757b1d510fb8fc48a5ece121dc43cb60|TeamViewer.TeamViewer.locale.zh-CN.yaml:0af06a9a1c2381a5950f68e13ff66edcb51bb871|TeamViewer.TeamViewer.yaml:c0381fb331f95910638fbc7981fa9b245cae8125"
+        },
+        "TechPowerUp.GPU-Z": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TechPowerUp.GPU-Z.installer.yaml:4e1e134cf5744868230dcc706ba592e8eb557b38|TechPowerUp.GPU-Z.locale.en-US.yaml:fb3bdecd03bef6240469c1ea6c3bbd20191f3a75|TechPowerUp.GPU-Z.locale.zh-CN.yaml:a9f858f77378ae971ec88492e37c00223c792e34|TechPowerUp.GPU-Z.yaml:63ab79b07a24df4b72bb27e303c9b498da5fefe7"
+        },
+        "TechPowerUp.NVCleanstall": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TechPowerUp.NVCleanstall.installer.yaml:c960dff05720c58a51891726c1288e64e28f8641|TechPowerUp.NVCleanstall.locale.en-US.yaml:f983d8cca6a6d0d58b8626b440dddcd0d30bd70e|TechPowerUp.NVCleanstall.yaml:a0a69176ba5100a6b76ae8332bbf52aca57b4349"
+        },
+        "Telegram.TelegramDesktop": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Telegram.TelegramDesktop.installer.yaml:57219d62ca8a2cbf071fe191d813c3d817624a3d|Telegram.TelegramDesktop.locale.en-US.yaml:27a732846ea89aba8e00c52501649fab3c71eb3c|Telegram.TelegramDesktop.yaml:172c6f56d6b08674f94cedff8f72cca89cb8da60"
+        },
+        "Telerik.Fiddler.Classic": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Telerik.Fiddler.Classic.installer.yaml:bbd6e9eb50b89bdfcf82933689612d44835b6b5a|Telerik.Fiddler.Classic.locale.en-US.yaml:e314060e8a8dda58c1db0cd3764bee8bf1e2d431|Telerik.Fiddler.Classic.locale.zh-CN.yaml:745c6f9d8006fa34148a7854d44c2a7a348f05e4|Telerik.Fiddler.Classic.yaml:9b55de076c47e6da962cc59a9966d09643f27a95"
+        },
+        "Tencent.WeChat": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Tencent.WeChat.installer.yaml:7b5c459e4159b9f7a62cd7e3c32b46ac13e026e0|Tencent.WeChat.locale.en-US.yaml:f3f8490d150075cabb8995f5bc55c41cc9b50e35|Tencent.WeChat.locale.zh-Hans-CN.yaml:d051546b416b43c36cf33f83b477e88963640d63|Tencent.WeChat.locale.zh-Hans.yaml:16428fb86c9795423f8a0d10f4451d7ce4329c33|Tencent.WeChat.yaml:1bded0487ab3863240f70f3641104fb39d1a6b6e"
+        },
+        "TeraTermProject.teraterm": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TeraTermProject.teraterm.installer.yaml:6dc628c63ac82fc5d515b25013047685ab795013|TeraTermProject.teraterm.locale.en-US.yaml:7ed49df415db0de861bde01c0761736b9fa38003|TeraTermProject.teraterm.locale.ja-JP.yaml:108341914f77be51e712a2c1fcf446b2b8c8127d|TeraTermProject.teraterm.yaml:276df98a3882c21bc26d03651d9fefdd5fa61628"
+        },
+        "Termius.Termius": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Termius.Termius.installer.yaml:300d9008b21888589cf3f5f1796c8ddf6bed278c|Termius.Termius.locale.en-US.yaml:f96b646839e0ce7392ae5d092a4069077e0763c6|Termius.Termius.locale.zh-CN.yaml:4395c7037945a504da5d68c46e05db0010053dce|Termius.Termius.yaml:4d91fd29ea9a72dd6b54670f3a5efca59ff4dd2f"
+        },
+        "TheDocumentFoundation.LibreOffice": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TheDocumentFoundation.LibreOffice.installer.yaml:7fab0752ca301762c433c28a7901be3a3bb9cdca|TheDocumentFoundation.LibreOffice.locale.en-US.yaml:b49561c280cd97e647bc3e9d175420cc11725313|TheDocumentFoundation.LibreOffice.locale.zh-CN.yaml:0173e666f985b53881f6d0bfca359e1cc72dfa73|TheDocumentFoundation.LibreOffice.yaml:6725405b4fd1b7e0af952d8973a8844f95f1fab4"
+        },
+        "TimKosse.FileZilla.Client": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/t/TimKosse/FileZilla/Client in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "TorProject.TorBrowser": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TorProject.TorBrowser.installer.yaml:8c54ffc81b0d6cbc77c3e1213e6c455fae081211|TorProject.TorBrowser.locale.en-US.yaml:79590657a522f3ff3d5341db6ea0aae26ba71153|TorProject.TorBrowser.yaml:e9fe3e985e065ea36bbd374ca352cea954e0f4d0"
+        },
+        "TortoiseGit.TortoiseGit": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "TortoiseGit.TortoiseGit.installer.yaml:fe01b3a4a44820dda4a915f65f9e253823064703|TortoiseGit.TortoiseGit.locale.en-US.yaml:50d405f71a786528468f95617cb26e4d7da6093e|TortoiseGit.TortoiseGit.yaml:74b92f7511a52a2cb465667d86d634f12bca4321"
+        },
+        "UNetbootin.UNetbootin": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/u/UNetbootin/UNetbootin in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Ubisoft.Connect": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Ubisoft.Connect.installer.yaml:8c85c14c969f7cb8907d60a45a9ddb73e2a13680|Ubisoft.Connect.locale.en-US.yaml:1d96b947783f41057d5c42776c6e1580f99adbf2|Ubisoft.Connect.yaml:caba6a7ebf92fd9ee2152726906f5ae4f4a3d7fa"
+        },
+        "UltraSoft.SMARTDiskMonitor": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/u/UltraSoft/SMARTDiskMonitor in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "UltraVNC.UltraVNC": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/u/UltraVNC/UltraVNC in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Unigine.Superposition": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/u/Unigine/Superposition in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "VMware.WorkstationPlayer": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/v/VMware/WorkstationPlayer in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Valve.Steam": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Valve.Steam.installer.yaml:fee50eef155ab34740760177aed9c84a3306f836|Valve.Steam.locale.en-US.yaml:b41ce1364f0554efd88a9ae1b9802d045db275c0|Valve.Steam.yaml:54c683518094b85ae9acfaa73a6fe9a05e06fd5a"
+        },
+        "Ventoy.Ventoy": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Ventoy.Ventoy.installer.yaml:fd8c35774b045fc589ddd85a89bb05fbc81474c0|Ventoy.Ventoy.locale.en-US.yaml:c62bb53108d9d80b5473034924d55fd22888b98a|Ventoy.Ventoy.yaml:9836598dc60128cc9f7bb27457447c88bd004242"
+        },
+        "VeraCrypt.VeraCrypt": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/v/VeraCrypt/VeraCrypt in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Viber.Viber": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/v/Viber/Viber in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "VideoLAN.VLC": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "VideoLAN.VLC.installer.yaml:28b74165c96ac2d7a79e8fe8a3b8da8bfcf0d4be|VideoLAN.VLC.locale.en-US.yaml:23de32a6f46af7ee5a987b398d2197cf5b39419e|VideoLAN.VLC.yaml:8e16879b593f152c7f7894b7c05c435068ce35a7"
+        },
+        "Vivaldi.Vivaldi": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Vivaldi.Vivaldi.installer.yaml:3326c7898bb4954109da3e324d21b251b7744ae1|Vivaldi.Vivaldi.locale.en-US.yaml:4028c73db930f0ae99bff335e46f320dd671cfa7|Vivaldi.Vivaldi.locale.zh-CN.yaml:f435de6624b1ff247fdb145ecea6e5679743c5b9|Vivaldi.Vivaldi.yaml:19be86ab2a97545b04dc42ad985166818649cc28"
+        },
+        "VivaldiTechnologies.Vivaldi": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/v/VivaldiTechnologies/Vivaldi in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Wacom.WacomTabletDriver": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Wacom.WacomTabletDriver.installer.yaml:c3eccf3ab6218f08b09242ac35f95103d4cd1950|Wacom.WacomTabletDriver.locale.en-US.yaml:c446dfbdb02c408836b96a51ab9a5fdf9211d2a0|Wacom.WacomTabletDriver.locale.zh-CN.yaml:a743e37eda2235e659df187bf1b8238dac4f08e6|Wacom.WacomTabletDriver.yaml:5276c9a835cccedd5f3b8106d5c6e6bff69fe9f9"
+        },
+        "Wagnardsoft.DisplayDriverUninstaller": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Wagnardsoft.DisplayDriverUninstaller.installer.yaml:1b1492071b378d2fcda42cd44ef6b12e69390c79|Wagnardsoft.DisplayDriverUninstaller.locale.en-US.yaml:ce37721f6b05fc95198b34fec48e81db66d5cf20|Wagnardsoft.DisplayDriverUninstaller.yaml:61ebfa9024e3905bd399466347bcf3696d191470"
+        },
+        "Waterfox.Waterfox": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Waterfox.Waterfox.installer.yaml:dfea23e886d82db09cf56e1271d51ba552e42133|Waterfox.Waterfox.locale.en-US.yaml:c2127c647351233f4730cb81dc91da5c1d87c27c|Waterfox.Waterfox.yaml:4b0412fb2fd346f5e2234dbd67b119ce1995173b"
+        },
+        "WesternDigital.Dashboard": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/w/WesternDigital/Dashboard in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "WhatsApp.WhatsApp": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/w/WhatsApp/WhatsApp in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "WinDirStat.WinDirStat": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WinDirStat.WinDirStat.installer.yaml:a016eb2a5bc50047d19243a2ad573ebbcd5ab9a3|WinDirStat.WinDirStat.locale.en-US.yaml:db1747591c4d562a3c23822ec295fa5e4ddb5828|WinDirStat.WinDirStat.yaml:2a014c5440cf7f084ca71e8dbbecdff28a9d5c38"
+        },
+        "WinFsp.WinFsp": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WinFsp.WinFsp.installer.yaml:55fd32f61fb0296f169e79ed86b252ee2267c405|WinFsp.WinFsp.locale.en-US.yaml:c378d5d4b88e413db762df50b155684c981de3e0|WinFsp.WinFsp.yaml:4be0696bc92c4786f93128b628a6794b5b6256db"
+        },
+        "WinMTR.WinMTR": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/w/WinMTR/WinMTR in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "WinMerge.WinMerge": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WinMerge.WinMerge.installer.yaml:912fb36b980381368f8b4675c319ed3d5dc5b99d|WinMerge.WinMerge.locale.en-US.yaml:d576feb9f7b0cd35826c389f149162026c45e045|WinMerge.WinMerge.yaml:40b74facfb4b9ca5b5c3077571bbeefe7c6b034d"
+        },
+        "WinSCP.WinSCP": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WinSCP.WinSCP.installer.yaml:8de2e69af85a92d0e67acd4ea2e2c897d8efa707|WinSCP.WinSCP.locale.en-US.yaml:1c1b17ce61e48d8791378308680f40a442396403|WinSCP.WinSCP.locale.zh-CN.yaml:7c466e3e71ffba6b8242c84090a499ab8607717f|WinSCP.WinSCP.yaml:d482ac2b953632239a0edc51333ec3da10647616"
+        },
+        "Winaero.WinaeroTweaker": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/w/Winaero/WinaeroTweaker in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "WireGuard.WireGuard": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WireGuard.WireGuard.installer.yaml:6b8f2f8ce9723edc6a42748610b620dec06383dc|WireGuard.WireGuard.locale.en-US.yaml:7dab6b912876b156f6abfe971e8c1fc6ca1748ec|WireGuard.WireGuard.locale.zh-CN.yaml:dc942e2c4540460b54868689b58de2396effa734|WireGuard.WireGuard.yaml:7b289be75dc60a73d736e27306bebfadf4a55326"
+        },
+        "WiresharkFoundation.Wireshark": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "WiresharkFoundation.Wireshark.installer.yaml:e3411a0cecdf131c586d84dfaed136ad0f6d511c|WiresharkFoundation.Wireshark.locale.en-GB.yaml:8c6f4295245da4e7a3325b1faed45ce89fe4b5e1|WiresharkFoundation.Wireshark.locale.en-US.yaml:83ac21a8f8339aae09bfe2a8497d4897d0926e67|WiresharkFoundation.Wireshark.locale.zh-CN.yaml:d264f7feb8fa8d18d5d420cd7502b3b1aeb017a0|WiresharkFoundation.Wireshark.locale.zh-TW.yaml:d3b09a97e8ffda3aa62c64a63b0000c8a08603d7|WiresharkFoundation.Wireshark.yaml:45bfd88f4eb4e7c8d1f10778e70f281b5366d860"
+        },
+        "XBMCFoundation.Kodi": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "XBMCFoundation.Kodi.installer.yaml:f3e5f4fa0e821abd84f405bd427218de428ba1c1|XBMCFoundation.Kodi.locale.en-GB.yaml:368429576e9fcebac42750553c7e0cdaa72bcbf2|XBMCFoundation.Kodi.locale.en-US.yaml:80c663f71d254dff0f17b1d5eed5fa9645c4b9ce|XBMCFoundation.Kodi.locale.zh-CN.yaml:7519945ec6eef980b40b711e2289145c878d4243|XBMCFoundation.Kodi.yaml:5098568d69e9d80fa1d5894f4ee1788ca9f7f3a5"
+        },
+        "XnSoft.XnViewMP": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "XnSoft.XnViewMP.installer.yaml:fa0a9e102fec24e26fc1049d894e962f585766d5|XnSoft.XnViewMP.locale.en-US.yaml:bebcb31f9c286a63bd12a1cc1a240fc383094871|XnSoft.XnViewMP.locale.zh-CN.yaml:36f275f69cb649fac71b50bd74ee0d9a05176a91|XnSoft.XnViewMP.yaml:c4d10fcadca1777cc4f451f82b72d83fcfda75b1"
+        },
+        "Yubico.Authenticator": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Yubico.Authenticator.installer.yaml:3b0ef225b39694d20bb54d0a98395d5d180b3c04|Yubico.Authenticator.locale.en-US.yaml:bc4bb7c56f8223be2582b34fa77a99a8e3e1ccb5|Yubico.Authenticator.yaml:3f49461e66f191de4e3b48b558c96a0fa09d4d6d"
+        },
+        "Zoho.Assist": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/z/Zoho/Assist in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "Zoom.Zoom": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "Zoom.Zoom.installer.yaml:f6544a02d710b5a2580bd494466d18382ca4f287|Zoom.Zoom.locale.en-US.yaml:29a011431822840d66dc177c5cee8b3bd5ebf3c9|Zoom.Zoom.locale.zh-CN.yaml:a6e907583d1e5a602fe59393f709949af331d42f|Zoom.Zoom.yaml:597306945f2494d9e8a6b07dcfde8385979b574c"
+        },
+        "Zotero.Zotero": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/z/Zotero/Zotero in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "angryziber.AngryIPScanner": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "angryziber.AngryIPScanner.installer.yaml:f2c676386a54eac861f6e21ad935df7f433cc2f4|angryziber.AngryIPScanner.locale.en-US.yaml:4cb6da5fd798ca36f9247f3d6960e4c6bfdf6cd5|angryziber.AngryIPScanner.yaml:6da2982f113ce8515348432bb31b828ff0ad1eaf"
+        },
+        "calibre.calibre": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "calibre.calibre.installer.yaml:c017a32342fb0938d132cbf6c8f1d20b3c297ad7|calibre.calibre.locale.en-US.yaml:5a324114694af5bf0c40e8dc45b37103f72581bc|calibre.calibre.locale.zh-CN.yaml:9a7559dc93d994d63e888e7d63e011c5c9dbf133|calibre.calibre.yaml:0cd3d47767839e5ac762fdf68c81052c42395d17"
+        },
+        "clsid2.mpc-hc": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "clsid2.mpc-hc.installer.yaml:00a4b2575e6418a416b60fd307f44afceb864f74|clsid2.mpc-hc.locale.en-US.yaml:c6cb4fc3d4ddc14550972a0a07de8bef79bac70e|clsid2.mpc-hc.yaml:771e0c008dab769d2428549e53ddc965009b120a"
+        },
+        "darktable.darktable": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "darktable.darktable.installer.yaml:c8fc0a0dd56c5defabaeb35a97944ef32bde2b11|darktable.darktable.locale.en-US.yaml:4c9a7bce34c39bac44bea5fe02b469d7d77783c8|darktable.darktable.locale.zh-CN.yaml:1dbe0ceade25ceb8220b330e8a4b2173f21da400|darktable.darktable.yaml:704f622eee97a8444ad1b72f7db3ae717fbee45e"
+        },
+        "dbeaver.dbeaver": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/d/dbeaver/dbeaver in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "dotPDN.PaintDotNet": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "dotPDN.PaintDotNet.installer.yaml:8820e47b29653a0ae20bf5857ac0db55eb1750af|dotPDN.PaintDotNet.locale.en-US.yaml:e551e81d7f99526105f2b37908d569437fcfb762|dotPDN.PaintDotNet.locale.zh-CN.yaml:d050e093ec10d4e0091add208010133db0d9a711|dotPDN.PaintDotNet.yaml:30facb26365dac7c12a855f80b0264aeceec1242"
+        },
+        "dotPDNLLC.paintdotnet": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:16:19.856Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/d/dotPDNLLC/paintdotnet in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "eMClient.eMClient": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "eMClient.eMClient.installer.yaml:e2e70ada8b14678e8b798cf3ebd639d7fd895e87|eMClient.eMClient.locale.en-GB.yaml:5ef69f9416acadca8dac5843e8912f52c6ac1f4d|eMClient.eMClient.locale.en-US.yaml:f9bba30a89b2b96146ee51abc525e42138580b99|eMClient.eMClient.yaml:67ef45a30f38f000f1af70d5a0c68d54396e7b92"
+        },
+        "geeksoftwareGmbH.PDF24Creator": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "geeksoftwareGmbH.PDF24Creator.installer.yaml:b3c06db0cc3c23d8dce757a90a245b6812bb4288|geeksoftwareGmbH.PDF24Creator.locale.de-DE.yaml:e4ed97d4d6b76cba5feb4bc97e3550e3cb5567c4|geeksoftwareGmbH.PDF24Creator.locale.en-US.yaml:d6787b744c40fdcfe9ef6cda7ba99a6e0b4c3644|geeksoftwareGmbH.PDF24Creator.yaml:19d4bdbf74172be63a233bfafc1b4255ccc36034"
+        },
+        "mRemoteNG.mRemoteNG": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "mRemoteNG.mRemoteNG.installer.yaml:58ba129e90994c9bbf8b8fc0f99ada56b2ff1166|mRemoteNG.mRemoteNG.locale.en-US.yaml:6fa01166d76a542c93c46049bb6ee9e8c72da363|mRemoteNG.mRemoteNG.locale.zh-CN.yaml:a25075201227c4936aedce98442e40fe37f7fee5|mRemoteNG.mRemoteNG.yaml:813a33d8cc9efecef50afcab7ff71327c583e826"
+        },
+        "qBittorrent.qBittorrent": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "qBittorrent.qBittorrent.installer.yaml:7e500b184d9299c35a37bc46977a13eefddee452|qBittorrent.qBittorrent.locale.en-US.yaml:b1119db72b45291cbc35b250018351ceabd56705|qBittorrent.qBittorrent.locale.zh-CN.yaml:edd83b99b5c22c06d92cade5d76d110878f6a3ca|qBittorrent.qBittorrent.yaml:d80382e489d91872a23a453fcd21dce1150e8297"
+        },
+        "rocksdanister.LivelyWallpaper": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "rocksdanister.LivelyWallpaper.installer.yaml:9b02c005bf673219f7e2f7d44fa2735bf97a032e|rocksdanister.LivelyWallpaper.locale.en-US.yaml:a43ea1f1930bfe057c9ca441a3a1e8c21ee4a990|rocksdanister.LivelyWallpaper.yaml:200777001da7ad753f6b97f929a0964da6704659"
+        },
+        "smartmontools.smartmontools": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "smartmontools.smartmontools.installer.yaml:0ce0567d13337f2de1f4e1339baf16a1c5b2fb0d|smartmontools.smartmontools.locale.en-US.yaml:737c069d34d7f263bd2e85331eea6d652af336bc|smartmontools.smartmontools.yaml:6267c9e9fc4d6675ccff22f43596787076be86b9"
+        },
+        "uvncbvba.UltraVnc": {
+          "status": "failed",
+          "attempts": 1,
+          "last_attempt": "2026-10-13T01:18:56.728Z",
+          "error": {
+            "code": "NOT_FOUND",
+            "message": "No manifest directory manifests/u/uvncbvba/UltraVnc in microsoft/winget-pkgs",
+            "retryable": false
+          }
+        },
+        "valinet.ExplorerPatcher": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "valinet.ExplorerPatcher.installer.yaml:3154f78aa03431ca028d7bcab2e7c5d189f23deb|valinet.ExplorerPatcher.locale.en-US.yaml:5cbb7c5e10667a60af908e3d10d96c1b6b3fa137|valinet.ExplorerPatcher.yaml:315a292ded6e37d58cddabfb3e1670f4ef2df8f5"
+        },
+        "vim.vim": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "vim.vim.installer.yaml:f355c304c8e8ecf6d4ea0fcf90a86a580b5cd3dd|vim.vim.locale.en-US.yaml:701f65b4270ed7ec98f9a1d77be9115a63cc3103|vim.vim.locale.zh-CN.yaml:e819031c48d009de1103d34405559f620ea15a66|vim.vim.yaml:45e10b46bb6a4dae7956d5de3760e01d279f72eb"
+        },
+        "voidtools.Everything": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "voidtools.Everything.installer.yaml:98f212c2c8847c42a6e712f7ccf19e2cd91d3ef2|voidtools.Everything.locale.en-US.yaml:584b57915e0a186b739ccb8208760d04c248fed3|voidtools.Everything.locale.zh-CN.yaml:7ce58a0760d27d9081e8de1d7c624ea31fbef839|voidtools.Everything.yaml:8ccda9635c387ff117bf70dc525a7097eb7605db"
+        },
+        "yt-dlp.yt-dlp": {
+          "status": "ok",
+          "attempts": 0,
+          "last_attempt": "2026-10-13T01:24:15.945Z",
+          "last_success": "2026-10-13T01:24:15.945Z",
+          "version": null,
+          "fingerprint": "yt-dlp.yt-dlp.installer.yaml:f5b50ed5d160d5972fb465379cf2817ec62cd500|yt-dlp.yt-dlp.locale.en-US.yaml:7de72a09030953892a2c7f4be7e734bd75677565|yt-dlp.yt-dlp.locale.zh-CN.yaml:1600d7560e1325045a326fba5fe09a7d4949629c|yt-dlp.yt-dlp.yaml:af173e6ae16a488376158816c15df49f123d401f"
+        }
+      },
+      "last_run": "2026-10-13T01:24:15.945Z"
+    },
+    "driver-listings": {
+      "targets": {},
+      "last_run": "2026-10-13T01:59:25.880Z"
+    }
+  }
+}

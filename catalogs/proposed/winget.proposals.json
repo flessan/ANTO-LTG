@@ -1,0 +1,13 @@
+{
+  "schema": "anto-ltg.proposals/1",
+  "adapter": "winget",
+  "generated_at": "2026-10-13T01:24:15.933Z",
+  "source": {
+    "id": "winget-pkgs",
+    "repo": "microsoft/winget-pkgs",
+    "ref": "master",
+    "commit": "158f4e299ac30747271b3b44b2e9feeb7cea23cf"
+  },
+  "proposals": [],
+  "errors": []
+}
