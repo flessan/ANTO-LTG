@@ -5,7 +5,7 @@ import http from 'node:http';
 import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { createServer } from '../../scripts/serve.mjs';
+import { createServer, parseServeArgs } from '../../scripts/serve.mjs';
 import { root } from '../helpers/repo.mjs';
 
 let server; let port;
@@ -90,5 +90,26 @@ describe('static server', () => {
     assert.equal((await get('/nope.html')).status, 404);
     const dir = await get('/scripts/');
     assert.equal(dir.status, 404, 'a directory without index.html is not listed');
+  });
+});
+
+describe('serve command line', () => {
+  it('defaults to 0.0.0.0:8080', () => assert.deepEqual(parseServeArgs([], {}), { port: 8080, host: '0.0.0.0' }));
+  it('accepts a positional port, --port/--host flags and the PORT/HOST variables', () => {
+    assert.equal(parseServeArgs(['9000'], {}).port, 9000);
+    assert.deepEqual(parseServeArgs(['--port', '8123', '--host', '127.0.0.1'], {}), { port: 8123, host: '127.0.0.1' });
+    assert.deepEqual(parseServeArgs([], { PORT: '7000', HOST: '::1' }), { port: 7000, host: '::1' });
+  });
+  it('lets a flag win over the environment', () => assert.equal(parseServeArgs(['--port', '1234'], { PORT: '9999' }).port, 1234));
+  it('allows port 0 (pick a free port) and rejects anything that is not a valid port', () => {
+    assert.equal(parseServeArgs(['--port', '0'], {}).port, 0);
+    for (const bad of ['abc', '-1', '65536', '80.5', '1e3', '0x50', ' 80']) assert.throws(() => parseServeArgs(['--port', bad], {}), /Invalid port/, bad);
+    assert.throws(() => parseServeArgs([], { PORT: 'nope' }), /Invalid port/);
+  });
+  it('refuses a flag that has no value instead of silently using a default', () => {
+    assert.throws(() => parseServeArgs(['--port'], {}), /--port needs a value/);
+    assert.throws(() => parseServeArgs(['--host'], {}), /--host needs a value/);
+    assert.throws(() => parseServeArgs(['--port', '--host', 'x'], {}), /--port needs a value/);
+    assert.throws(() => parseServeArgs(['--port', ''], {}), /--port needs a value/);
   });
 });

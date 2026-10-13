@@ -41,9 +41,27 @@ export function createServer(root) {
   });
 }
 
+// Usage: node scripts/serve.mjs [port] [--port N] [--host H]      (or the PORT / HOST environment variables)
+// A flag wins over the environment, which wins over the positional port. Throws on an invalid port.
+export function parseServeArgs(argv = [], env = {}) {
+  const usage = 'Usage: node scripts/serve.mjs [port] [--port N] [--host H]';
+  const flag = (name) => {
+    const i = argv.indexOf(`--${name}`);
+    if (i < 0) return undefined;
+    const value = argv[i + 1];
+    if (value === undefined || value === '' || value.startsWith('--')) throw new Error(`--${name} needs a value. ${usage}`);
+    return value;
+  };
+  const positional = argv.find((a) => /^\d+$/.test(a));
+  const raw = String(flag('port') ?? env.PORT ?? positional ?? 8080);
+  if (!/^\d{1,5}$/.test(raw) || Number(raw) > 65535) throw new Error(`Invalid port ${JSON.stringify(raw)}. ${usage}`);
+  return { port: Number(raw), host: flag('host') ?? env.HOST ?? '0.0.0.0' };
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-  const port = Number(process.env.PORT ?? process.argv[2] ?? 8080);
-  const host = process.env.HOST ?? '0.0.0.0';
+  let opts;
+  try { opts = parseServeArgs(process.argv.slice(2), process.env); } catch (err) { console.error(err.message); process.exit(2); }
+  const { port, host } = opts;
   createServer(root).listen(port, host, () => console.log(`ANTO-LTG: http://${host === '0.0.0.0' ? 'localhost' : host}:${port}/  (Ctrl+C to stop)`));
 }

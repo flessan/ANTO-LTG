@@ -24,6 +24,6 @@
   "devDependencies": {
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "puppeteer-core": "^24.43.1"
+    "puppeteer-core": "^25.13.0"
   }
 }
