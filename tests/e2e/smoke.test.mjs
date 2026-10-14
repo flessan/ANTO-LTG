@@ -132,7 +132,8 @@ describe('browser smoke tests', { skip }, () => {
 
   it('software: selection survives filtering and reloads, and bulk select works', async () => {
     await go(page, '/software/'); await waitResults('#sw-results');
-    await page.click('#qp-git'); await page.click('#qp-visual-studio-code');
+    // 7.css hides the native checkbox and draws it on the associated label; click the visible control.
+    await page.click('label[for="qp-git"]'); await page.click('label[for="qp-visual-studio-code"]');
     assert.equal(await text('#in-count'), '2');
     await setValue('#sw-cat', 'browsers');
     assert.equal(await text('#in-count'), '2', 'selection is independent of filters');
@@ -148,7 +149,8 @@ describe('browser smoke tests', { skip }, () => {
 
   it('software: plan, manual steps and the generated script are safe and honest', async () => {
     await go(page, '/software/'); await waitResults('#sw-results');
-    await page.click('#qp-git'); await page.click('#qp-memtest86');
+    // Use the visible labels because the real checkbox input is intentionally transparent in 7.css.
+    await page.click('label[for="qp-git"]'); await page.click('label[for="qp-memtest86"]');
     await page.waitForSelector('#in-script');
     const script = await text('#in-script');
     assert.match(script, /winget\.exe/); assert.match(script, /-cne 'YES'/); assert.match(script, /'Git\.Git'/);
@@ -198,7 +200,7 @@ describe('browser smoke tests', { skip }, () => {
     assert.match(body, /[a-f0-9]{64}/, 'SHA-256 published in the manifest is shown');
     await page.keyboard.press('Escape'); await sleep(200);
     assert.equal(await count('dialog[open]'), 0);
-    await page.click('#qp-git');
+    await page.click('label[for="qp-git"]');
     await page.click('#in-clear'); await page.waitForSelector('dialog[open]');
     await page.$$eval('dialog[open] button', (bs) => bs.find((b) => /Cancel/.test(b.textContent)).click()); await sleep(250);
     assert.equal(await text('#in-count'), '1', 'cancel keeps the selection');
@@ -241,9 +243,9 @@ describe('browser smoke tests', { skip }, () => {
     assert.equal(leads, 0, 'no aggregator listing is published as a driver record');
     assert.equal(await count('.driver-card.lead'), leads);
     assert.equal(await page.$$eval('.driver-card.lead a[href*="driverscape.com/files"]', (a) => a.length), 0, 'aggregator file links are never rendered');
-    assert.equal(await page.$$eval('.driver-card.lead .btn-aero.green', (a) => a.length), 0, 'no direct-download button on a lead');
-    await setValue('#drv-source', ''); await page.click('#drv-direct'); await sleep(300);
-    const direct = await page.$$eval('.driver-card', (cards) => cards.map((c) => c.querySelector('a.btn-aero.green')?.href ?? null));
+    assert.equal(await page.$$eval('.driver-card.lead a.default', (a) => a.length), 0, 'no direct-download button on a lead');
+    await setValue('#drv-source', ''); await page.click('label[for="drv-direct"]'); await sleep(300);
+    const direct = await page.$$eval('.driver-card', (cards) => cards.map((c) => c.querySelector('a.default')?.href ?? null));
     assert.ok(direct.length >= 5 && direct.every((h) => h && h.startsWith('https://')), 'direct-only shows https vendor links');
     await page.$eval('[data-detail="ftdi-cdm-2-12-36-20-whql"]', (b) => b.click()); await page.waitForSelector('dialog[open]');
     assert.match(await text('dialog[open] .window-body'), /Evidence/); assert.match(await text('dialog[open] .window-body'), /ftdichip\.com/);
@@ -261,7 +263,7 @@ describe('browser smoke tests', { skip }, () => {
   it('bundles open in the Software Center with their apps preselected', async () => {
     await go(page, '/bundles/'); await page.waitForSelector('#b-list .card');
     const first = await page.$eval('#b-list .card h2', (e) => e.textContent);
-    await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0' }), page.click('#b-list .card a.btn-aero.green')]);
+    await Promise.all([page.waitForNavigation({ waitUntil: 'networkidle0' }), page.click('#b-list .card a.default')]);
     await page.waitForSelector('dialog[open]');
     await page.$$eval('dialog[open] button', (bs) => bs.find((b) => /Load/.test(b.textContent)).click()); await sleep(400);
     assert.ok(Number(await text('#in-count')) >= 4, `bundle "${first}" loaded`);
@@ -271,7 +273,7 @@ describe('browser smoke tests', { skip }, () => {
     await go(page, '/tools/'); await page.waitForSelector('#t-list .card');
     await setValue('#t-q', 'memtest');
     assert.equal(await count('#t-list .card'), 2);
-    await setValue('#t-q', ''); await page.click('#t-boot'); await sleep(250);
+    await setValue('#t-q', ''); await page.click('label[for="t-boot"]'); await sleep(250);
     assert.ok((await count('#t-list .card')) >= 3);
   });
 
