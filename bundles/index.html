@@ -1,43 +1,97 @@
 <!doctype html>
-<html lang="id" data-root="../">
+<html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Rancang daftar aplikasi untuk kebutuhan teknisi. Pada MVP ini katalog bundle masih berupa metadata; pembuatan installer satu-klik belum diaktifkan."><meta name="theme-color" content="#edf5ff">
-  <title>Siapkan kebutuhan instalasi berulang. · ANTO-LTG</title><link rel="stylesheet" href="../assets/css/site.css">
+<!--chrome:head:start-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#1d6fb8">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/vendor/7.css/7.css">
+<link rel="stylesheet" href="../assets/css/aero.css">
+<link rel="stylesheet" href="../assets/css/pages.css">
+<script type="module" src="../assets/js/site.js"></script>
+<!--chrome:head:end-->
+<title>Starter bundles - ANTO-LTG</title>
+<meta name="description" content="Curated starter bundles for technicians, diagnostics, boot media, remote support and new PCs. Open one in the Software Center to review it, or download its WinGet script.">
+<script type="module" src="../assets/js/bundles.js"></script>
 </head>
 <body data-page="bundles">
-  <a class="skip-link" href="#main">Lewati ke konten</a>
-
-<header class="site-header">
-  <a class="brand" data-root-link="index.html" href="#" aria-label="ANTO-LTG Home">
-    <span class="brand-mark" aria-hidden="true">A</span>
-    <span class="brand-copy"><strong>ANTO-LTG</strong><small>Technician Toolkit</small></span>
-  </a>
-  <nav class="desktop-nav" data-site-nav aria-label="Navigasi utama"></nav>
-  <div class="header-actions"><a class="button button--quiet header-developer" data-root-link="developers/" href="#">API & kontribusi <span aria-hidden="true">↗</span></a><button class="icon-button menu-button" type="button" data-menu-button aria-expanded="false" aria-label="Buka navigasi"><span></span><span></span></button></div>
+<!--chrome:header:start-->
+<a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+<div class="desktop-wallpaper" aria-hidden="true"></div>
+<header class="taskbar">
+  <a class="start-orb" href="../index.html" aria-label="ANTO-LTG" data-i18n-aria-label="nav.home"><span class="orb-logo" aria-hidden="true"><svg class="ic" focusable="false"><use href="../assets/icons/sprite.svg#logo"></use></svg></span><span class="start-label">ANTO-LTG</span></a>
+  <button class="taskbar-toggle" type="button" aria-expanded="false" aria-controls="taskbar-nav" aria-label="Menu" data-i18n-aria-label="nav.menu"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#menu"></use></svg></button>
+  <nav id="taskbar-nav" class="taskbar-nav" aria-label="Main" data-i18n-aria-label="nav.main">
+    <a href="../software/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#software"></use></svg><span data-i18n="nav.software">Software</span></a>
+    <a href="../drivers/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#chip"></use></svg><span data-i18n="nav.drivers">Drivers</span></a>
+    <a href="../bundles/" aria-current="page"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#bundle"></use></svg><span data-i18n="nav.bundles">Bundles</span></a>
+    <a href="../tools/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#wrench"></use></svg><span data-i18n="nav.tools">Tools</span></a>
+    <a href="../guides/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#book"></use></svg><span data-i18n="nav.guides">Guides</span></a>
+    <a href="../developers/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#code"></use></svg><span data-i18n="nav.developers">Developers</span></a>
+    <a href="../support/"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#help"></use></svg><span data-i18n="nav.support">Support</span></a>
+  </nav>
+  <div class="tray">
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="nav.language">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
+      <button type="button" data-lang="id" aria-pressed="false" lang="id" title="Bahasa Indonesia">🇮🇩</button>
+    </div>
+    <a class="tray-link" href="https://github.com/flessan/ANTO-LTG" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository" data-i18n-aria-label="nav.github"><svg class="ic" aria-hidden="true" focusable="false"><use href="../assets/icons/sprite.svg#repo"></use></svg></a>
+    <time class="tray-clock" id="tray-clock" aria-hidden="true"></time>
+  </div>
 </header>
-<nav class="mobile-nav" data-mobile-nav aria-label="Navigasi mobile" hidden data-site-nav></nav>
-
-  <main id="main" class="page-main">
-<section class="page-intro container">
-  <a class="back-link" href="../index.html">← Beranda</a>
-  <div class="eyebrow">APP BUNDLER</div>
-  <div class="page-intro-row"><div><h1>Siapkan kebutuhan instalasi berulang.</h1><p>Rancang daftar aplikasi untuk kebutuhan teknisi. Pada MVP ini katalog bundle masih berupa metadata; pembuatan installer satu-klik belum diaktifkan.</p></div><span class="page-stamp">ANTO / CATALOG</span></div>
-</section>
-<section class="container catalog-area">
-  <div class="catalog-toolbar"><label class="catalog-search"><span aria-hidden="true">⌕</span><span class="sr-only">Cari dalam katalog</span><input type="search" data-catalog-search placeholder="Cari nama, kategori, atau produsen…"></label><label class="status-filter"><span>Status</span><select data-status-filter><option value="all">Semua status</option><option value="pending_review">Menunggu tinjauan</option><option value="verified">Tinjau selesai</option><option value="withdrawn">Ditarik</option><option value="draft">Draft</option><option value="published">Dipublikasikan</option></select></label></div>
-  <div class="catalog-topline"><span data-catalog-count>Memuat katalog…</span><span class="small text-muted">Metadata katalog · tautan sumber eksternal</span></div>
-  <p class="notice notice--info" data-catalog-message>Entri berstatus “Menunggu tinjauan” belum disahkan kompatibilitas atau keamanannya oleh ANTO-LTG.</p>
-  <div class="catalog-list" data-catalog-list></div>
-  <div class="empty-state" data-catalog-empty hidden><div class="empty-mark">—</div><h2>Belum ada entri yang cocok</h2><p>Coba kata kunci lain, ubah filter status, atau bantu isi katalog lewat repository.</p><a class="button button--outline" href="../developers/">Panduan kontribusi <span aria-hidden="true">↗</span></a></div>
-</section>
+<!--chrome:header:end-->
+<main id="main" tabindex="-1">
+  <section class="window glass active" data-window data-help="developers/#bundles" aria-labelledby="b-title">
+    <div class="title-bar">
+      <div class="title-bar-text"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#bundle"></use></svg><span data-i18n="nav.bundles">Bundles</span></div>
+      <div class="title-bar-controls"><button type="button" class="is-help" data-win="help" aria-label="Help"></button><button type="button" class="is-minimize" data-win="minimize" aria-label="Minimize"></button><button type="button" class="is-maximize" data-win="maximize" aria-label="Maximize"></button></div>
+    </div>
+    <div class="window-body">
+      <div class="banner short"><picture>
+        <source type="image/webp" srcset="../assets/img/ocean-aerial-banner-640.webp 640w, ../assets/img/ocean-aerial-banner-1280.webp 1280w, ../assets/img/ocean-aerial-banner-1920.webp 1920w" sizes="(min-width: 1280px) 1280px, 100vw">
+        <img src="../assets/img/ocean-aerial-banner-1280.jpg" srcset="../assets/img/ocean-aerial-banner-640.jpg 640w, ../assets/img/ocean-aerial-banner-1280.jpg 1280w, ../assets/img/ocean-aerial-banner-1920.jpg 1920w" sizes="(min-width: 1280px) 1280px, 100vw" width="1920" height="600" alt="Aerial view of clear turquoise sea water with sunlight patterns over the seabed" data-i18n-alt="bundles.photo_alt" decoding="async">
+      </picture><span class="banner-caption"><a href="https://unsplash.com/photos/turquoise-ocean-water-from-above-j3ScfSO5_QQ" target="_blank" rel="noopener noreferrer">Photo: Iain / Unsplash</a></span></div>
+      <div class="has-space stack">
+        <h1 id="b-title" data-i18n="bundles.title">Starter bundles</h1>
+        <p data-i18n="bundles.intro">Ready-made selections you can review and change. Opening one loads it into the Software Center; nothing is installed until you download the script and type YES.</p>
+        <div class="notice"><svg class="ic" aria-hidden="true"><use href="../assets/icons/sprite.svg#info"></use></svg><div data-i18n="bundles.note">Apps without a WinGet package (for example boot images) appear as manual steps with their official page.</div></div>
+        <div id="b-list" class="card-grid" aria-busy="true"><div class="loading"><span class="spinner" aria-hidden="true"></span><span data-i18n="common.loading">Loading the catalog...</span></div></div>
+      </div>
+    </div>
+  </section>
 </main>
-
+<!--chrome:footer:start-->
 <footer class="site-footer">
-  <div class="footer-brand"><span class="brand-mark brand-mark--small" aria-hidden="true">A</span><div><strong>ANTO-LTG</strong><p>Toolkit teknisi yang terbuka, bisa diperiksa, dan dibuat bersama komunitas.</p></div></div>
-  <div class="footer-links"><a data-root-link="developers/" href="#">Developer</a><a data-root-link="developers/#contribute" href="#">Kontribusi</a><a data-root-link="developers/#security" href="#">Keamanan</a><a data-root-link="feed.xml" href="#">RSS</a></div>
-  <p class="copyright">© <span data-year></span> ANTO-LTG. Verifikasi sumber tetap diperlukan sebelum memasang software atau driver.</p>
+  <div class="footer-glass">
+    <div class="footer-grid">
+      <section aria-labelledby="footer-about">
+        <h2 id="footer-about" data-i18n="footer.about">About ANTO-LTG</h2>
+        <p data-i18n="footer.about_text">An open technician platform: a software catalog, a driver source finder and a WinGet script generator. It indexes official sources and never hosts or runs installers.</p>
+      </section>
+      <section aria-labelledby="footer-trust">
+        <h2 id="footer-trust" data-i18n="footer.trust">Trust and data</h2>
+        <ul class="footer-links">
+          <li><a href="../developers/#publication-status" data-i18n="footer.publication">How publication and review differ</a></li>
+          <li><a href="../developers/#api" data-i18n="footer.api">Open JSON API</a></li>
+          <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footer.security">Security policy</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="footer-credits">
+        <h2 id="footer-credits" data-i18n="footer.credits">Credits</h2>
+        <ul class="footer-links">
+          <li><a href="https://khang-nd.github.io/7.css" target="_blank" rel="noopener noreferrer">7.css</a> <span data-i18n="footer.mit">(MIT)</span></li>
+          <li><a href="../assets/CREDITS.md" data-i18n="footer.photos">Photo credits</a></li>
+          <li><a href="https://github.com/flessan/ANTO-LTG/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="footer.license">MIT license (code)</a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="footer-note" data-i18n="footer.disclaimer">Windows is a trademark of Microsoft. ANTO-LTG is an independent project and is not affiliated with or endorsed by Microsoft or any vendor listed. Vendor names and logos belong to their owners.</p>
+  </div>
 </footer>
-
-  <script src="../assets/js/site.js" defer></script><script src="../assets/js/catalog.js" defer></script>
-</body></html>
+<!--chrome:footer:end-->
+</body>
+</html>

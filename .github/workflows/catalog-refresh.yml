@@ -1,0 +1,63 @@
+name: Scheduled catalog refresh
+# Weekly incremental crawl of the public microsoft/winget-pkgs index (a git repository, read over HTTPS),
+# automated publication through the merge rules, then a pull request for a person to read.
+# Nothing is marked "verified" here: publication is automatic, human review is a separate step.
+on:
+  schedule:
+    - cron: '17 3 * * 1'   # Mondays 03:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: catalog-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # The blob-less clone is large to re-create; keep it between weekly runs (it is git-ignored, never committed).
+      - uses: actions/cache@v4
+        with:
+          path: .cache/crawler
+          key: winget-index-${{ github.run_id }}
+          restore-keys: |
+            winget-index-
+      - name: Crawl the WinGet index (incremental)
+        run: npm run crawl -- winget-index --incremental
+      - name: Merge proposals with automated publication
+        run: node scripts/crawler/cli.mjs merge --apply
+      - name: Format, validate, test and build before proposing anything
+        run: |
+          npm run format:catalogs
+          npm run validate
+          npm test
+          npm run build
+      - name: Open or update the refresh pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- catalogs api openapi.json assets/CREDITS.md; then
+            echo "No catalog changes this week."
+            exit 0
+          fi
+          BRANCH=automated/catalog-refresh
+          git checkout -B "$BRANCH"
+          git add catalogs api openapi.json assets/CREDITS.md
+          git -c user.name="ANTO-LTG refresh" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            commit -m "Refresh catalogs from the WinGet index (automated publication)"
+          git push --force-with-lease origin "$BRANCH"
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            echo "Updated pull request #$EXISTING"
+          else
+            gh pr create --head "$BRANCH" --title "Scheduled catalog refresh (WinGet index)" \
+              --body "Automated weekly crawl. Records are published only when the machine rules pass; none is marked verified. Review the diff in catalogs/ and api/ before merging. The CI checks run on this pull request."
+          fi

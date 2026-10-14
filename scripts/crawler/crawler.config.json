@@ -1,0 +1,129 @@
+{
+  "$comment": "Crawler configuration. Every adapter declares the hosts it may contact; requests (and redirects) to any other host are refused. Adapters that read documented APIs say so in robots_note; adapters that read web pages always honour robots.txt.",
+  "user_agent": "ANTO-LTG-Crawler/0.2 (+https://github.com/flessan/ANTO-LTG; catalog research bot; honours robots.txt)",
+  "product_token": "ANTO-LTG-Crawler",
+  "timeout_ms": 20000,
+  "retries": 3,
+  "backoff_base_ms": 1000,
+  "backoff_max_ms": 30000,
+  "max_bytes": 2097152,
+  "max_redirects": 5,
+  "concurrency": 4,
+  "per_host_min_interval_ms": 2000,
+  "cache_dir": ".cache/crawler/http",
+  "cache_ttl_hours": 24,
+  "output_dir": "catalogs/proposed",
+  "adapters": {
+    "winget": {
+      "enabled": false,
+      "type": "winget",
+      "description": "Package metadata from microsoft/winget-pkgs through the GitHub REST API. Superseded by winget-index for full crawls; kept for single-package lookups and as a fallback.",
+      "hosts": [
+        "api.github.com"
+      ],
+      "host_rules": {
+        "api.github.com": {
+          "min_interval_ms": 120,
+          "concurrency": 4
+        }
+      },
+      "robots": "not_applicable",
+      "robots_note": "Uses the documented GitHub REST API (authenticated with GITHUB_TOKEN / GH_TOKEN, sent only to api.github.com); no HTML pages are fetched.",
+      "repo": "microsoft/winget-pkgs",
+      "branch": "master",
+      "seed_file": "seeds/winget.json",
+      "default_locale": "en-US",
+      "limit": null
+    },
+    "driver-listings": {
+      "enabled": false,
+      "type": "driver-listing",
+      "description": "Third-party driver listing pages (aggregators). Output is lead-only: records are labelled third_party_aggregator, carry quality flags and never include a download link.",
+      "hosts": [
+        "www.driverscape.com"
+      ],
+      "robots": "required",
+      "requires_flag": "--allow-aggregators",
+      "targets_file": "seeds/driver-listings.json",
+      "policy": "lead_only"
+    },
+    "winget-index": {
+      "enabled": true,
+      "type": "winget-index",
+      "description": "Package metadata from microsoft/winget-pkgs read as a public git repository: a blob-less clone gives the whole package index, and only the manifests of the selected packages are checked out. Seeds are proven against the index; discovery adds index IDs that match the category rules.",
+      "hosts": [
+        "github.com"
+      ],
+      "robots": "not_applicable",
+      "robots_note": "Reads the public git repository microsoft/winget-pkgs over the git smart HTTPS protocol (no HTML pages, no API quota). Only https://github.com/<owner>/<repo>.git remotes are accepted.",
+      "repo_url": "https://github.com/microsoft/winget-pkgs.git",
+      "branch": "master",
+      "seed_file": "seeds/winget.json",
+      "default_locale": "en-US",
+      "work_dir": ".cache/crawler",
+      "limit": null,
+      "discovery": {
+        "enabled": true,
+        "exclude": [
+          "\\.\\d[\\d.]*$",
+          "\\.(EAP|Community|Educational|Ultimate|Professional|Enterprise|Lite|Team|Free|Development|Pre-release|PreRelease|Prerelease|LTS|x86|x64|arm64|arm|MSI|Subscription|Inno|PlugIns|Help|HelpPack|SDK|CLI|Pre|Preview|Trial|ProTrial|Slim|PTB|Universal|Portable|Classic|Full|Core|Server|Agent|Helper|Installer|VDI|Plugin|Aoi[A-Za-z]*|Shizuku[A-Za-z]*|Kurei[A-Za-z]*|Mono|Personal|Alpha|Lts|Legacy|Snapshot|Twilight|Air|Subs|RC|Insiders?|MSIX|EXE|Beta|Dev|Canary|Nightly|Test|Stable|Standard|Pro)$",
+          "^(Tencent|Lenovo|OpenJS\\.Electron|EclipseAdoptium|Oracle\\.JDK|Python\\.|NirSoft|Kubernetes|CPUID|PassMark|CrystalDewWorld|StefanBerg|StefanFreischlad|StefanGhitescu|StefanLobbenmeier|StefanMalzner|StefanSundin|StefanoCaronia|StefansTools|Ventoy|ImageMagick|Plex|Notepad2mod|Microsoft\\.(Azure|DotNet|Windows|Visual|VisualStudio|SQL|Office365|Dynamics|Power|Exchange|Sentinel|Intune|Defender|Purview|Cloud|Bing|Skype|Teams|Xbox|Edge|DirectX|OpenJDK|VCRedist|Sysinternals|Sysmon|Git|AI|ADMPHO))",
+          "^(Brave\\.BraveUpdater|Google\\.GoogleUpdater|JetBrains\\.|Docker\\.|Google\\.Chrome\\.|Mozilla\\.Firefox\\.[A-Z]|Mozilla\\.Thunderbird\\.[A-Z])",
+          "\\.[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$",
+          "\\.(preview|nightly|prerelease|beta|alpha|canary|insider|insiders|dev|rc)$"
+        ],
+        "rules": [
+          {
+            "category": "browsers",
+            "match": "^(Mozilla\\.Firefox|Brave\\.Brave|Opera\\.|Vivaldi\\.|Waterfox\\.|LibreWolf\\.|TorProject\\.|Google\\.Chrome$|Chromium\\.|Mullvad\\.MullvadBrowser|Ablaze\\.Floorp|Zen-Team\\.Zen)"
+          },
+          {
+            "category": "developer-tools",
+            "match": "^(Microsoft\\.VisualStudioCode|Git\\.Git|GitHub\\.|Python\\.|Notepad\\+\\+|Neovim\\.|Vim\\.|JetBrains\\.|Docker\\.|Kubernetes\\.|Postman\\.|Insomnia|WinSCP|PuTTY\\.|Helm\\.|Oracle\\.JDK|EclipseAdoptium\\.|Rustlang\\.|GoLang\\.|OpenJS\\.|Kitware\\.|Chocolatey\\.|Bitwarden\\.|Yarn|pnpm\\.|Mozilla\\.Sccache|LLVM\\.|MSYS2\\.|Cygwin\\.|Oracle\\.VirtualBox|VMware\\.)"
+          },
+          {
+            "category": "communication",
+            "match": "^(Zoom\\.|Discord\\.|Telegram\\.|OpenWhisperSystems\\.|Element\\.|SlackTechnologies\\.|Mozilla\\.Thunderbird|Signal|WhatsApp\\.|Viber\\.|Skype\\.Skype|Microsoft\\.Teams)"
+          },
+          {
+            "category": "media",
+            "match": "^(VideoLAN\\.|OBSProject\\.|HandBrake\\.|Audacity\\.|GIMP\\.|KDE\\.Krita|Inkscape\\.|BlenderFoundation\\.|ShareX\\.|Greenshot\\.|Spotify\\.|foobar2000\\.|MPC-HC\\.|Kodi\\.|Plex\\.|DarkTable\\.|ImageMagick\\.|XnView\\.|IrfanSkiljan\\.|Imagine|FFmpeg|aseprite)"
+          },
+          {
+            "category": "office",
+            "match": "^(TheDocumentFoundation\\.|ONLYOFFICE\\.|Adobe\\.Acrobat\\.Reader|Foxit\\.|SumatraPDF\\.|Obsidian\\.|calibre\\.|DigitalScholar\\.Zotero|Joplin\\.|Apache\\.OpenOffice|JGraph\\.|PDFsam\\.|Logseq\\.|Notion\\.|Evernote\\.)"
+          },
+          {
+            "category": "utilities",
+            "match": "^(7zip\\.|WinRAR\\.|PeaZip\\.|NanaZipDev\\.|Piriform\\.|CodeSector\\.TeraCopy|voidtools\\.Everything|Rufus\\.|Ventoy\\.|balena\\.Etcher|Notepad|WinDirStat\\.|Microsoft\\.PowerToys|SpaceSniffer|TheFreeCodeWorks|AutoHotkey\\.|Microsoft\\.Sysinternals|Lexikos|WinMerge\\.|Mozilla\\.Thunderbird\\.?)"
+          },
+          {
+            "category": "security",
+            "match": "^(Malwarebytes\\.|Bitwarden\\.|KeePassXCTeam\\.|KeePass\\.|Proton\\.ProtonVPN|WireGuard\\.|Tailscale\\.|Wireshark\\.|Nmap\\.|Cloudflare\\.Warp|Veracrypt|IDRIX\\.VeraCrypt|Sysinternals\\.|GnuPG\\.|OpenVPN\\.)"
+          },
+          {
+            "category": "storage",
+            "match": "^(Dropbox\\.Dropbox|Google\\.GoogleDrive|Nextcloud\\.NextcloudDesktop|Syncthing\\.|WinFsp\\.|CrystalDewWorld\\.CrystalDiskInfo|CrystalDewWorld\\.CrystalDiskMark|Duplicati\\.|restic\\.|rclone\\.|Restic)"
+          },
+          {
+            "category": "network-remote",
+            "match": "^(TeamViewer\\.TeamViewer|AnyDeskSoftwareGmbH\\.AnyDesk|RealVNC\\.|TightVNC|Parsec\\.|Rustdesk\\.|Mremoteng\\.|Tailscale|Telerik\\.Fiddler|Putty\\.|Mozilla\\.Ffsend|qBittorrent\\.|Transmission\\.|Filezilla\\.|FileZilla\\.|Termius\\.|Royal\\.|dbeaver\\.|Cyberduck\\.)"
+          },
+          {
+            "category": "gaming",
+            "match": "^(Valve\\.Steam$|EpicGames\\.EpicGamesLauncher|GOG\\.Galaxy|ElectronicArts\\.EADesktop|Ubisoft\\.Connect|Discord|Playnite\\.|Heroic)"
+          },
+          {
+            "category": "system-tools",
+            "match": "^(CPUID\\.|Piriform\\.CCleaner|TechPowerUp\\.|Hwinfo|REALiX\\.HWiNFO|Rem0o\\.|Microsoft\\.Sysinternals\\.|Speccy|Nicolas\\.|NTLite\\.|CodeSector\\.)"
+          },
+          {
+            "category": "diagnostics",
+            "match": "^(CPUID\\.|REALiX\\.HWiNFO|Piriform\\.Speccy|OCBase\\.|TechPowerUp\\.GPU|Passmark\\.|Memtest86|CrystalDewWorld\\.)"
+          }
+        ],
+        "max_per_category": 40
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "api_version": "v1",
+  "schema_version": "1.2.0",
+  "note": "Static files generated from catalogs/ by `npm run build`. A research index, not a live driver database and not a real-time API.",
+  "endpoints": [
+    {
+      "name": "apps",
+      "path": "/api/v1/apps.json",
+      "count": 394,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "fda89f9a9bb4c2ceaf15664550ba5e603d3e70cfbed30782a299260340e30581"
+    },
+    {
+      "name": "drivers",
+      "path": "/api/v1/drivers.json",
+      "count": 44,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "147f4bb4fe06bc78958b832583aea646b92f16f016376c25a9761ea840fde5e4"
+    },
+    {
+      "name": "tools",
+      "path": "/api/v1/tools.json",
+      "count": 26,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "a5e6d62b1b9327b568a2c91e4b507c4feb2b9184ef2f304d90e907680fe4db96"
+    },
+    {
+      "name": "vendors",
+      "path": "/api/v1/vendors.json",
+      "count": 21,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "b5b7290cbdd7b8039d829a35d9b7df2ff8c433de5a111a5d7dc540cc26cd1de5"
+    },
+    {
+      "name": "bundles",
+      "path": "/api/v1/bundles.json",
+      "count": 9,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "ff238480da9242d938002ddd2528a4e971f01808359bbd0f95e54bd820763e65"
+    },
+    {
+      "name": "updates",
+      "path": "/api/v1/updates.json",
+      "count": 4,
+      "updated_at": "2026-10-13T00:00:00.000Z",
+      "sha256": "e09d378587d08c6d6bc5e565e6b8e664e9736cdf0285ce908fae6ff6357abc09"
+    },
+    {
+      "name": "search-index",
+      "path": "/api/v1/search-index.json",
+      "count": 502,
+      "updated_at": null,
+      "sha256": "cbfeeff8b847de983a70585c297888e0bfa153a7163786144dad040848169533"
+    },
+    {
+      "name": "visuals",
+      "path": "/api/v1/visuals.json",
+      "count": 509,
+      "updated_at": null,
+      "sha256": "4e40a40f3427ea4b3954c7c6feb1aae1691fafd9d16aa61bf3d64a27caadc44b"
+    }
+  ],
+  "stats": {
+    "apps": {
+      "total": 394,
+      "by_category": {
+        "boot-media": 11,
+        "browsers": 19,
+        "communication": 18,
+        "developer-tools": 94,
+        "diagnostics": 22,
+        "gaming": 10,
+        "media": 38,
+        "network-remote": 38,
+        "office": 22,
+        "runtimes": 27,
+        "security": 19,
+        "storage": 9,
+        "system-tools": 20,
+        "utilities": 34,
+        "vendor-tools": 13
+      },
+      "by_primary_method": {
+        "direct": 3,
+        "page": 1,
+        "redirect": 1,
+        "unavailable": 2,
+        "winget": 387
+      },
+      "windows11_declared": 52,
+      "windows10_declared": 52
+    },
+    "drivers": {
+      "total": 44,
+      "by_component": {
+        "audio": 3,
+        "bluetooth": 1,
+        "chipset": 1,
+        "graphics": 2,
+        "network-ethernet": 9,
+        "network-wifi": 1,
+        "other": 18,
+        "serial-adapter": 6,
+        "storage": 1,
+        "system-management": 2
+      },
+      "by_source_kind": {
+        "manufacturer_support_page": 43,
+        "vendor_catalog": 1
+      },
+      "by_kind": {
+        "catalog_entry": 1,
+        "driver_package": 23,
+        "support_page": 17,
+        "vendor_tool": 3
+      }
+    },
+    "vendors": {
+      "total": 21
+    },
+    "review": {
+      "verified": 0,
+      "not_reviewed": 485
+    },
+    "publication": {
+      "published": 438,
+      "unavailable": 0,
+      "automated": 387,
+      "maintainer_curated": 51
+    }
+  }
+}

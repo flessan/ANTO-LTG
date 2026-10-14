@@ -1,0 +1,13 @@
+# Keeps GitHub Actions and the development dependencies current.
+# Every update arrives as a pull request, so CI runs before anyone merges it.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

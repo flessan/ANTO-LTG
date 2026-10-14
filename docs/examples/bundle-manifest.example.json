@@ -1,0 +1,15 @@
+{
+  "format": "anto-ltg.bundle",
+  "format_version": 1,
+  "name": "My field kit",
+  "created_at": "2026-10-13T00:00:00.000Z",
+  "target": { "os": "windows11" },
+  "method": "winget",
+  "options": { "accept_agreements": true, "silent": true, "include_unknown_compatibility": true },
+  "apps": [
+    { "id": "git", "name": "Git", "winget_id": "Git.Git" },
+    { "id": "7zip", "name": "7-Zip", "winget_id": "7zip.7zip" }
+  ],
+  "catalog": { "schema_version": "1.1.0", "app_count": 278 },
+  "notes": "Importing this file restores only the app ids. Names and package ids here are informational; commands are regenerated from the catalog."
+}

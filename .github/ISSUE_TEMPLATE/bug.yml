@@ -1,0 +1,48 @@
+name: Bug in the site or tools
+description: Something in the interface, the script generator, the build or the crawler does not work.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a security problem, do **not** open a public issue: see [SECURITY.md](https://github.com/flessan/ANTO-LTG/blob/main/SECURITY.md).
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Software Center
+        - WinGet script
+        - Driver finder
+        - Bundles / Tools / Guides
+        - API or search index
+        - Crawler
+        - Build, tests or CI
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What you clicked or typed, in order.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened instead
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Browser and operating system (or Node.js version for scripts)
+      placeholder: "e.g. Firefox 140 on Windows 11, or Node 22.12 on Ubuntu"
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors or script output
+      description: Paste only what is needed, and remove anything private.
+      render: text

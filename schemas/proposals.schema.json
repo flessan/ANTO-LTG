@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anto-ltg:schema:proposals",
+  "title": "ANTO-LTG crawler proposals",
+  "description": "What a crawler adapter writes to catalogs/proposed/<adapter>.proposals.json. Every record is a proposal for human review; a record's verification_status can only be not_reviewed.",
+  "type": "object",
+  "required": ["schema", "adapter", "generated_at", "proposals", "errors"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "anto-ltg.proposals/1" },
+    "adapter": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "generated_at": { "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" },
+    "source": { "type": "object" },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target", "key", "record", "meta"],
+        "additionalProperties": false,
+        "properties": {
+          "target": { "type": "string", "minLength": 1, "maxLength": 200 },
+          "key": { "type": "string", "minLength": 1, "maxLength": 300, "description": "Stable de-duplication key, for example winget:git.git." },
+          "catalog": { "enum": ["apps", "drivers"] },
+          "record": { "oneOf": [{ "$ref": "urn:anto-ltg:schema:apps#/$defs/app" }, { "$ref": "urn:anto-ltg:schema:drivers#/$defs/driver" }] },
+          "meta": {
+            "type": "object",
+            "required": ["adapter", "crawled_at", "quality_flags"],
+            "properties": {
+              "adapter": { "type": "string" },
+              "crawled_at": { "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" },
+              "quality_flags": { "$ref": "urn:anto-ltg:schema:common#/$defs/qualityFlags" }
+            }
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target", "code", "message"],
+        "properties": { "target": { "type": "string" }, "code": { "type": "string" }, "message": { "type": "string" }, "retryable": { "type": "boolean" } }
+      }
+    }
+  }
+}

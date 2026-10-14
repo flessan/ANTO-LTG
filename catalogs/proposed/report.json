@@ -1,0 +1,47 @@
+{
+  "schema": "anto-ltg.crawl-report/1",
+  "started_at": "2026-10-13T07:37:22.012Z",
+  "finished_at": "2026-10-13T07:54:19.068Z",
+  "duration_seconds": 1017.1,
+  "arguments": {
+    "adapters": [
+      "winget-index"
+    ],
+    "verbose": true
+  },
+  "adapters": [
+    {
+      "id": "winget-index",
+      "source": {
+        "id": "winget-pkgs",
+        "repo": "microsoft/winget-pkgs",
+        "ref": "master",
+        "commit": "499f134fea1c2726098cf8e6bc3caab8f5707ef5"
+      },
+      "stats": {
+        "targets": 365,
+        "proposed": 365,
+        "unchanged": 0,
+        "failed": 0,
+        "discovered": 58
+      },
+      "errors": [],
+      "quality_flags": {
+        "manifest_older_than_2_years": 19,
+        "min_os_not_declared": 321,
+        "no_https_publisher_url": 20
+      },
+      "http": {
+        "requests": 0,
+        "cacheHits": 0,
+        "notModified": 0,
+        "retries": 0,
+        "bytes": 0,
+        "blocked": 0,
+        "byHost": {},
+        "byStatus": {}
+      }
+    }
+  ],
+  "note": "Everything listed here is a proposal. Nothing is verified, nothing was downloaded or executed, and no binary was mirrored."
+}

@@ -1,30 +1,1217 @@
 {
-  "schema_version": "1.0.0",
-  "updated_at": null,
+  "schema_version": "1.2.0",
+  "updated_at": "2026-10-13T00:00:00.000Z",
   "items": [
+    {
+      "id": "anydesk",
+      "name": "AnyDesk",
+      "category": "network-remote",
+      "description": "Remote desktop for attended support sessions.",
+      "description_id": "Desktop jarak jauh untuk sesi dukungan terdampingi.",
+      "publisher": "AnyDesk Software GmbH",
+      "app_id": "anydesk",
+      "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/AnyDesk/AnyDesk/9.8.1",
+      "source_kind": "package_index",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Help a user remotely."
+      ],
+      "use_cases_id": [
+        "Membantu pengguna dari jarak jauh."
+      ],
+      "cautions": [
+        "Only accept a session you expected, from a person you identified; remote-support tools are a common scam vector."
+      ],
+      "cautions_id": [
+        "Terima hanya sesi yang Anda harapkan dari orang yang telah Anda identifikasi; alat dukungan jarak jauh sering dipakai untuk penipuan."
+      ],
+      "notes": "",
+      "tags": [
+        "remote"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/AnyDesk/AnyDesk/9.8.1",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "autoruns",
+      "name": "Autoruns",
+      "category": "system-tools",
+      "description": "Lists everything that starts with Windows: startup entries, services, drivers, scheduled tasks and more.",
+      "description_id": "Mendaftar semua yang berjalan saat Windows mulai: entri startup, layanan, driver, tugas terjadwal, dan lainnya.",
+      "publisher": "Sysinternals",
+      "app_id": "autoruns",
+      "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Find what slows boot or keeps re-launching after cleanup."
+      ],
+      "use_cases_id": [
+        "Menemukan penyebab boot lambat atau program yang terus muncul setelah dibersihkan."
+      ],
+      "cautions": [
+        "Disabling the wrong entry can stop Windows or a driver from loading; change one thing at a time."
+      ],
+      "cautions_id": [
+        "Menonaktifkan entri yang salah dapat menghentikan Windows atau driver dimuat; ubah satu hal setiap kali."
+      ],
+      "notes": "",
+      "tags": [
+        "startup",
+        "sysinternals"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "balenaetcher",
+      "name": "balenaEtcher",
+      "category": "boot-media",
+      "description": "Writes OS images to USB drives and SD cards with a verification step.",
+      "description_id": "Menulis citra OS ke drive USB dan kartu SD dengan langkah verifikasi.",
+      "publisher": "Balena Ltd.",
+      "app_id": "balenaetcher",
+      "source_url": "https://etcher.balena.io/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Flash Linux images or single-board-computer cards."
+      ],
+      "use_cases_id": [
+        "Menulis citra Linux atau kartu untuk komputer papan tunggal."
+      ],
+      "cautions": [
+        "Erases the target device."
+      ],
+      "cautions_id": [
+        "Menghapus perangkat target."
+      ],
+      "notes": "",
+      "tags": [
+        "sd-card",
+        "usb"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://etcher.balena.io/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "cpuid-cpu-z",
+      "name": "CPUID CPU-Z",
+      "category": "diagnostics",
+      "description": "Reports the CPU, motherboard, memory modules and graphics adapter in a compact view.",
+      "description_id": "Melaporkan CPU, motherboard, modul memori, dan adapter grafis dalam tampilan ringkas.",
+      "publisher": "CPUID, Inc.",
+      "app_id": "cpuid-cpu-z",
+      "source_url": "https://www.cpuid.com/softwares/cpu-z.html",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Check RAM speed and slots before an upgrade.",
+        "Confirm the CPU model reported by the system."
+      ],
+      "use_cases_id": [
+        "Periksa kecepatan dan slot RAM sebelum upgrade.",
+        "Pastikan model CPU yang dilaporkan sistem."
+      ],
+      "cautions": [
+        "Information comes from the firmware and drivers; a faulty report can itself be a symptom."
+      ],
+      "cautions_id": [
+        "Informasi berasal dari firmware dan driver; laporan yang janggal bisa menjadi gejala."
+      ],
+      "notes": "",
+      "tags": [
+        "inventory"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.cpuid.com/softwares/cpu-z.html",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
     {
       "id": "crystaldiskinfo",
       "name": "CrystalDiskInfo",
-      "category": "storage-health",
-      "description": "Menampilkan informasi kesehatan dan status perangkat penyimpanan yang didukung.",
+      "category": "diagnostics",
+      "description": "Shows the health, temperature and SMART attributes of supported storage devices.",
+      "description_id": "Menampilkan kesehatan, suhu, dan atribut SMART perangkat penyimpanan yang didukung.",
       "publisher": "Crystal Dew World",
+      "app_id": "crystaldiskinfo",
       "source_url": "https://crystalmark.info/en/software/crystaldiskinfo/",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
-      "notes": "Periksa paket, iklan bundel, dan kompatibilitas sebelum mendistribusikan."
+      "use_cases": [
+        "Check a disk before reinstalling Windows or cloning it.",
+        "Spot reallocated or pending sectors that predict a failing drive."
+      ],
+      "use_cases_id": [
+        "Periksa disk sebelum menginstal ulang Windows atau mengkloning.",
+        "Temukan sektor realokasi atau tertunda yang menandakan drive akan rusak."
+      ],
+      "cautions": [
+        "A \"Good\" status is not a guarantee; back up anything important regardless.",
+        "Some USB enclosures hide SMART data from the host."
+      ],
+      "cautions_id": [
+        "Status \"Good\" bukan jaminan; tetap cadangkan data penting.",
+        "Beberapa casing USB menyembunyikan data SMART dari host."
+      ],
+      "notes": "Check the package, bundled offers and compatibility before distributing it.",
+      "notes_id": "Periksa paket, iklan bundel, dan kompatibilitas sebelum mendistribusikan.",
+      "tags": [
+        "disk",
+        "health",
+        "smart"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://crystalmark.info/en/software/crystaldiskinfo/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "crystaldiskmark",
+      "name": "CrystalDiskMark",
+      "category": "diagnostics",
+      "description": "Measures sequential and random read/write speed of drives.",
+      "description_id": "Mengukur kecepatan baca/tulis sekuensial dan acak pada drive.",
+      "publisher": "Crystal Dew World",
+      "app_id": "crystaldiskmark",
+      "source_url": "https://crystalmark.info/en/software/crystaldiskmark/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Confirm a new SSD performs as expected.",
+        "Compare a suspect drive against a known-good one."
+      ],
+      "use_cases_id": [
+        "Pastikan SSD baru berkinerja sesuai harapan.",
+        "Bandingkan drive yang dicurigai dengan drive yang baik."
+      ],
+      "cautions": [
+        "Write tests wear flash storage a little and fill free space; do not run them on a drive that holds data you cannot lose without a backup."
+      ],
+      "cautions_id": [
+        "Uji tulis sedikit menggerus penyimpanan flash dan memakai ruang kosong; jangan jalankan pada drive berisi data penting tanpa cadangan."
+      ],
+      "notes": "",
+      "tags": [
+        "benchmark",
+        "disk"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://crystalmark.info/en/software/crystaldiskmark/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "display-driver-uninstaller",
+      "name": "Display Driver Uninstaller",
+      "category": "vendor-tools",
+      "description": "Removes graphics driver leftovers when a normal uninstall fails.",
+      "description_id": "Menghapus sisa driver grafis ketika uninstall biasa gagal.",
+      "publisher": "Wagnardsoft",
+      "app_id": "display-driver-uninstaller",
+      "source_url": "https://www.wagnardsoft.com/display-driver-uninstaller-ddu",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "yes",
+      "use_cases": [
+        "Clean up before installing a different GPU vendor's driver."
+      ],
+      "use_cases_id": [
+        "Membersihkan sebelum memasang driver dari vendor GPU lain."
+      ],
+      "cautions": [
+        "Create a restore point and use it only when a regular uninstall has failed.",
+        "Tool authors recommend running it from Safe Mode; read its documentation first."
+      ],
+      "cautions_id": [
+        "Buat titik pemulihan dan gunakan hanya bila uninstall biasa gagal.",
+        "Pembuat alat menyarankan menjalankannya dari Safe Mode; baca dokumentasinya terlebih dahulu."
+      ],
+      "notes": "",
+      "tags": [
+        "drivers",
+        "gpu"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.wagnardsoft.com/display-driver-uninstaller-ddu",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "hirens-bootcd-pe",
+      "name": "Hiren's BootCD PE",
+      "category": "boot-media",
+      "description": "A Windows PE rescue disc with many diagnostic and recovery tools in one ISO.",
+      "description_id": "Cakram penyelamat Windows PE dengan banyak alat diagnostik dan pemulihan dalam satu ISO.",
+      "publisher": "Hiren's BootCD PE contributors",
+      "app_id": "hirens-bootcd-pe",
+      "source_url": "https://www.hirensbootcd.org/download/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "bootable_media": true,
+      "use_cases": [
+        "Reset a lost Windows login, rescue files or test disks on a PC that will not boot."
+      ],
+      "use_cases_id": [
+        "Mengatur ulang login Windows yang hilang, menyelamatkan berkas, atau menguji disk pada PC yang tidak mau boot."
+      ],
+      "cautions": [
+        "It bundles third-party tools with their own licenses; some are trial or commercial.",
+        "Only use it on machines you are authorised to repair."
+      ],
+      "cautions_id": [
+        "Memuat alat pihak ketiga dengan lisensinya masing-masing; sebagian trial atau komersial.",
+        "Hanya gunakan pada mesin yang Anda berwenang memperbaikinya."
+      ],
+      "notes": "",
+      "tags": [
+        "rescue",
+        "winpe"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.hirensbootcd.org/download/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "hwinfo",
+      "name": "HWiNFO",
+      "category": "diagnostics",
+      "description": "Detailed hardware inventory and live sensor readings (temperatures, voltages, fan speeds).",
+      "description_id": "Inventaris perangkat keras terperinci dan pembacaan sensor langsung (suhu, tegangan, kecepatan kipas).",
+      "publisher": "REALiX",
+      "app_id": "hwinfo",
+      "source_url": "https://www.hwinfo.com/download/",
+      "source_kind": "publisher_page",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Identify exactly which components are in a PC, including chipset and Wi-Fi model.",
+        "Log temperatures while reproducing a crash."
+      ],
+      "use_cases_id": [
+        "Identifikasi komponen persis di sebuah PC, termasuk chipset dan model Wi-Fi.",
+        "Catat suhu saat mereproduksi crash."
+      ],
+      "cautions": [
+        "Sensor access may need administrator rights."
+      ],
+      "cautions_id": [
+        "Akses sensor mungkin memerlukan hak administrator."
+      ],
+      "notes": "",
+      "tags": [
+        "inventory",
+        "sensors"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.hwinfo.com/download/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "intel-driver-and-support-assistant",
+      "name": "Intel® Driver & Support Assistant",
+      "category": "vendor-tools",
+      "description": "Intel's detection tool for Intel hardware drivers and software.",
+      "description_id": "Alat deteksi Intel untuk driver dan perangkat lunak perangkat keras Intel.",
+      "publisher": "Intel",
+      "app_id": "intel-driver-and-support-assistant",
+      "source_url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/i/Intel/IntelDriverAndSupportAssistant/26.2.0.7",
+      "source_kind": "package_index",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Find out which Intel driver updates exist for a PC."
+      ],
+      "use_cases_id": [
+        "Mengetahui pembaruan driver Intel apa yang tersedia untuk sebuah PC."
+      ],
+      "cautions": [
+        "Intel notes that your computer maker may have customised the driver; check the maker first on branded laptops."
+      ],
+      "cautions_id": [
+        "Intel mencatat bahwa pabrikan komputer mungkin telah menyesuaikan driver; periksa pabrikan terlebih dahulu pada laptop bermerek."
+      ],
+      "notes": "",
+      "tags": [
+        "drivers",
+        "intel"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/i/Intel/IntelDriverAndSupportAssistant/26.2.0.7",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "librehardwaremonitor",
+      "name": "LibreHardwareMonitor",
+      "category": "diagnostics",
+      "description": "Open-source hardware monitor for temperatures, fan speeds, voltages, load and clock speeds.",
+      "description_id": "Pemantau perangkat keras open source untuk suhu, kecepatan kipas, tegangan, beban, dan clock.",
+      "publisher": "LibreHardwareMonitor",
+      "app_id": "librehardwaremonitor",
+      "source_url": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Lightweight alternative when you only need sensor values."
+      ],
+      "use_cases_id": [
+        "Alternatif ringan ketika hanya perlu nilai sensor."
+      ],
+      "cautions": [
+        "Needs administrator rights for some sensors."
+      ],
+      "cautions_id": [
+        "Memerlukan hak administrator untuk beberapa sensor."
+      ],
+      "notes": "",
+      "tags": [
+        "open-source",
+        "sensors"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
     },
     {
       "id": "memtest86",
-      "name": "MemTest86",
-      "category": "memory-test",
-      "description": "Alat pengujian RAM yang dijalankan melalui media bootable.",
+      "name": "MemTest86 (Free edition)",
+      "category": "diagnostics",
+      "description": "PassMark RAM tester that boots from a USB drive (UEFI).",
+      "description_id": "Penguji RAM PassMark yang boot dari drive USB (UEFI).",
       "publisher": "PassMark Software",
-      "source_url": "https://www.memtest86.com/",
+      "app_id": "memtest86",
+      "source_url": "https://www.memtest86.com/download.htm",
       "source_kind": "publisher_page",
-      "verification_status": "pending_review",
+      "verification_status": "not_reviewed",
       "requires_admin": "not_reviewed",
-      "notes": "Periksa edisi gratis/berbayar dan petunjuk resmi sebelum penggunaan."
+      "bootable_media": true,
+      "use_cases": [
+        "Alternative second opinion when Memtest86+ reports nothing but memory is still suspected."
+      ],
+      "use_cases_id": [
+        "Pendapat kedua ketika Memtest86+ tidak melaporkan apa pun tetapi memori tetap dicurigai."
+      ],
+      "cautions": [
+        "The Free edition is feature-limited; version 11.7 boots on UEFI firmware only, per the vendor page."
+      ],
+      "cautions_id": [
+        "Edisi Free memiliki fitur terbatas; versi 11.7 hanya boot pada firmware UEFI, menurut halaman vendor."
+      ],
+      "notes": "Check the free/paid edition and the official instructions before use.",
+      "notes_id": "Periksa edisi gratis/berbayar dan petunjuk resmi sebelum penggunaan.",
+      "tags": [
+        "bootable",
+        "ram"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.memtest86.com/download.htm",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "memtest86-plus",
+      "name": "Memtest86+",
+      "category": "diagnostics",
+      "description": "Open-source RAM tester that boots from USB or CD, outside Windows.",
+      "description_id": "Penguji RAM open source yang boot dari USB atau CD, di luar Windows.",
+      "publisher": "Martin Whitaker and Sam Demeulemeester",
+      "app_id": "memtest86-plus",
+      "source_url": "https://www.memtest.org/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "bootable_media": true,
+      "use_cases": [
+        "Find faulty memory when a PC crashes or shows random blue screens.",
+        "Test new RAM before putting a system into service."
+      ],
+      "use_cases_id": [
+        "Menemukan memori rusak ketika PC crash atau sering blue screen.",
+        "Menguji RAM baru sebelum sistem dipakai."
+      ],
+      "cautions": [
+        "Run at least one full pass; an error-free partial run proves little.",
+        "The project says Secure Boot must be disabled temporarily to boot it."
+      ],
+      "cautions_id": [
+        "Jalankan setidaknya satu pass penuh; uji parsial tanpa error tidak membuktikan banyak.",
+        "Proyek menyatakan Secure Boot perlu dinonaktifkan sementara agar dapat boot."
+      ],
+      "notes": "",
+      "tags": [
+        "bootable",
+        "ram"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.memtest.org/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "nmap",
+      "name": "Nmap",
+      "category": "network-remote",
+      "description": "Network scanner for discovering hosts and open ports.",
+      "description_id": "Pemindai jaringan untuk menemukan host dan port terbuka.",
+      "publisher": "Nmap Project",
+      "app_id": "nmap",
+      "source_url": "https://nmap.org/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Check what a device exposes on the network."
+      ],
+      "use_cases_id": [
+        "Memeriksa apa yang dibuka sebuah perangkat di jaringan."
+      ],
+      "cautions": [
+        "Scan only hosts and networks you own or are authorised to test."
+      ],
+      "cautions_id": [
+        "Pindai hanya host dan jaringan milik Anda atau yang Anda berwenang mengujinya."
+      ],
+      "notes": "",
+      "tags": [
+        "network",
+        "scan"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://nmap.org/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "occt",
+      "name": "OCCT",
+      "category": "diagnostics",
+      "description": "Stress tests for CPU, memory, GPU and power supply to expose instability.",
+      "description_id": "Uji stres untuk CPU, memori, GPU, dan catu daya guna mengungkap ketidakstabilan.",
+      "publisher": "OCCT",
+      "app_id": "occt",
+      "source_url": "https://www.ocbase.com/occt-personal-use",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Reproduce random crashes or reboots under load.",
+        "Validate a PC after an overclock or hardware swap."
+      ],
+      "use_cases_id": [
+        "Mereproduksi crash atau reboot acak saat beban.",
+        "Validasi PC setelah overclock atau penggantian perangkat keras."
+      ],
+      "cautions": [
+        "Stress tests push hardware to its limits; watch temperatures and stop if they climb."
+      ],
+      "cautions_id": [
+        "Uji stres mendorong perangkat keras ke batasnya; pantau suhu dan hentikan bila naik."
+      ],
+      "notes": "",
+      "tags": [
+        "stress-test"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.ocbase.com/occt-personal-use",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "process-explorer",
+      "name": "Process Explorer",
+      "category": "system-tools",
+      "description": "An advanced Task Manager: process tree, handles, DLLs and signature checks.",
+      "description_id": "Task Manager tingkat lanjut: pohon proses, handle, DLL, dan pemeriksaan tanda tangan.",
+      "publisher": "Sysinternals",
+      "app_id": "process-explorer",
+      "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "See which process holds a file open or uses CPU."
+      ],
+      "use_cases_id": [
+        "Melihat proses mana yang menahan berkas terbuka atau memakai CPU."
+      ],
+      "cautions": [
+        "Killing system processes can crash Windows."
+      ],
+      "cautions_id": [
+        "Menghentikan proses sistem dapat membuat Windows crash."
+      ],
+      "notes": "",
+      "tags": [
+        "process",
+        "sysinternals"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "process-monitor",
+      "name": "Process Monitor",
+      "category": "system-tools",
+      "description": "Live view of file system, registry and process/thread activity.",
+      "description_id": "Tampilan langsung aktivitas sistem berkas, registri, dan proses/thread.",
+      "publisher": "Sysinternals",
+      "app_id": "process-monitor",
+      "source_url": "https://learn.microsoft.com/en-us/sysinternals/downloads/procmon",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "yes",
+      "use_cases": [
+        "Find what a failing program is trying to open."
+      ],
+      "use_cases_id": [
+        "Menemukan apa yang coba dibuka oleh program yang gagal."
+      ],
+      "cautions": [
+        "Captures a lot of data quickly; use filters and stop the capture when done. Logs may contain private paths."
+      ],
+      "cautions_id": [
+        "Menangkap banyak data dengan cepat; gunakan filter dan hentikan penangkapan bila selesai. Log dapat memuat jalur privat."
+      ],
+      "notes": "",
+      "tags": [
+        "sysinternals",
+        "trace"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/procmon",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "rufus",
+      "name": "Rufus",
+      "category": "boot-media",
+      "description": "Creates bootable USB drives from ISO images (Windows installers, Linux, rescue tools).",
+      "description_id": "Membuat drive USB bootable dari citra ISO (penginstal Windows, Linux, alat penyelamat).",
+      "publisher": "Pete Batard / Rufus",
+      "app_id": "rufus",
+      "source_url": "https://rufus.ie/",
+      "source_kind": "publisher_page",
+      "verification_status": "not_reviewed",
+      "requires_admin": "yes",
+      "use_cases": [
+        "Make a Windows installation USB.",
+        "Boot a rescue ISO on a machine without a working OS."
+      ],
+      "use_cases_id": [
+        "Membuat USB instalasi Windows.",
+        "Boot ISO penyelamat pada mesin tanpa OS yang berfungsi."
+      ],
+      "cautions": [
+        "The selected USB drive is erased; double-check the device letter.",
+        "Verify the ISO's checksum against the publisher's value first."
+      ],
+      "cautions_id": [
+        "Drive USB yang dipilih akan dihapus; periksa ulang huruf drive.",
+        "Verifikasi checksum ISO dengan nilai dari penerbit terlebih dahulu."
+      ],
+      "notes": "",
+      "tags": [
+        "boot",
+        "usb"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://rufus.ie/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "smartmontools",
+      "name": "smartmontools",
+      "category": "diagnostics",
+      "description": "Command-line SMART monitoring and self-tests for ATA/SATA and NVMe drives.",
+      "description_id": "Pemantauan SMART dan uji mandiri via baris perintah untuk drive ATA/SATA dan NVMe.",
+      "publisher": "smartmontools.org",
+      "app_id": "smartmontools",
+      "source_url": "https://sourceforge.net/projects/smartmontools",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Script health checks across several machines.",
+        "Start a long SMART self-test and read the result later."
+      ],
+      "use_cases_id": [
+        "Buat skrip pemeriksaan kesehatan di banyak komputer.",
+        "Mulai uji mandiri SMART panjang dan baca hasilnya nanti."
+      ],
+      "cautions": [
+        "Run from an elevated prompt; interpreting raw attributes needs care because vendors differ."
+      ],
+      "cautions_id": [
+        "Jalankan dari prompt yang ditinggikan; menafsirkan atribut mentah perlu hati-hati karena vendor berbeda."
+      ],
+      "notes": "",
+      "tags": [
+        "cli",
+        "disk",
+        "smart"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://sourceforge.net/projects/smartmontools",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "sysinternals-suite",
+      "name": "Sysinternals Suite",
+      "category": "system-tools",
+      "description": "Microsoft's troubleshooting utilities (Process Explorer, Autoruns, PsTools, Sysmon and more) in one ZIP.",
+      "description_id": "Utilitas pemecahan masalah Microsoft (Process Explorer, Autoruns, PsTools, Sysmon, dan lainnya) dalam satu ZIP.",
+      "publisher": "Microsoft",
+      "app_id": "sysinternals-suite",
+      "source_url": "https://learn.microsoft.com/sysinternals/downloads/sysinternals-suite",
+      "source_kind": "publisher_page",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "portable": true,
+      "use_cases": [
+        "Carry a portable toolbox on a USB stick for on-site diagnosis."
+      ],
+      "use_cases_id": [
+        "Membawa perangkat portabel di USB untuk diagnosis di lokasi."
+      ],
+      "cautions": [
+        "Several tools show or change system internals; learn what a tool does before running it on a production PC."
+      ],
+      "cautions_id": [
+        "Beberapa alat menampilkan atau mengubah bagian dalam sistem; pelajari fungsi alat sebelum menjalankannya di PC produksi."
+      ],
+      "notes": "",
+      "tags": [
+        "portable",
+        "sysinternals"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://learn.microsoft.com/sysinternals/downloads/sysinternals-suite",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "teamviewer",
+      "name": "TeamViewer",
+      "category": "network-remote",
+      "description": "Remote support and access tool.",
+      "description_id": "Alat dukungan dan akses jarak jauh.",
+      "publisher": "TeamViewer",
+      "app_id": "teamviewer",
+      "source_url": "https://www.teamviewer.com/",
+      "source_kind": "publisher_page",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Help a user remotely."
+      ],
+      "use_cases_id": [
+        "Membantu pengguna dari jarak jauh."
+      ],
+      "cautions": [
+        "Check the license terms: personal-use editions are not meant for commercial support.",
+        "Only accept sessions you expected."
+      ],
+      "cautions_id": [
+        "Periksa ketentuan lisensi: edisi penggunaan pribadi tidak ditujukan untuk dukungan komersial.",
+        "Terima hanya sesi yang Anda harapkan."
+      ],
+      "notes": "",
+      "tags": [
+        "remote"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.teamviewer.com/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "techpowerup-gpu-z",
+      "name": "TechPowerUp GPU-Z",
+      "category": "diagnostics",
+      "description": "Shows graphics card details and sensor data.",
+      "description_id": "Menampilkan detail kartu grafis dan data sensor.",
+      "publisher": "TechPowerUp",
+      "app_id": "techpowerup-gpu-z",
+      "source_url": "https://www.techpowerup.com/gpuz/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Confirm the actual GPU model and driver version.",
+        "Watch GPU temperature and clocks under load."
+      ],
+      "use_cases_id": [
+        "Pastikan model GPU dan versi driver yang sebenarnya.",
+        "Pantau suhu dan clock GPU saat beban."
+      ],
+      "cautions": [
+        "Cards sold as relabelled or counterfeit models can report misleading names; compare with the physical card."
+      ],
+      "cautions_id": [
+        "Kartu yang dilabeli ulang atau palsu dapat melaporkan nama menyesatkan; bandingkan dengan kartu fisiknya."
+      ],
+      "notes": "",
+      "tags": [
+        "gpu",
+        "inventory"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.techpowerup.com/gpuz/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "testdisk",
+      "name": "TestDisk",
+      "category": "storage",
+      "description": "Recovers lost partitions and repairs boot sectors; includes PhotoRec for deleted files.",
+      "description_id": "Memulihkan partisi yang hilang dan memperbaiki boot sector; menyertakan PhotoRec untuk berkas terhapus.",
+      "publisher": "CGSecurity",
+      "app_id": "testdisk",
+      "source_url": "https://www.cgsecurity.org/wiki/TestDisk",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "yes",
+      "use_cases": [
+        "Recover a partition table after a bad repartition.",
+        "Recover deleted photos and documents from a card or disk."
+      ],
+      "use_cases_id": [
+        "Memulihkan tabel partisi setelah partisi ulang yang salah.",
+        "Memulihkan foto dan dokumen terhapus dari kartu atau disk."
+      ],
+      "cautions": [
+        "Stop using the affected drive first and write recovered files to a different disk.",
+        "Prefer working on a clone of a failing drive."
+      ],
+      "cautions_id": [
+        "Hentikan pemakaian drive terdampak terlebih dahulu dan tulis berkas hasil pemulihan ke disk lain.",
+        "Sebaiknya bekerja pada klon dari drive yang rusak."
+      ],
+      "notes": "",
+      "tags": [
+        "partition",
+        "recovery"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.cgsecurity.org/wiki/TestDisk",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "ventoy",
+      "name": "Ventoy",
+      "category": "boot-media",
+      "description": "Turns a USB drive into a multi-boot stick: copy ISO files onto it and pick one at boot.",
+      "description_id": "Mengubah drive USB menjadi stik multi-boot: salin berkas ISO ke dalamnya dan pilih saat boot.",
+      "publisher": "Ventoy",
+      "app_id": "ventoy",
+      "source_url": "https://www.ventoy.net/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "yes",
+      "use_cases": [
+        "Carry several installers and rescue disks on one drive."
+      ],
+      "use_cases_id": [
+        "Membawa beberapa penginstal dan cakram penyelamat dalam satu drive."
+      ],
+      "cautions": [
+        "Installing Ventoy erases the USB drive.",
+        "Secure Boot needs extra steps; read the project documentation."
+      ],
+      "cautions_id": [
+        "Memasang Ventoy menghapus drive USB.",
+        "Secure Boot memerlukan langkah tambahan; baca dokumentasi proyek."
+      ],
+      "notes": "",
+      "tags": [
+        "boot",
+        "multiboot",
+        "usb"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.ventoy.net/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark",
+      "category": "network-remote",
+      "description": "Packet capture and protocol analyser for network troubleshooting.",
+      "description_id": "Penangkap paket dan penganalisis protokol untuk pemecahan masalah jaringan.",
+      "publisher": "Wireshark Foundation",
+      "app_id": "wireshark",
+      "source_url": "https://www.wireshark.org/download.html",
+      "source_kind": "publisher_page",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "See why a connection stalls or what a device is sending."
+      ],
+      "use_cases_id": [
+        "Melihat penyebab koneksi macet atau apa yang dikirim sebuah perangkat."
+      ],
+      "cautions": [
+        "Capture only networks you are authorised to monitor; captures can contain private data."
+      ],
+      "cautions_id": [
+        "Tangkap hanya jaringan yang Anda berwenang memantaunya; hasil tangkapan dapat memuat data privat."
+      ],
+      "notes": "",
+      "tags": [
+        "capture",
+        "network"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://www.wireshark.org/download.html",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
+    },
+    {
+      "id": "wiztree",
+      "name": "WizTree",
+      "category": "utilities",
+      "description": "Very fast disk space analyser that shows which folders and files take the space.",
+      "description_id": "Penganalisis ruang disk yang sangat cepat untuk melihat folder dan berkas yang memakan ruang.",
+      "publisher": "Antibody Software",
+      "app_id": "wiztree",
+      "source_url": "https://diskanalyzer.com/",
+      "source_kind": "official_project_site",
+      "verification_status": "not_reviewed",
+      "requires_admin": "not_reviewed",
+      "use_cases": [
+        "Explain a full C: drive in seconds."
+      ],
+      "use_cases_id": [
+        "Menjelaskan drive C: yang penuh dalam hitungan detik."
+      ],
+      "cautions": [
+        "Check a file's purpose before deleting; system folders can be large for a reason."
+      ],
+      "cautions_id": [
+        "Periksa fungsi berkas sebelum menghapus; folder sistem bisa besar karena suatu alasan."
+      ],
+      "notes": "",
+      "tags": [
+        "cleanup",
+        "disk"
+      ],
+      "sources": [
+        {
+          "id": "anto-ltg-curation",
+          "kind": "curated",
+          "url": "https://diskanalyzer.com/",
+          "retrieved_at": "2026-10-13",
+          "fields": [
+            "description",
+            "use_cases",
+            "cautions",
+            "category"
+          ],
+          "note": "Use cases and cautions are general technician practice written by the maintainers; install options and versions come from the linked app record."
+        }
+      ]
     }
   ]
 }

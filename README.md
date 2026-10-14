@@ -1,84 +1,180 @@
 # ANTO-LTG
 
-**All-in-one technician toolkit** — katalog software, referensi driver, utilitas teknisi, panduan servis, serta data publik yang ramah developer.
+**A Frutiger Aero technician platform.** A software catalog with a WinGet script generator, a driver *source*
+finder, starter bundles, technician tool notes and guides, an open static JSON API, and a polite crawler that
+proposes data for human review. Plain HTML, CSS, native JavaScript and JSON, with Node scripts for the build.
+No framework, no runtime dependencies, no CDN.
 
-> Status: MVP starter. Entri katalog contoh masih berstatus `pending_review`. Ini bukan pernyataan bahwa program tersebut aman, kompatibel dengan setiap Windows, atau telah diaudit oleh ANTO-LTG.
+> **Status: publishing automatically.** A record is published when the machine rules in
+> [`scripts/lib/publication.mjs`](scripts/lib/publication.mjs) pass; no person approves that step. Publication and
+> human review are shown separately. **No record is `verified` yet**: nothing is marked `verified` because a maintainer has not checked any record against
+> its official source. A record is not a statement that a program is safe, that it works on every Windows, or that
+> ANTO-LTG audited it. Known limits are listed under [Limitations](#limitations). *Bahasa Indonesia: [README.id.md](README.id.md).*
 
-## Fokus MVP
+## What is in it
 
-- Website statis yang cepat dan mudah di-host di Cloudflare Pages atau layanan static hosting lain.
-- Katalog berbasis JSON dengan endpoint `/api/v1/*.json`.
-- Pencarian katalog di browser.
-- Spesifikasi OpenAPI awal di `/openapi.json`.
-- Validasi data otomatis pada pull request.
-- Pembuatan sitemap, RSS, dan `robots.txt` ketika `SITE_URL` ditetapkan.
-- Halaman panduan teknisi dan dokumentasi developer.
+| Page | What it does |
+| --- | --- |
+| **Software Center** (`software/`) | Search by name, publisher, category, description or package ID. Filter by category, Windows version, architecture, install method and publication or review status. Cards show the publisher, source, install method and a version only when a source states one. Multi-select (it survives filtering and reloads, with select/deselect all visible), then review the install plan and copy or download a **WinGet PowerShell script** (or a `winget import` file), export or import a portable JSON manifest, save bundles in your browser, or share a link. A second method, the *download kit*, only downloads and checks hashes that the publisher states; it never runs a file. |
+| **Driver source finder** (`drivers/`) | Search by manufacturer, model, motherboard, component, version, release date or hardware ID. Every result shows its official source, evidence, publication and review status, and a direct link **only** when the link is official and stable. A hardware-ID analyser maps `PCI\VEN_...` / `USB\VID_...` to the right vendor. An OEM/vendor directory links to Acer, ASUS, Dell, HP, Lenovo, MSI, GIGABYTE, ASRock, Intel, AMD, NVIDIA, Realtek, Microsoft Update Catalog and more. |
+| **Bundles** (`bundles/`) | Ready-made selections that open in the Software Center. Nothing is installed until you download the script and type `YES`. |
+| **Tools** (`tools/`) | Technician tool notes: use cases, cautions, whether admin rights or boot media are needed. |
+| **Guides** (`guides/`) | Short guides, including how to read and run the generated script. |
+| **Developers** (`developers/`) | The API, data model, schemas, crawler and security model. |
+| **API** (`api/v1/`, `openapi.json`) | The catalogs as static JSON, a build-time search index, and an OpenAPI description. |
 
-## Teknologi
+The interface is English by default with an Indonesian switch (EN / ID), a responsive layout, keyboard
+navigation, visible focus states and empty, loading and error states. It uses [7.css](https://github.com/khang-nd/7.css)
+(vendored, MIT) for window and control components, a custom Aero layer on top, and real licensed photographs.
 
-HTML, CSS, JavaScript native, JSON, dan Node.js built-in APIs. Tidak ada framework runtime atau dependency eksternal dalam baseline ini.
 
-## Jalankan lokal
+## Older Windows (7, 8 and 8.1)
 
-Memerlukan Node.js 20 atau lebih baru.
+The software catalog can target Windows 7, Windows 8 and Windows 8.1 as well as Windows 10 and 11.
+WinGet only exists on Windows 10 1809 and later, so for these older systems the Software Center
+produces the **download kit** instead: a PowerShell 2.0 compatible script that downloads each official
+file over HTTPS, checks its published SHA-256 and deletes any file that does not match. It never runs
+or installs what it downloads. Windows 7 needs .NET Framework 4.5 or later for secure (TLS 1.2)
+downloads; the script says so if TLS 1.2 cannot be enabled.
+
+No catalog source declares compatibility with Windows 7, 8 or 8.1, so those systems are shown as
+"not declared" rather than supported. Check each publisher's requirements before you install.
+The hardware report (`assets/scripts/Get-AntoHardwareReport.ps1`) runs on PowerShell 2.0 and later.
+Windows XP and Vista are not supported.
+
+## What it is not
+
+* **Not a live driver database and not a real-time API.** It is a research index that points to official sources.
+  The JSON files are static snapshots regenerated by `npm run build`.
+* **Not a SQL database.** The data is plain JSON in `catalogs/`.
+* **Not a software host.** It stores no installers, drivers or firmware, and the browser never runs an installer.
+  The generated script runs on *your* PC, only after you read it and type `YES`.
+* **Not an audit.** HTTPS, a checksum or a vendor name is not proof that a file is safe.
+
+## Quick start
+
+Requires Node.js **22.12 or newer** (see `.nvmrc`). The site itself is static and needs no Node at runtime.
 
 ```bash
-npm run validate
-SITE_URL=https://domain-kamu.example npm run build
+git clone https://github.com/flessan/ANTO-LTG.git
+cd ANTO-LTG
+npm ci
+npm run serve          # http://localhost:8080  (also: node scripts/serve.mjs --port 3000)
 ```
 
-Untuk melihat website lokal, jalankan static server dari root repository, misalnya:
+| Command | Does |
+| --- | --- |
+| `npm run validate` | Checks schemas, canonical form, policy rules (official domains, aggregators, URLs, dates), crawler proposals, that generated files are current, the image manifest and vendored 7.css hashes, and the HTML (structure, accessibility basics, CSP compatibility, links). |
+| `npm test` | Unit and crawler tests (no network, no browser). |
+| `npm run test:e2e` | Browser smoke tests in headless Chrome. Needs Chrome or Chromium: set `CHROME_PATH`, or install one. `E2E_REQUIRED=1` makes a missing browser an error instead of a skip. |
+| `npm run build` | Regenerates `api/v1/*`, the search index, `openapi.json`, `assets/CREDITS.md` and the shared page header/footer. Set `SITE_URL=https://your.domain` to also write `sitemap.xml`, `robots.txt` and `feed.xml`. |
+| `npm run format:catalogs` | Rewrites `catalogs/*.json` in canonical form (sorted ids, fixed key order). |
+| `npm run check` | validate, test, build, and fail if the build changed a committed file. Run this before a pull request. |
+| `npm run crawl -- winget-index --incremental`, `crawl:dry`, `crawl:merge`, `crawl:links` | The crawler (the weekly GitHub Actions refresh runs the first one). See [docs/crawler.md](docs/crawler.md). |
+
+## Repository layout
+
+```text
+catalogs/          source of truth: apps, drivers, vendors, tools, bundles, updates (+ proposed/ crawler output)
+schemas/           JSON Schemas (2020-12) for every catalog, proposals and the bundle manifest
+api/v1/            generated static API + search-index.json (never edit by hand)
+openapi.json       generated OpenAPI description
+index.html, software/, drivers/, bundles/, tools/, guides/, developers/   the pages
+assets/css|js|icons|img|scripts    Aero CSS, native ES modules, SVG sprite, photos, read-only hardware report script
+assets/vendor/7.css  vendored 7.css 0.21.1 with its license and file hashes
+assets/manifest.json, assets/CREDITS.md   image provenance (generated credits)
+scripts/build.mjs  validate / build / format        scripts/lib/   validators and generators
+scripts/crawler/   polite crawler: adapters, HTTP client, robots.txt, merge, link checker
+scripts/curation/  how the hand-curated records were assembled from official pages
+docs/              data model, crawler guide, validated example records
+tests/             unit, crawler and browser (e2e) tests
+.github/           CI configuration, issue and pull-request templates, Dependabot
+```
+
+## Data and trust
+
+* Each record cites its sources (`sources[]`: page, time, which fields it supplied). Unknown stays unknown: a missing
+  version, date, size, hash or compatibility is never guessed.
+* Hashes are copied from the publisher, never computed. Compatibility is only what a source *declares*; a human
+  `windows_compatibility` review is a separate field.
+* Links point to official pages. Aggregator listings are labelled leads and never carry a download link.
+* The crawler only proposes records. `merge` publishes a record automatically when the machine rules pass, and it
+  never sets `verified`. Human review is a separate field (`verification_status`) that stays `not_reviewed` until a
+  maintainer records evidence. See [docs/data-model.md](docs/data-model.md#publication-automated).
+
+The apps come mostly from the `microsoft/winget-pkgs` index (every package ID was proven to exist) plus a few
+hand-curated apps that have no WinGet package. The driver records are official vendor portals, publisher-stated
+packages, and clearly labelled aggregator leads. Exact, current counts are in [`api/v1/index.json`](api/v1/index.json).
+
+## Limitations
+
+* **Nothing is human-verified yet.** Publication is automatic; review is not. Filter by *Human-verified* to see
+  whatever a maintainer has actually checked (currently none).
+* **Driver data is thin.** Vendor download portals are template-rendered or captcha-gated, so they were entered by
+  hand from cited pages (see `scripts/curation/`). Third-party driver listings are leads only and are never published.
+* **Discovery is capped per category** and taken in alphabetical order; it is not a popularity ranking.
+* **Link checks** could not probe every host from the build environment, and `github.com` robots.txt blocks
+  release-asset URLs, so many download links stay `unchecked`.
+* **Generated scripts are tested structurally, not executed**: CI does not run them on Windows.
+* **The API is a static snapshot** regenerated by `npm run build` and the weekly refresh. It is not a live database.
+
+## Security model
+
+* A strict Content-Security-Policy (`default-src 'none'`, no inline script or style); the UI builds DOM with
+  text nodes only, never `innerHTML`; links are validated (`https:` only).
+* The generated PowerShell validates package IDs against a strict pattern, quotes with ASCII single-quoted literals,
+  passes arguments as an array, uses `winget install --id <ID> --exact --source winget`, checks Windows and WinGet,
+  asks for an explicit `YES`, reports failed packages, never uses `-ExecutionPolicy Bypass` and never elevates itself.
+* Imported manifests restore only known catalog ids. Share links and manifests cannot inject a command.
+* The crawler honours robots.txt, rate-limits, refuses private addresses, never reads binaries and never sends a
+  token to another host.
+
+Details and how to report a problem: [SECURITY.md](SECURITY.md).
+
+## Deploying
+
+It is a static site: serve the repository root from any static host (Cloudflare Pages, GitHub Pages, Netlify, nginx).
+Generated files are committed, so no build is required to serve it. To add `sitemap.xml`, `robots.txt` and
+`feed.xml`, run the build with your canonical origin:
 
 ```bash
-npx serve .
+SITE_URL=https://your.domain npm run build
 ```
 
-`npm run build` menyalin `catalogs/*.json` ke `api/v1/*.json`, lalu menghasilkan `sitemap.xml`, `robots.txt`, dan `feed.xml` jika `SITE_URL` diisi. Gunakan domain produksi yang benar, bukan domain contoh di atas.
+For Cloudflare Pages: framework preset *None*, build command `npm run build`, output directory `.`, and the
+`SITE_URL` environment variable.
 
-## Deploy ke Cloudflare Pages
+## Testing, and what is not covered
 
-- Framework preset: None
-- Build command: `npm run build`
-- Build output directory: `.`
-- Environment variable: `SITE_URL=https://domain-produksi-kamu`
+Run `npm run check` (validate, unit and crawler tests, build, generated-files check) and, if you touched the
+interface, `npm run test:e2e` (the browser tests) before you open a pull request.
 
-Jika nanti custom domain atau strategi build berubah, perbarui variabel `SITE_URL` dan dokumentasi ini.
+Be aware of what the tests cannot prove:
 
-## Struktur penting
+* **The generated PowerShell is checked structurally, not executed.** The test suite has no PowerShell to run it with. Tests prove its
+  skeleton cannot be changed by hostile input, that it has the `YES` gate, no `Bypass`, and the exact `winget`
+  arguments, but it has not been run against a real WinGet by the test suite.
+* **Links are not link-checked.** The `check-links` command exists and is tested, but GitHub's robots.txt forbids
+  probing release-download URLs and most other hosts were unreachable from the development environment, so catalog
+  links are `unchecked`.
+* **Nothing is independently verified.** See "Data and trust".
+* The DriverScape-based driver leads were produced from a reconstructed fixture, not a live crawl
+  ([docs/crawler.md](docs/crawler.md)).
 
-- `catalogs/` — sumber data katalog yang diedit kontributor.
-- `api/v1/` — snapshot endpoint JSON yang siap disajikan static host.
-- `schemas/` — skema data yang terdokumentasi.
-- `scripts/build.mjs` — validasi katalog dan pembuatan aset web.
-- `developers/` — dokumentasi API dan kontribusi.
-- `.github/workflows/validate.yml` — pemeriksaan JSON otomatis saat push dan pull request.
+## Support
 
-## Status fitur
+The [Support page](support/) offers two ways to help, plus community links:
 
-| Fitur | Status MVP |
-|---|---|
-| Home dan pencarian katalog | Implementasi awal |
-| Software catalog | Metadata dan tautan halaman penerbit; perlu review manusia |
-| Driver catalog | Kerangka tersedia; belum ada driver yang terverifikasi |
-| Technician toolbox | Metadata awal; perlu review manusia |
-| App bundler | Pemilih aplikasi dan generator skrip PowerShell WinGet untuk Windows 10/11; ID paket dan kompatibilitas masih perlu tinjauan manusia |
-| API JSON statis | Implementasi awal |
-| RSS dan sitemap | Dibangkitkan saat build jika `SITE_URL` ditetapkan |
-| Installer pendamping untuk Windows | Belum dibuat |
+- **Donate** through [Sociabuzz](https://sociabuzz.com/flessan/tribe): a one-time gift, with an optional comment and many payment methods, especially in Indonesia.
+- **GitHub Sponsors** at [github.com/sponsors/flessan](https://github.com/sponsors/flessan): one-time or monthly.
+- **Discord** is not published yet; until it is, its button stays disabled and the page says so. Bugs and wrong records go to [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
 
-## Prinsip keamanan
+Support never changes a catalog record, a review state or a ranking.
 
-ANTO-LTG tidak boleh menyamakan URL HTTPS, checksum, atau label komunitas dengan bukti bahwa file aman. Prioritaskan sumber vendor, catat bukti tinjauan, jangan mendistribusikan ulang binari tanpa izin, dan beri status `pending_review` sampai kompatibilitas diperiksa. Lihat [SECURITY.md](SECURITY.md).
+## Contributing, security, license
 
-## Roadmap teknis
-
-1. Tentukan nama domain, repository URL, aturan kontribusi, serta penanggung jawab review.
-2. Isi katalog driver secara bertahap dengan model dan sumber OEM yang tepat.
-3. Tinjau dan perbarui WinGet ID serta kompatibilitas aplikasi; jalankan `npm run validate` sebelum rilis.
-4. Kembangkan launcher pendamping bila diperlukan; bundler MVP menghasilkan skrip PowerShell lokal yang dapat diperiksa terlebih dahulu.
-5. Tambahkan pemeriksaan versi, checksum, tanda tangan digital, dan laporan status sumber.
-
-
-## Lisensi repository
-
-Lisensi kode dan data belum dipilih. Tentukan dan tambahkan file lisensi sebelum menerima kontribusi publik; jangan menganggap metadata katalog atau software pihak ketiga otomatis boleh didistribusikan ulang.
+* [CONTRIBUTING.md](CONTRIBUTING.md): how to add or correct data, the evidence rules, and how to run the checks.
+* [SECURITY.md](SECURITY.md): reporting a vulnerability and the project's security model.
+* [LICENSE](LICENSE): **MIT** for the original code, documentation and catalog text.
+* [LICENSING.md](LICENSING.md): third-party notices (7.css, winget-pkgs metadata, photographs, trademarks).
+  Photographs are *not* MIT; see [assets/CREDITS.md](assets/CREDITS.md).

@@ -1,0 +1,414 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anto-ltg:schema:common",
+  "title": "ANTO-LTG shared definitions",
+  "description": "Reusable definitions referenced by the catalog schemas. Schema 1.2.0 is additive over 1.1.0 except verification_status, which now means human review only (not_reviewed became not_reviewed) and is accompanied by the machine-checked publication object. See docs/data-model.md.",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 80,
+      "description": "Stable lowercase kebab-case identifier. Never reused for a different thing."
+    },
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://[^\\s\\\\]+$",
+      "maxLength": 2048
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "nullableDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "Lowercase hex SHA-256 as published by the source. Never computed or guessed by this project."
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 64,
+      "description": "Version exactly as published by the source, or null when no source states it reliably."
+    },
+    "verificationStatus": {
+      "enum": [
+        "not_reviewed",
+        "verified",
+        "withdrawn"
+      ],
+      "description": "HUMAN review status only. 'verified' means a maintainer checked the record against the official source and recorded reviewed_at, review_notes and an evidence_url. Automated publication never sets it: a record that no human has reviewed is 'not_reviewed', and that is normal for published records. See the 'publication' definition for machine-checked publication."
+    },
+    "publication": {
+      "type": "object",
+      "required": ["state", "method", "checked_at", "checks"],
+      "additionalProperties": false,
+      "description": "Machine-checked publication state. Separate from human review. 'published' means every rule in publication.mjs passed when this record was last generated; 'unavailable' means a later check (for example a link check or a removed WinGet package) found the record no longer meets the rules, and the record stays visible with a warning instead of silently disappearing.",
+      "properties": {
+        "state": { "enum": ["published", "unavailable"] },
+        "method": { "enum": ["automated", "maintainer_curated"], "description": "automated = produced by a crawler adapter and published by the merge rules; maintainer_curated = written by a maintainer from official pages, then checked by the same rules." },
+        "checked_at": { "$ref": "#/$defs/dateTime" },
+        "checks": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9_]+$", "maxLength": 64 }, "description": "Rule ids that passed at checked_at." },
+        "problems": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9_]+$", "maxLength": 64 }, "description": "Rule ids that failed at checked_at (empty for published records)." }
+      }
+    },
+    "sourceKind": {
+      "enum": [
+        "publisher_page",
+        "manufacturer_support_page",
+        "official_project_site",
+        "package_index",
+        "vendor_catalog",
+        "third_party_aggregator"
+      ]
+    },
+    "architecture": {
+      "enum": [
+        "x86",
+        "x64",
+        "arm",
+        "arm64",
+        "neutral"
+      ]
+    },
+    "compatState": {
+      "enum": [
+        "declared",
+        "unsupported",
+        "unknown"
+      ],
+      "description": "declared = the source states a minimum OS that the target meets (not a test result); unsupported = the source requires a newer OS; unknown = the source says nothing."
+    },
+    "downloadKind": {
+      "enum": [
+        "direct_binary",
+        "redirect",
+        "landing_page",
+        "download_form",
+        "signed_temporary",
+        "unknown",
+        "none"
+      ]
+    },
+    "stability": {
+      "enum": [
+        "versioned",
+        "evergreen",
+        "ephemeral",
+        "unknown"
+      ]
+    },
+    "requirement": {
+      "enum": [
+        "serial_number",
+        "login",
+        "captcha",
+        "eula",
+        "auto_detect_tool",
+        "product_selection",
+        "email"
+      ]
+    },
+    "appCategory": {
+      "enum": [
+        "browsers",
+        "communication",
+        "office",
+        "media",
+        "utilities",
+        "developer-tools",
+        "runtimes",
+        "security",
+        "diagnostics",
+        "storage",
+        "network-remote",
+        "boot-media",
+        "system-tools",
+        "vendor-tools",
+        "gaming"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40
+      }
+    },
+    "qualityFlags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Machine-readable data-quality warnings produced by the crawler (for example vendor_device_mismatch)."
+    },
+    "linkCheck": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "unchecked",
+            "ok",
+            "redirect",
+            "broken",
+            "blocked",
+            "error"
+          ]
+        },
+        "checked_at": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "http_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "final_url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "content_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "download": {
+      "type": "object",
+      "required": [
+        "kind",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/downloadKind"
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "architecture": {
+          "$ref": "#/$defs/architecture"
+        },
+        "installer_type": {
+          "type": "string",
+          "pattern": "^[a-z0-9._-]+$",
+          "maxLength": 32
+        },
+        "scope": {
+          "enum": [
+            "user",
+            "machine"
+          ]
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256_source": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 120
+        },
+        "stability": {
+          "$ref": "#/$defs/stability"
+        },
+        "evidence": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "link_check": {
+          "$ref": "#/$defs/linkCheck"
+        },
+        "size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Size in bytes when the publisher states it exactly."
+        },
+        "sha512": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha512"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha512_source": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 120
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "url",
+        "retrieved_at"
+      ],
+      "additionalProperties": false,
+      "description": "Where some of a record's fields came from. 'fields' lists which top-level fields this source supplied, which is the per-field provenance.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$",
+          "maxLength": 60
+        },
+        "kind": {
+          "enum": [
+            "package_index",
+            "vendor_page",
+            "vendor_catalog",
+            "release_api",
+            "aggregator_listing",
+            "curated",
+            "documentation"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "ref": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "retrieved_at": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/dateTime"
+            },
+            {
+              "$ref": "#/$defs/date"
+            }
+          ]
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z_]+$"
+          },
+          "uniqueItems": true
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 400
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "type",
+        "url",
+        "retrieved_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "vendor_page",
+            "release_notes",
+            "catalog_listing",
+            "aggregator_listing",
+            "support_article",
+            "package_manifest"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/httpsUrl"
+        },
+        "retrieved_at": {
+          "$ref": "#/$defs/date"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    },
+    "review": {
+      "description": "Properties shared by every reviewable record.",
+      "type": "object",
+      "properties": {
+        "verification_status": {
+          "$ref": "#/$defs/verificationStatus"
+        },
+        "reviewed_at": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/dateTime"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_notes": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "evidence_url": {
+          "$ref": "#/$defs/httpsUrl"
+        }
+      }
+    },
+    "sha512": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{128}$",
+      "description": "Lowercase hex SHA-512 as published by the source."
+    }
+  }
+}

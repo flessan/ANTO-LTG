@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:anto-ltg:schema:bundle-manifest",
+  "title": "ANTO-LTG portable bundle manifest",
+  "description": "The JSON a user exports from the Software Center. Importing it only restores a SELECTION of catalog ids: install commands are always regenerated from the current catalog, so a manifest can never inject a package identifier or a command.",
+  "type": "object",
+  "required": ["format", "format_version", "name", "apps"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "anto-ltg.bundle" },
+    "format_version": { "const": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "created_at": { "$ref": "urn:anto-ltg:schema:common#/$defs/dateTime" },
+    "target": { "type": "object", "required": ["os"], "additionalProperties": false, "properties": { "os": { "enum": ["windows10", "windows11"] } } },
+    "method": { "enum": ["winget", "download-kit"] },
+    "options": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accept_agreements": { "type": "boolean" },
+        "silent": { "type": "boolean" },
+        "include_unknown_compatibility": { "type": "boolean" }
+      }
+    },
+    "apps": {
+      "type": "array", "maxItems": 500, "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "urn:anto-ltg:schema:common#/$defs/id" },
+          "name": { "type": "string", "maxLength": 120, "description": "Informational only; ignored on import." },
+          "winget_id": { "type": "string", "maxLength": 128, "description": "Informational only; ignored on import." }
+        }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "schema_version": { "type": "string" }, "app_count": { "type": "integer", "minimum": 0 } }
+    },
+    "notes": { "type": "string", "maxLength": 1000 }
+  }
+}

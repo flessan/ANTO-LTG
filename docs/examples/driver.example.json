@@ -1,0 +1,79 @@
+{
+  "id": "example-laptop-x1-wifi",
+  "name": "Example Laptop X1 - Wi-Fi driver (illustrative)",
+  "description": "An illustrative driver record for a made-up laptop. Version, date and hash are omitted on purpose: they stay unknown until a source states them.",
+  "publisher": "Intel",
+  "manufacturer": "Example Computers",
+  "vendor_id": "intel",
+  "model": "Example Laptop X1",
+  "hardware_family": "Example Laptop X series",
+  "component": "network-wifi",
+  "kind": "support_page",
+  "source_url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+  "source_kind": "manufacturer_support_page",
+  "official_source": {
+    "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+    "vendor_id": "intel",
+    "type": "support_portal",
+    "stable": true
+  },
+  "verification_status": "not_reviewed",
+  "windows_versions": [
+    "Windows 11"
+  ],
+  "os_support": [
+    {
+      "os": "windows-11",
+      "architectures": []
+    }
+  ],
+  "architectures": [],
+  "download": {
+    "kind": "landing_page",
+    "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+    "stability": "evergreen"
+  },
+  "install_instructions": [
+    "Open the official page and search for the adapter name or hardware ID.",
+    "Download only from the vendor's own page and compare any published hash."
+  ],
+  "evidence": [
+    {
+      "type": "vendor_page",
+      "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+      "retrieved_at": "2026-10-13",
+      "note": "Evidence says what was read and when; a reviewer can open the URL and compare."
+    }
+  ],
+  "notes": "Example only. A real record names the exact model, the page it came from and what that page does and does not say.",
+  "tags": [
+    "example"
+  ],
+  "sources": [
+    {
+      "id": "intel-download-center",
+      "kind": "vendor_page",
+      "url": "https://www.intel.com/content/www/us/en/download-center/home.html",
+      "retrieved_at": "2026-10-13",
+      "fields": [
+        "name",
+        "description",
+        "download",
+        "windows_versions"
+      ]
+    }
+  ],
+  "added_at": "2026-10-13",
+  "publication": {
+    "state": "published",
+    "method": "maintainer_curated",
+    "checked_at": "2026-10-13T00:00:00.000Z",
+    "checks": [
+      "basic_fields",
+      "https_official_source",
+      "source_recorded",
+      "aggregator_not_published",
+      "direct_download_official"
+    ]
+  }
+}

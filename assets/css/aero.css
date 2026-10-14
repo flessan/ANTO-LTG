@@ -1,0 +1,326 @@
+/* ANTO-LTG Aero layer.
+ *
+ * Sits on top of the vendored 7.css (assets/vendor/7.css, MIT) and only overrides it through the
+ * cascade; 7.css itself is never edited. Design rules:
+ *   - glass is for chrome (taskbar, window frames, footer); body text sits on solid light surfaces;
+ *   - palette: sky blue, white, cyan/turquoise and natural green (no purple, no neon);
+ *   - every glossy effect has a plain fallback (prefers-reduced-transparency, prefers-contrast, forced-colors).
+ */
+
+:root {
+  color-scheme: light;
+  --sky-50: #f2f9ff; --sky-100: #dff0fc; --sky-200: #bfe0f7; --sky-300: #8cc8ef; --sky-400: #54a9e3;
+  --sky-500: #2f87cf; --sky-600: #1d6cb3; --sky-700: #14528f; --sky-800: #0e3d6c; --sky-900: #0a2a4a;
+  --aqua-300: #7fe0e6; --aqua-400: #3fd0d8; --aqua-500: #16b5bf; --teal-600: #0b7f88; --teal-700: #08666e;
+  --leaf-300: #a5e07a; --leaf-400: #79c94a; --leaf-500: #4aa82e; --leaf-600: #2f8a22; --leaf-700: #226b1a;
+  --ink: #0f2a43; --ink-soft: #2f4a64; --ink-muted: #4d6780;
+  --paper: #f7fbff; --paper-2: #edf5fc; --paper-3: #e1edf8; --line: #a9c3d9; --line-soft: #c9dbea;
+  --warn-bg: #fff4d6; --warn-ink: #5c3f00; --warn-line: #d8b24a; --danger: #a21f14; --danger-bg: #fdecea; --ok-bg: #e6f6dc; --ok-ink: #1c5a14;
+  --glass: rgba(255, 255, 255, 0.55); --glass-strong: rgba(255, 255, 255, 0.86); --glass-edge: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 12px 32px rgba(8, 45, 85, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --radius: 8px; --radius-lg: 12px;
+  --font: "Segoe UI", "Noto Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+  --focus-ring: #0a2a4a;
+  /* re-skin the 7.css tokens */
+  --w7-font: 0.95rem "Segoe UI", "Noto Sans", system-ui, sans-serif;
+  --w7-surface: var(--paper);
+  --w7-w-bg: #8cc4ee;
+  --w7-link-c: #0b5aa6; --w7-link-c-h: #0a79d6; --w7-title-c: #0e3d6c;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: #5fa8e0; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font: 400 15px/1.55 var(--font); color: var(--ink); background: transparent; }
+img, svg { max-width: 100%; }
+img { height: auto; }
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 0.5em; color: var(--sky-900); }
+h1 { font-size: clamp(1.7rem, 2.6vw + 0.8rem, 2.5rem); font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 650; }
+h3 { font-size: 1.1rem; font-weight: 650; }
+p { margin: 0 0 0.8em; }
+a { color: var(--w7-link-c); }
+code, kbd, samp, pre { font-family: var(--mono); font-size: 0.9em; }
+code { background: var(--paper-3); border: 1px solid var(--line-soft); border-radius: 4px; padding: 0.05em 0.35em; overflow-wrap: anywhere; }
+pre { background: #0f2438; color: #e7f3ff; border-radius: var(--radius); padding: 0.9rem 1rem; overflow: auto; margin: 0; line-height: 1.5; tab-size: 4; }
+pre code { background: none; border: 0; padding: 0; color: inherit; }
+ul, ol { padding-left: 1.3rem; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.ic { width: 1.25em; height: 1.25em; flex: none; vertical-align: -0.22em; }
+[hidden] { display: none !important; }
+
+/* ---- accessibility: focus is always visible, on glass and on paper alike ---------------------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring) !important; outline-offset: 2px !important; box-shadow: 0 0 0 2px #fff !important; border-radius: 4px;
+}
+.skip-link { position: absolute; left: 0.5rem; top: -4rem; z-index: 2000; background: #fff; color: var(--sky-900); padding: 0.6rem 1rem; border-radius: 0 0 var(--radius) var(--radius); font-weight: 700; transition: top 0.15s; }
+.skip-link:focus { top: 0; }
+
+/* ---- the desktop: licensed photographs cycle behind everything (see lib/backdrop.js) ----------- */
+.desktop-wallpaper { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: linear-gradient(180deg, #8cc8f2 0%, #d8efff 42%, #74a954 100%); }
+.desktop-wallpaper::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(10, 60, 120, 0.3) 0%, rgba(255, 255, 255, 0.04) 38%, rgba(10, 70, 24, 0.3) 100%); }
+.wall-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.4s ease-in-out; }
+.wall-slide.is-on { opacity: 1; }
+.wall-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+/* Bubbles: faint glassy rings with a soft highlight, rising slowly. Decorative only. */
+.bubble-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.bubble { position: absolute; left: var(--x); bottom: -90px; width: var(--s); height: var(--s); border-radius: 50%; opacity: var(--o);
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95) 0 7%, rgba(255, 255, 255, 0.35) 16%, rgba(255, 255, 255, 0.06) 48%, rgba(255, 255, 255, 0.22) 72%, rgba(255, 255, 255, 0.5) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35), 0 0 8px rgba(255, 255, 255, 0.18);
+  animation: bubble-rise var(--rise) linear var(--delay) infinite; will-change: transform; }
+@keyframes bubble-rise { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, calc(-100vh - 180px), 0); } }
+
+/* ---- taskbar (top) -------------------------------------------------------------------------- */
+.taskbar {
+  position: sticky; top: 0; z-index: 900; display: flex; align-items: center; gap: 0.6rem; min-height: 54px; padding: 0.3rem 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.72), rgba(205, 232, 252, 0.55) 48%, rgba(135, 195, 240, 0.5) 52%, rgba(190, 225, 250, 0.62));
+  -webkit-backdrop-filter: blur(12px) saturate(1.35); backdrop-filter: blur(12px) saturate(1.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85); box-shadow: 0 2px 14px rgba(8, 45, 85, 0.35);
+}
+.start-orb { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--sky-900); font-weight: 800; letter-spacing: 0.04em; border-radius: 999px; padding-right: 0.5rem; }
+.orb-logo, .orb {
+  position: relative; display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #fff; overflow: hidden; flex: none;
+  background: radial-gradient(circle at 50% 120%, #7fe0e6 0%, rgba(127, 224, 230, 0) 55%), radial-gradient(circle at 50% 30%, #4aa5e8 0%, #1d6cb3 55%, #0e3d6c 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9); box-shadow: 0 0 0 1px #0e3d6c, 0 3px 9px rgba(8, 45, 85, 0.55), inset 0 -4px 8px rgba(63, 208, 216, 0.55);
+}
+.orb-logo::before, .orb::before { content: ""; position: absolute; left: 12%; right: 12%; top: 5%; height: 46%; border-radius: 50% 50% 60% 60% / 80% 80% 40% 40%; background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.12)); pointer-events: none; }
+.orb-logo .ic, .orb .ic { position: relative; width: 22px; height: 22px; filter: drop-shadow(0 1px 1px rgba(0, 30, 70, 0.7)); }
+.orb.green { background: radial-gradient(circle at 50% 120%, #c6f2a0 0%, rgba(198, 242, 160, 0) 55%), radial-gradient(circle at 50% 30%, #79c94a 0%, #2f8a22 60%, #1a5314 100%); box-shadow: 0 0 0 1px #1a5314, 0 3px 8px rgba(8, 45, 20, 0.5), inset 0 -4px 8px rgba(165, 224, 122, 0.55); }
+.orb.aqua { background: radial-gradient(circle at 50% 120%, #b8f4f6 0%, rgba(184, 244, 246, 0) 55%), radial-gradient(circle at 50% 30%, #3fd0d8 0%, #0b7f88 60%, #064c52 100%); box-shadow: 0 0 0 1px #064c52, 0 3px 8px rgba(5, 50, 55, 0.5), inset 0 -4px 8px rgba(127, 224, 230, 0.55); }
+.orb.sm { width: 30px; height: 30px; border-width: 1px; } .orb.sm .ic { width: 16px; height: 16px; }
+.orb.lg { width: 56px; height: 56px; } .orb.lg .ic { width: 28px; height: 28px; }
+.taskbar-nav { display: flex; align-items: center; gap: 0.25rem; margin-left: 0.4rem; }
+.taskbar-nav a, .taskbar-toggle {
+  display: inline-flex; align-items: center; gap: 0.45rem; min-height: 40px; padding: 0.3rem 0.8rem; color: #0a2a4a; text-decoration: none; font-weight: 650;
+  border: 1px solid transparent; border-radius: 7px; background: transparent; cursor: pointer; font-size: 0.95rem;
+}
+.taskbar-nav a:hover, .taskbar-toggle:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.28) 50%, rgba(125, 195, 245, 0.35) 52%, rgba(190, 232, 255, 0.6));
+  border-color: rgba(255, 255, 255, 0.9); box-shadow: 0 0 10px rgba(70, 175, 240, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.taskbar-nav a[aria-current="page"] {
+  background: linear-gradient(rgba(150, 205, 245, 0.55), rgba(190, 228, 252, 0.7) 50%, rgba(95, 180, 240, 0.5) 52%, rgba(160, 220, 255, 0.75));
+  border-color: rgba(10, 60, 110, 0.55); box-shadow: inset 0 1px 3px rgba(8, 45, 85, 0.35), 0 0 12px rgba(63, 208, 216, 0.7);
+}
+.taskbar-toggle { display: none; padding: 0.3rem 0.6rem; margin-left: auto; }
+.tray { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; }
+.tray-link { color: var(--sky-900); display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 7px; }
+.tray-link:hover { background: rgba(255, 255, 255, 0.6); }
+.tray-clock { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--sky-900); font-size: 0.85rem; padding: 0 0.3rem; text-align: right; min-width: 4.6em; }
+
+/* ---- page frame ---------------------------------------------------------------------------- */
+main { flex: 1 0 auto; width: min(1280px, 100% - 1.6rem); margin: 1.2rem auto 2rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+/* grid items default to min-width:auto, so one wide child (pre, chip row, form) would stretch the column past the viewport */
+main > *, .stack > *, .page-grid > * { min-width: 0; }
+.page-grid { display: grid; gap: 1.2rem; }
+.layout-split { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); align-items: start; }
+.sticky-col { position: sticky; top: 70px; max-height: calc(100vh - 86px); display: flex; flex-direction: column; min-width: 0; }
+.layout-split > * { min-width: 0; }
+.stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+.row.between { justify-content: space-between; }
+.grow { flex: 1 1 auto; min-width: 0; }
+.muted { color: var(--ink-muted); }
+.small { font-size: 0.85rem; }
+.mono { font-family: var(--mono); }
+.nowrap { white-space: nowrap; }
+
+/* ---- windows: 7.css frames, readable bodies -------------------------------------------------- */
+.window { font: 0.95rem/1.5 var(--font); margin: 0; box-shadow: 0 10px 30px rgba(8, 45, 85, 0.42), 0 1px 0 rgba(255, 255, 255, 0.6) inset; border-color: rgba(8, 40, 75, 0.75); border-radius: var(--radius-lg) var(--radius-lg) 6px 6px; }
+.window::before { border-radius: inherit; }
+/* 7.css makes the frame 60% transparent; that is unreadable over dark parts of the wallpaper, so keep it nearly opaque. */
+.window.glass::before { opacity: 0.95; }
+.window > .title-bar { font: 600 0.95rem var(--font); border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0; min-height: 34px; gap: 0.5rem; }
+.title-bar-text { display: inline-flex; align-items: center; gap: 0.5rem; color: #04182c; font-weight: 700; font-size: 0.95rem; line-height: 1.1; }
+.title-bar-text .ic { width: 1.15em; height: 1.15em; }
+.title-bar-controls button { min-height: 22px; }
+.window-body { font-size: 0.95rem; background: var(--paper); color: var(--ink); }
+.has-space { padding: 1rem; }
+.window-body > :last-child { margin-bottom: 0; }
+.window.is-collapsed > .window-body, .window.is-collapsed > .status-bar { display: none; }
+.window.is-focus { position: fixed; inset: 0.6rem; z-index: 1500; display: flex; flex-direction: column; margin: 0; }
+.window.is-focus > .window-body { flex: 1; overflow: auto; }
+body.has-focus-window { overflow: hidden; }
+.status-bar { font-size: 0.85rem; color: var(--ink-soft); background: var(--paper-2); }
+.status-bar-field { padding: 0.25rem 0.5rem; }
+
+/* glass panels that are not windows (hero, banners, footer) */
+.glass-panel { background: var(--glass-strong); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); border: 1px solid var(--glass-edge); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); }
+.panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; }
+.panel.tight { padding: 0.7rem 0.9rem; }
+
+/* ---- buttons and controls ------------------------------------------------------------------- */
+button, input, select, textarea { font: inherit; }
+/* element-level specificity (0,0,1): later than 7.css so it wins, but any class selector below overrides it */
+button:where(:not(.title-bar-controls button)) { min-height: 34px; padding: 0.25rem 0.9rem; font-size: 0.92rem; }
+input[type="text"], input[type="search"], input[type="url"], input[type="number"], select, textarea { font-size: 0.95rem; min-height: 36px; padding: 0.3rem 0.5rem; max-width: 100%; }
+textarea { width: 100%; min-height: 7rem; font-family: var(--mono); font-size: 0.85rem; }
+select { padding-right: 1.6rem; }
+label { color: var(--ink); }
+.field { display: grid; gap: 0.25rem; min-width: 0; }
+.field > label, .field > .label { font-weight: 650; font-size: 0.85rem; color: var(--ink-soft); }
+.field input, .field select { width: 100%; }
+.field.inline { display: flex; align-items: center; gap: 0.5rem; }
+/* 7.css checkboxes are an input followed by its label. The drawn box is the label's ::before; keep it at its
+   full size when the label sits in a flex or grid row, and give each row room to breathe. */
+input[type="checkbox"] + label { line-height: -1.35; padding: 0.2rem 0; }
+input[type="checkbox"] + label::before { flex: none; }
+/* Center the 7.css checkmark glyph exactly within the checkbox square */
+input[type="checkbox"]:checked + label::after { left: 0; width: var(--w7-cb-size); text-align: center; top: 50%; transform: translateY(-50%); line-height: 1; }
+.check-row { display: flex; align-items: center; gap: 0.55rem; padding: 0.3rem 0; min-height: 2rem; }
+.check-row > input[type="checkbox"] { flex: none; }
+.sw-toolbar > input[type="checkbox"] + label, .drv-toolbar > input[type="checkbox"] + label { text-align: center; }
+/* 7.css re-skins <button> on :hover/:focus and adds overlay pseudo-elements;
+
+/* ---- notices -------------------------------------------------------------------------------- */
+.notice { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.65rem 0.85rem; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper-2); font-size: 0.92rem; }
+.notice .ic { margin-top: 0.15rem; color: var(--sky-700); }
+.notice.warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); } .notice.warn .ic { color: #8a6100; }
+.notice.error { background: var(--danger-bg); border-color: #e4a39d; color: #6d140c; } .notice.error .ic { color: var(--danger); }
+.notice.ok { background: var(--ok-bg); border-color: #8fcb6f; color: var(--ok-ink); } .notice.ok .ic { color: var(--leaf-600); }
+.notice > div > :last-child { margin-bottom: 0; }
+.empty { text-align: center; padding: 2rem 1rem; color: var(--ink-soft); }
+.empty .orb { margin-bottom: 0.6rem; }
+.spinner { width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 3px solid var(--sky-200); border-top-color: var(--sky-600); animation: spin 0.9s linear infinite; display: inline-block; vertical-align: -0.2em; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading { display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 2rem 1rem; color: var(--ink-soft); }
+
+/* ---- photos: responsive banners reserve their space (no layout shift) ------------------------- */
+.banner { position: relative; display: block; aspect-ratio: 16 / 4; overflow: hidden; border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0; background: var(--sky-300); }
+.banner picture, .banner img { display: block; width: 100%; height: 100%; }
+.banner img { object-fit: cover; }
+.banner-caption { position: absolute; right: 0.6rem; bottom: 0.4rem; font-size: 0.7rem; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); }
+.banner-caption a { color: #fff; }
+.banner.short { aspect-ratio: 16 / 2.6; }
+
+/* ---- footer --------------------------------------------------------------------------------- */
+.site-footer { width: min(1280px, 100% - 1.6rem); margin: 0 auto 1.4rem; }
+.footer-glass { background: var(--glass-strong); border: 1px solid var(--glass-edge); border-radius: var(--radius-lg); box-shadow: var(--glass-shadow); padding: 1.1rem 1.3rem; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.footer-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+.footer-grid h2 { font-size: 1rem; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem; }
+.footer-note { font-size: 0.8rem; color: var(--ink-soft); margin: 0.9rem 0 0; }
+
+/* ---- dialogs (native <dialog> styled as a 7.css window) --------------------------------------- */
+dialog.window { position: fixed; inset: 0; margin: auto; padding: 0; width: min(900px, 94vw); max-height: 90vh; color: var(--ink); overflow: visible; border: 1px solid rgba(8, 40, 75, 0.8); }
+dialog.window[open] { display: flex; flex-direction: column; animation: dialog-in 0.18s ease-out; }
+dialog.window > .window-body { overflow: auto; flex: 1 1 auto; max-height: calc(90vh - 90px); }
+dialog.window.narrow { width: min(520px, 94vw); }
+dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+.dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; }
+
+/* ---- notice board: one sticky 7.css status-bar under the taskbar (see site.js toast) ----------- */
+.notice-board { position: sticky; top: var(--board-top, 54px); z-index: 850; display: flex; align-items: stretch; gap: 0.3rem; margin: 0; border-radius: 0; border-left: 0; border-right: 0; background: #fffbe6; min-height: 0; padding: 0.15rem 0.3rem; }
+.notice-board[hidden] { display: none; }
+.notice-board.ok { background: #f1faea; }
+.notice-board.error { background: #fdeeee; }
+.notice-field { flex: 1 1 auto; min-width: 0; overflow: hidden; margin: 0; padding: 0.45rem 1rem; border: 0; box-shadow: none; display: flex; align-items: center; text-align: center; }
+/* auto inline margins centre a short message; when it overflows they collapse to 0, so the ticker starts at the edge */
+.notice-text { display: inline-block; margin-inline: auto; white-space: nowrap; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.notice-text.is-scrolling { animation: notice-ticker var(--ticker-time, 10s) linear 1 both; }
+@keyframes notice-ticker { from { transform: translateX(0); } to { transform: translateX(calc(-1 * var(--ticker-distance, 0px))); } }
+.notice-board.error .notice-text { color: #6a1212; }
+.notice-close { flex: none; align-self: center; min-width: 0; min-height: 0; width: 26px; height: 26px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.notice-close .ic { width: 12px; height: 12px; }
+@media (prefers-reduced-motion: reduce) { .notice-text { white-space: normal; } }
+
+/* ---- responsive ------------------------------------------------------------------------------- */
+@media (max-width: 1000px) {
+  .layout-split { grid-template-columns: minmax(0, 1fr); }
+  /* keep it positioned: 7.css anchors the window frame/glass pseudo-elements to the window itself */
+  .sticky-col { position: relative; top: auto; max-height: none; }
+}
+@media (max-width: 860px) {
+  .taskbar { flex-wrap: wrap; }
+  .taskbar-toggle { display: inline-flex; order: 3; margin-left: 0; }
+  .tray { order: 2; margin-left: auto; }
+  .start-label { display: none; }
+  .taskbar-nav { display: none; order: 4; flex: 1 0 100%; flex-direction: column; align-items: stretch; margin: 0.2rem 0 0.1rem; padding: 0.4rem; background: var(--glass-strong); border: 1px solid var(--glass-edge); border-radius: var(--radius); }
+  .taskbar-toggle[aria-expanded="true"] ~ .taskbar-nav { display: flex; }
+  .tray-clock { display: none; }
+}
+@media (max-width: 560px) {
+  main { width: calc(100% - 0.8rem); margin-top: 0.6rem; }
+  .window-body.has-space { padding: 0.75rem; }
+  .banner, .banner.short { aspect-ratio: 16 / 6; }
+}
+
+/* ---- user preferences ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-transparency: reduce) {
+  .taskbar, .glass-panel, .footer-glass { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .window.glass::after { backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  :root { --line: #2f4a64; --line-soft: #4d6780; }
+  .taskbar, .glass-panel { background: var(--paper); backdrop-filter: none; }
+}
+@media (forced-colors: active) {
+  .desktop-wallpaper { display: none; }
+}
+@media print { .taskbar, .desktop-wallpaper, .site-footer,  body { color: #000; background: #fff; } }
+
+/* ==== Motion: Frutiger Aero transitions. Everything here is transform or opacity, and the reduced-motion rule
+   above switches all of it off. Nothing loops except the slow backdrop drift and the rising bubbles. ============ */
+
+/* Backdrop: each photograph drifts in (zoom-in) or out (zoom-out) on a slow loop. Running continuously means a
+   photograph never snaps back to full size while it fades out. */
+@keyframes wall-zoom-in { from { transform: scale(1); } to { transform: scale(1.14); } }
+@keyframes wall-zoom-out { from { transform: scale(1.14); } to { transform: scale(1); } }
+.wall-slide.zoom-in img { animation: wall-zoom-in 20s ease-in-out infinite alternate; transform-origin: 50% 40%; }
+.wall-slide.zoom-out img { animation: wall-zoom-out 20s ease-in-out infinite alternate; transform-origin: 40% 60%; }
+.wall-slide img { will-change: transform; }
+
+/* Windows settle into place when a page opens. */
+@keyframes win-in { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
+.window { animation: win-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* Cards lift on hover and a gloss band sweeps across once. */
+.card, .app-card, .driver-card, .vendor-card, .promo { position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.card::after, .app-card::after, .driver-card::after, .vendor-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.6) 50%, transparent 62%); }
+.card:hover, .app-card:hover, .driver-card:hover, .vendor-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(8, 45, 85, 0.22); }
+.card:hover::after, .app-card:hover::after, .driver-card:hover::after, .vendor-card:hover::after { transform: translateX(120%); transition: transform 0.9s ease; }
+
+/* Buttons press in and brighten. 7.css draws the face; these only move it. */
+button:where(:not(.title-bar-controls button)) { transition: transform 0.12s ease, filter 0.2s ease, box-shadow 0.2s ease; }
+button:where(:not(.title-bar-controls button)):hover:not(:disabled) { filter: brightness(1.04); }
+button:where(:not(.title-bar-controls button)):active:not(:disabled) { transform: translateY(1px) scale(0.985); }
+button:disabled { transition: none; }
+
+/* Navigation: the current tab and hovered tab glow softly. */
+.taskbar-nav a { transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+.taskbar-nav a:hover { transform: translateY(-1px); }
+.start-orb .orb-logo { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.start-orb:hover .orb-logo { transform: rotate(-8deg) scale(1.08); }
+
+/* Notice and status feedback. */
+.notice-board { animation: notice-in 0.35s ease-out both; }
+@keyframes notice-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* Alternatives banner (Ninite / DriverScape): a glossy ribbon with a sweeping highlight. */
+.promo { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.9rem 1.2rem;
+  margin: 0 0 1.2rem; padding: 1rem 1.2rem; border-radius: var(--radius-lg, 10px); border: 1px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #ffffff 0%, #e6f4ff 55%, #cfe7fb 56%, #e1f2ff 100%); box-shadow: 0 6px 18px rgba(8, 45, 85, 0.22); color: var(--ink); }
+.promo::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%); animation: promo-sheen 7s ease-in-out infinite; }
+@keyframes promo-sheen { 0%, 60% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+.promo:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(8, 45, 85, 0.3); }
+.promo-mark { display: grid; place-items: center; min-width: 4.6rem; min-height: 4.6rem; padding: 0.4rem 0.6rem; border-radius: 14px;
+  background: radial-gradient(circle at 32% 28%, #ffffff 0 12%, #8fd0ff 40%, #2f87cf 100%); color: #fff; font-weight: 900; letter-spacing: 0.02em; text-shadow: 0 1px 2px rgba(8, 45, 85, 0.5); box-shadow: inset 0 -3px 6px rgba(8, 45, 85, 0.25); }
+.promo-mark span { font-size: 1.05rem; }
+.promo-mark img { width: 220px; }
+.promo-copy { display: grid; gap: 0.25rem; min-width: 0; text-align: center; justify-items: center; }
+.promo-kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky-700); }
+.promo h2 { margin: 0; font-size: 1.25rem; line-height: 1.25; color: var(--sky-900); }
+.promo p { margin: 0; max-width: 60ch; font-size: 0.93rem; color: var(--ink-soft); line-height: 1.5; }
+.promo-note { font-size: 0.8rem; color: var(--ink-muted); }
+.promo-action { justify-self: center; }
+@media (max-width: 720px) { .promo { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } }
+
+/* Support cards: faint bubbles rise behind the text (decorative, aria-hidden). */
+.support-card { position: relative; isolation: isolate; overflow: hidden; }
+.support-card > .bubble-field { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.support-card > .bubble-field .bubble { bottom: -60px; }

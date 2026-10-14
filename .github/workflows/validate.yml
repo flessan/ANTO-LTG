@@ -1,4 +1,4 @@
-name: Validate catalogs and build
+name: Validate, test and build
 on:
   push:
   pull_request:
@@ -7,14 +7,29 @@ permissions:
 jobs:
   validate-and-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      # Node version comes from .nvmrc (22), the same file developers use locally.
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm run validate
-      - run: npm run build
+          node-version-file: .nvmrc
+          cache: npm
+      # Install from the lockfile first. Without this, the validator cannot find its dev dependencies (ajv).
+      - name: Install dependencies (from package-lock.json)
+        run: npm ci
+      - name: Validate catalogs and generated files
+        run: npm run validate
+      - name: Unit and crawler tests
+        run: npm test
+      - name: Build
+        run: npm run build
       - name: Test generated SEO files
         run: |
-          SITE_URL=https://anto-ltg-ci.invalid npm run build
-          python -c "import xml.etree.ElementTree as E; E.parse('sitemap.xml'); E.parse('feed.xml'); print('Generated XML is valid')"
+          SITE_URL=https://antoltg.thio.cc.cd npm run build
+          python3 -c "import xml.etree.ElementTree as E; E.parse('sitemap.xml'); E.parse('feed.xml'); print('Generated XML is valid')"
+      - name: End-to-end smoke test (headless Chrome preinstalled on the runner)
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+          E2E_REQUIRED: '1'   # a missing browser is a failure here, never a silent skip
+        run: npm run test:e2e
