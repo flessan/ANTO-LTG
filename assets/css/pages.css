@@ -61,6 +61,7 @@
 .app-icon img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .app-icon.lg { width: 60px; height: 60px; padding: 9px; border-radius: 13px; }
 .vis { display: block; object-fit: contain; }
+.promo-mark .driverscape-image { display: block; width: 126px; max-width: 100%; height: auto; object-fit: contain; }
 /* Driver and vendor tiles share the glass tile of .app-icon. */
 .app-icon.sm { width: 26px; height: 26px; padding: 3px; border-radius: 6px; }
 .bundle-card .bundle-cover { overflow: hidden; border-radius: 8px; aspect-ratio: 16 / 6; margin: 0 0 0.2rem; border: 1px solid var(--line); }
