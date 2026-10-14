@@ -178,7 +178,8 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 .support-intro { text-align: center; display: grid; gap: 0.6rem; justify-items: center; padding: 0.4rem 0.5rem 0; }
 .support-intro h1 { margin: 0; font-size: 1.6rem; color: var(--sky-900); }
 .support-intro p { margin: 0 auto; max-width: 60ch; line-height: 1.55; }
-.support-grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.support-grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); }
+.support-url { margin: 0; font-size: 0.88rem; word-break: break-all; }
 .support-card { margin: 0; min-width: 0; padding: 1.2rem 1.4rem 1.4rem; text-align: center; display: grid; gap: 0.8rem; justify-items: center; }
 .support-card legend { font-weight: 700; font-size: 1.1rem; color: var(--sky-900); padding: 0 0.5rem; }
 .support-card p { margin: 0; max-width: 46ch; line-height: 1.55; }
@@ -186,11 +187,11 @@ details.fold > :not(summary) { padding: 0 0.7rem 0.7rem; }
 .support-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; justify-content: center; padding-top: 0.2rem; }
 .support-actions button { min-width: 9rem; padding: 0.35rem 1.2rem; }
 .support-actions button:disabled { color: var(--ink-muted); cursor: not-allowed; }
-.support-donate { border-color: var(--sky-400); background: #f7fbff; }
+.support-donate { border-color: var(--sky-400); background: linear-gradient(180deg, #ffffff, #eef7ff); }
+.support-sponsors { border-color: var(--sky-300); background: linear-gradient(180deg, #ffffff, #f2f6fb); }
 .support-links { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; line-height: 1.5; text-align: center; }
 .support-note { margin: 1rem 0 0.4rem; }
 .support-note .status-bar-field { margin: 0; padding: 0.7rem 1rem; text-align: center; line-height: 1.5; }
 @media (max-width: 720px) {
-  .support-grid { grid-template-columns: minmax(0, 1fr); }
   .support-window .window-body { padding: 1rem; }
 }

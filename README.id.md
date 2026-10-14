@@ -89,7 +89,13 @@ CSP yang ketat, DOM dibangun tanpa `innerHTML`, ID paket divalidasi, skrip Power
 
 ## Dukungan
 
-[Halaman Dukungan](support/) memuat tautan donasi opsional, komunitas Discord, dan kanal masukan. Donasi tidak pernah mengubah data katalog, status tinjauan, atau peringkat. Selama tujuan donasi atau Discord belum dipublikasikan, tombolnya tetap nonaktif dan halaman menjelaskannya; tujuan diatur di `assets/js/support.js`. Laporan bug dan data yang keliru dikirim ke [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+[Halaman Dukungan](support/) menawarkan dua cara membantu, plus tautan komunitas:
+
+- **Donasi** lewat [Sociabuzz](https://sociabuzz.com/flessan/tribe): sekali, dengan komentar opsional dan banyak metode pembayaran, terutama di Indonesia.
+- **GitHub Sponsors** di [github.com/sponsors/flessan](https://github.com/sponsors/flessan): sekali atau bulanan.
+- **Discord** belum dipublikasikan; sampai itu terjadi, tombolnya tetap nonaktif dan halaman menjelaskannya. Laporan bug dan data yang keliru dikirim ke [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+
+Dukungan tidak pernah mengubah data katalog, status tinjauan, atau peringkat.
 
 ## Berkontribusi dan lisensi
 

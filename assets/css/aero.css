@@ -258,3 +258,66 @@ dialog.window::backdrop { background: rgba(8, 40, 80, 0.5); -webkit-backdrop-fil
   .desktop-wallpaper { display: none; }
 }
 @media print { .taskbar, .desktop-wallpaper, .site-footer,  body { color: #000; background: #fff; } }
+
+/* ==== Motion: Frutiger Aero transitions. Everything here is transform or opacity, and the reduced-motion rule
+   above switches all of it off. Nothing loops except the slow backdrop drift and the rising bubbles. ============ */
+
+/* Backdrop: each photograph drifts in (zoom-in) or out (zoom-out) on a slow loop. Running continuously means a
+   photograph never snaps back to full size while it fades out. */
+@keyframes wall-zoom-in { from { transform: scale(1); } to { transform: scale(1.14); } }
+@keyframes wall-zoom-out { from { transform: scale(1.14); } to { transform: scale(1); } }
+.wall-slide.zoom-in img { animation: wall-zoom-in 20s ease-in-out infinite alternate; transform-origin: 50% 40%; }
+.wall-slide.zoom-out img { animation: wall-zoom-out 20s ease-in-out infinite alternate; transform-origin: 40% 60%; }
+.wall-slide img { will-change: transform; }
+
+/* Windows settle into place when a page opens. */
+@keyframes win-in { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
+.window { animation: win-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+/* Cards lift on hover and a gloss band sweeps across once. */
+.card, .app-card, .driver-card, .vendor-card, .promo { position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.card::after, .app-card::after, .driver-card::after, .vendor-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.6) 50%, transparent 62%); }
+.card:hover, .app-card:hover, .driver-card:hover, .vendor-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(8, 45, 85, 0.22); }
+.card:hover::after, .app-card:hover::after, .driver-card:hover::after, .vendor-card:hover::after { transform: translateX(120%); transition: transform 0.9s ease; }
+
+/* Buttons press in and brighten. 7.css draws the face; these only move it. */
+button:where(:not(.title-bar-controls button)) { transition: transform 0.12s ease, filter 0.2s ease, box-shadow 0.2s ease; }
+button:where(:not(.title-bar-controls button)):hover:not(:disabled) { filter: brightness(1.04); }
+button:where(:not(.title-bar-controls button)):active:not(:disabled) { transform: translateY(1px) scale(0.985); }
+button:disabled { transition: none; }
+
+/* Navigation: the current tab and hovered tab glow softly. */
+.taskbar-nav a { transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+.taskbar-nav a:hover { transform: translateY(-1px); }
+.start-orb .orb-logo { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.start-orb:hover .orb-logo { transform: rotate(-8deg) scale(1.08); }
+
+/* Notice and status feedback. */
+.notice-board { animation: notice-in 0.35s ease-out both; }
+@keyframes notice-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* Alternatives banner (Ninite / DriverScape): a glossy ribbon with a sweeping highlight. */
+.promo { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.9rem 1.2rem;
+  margin: 0 0 1.2rem; padding: 1rem 1.2rem; border-radius: var(--radius-lg, 10px); border: 1px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(180deg, #ffffff 0%, #e6f4ff 55%, #cfe7fb 56%, #e1f2ff 100%); box-shadow: 0 6px 18px rgba(8, 45, 85, 0.22); color: var(--ink); }
+.promo::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 40%, rgba(255, 255, 255, 0.7) 50%, transparent 60%); animation: promo-sheen 7s ease-in-out infinite; }
+@keyframes promo-sheen { 0%, 60% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+.promo:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(8, 45, 85, 0.3); }
+.promo-mark { display: grid; place-items: center; min-width: 4.6rem; min-height: 4.6rem; padding: 0.4rem 0.6rem; border-radius: 14px;
+  background: radial-gradient(circle at 32% 28%, #ffffff 0 12%, #8fd0ff 40%, #2f87cf 100%); color: #fff; font-weight: 900; letter-spacing: 0.02em; text-shadow: 0 1px 2px rgba(8, 45, 85, 0.5); box-shadow: inset 0 -3px 6px rgba(8, 45, 85, 0.25); }
+.promo-mark span { font-size: 1.05rem; }
+.promo-copy { display: grid; gap: 0.25rem; min-width: 0; text-align: center; justify-items: center; }
+.promo-kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky-700); }
+.promo h2 { margin: 0; font-size: 1.25rem; line-height: 1.25; color: var(--sky-900); }
+.promo p { margin: 0; max-width: 60ch; font-size: 0.93rem; color: var(--ink-soft); line-height: 1.5; }
+.promo-note { font-size: 0.8rem; color: var(--ink-muted); }
+.promo-action { justify-self: center; }
+@media (max-width: 720px) { .promo { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } }
+
+/* Support cards: faint bubbles rise behind the text (decorative, aria-hidden). */
+.support-card { position: relative; isolation: isolate; overflow: hidden; }
+.support-card > .bubble-field { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.support-card > .bubble-field .bubble { bottom: -60px; }

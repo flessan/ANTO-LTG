@@ -160,9 +160,20 @@ function wireTaskbar() {
   }
 }
 
+// Buttons that open an external site in a new tab (data-external). Only https links are opened.
+function wireExternal() {
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest?.('[data-external]');
+    if (!b || b.disabled) return;
+    const url = b.dataset.external;
+    if (/^https:\/\/[^\s"'<>]+$/.test(url)) window.open(url, '_blank', 'noopener,noreferrer');
+  });
+}
+
 function boot() {
   initLang();
   initBackdrop();
+  wireExternal();
   wireTaskbar();
   wireWindows();
   document.documentElement.dataset.ready = 'true';

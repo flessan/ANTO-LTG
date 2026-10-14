@@ -3,7 +3,7 @@
 // photograph and no bubbles; a hidden tab pauses the cycle. Photos are the local banners in assets/img/.
 const SLIDES = ['sky-meadow-horizon', 'leaf-droplets-banner', 'ocean-aerial-banner', 'forest-canopy-banner'];
 const WIDTHS = [640, 1280, 1920];
-const CYCLE_MS = 5000;
+const CYCLE_MS = 9000; // long enough to read the slow zoom; the zoom itself runs in CSS
 const BUBBLES = [
   // [left %, diameter px, rise seconds, delay seconds (negative = already part-way up), opacity]
   [6, 44, 46, -4, 0.34], [17, 18, 38, -20, 0.3], [28, 30, 52, -11, 0.26], [41, 64, 60, -30, 0.2],
@@ -12,7 +12,8 @@ const BUBBLES = [
 
 function slideEl(base, index) {
   const figure = document.createElement('div');
-  figure.className = 'wall-slide';
+  // Each photograph drifts slowly in or out (alternating), so the backdrop is never a still image.
+  figure.className = `wall-slide ${index % 2 ? 'zoom-out' : 'zoom-in'}`;
   figure.setAttribute('aria-hidden', 'true');
   const picture = document.createElement('picture');
   const srcset = (ext) => WIDTHS.map((w) => `${new URL(`../../img/${base}-${w}.${ext}`, import.meta.url).pathname} ${w}w`).join(', ');

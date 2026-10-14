@@ -163,7 +163,13 @@ Be aware of what the tests cannot prove:
 
 ## Support
 
-The [Support page](support/) lists the optional donation link, the Discord community and the feedback channels. Donations never change a catalog record, a review state or a ranking. While a donation or Discord destination has not been published, its button stays disabled and the page says so; the destinations are set in `assets/js/support.js`. Bugs and wrong records go to [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+The [Support page](support/) offers two ways to help, plus community links:
+
+- **Donate** through [Sociabuzz](https://sociabuzz.com/flessan/tribe): a one-time gift, with an optional comment and many payment methods, especially in Indonesia.
+- **GitHub Sponsors** at [github.com/sponsors/flessan](https://github.com/sponsors/flessan): one-time or monthly.
+- **Discord** is not published yet; until it is, its button stays disabled and the page says so. Bugs and wrong records go to [GitHub Issues](https://github.com/flessan/ANTO-LTG/issues).
+
+Support never changes a catalog record, a review state or a ranking.
 
 ## Contributing, security, license
 
