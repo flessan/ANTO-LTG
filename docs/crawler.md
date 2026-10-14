@@ -292,7 +292,7 @@ stored.
 
 ## Scheduled refresh (GitHub Actions)
 
-`.github/workflows-pending/catalog-refresh.yml` is the scheduled refresh workflow. It is not active yet: it must be moved to `.github/workflows/` (the automation token cannot create workflow files). Once active, it runs every Monday at 03:17 UTC and can be started by hand (`workflow_dispatch`):
+`.github/workflows/catalog-refresh.yml` is the active scheduled refresh workflow. It runs every Monday at 03:17 UTC and can also be started manually (`workflow_dispatch`):
 
 1. `npm ci`, then an incremental `winget-index` crawl. The blob-less clone is cached between runs under `.cache/crawler`
    (git-ignored and never committed). `catalogs/proposed/state.json` keeps the per-package fingerprints, so an unchanged
