@@ -175,7 +175,7 @@ describe('browser smoke tests', { skip }, () => {
     assert.match(blobText, /Read-Host/);
     await page.select('#in-method', 'download-kit'); await sleep(250);
     const kit = await text('#in-script');
-    assert.match(kit, /Get-FileHash/); assert.doesNotMatch(kit, /Start-Process|Invoke-Expression|\biex\b/i, 'the download kit never runs a file');
+    assert.match(kit, /Get-Sha256Hex/); assert.doesNotMatch(kit, /Start-Process|Invoke-Expression|\biex\b/i, 'the download kit never runs a file');
   });
 
   it('software: share links and imports restore only known ids and sanitise names', async () => {
