@@ -24,7 +24,7 @@ jobs:
           cache: npm
       - run: npm ci
       # The blob-less clone is large to re-create; keep it between weekly runs (it is git-ignored, never committed).
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: .cache/crawler
           key: winget-index-${{ github.run_id }}
