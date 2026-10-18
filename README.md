@@ -1,3 +1,7 @@
+<div align="center">
+<img width="970" alt="gambar" src="https://github.com/user-attachments/assets/b4bdb9f1-6f95-4a28-ac3d-ed259d731f8d" />
+</div>
+
 # ANTO-LTG
 
 **A Frutiger Aero technician platform.** A software catalog with a WinGet script generator, a driver *source*
