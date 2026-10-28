@@ -33,7 +33,7 @@
     "@iconify-json/cib": "1.2.3",
     "@iconify-json/devicon": "1.2.71",
     "@iconify-json/logos": "1.2.16",
-    "@iconify-json/lucide": "1.2.145",
+    "@iconify-json/lucide": "1.2.147",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
     "puppeteer-core": "^25.16.0",
