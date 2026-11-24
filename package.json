@@ -36,7 +36,7 @@
     "@iconify-json/lucide": "1.2.147",
     "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "puppeteer-core": "^25.17.0",
+    "puppeteer-core": "^25.18.1",
     "simple-icons": "16.35.0"
   }
 }
